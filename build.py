@@ -61,8 +61,8 @@ def build():
     n = len(A)
     el = ST.get('elapsed_seconds')
     if el is not None:
-        h, m = fmt_elapsed(el)
-        tnum = f'{h}<small>h</small> {m:02d}<small>m</small>' if h else f'{m}<small> min</small>'
+        mm, ss = divmod(int(el), 60); h, mm = divmod(mm, 60)
+        tnum = (f'{h}<small>h</small> ' if h else '') + f'{mm}<small>m</small> {ss:02d}<small>s</small>'
         tnote = f'Real elapsed time from the project start ({ST["start_utc"].replace("T"," ").replace("Z"," UTC")}) to the moment the live site first answered HTTP 200 ({ST["publish_utc"].replace("T"," ").replace("Z"," UTC")}). Measured, not estimated. See the <a href="brief.html">log</a>.'
     else:
         tnum = '<small>timing…</small>'; tnote = 'Elapsed time is written in at publish, from the measured start and the first live HTTP 200.'

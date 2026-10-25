@@ -6,5 +6,8 @@
  "commons_meta_fetched": 447,
  "thumbs_reviewed": 424,
  "rehosted": 66,
- "start_utc": "2026-10-25T06:43:00Z"
+ "start_utc": "2026-10-25T06:43:00Z",
+ "publish_utc": "2026-10-25T06:59:40Z",
+ "publish_basis": "first HTTP 200 from the live GitHub Pages URL",
+ "elapsed_seconds": 1000
 }
