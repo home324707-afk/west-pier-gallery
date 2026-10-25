@@ -1,0 +1,18 @@
+{
+ "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+ "endpoint": "http://127.0.0.1:8099/v1/chat/completions",
+ "model_requested": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+ "model": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+ "date": "2026-10-25T22:01:39Z",
+ "kind": "poem",
+ "output": "Title: Storm-Scoured Spectacle\n\nAs storm clouds part, a weathered pier stands tall,\nIts glassy surface now a patchwork of pastel walls.\nIn the heart of Brighton, a beacon, once bright,\nNow battered, weathered, it's a sight to delight.\n\nThe sea's wild waves crash against its weathered frame,\nEach gust a reminder of the tempest's ceaseless name.\nThe iron latticework, once strong and proud,\nNow battered, worn, its beauty has been outdone.\n\nThe sweet scent of saltwater and the cries of gulls,\nEcho the pier's history, a tale of storms and fults.\nThe sea's relentless rhythm, a soothing lullaby,\nIn its depths, the pier's resilience, a testament to the sea.\n\nYet still, it stands, a testament to nature's might,\nA beacon in the storm, its beauty a thing to write.\nThe West Pier, once a gleaming jewel in the night,\nNow weathered and worn, yet still a shining light.",
+ "usage": {
+  "completion_tokens": 231,
+  "prompt_tokens": 81,
+  "total_tokens": 312,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  }
+ }
+}

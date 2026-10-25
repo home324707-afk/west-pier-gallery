@@ -2257,75 +2257,76 @@
  {
   "n": 115,
   "kind": "ai",
-  "ai_key": "flow-iron-rust",
-  "anim": "f-flow",
-  "family": "flow",
+  "ai_key": "cr-tapestry",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 1866,
-   "mode": "iron",
-   "bg": "#0f1216",
-   "ink": [
-    "#3a4a58",
-    "#e0703a"
-   ],
-   "pc": "#e0703a",
-   "f": 1.6,
-   "fade": 0.03
+   "seed": 115,
+   "mode": "tapestry"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:flow-iron-rust",
-  "orig_title": "Iron filings, magnetised by memory",
+  "file": "ai:cr-tapestry",
+  "orig_title": "The West Pier Tapestry",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/flow.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Flow field: particles slow to a crawl inside the pier's outline, so the ironwork condenses out of the current in rust.",
+  "method": "Made by hand (by a machine): a wool frieze in the manner of the Bayeux Tapestry scrolls past, scene by scene: the building, the crowds, the fires, the storm, with Latin captions. Stitches drawn in code.",
   "sources": [],
   "source_credit": "",
   "img": "img/115.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Iron filings, magnetised by memory",
+    "key": "flow-iron-rust",
+    "family": "flow",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 116,
   "kind": "ai",
-  "ai_key": "flow-iron-ghost",
-  "anim": "f-flow",
-  "family": "flow",
+  "ai_key": "cr-glass",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 2003,
-   "mode": "iron",
-   "bg": "#f1ede4",
-   "ink": [
-    "#c9c2b4",
-    "#1d2b33"
-   ],
-   "pc": "#1d2b33",
-   "f": 2.2,
-   "fade": 0.025,
-   "alpha": 0.25
+   "seed": 116,
+   "mode": "glass"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:flow-iron-ghost",
-  "orig_title": "A ghost made of traffic",
+  "file": "ai:cr-glass",
+  "orig_title": "Stained glass, east window",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/flow.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Flow field on paper white: the pier appears only where the particles hesitate.",
+  "method": "Made by hand (by a machine): a Voronoi stained-glass window with lead lines; a low sun sweeps across it and the panes light up one by one.",
   "sources": [],
   "source_credit": "",
   "img": "img/116.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "A ghost made of traffic",
+    "key": "flow-iron-ghost",
+    "family": "flow",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 117,
@@ -2367,38 +2368,39 @@
  {
   "n": 118,
   "kind": "ai",
-  "ai_key": "flow-dissolve-sea",
-  "anim": "f-flow",
-  "family": "flow",
+  "ai_key": "mn-shingle",
+  "anim": "f-minimal",
+  "family": "minimal",
   "params": {
-   "seed": 2014,
-   "mode": "dissolve",
-   "bg": "#0b1d26",
-   "ink": [
-    "#7fc4d6",
-    "#e8f4f6"
-   ],
-   "dir": 0.2,
-   "f": 2.4,
-   "fade": 0.04
+   "seed": 118,
+   "mode": "shingle"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:flow-dissolve-sea",
-  "orig_title": "Unbuilt by the current",
+  "file": "ai:mn-shingle",
+  "orig_title": "Raked shingle, fourteen stones",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/flow.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/minimal.js",
   "dl": "",
   "desc": "",
-  "method": "Flow field: the pier sheds itself sideways into a slow green current.",
+  "method": "Minimal: lines raked into shingle part around the stones where the legs were, as in a dry garden. The tide comes in and erases them.",
   "sources": [],
   "source_credit": "",
   "img": "img/118.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Unbuilt by the current",
+    "key": "flow-dissolve-sea",
+    "family": "flow",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 119,
@@ -2440,75 +2442,76 @@
  {
   "n": 120,
   "kind": "ai",
-  "ai_key": "flow-wind-dusk",
-  "anim": "f-flow",
-  "family": "flow",
+  "ai_key": "cr-paper",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 1916,
-   "mode": "wind",
-   "bg": "#2a1b2e",
-   "ink": [
-    "#e9a46a",
-    "#f6d3a1"
-   ],
-   "dir": -0.25,
-   "f": 1.4,
-   "fade": 0.06
+   "seed": 120,
+   "mode": "paper"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:flow-wind-dusk",
-  "orig_title": "Southwesterly, golden hour",
+  "file": "ai:cr-paper",
+  "orig_title": "Cut paper, five layers",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/flow.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Flow field: warm wind rising off the sea at dusk, the pier a fixed shadow in it.",
+  "method": "Made by hand (by a machine): five layers of cut paper (sky, sun, two seas, the pier) with soft drop shadows, rocking slightly.",
   "sources": [],
   "source_credit": "",
   "img": "img/120.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Southwesterly, golden hour",
+    "key": "flow-wind-dusk",
+    "family": "flow",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 121,
   "kind": "ai",
-  "ai_key": "flow-iron-blueprint",
-  "anim": "f-flow",
-  "family": "flow",
+  "ai_key": "sp-wire",
+  "anim": "f-space",
+  "family": "space",
   "params": {
-   "seed": 1893,
-   "mode": "iron",
-   "bg": "#0e2a4a",
-   "ink": [
-    "#2f5f8f",
-    "#e8f1ff"
-   ],
-   "pc": "#e8f1ff",
-   "f": 3.0,
-   "fade": 0.02,
-   "density": 1.2
+   "seed": 121,
+   "mode": "wire"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:flow-iron-blueprint",
-  "orig_title": "Blueprint, drawn by accident",
+  "file": "ai:sp-wire",
+  "orig_title": "WEST_PIER.obj",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/flow.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/space.js",
   "dl": "",
   "desc": "",
-  "method": "Flow field: a white line drawing of the pier precipitates out of blue noise, like a plan nobody drew.",
+  "method": "3D: a wireframe model of the pier (legs, deck, pavilion ribs, two missing bays) slowly turns on a grid floor, perspective-projected in plain canvas.",
   "sources": [],
   "source_credit": "",
   "img": "img/121.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Blueprint, drawn by accident",
+    "key": "flow-iron-blueprint",
+    "family": "flow",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 122,
@@ -2594,46 +2597,39 @@
  {
   "n": 124,
   "kind": "ai",
-  "ai_key": "ls-fern",
-  "anim": "f-lsystem",
-  "family": "lsystem",
+  "ai_key": "sc-herbarium",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 12,
-   "rule": "fern",
-   "iter": 5,
-   "ang": 25,
-   "roots": 5,
-   "dir": "up",
-   "h": 0.62,
-   "wd": 1.5,
-   "bg": [
-    "#f3ecdc",
-    "#e2d5b9"
-   ],
-   "ink": [
-    "#3d5a3a",
-    "#7e9b5a"
-   ],
-   "pierc": "rgba(40,30,20,.55)",
-   "frames": 300
+   "seed": 124,
+   "mode": "herbarium"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ls-fern",
-  "orig_title": "Ferns where the boards were",
+  "file": "ai:sc-herbarium",
+  "orig_title": "Pierus occidentalis, pressed",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/lsystem.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "L-system: Barnsley-style fern grammar grows out of the pier's legs on paper.",
+  "method": "Specimen: a seaweed that grew in the shape of the pier, pressed and taped to a herbarium sheet with a typed label and a hand lens that drifts over it.",
   "sources": [],
   "source_credit": "",
   "img": "img/124.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Ferns where the boards were",
+    "key": "ls-fern",
+    "family": "lsystem",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 125,
@@ -2681,90 +2677,76 @@
  {
   "n": 126,
   "kind": "ai",
-  "ai_key": "ls-roots",
-  "anim": "f-lsystem",
-  "family": "lsystem",
+  "ai_key": "sp-atlas",
+  "anim": "f-space",
+  "family": "space",
   "params": {
-   "seed": 14,
-   "rule": "bush",
-   "iter": 4,
-   "ang": 22,
-   "roots": 8,
-   "dir": "down",
-   "h": 0.32,
-   "wd": 1.2,
-   "bg": [
-    "#1d2b45",
-    "#0b111c"
-   ],
-   "ink": [
-    "#c9a37a",
-    "#7a5a3e"
-   ],
-   "pierc": "rgba(255,230,200,.35)",
-   "frames": 260
+   "seed": 126,
+   "mode": "atlas"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ls-roots",
-  "orig_title": "Roots, upside down",
+  "file": "ai:sp-atlas",
+  "orig_title": "Pons Occidentalis (a constellation)",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/lsystem.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/space.js",
   "dl": "",
   "desc": "",
-  "method": "L-system: roots hang from the deck towards the sea, as if the pier were trying to plant itself.",
+  "method": "Map: the pier as a constellation on an old celestial chart, 16 stars, 4 of them lately extinguished. An invented constellation, drawn as an homage to old star atlases.",
   "sources": [],
   "source_credit": "",
   "img": "img/126.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Roots, upside down",
+    "key": "ls-roots",
+    "family": "lsystem",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 127,
   "kind": "ai",
-  "ai_key": "ls-koch",
-  "anim": "f-lsystem",
-  "family": "lsystem",
+  "ai_key": "sc-xray",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 15,
-   "rule": "koch",
-   "iter": 4,
-   "ang": 90,
-   "roots": 4,
-   "dir": "up",
-   "h": 0.45,
-   "wd": 1.1,
-   "wob": 0,
-   "bg": [
-    "#eef2f4",
-    "#c9d6de"
-   ],
-   "ink": [
-    "#1b2a3a",
-    "#2c6f93"
-   ],
-   "frames": 220
+   "seed": 127,
+   "mode": "xray"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ls-koch",
-  "orig_title": "Snowflake ironwork",
+  "file": "ai:sc-xray",
+  "orig_title": "Radiograph, AP view",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/lsystem.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "L-system (Koch curve, 90°): square fractal towers rise like replacement ironwork.",
+  "method": "Instrument: the ironwork as an X-ray, with fractures, a ghost of soft tissue where the pavilion was, a scan line and a radiologist's note.",
   "sources": [],
   "source_credit": "",
   "img": "img/127.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Snowflake ironwork",
+    "key": "ls-koch",
+    "family": "lsystem",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 128,
@@ -2815,46 +2797,115 @@
  {
   "n": 129,
   "kind": "ai",
-  "ai_key": "ls-scroll",
-  "anim": "f-lsystem",
-  "family": "lsystem",
+  "ai_key": "sc-seismo",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 17,
-   "rule": "scroll",
-   "iter": 4,
-   "ang": 30,
-   "roots": 6,
-   "dir": "down",
-   "h": 0.3,
-   "wd": 1.2,
-   "bg": [
-    "#2b3a48",
-    "#121a22"
+   "seed": 129,
+   "mode": "seismo",
+   "events": [
+    [
+     1866.76,
+     0.9,
+     "6 Oct 1866 opens"
+    ],
+    [
+     1893.5,
+     0.4,
+     "1893 pavilion"
+    ],
+    [
+     1916.3,
+     0.4,
+     "20 Apr 1916 concert hall"
+    ],
+    [
+     1970.5,
+     0.5,
+     "1970 pierhead closes"
+    ],
+    [
+     1975.5,
+     0.7,
+     "1975 closed"
+    ],
+    [
+     1987.79,
+     0.9,
+     "1987 Great Storm"
+    ],
+    [
+     2002.95,
+     1.1,
+     "Dec 2002 storm"
+    ],
+    [
+     2003.24,
+     1.4,
+     "28 Mar 2003 fire"
+    ],
+    [
+     2003.36,
+     1.2,
+     "May 2003 fire"
+    ],
+    [
+     2004.45,
+     1,
+     "Jun 2004 collapse"
+    ],
+    [
+     2010.12,
+     0.6,
+     "Feb 2010 demolition"
+    ],
+    [
+     2014.12,
+     1,
+     "Feb 2014 split"
+    ],
+    [
+     2016.12,
+     0.8,
+     "Feb 2016 collapse"
+    ],
+    [
+     2026.81,
+     1.3,
+     "23 Oct 2026 Storm Austen"
+    ]
    ],
-   "ink": [
-    "#e9d7b0",
-    "#bfa77a"
-   ],
-   "pierc": "rgba(233,215,176,.45)",
-   "frames": 260
+   "span": [
+    1866,
+    2027
+   ]
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ls-scroll",
-  "orig_title": "Victorian scrollwork, regrown",
+  "file": "ai:sc-seismo",
+  "orig_title": "Seismogram, station WP1, 1866-2026",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/lsystem.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "L-system: decorative scrolls sprout from the deck, a machine guess at the serpent lamp brackets.",
+  "method": "Instrument: a drum recorder writes 160 years in eight lines; it spikes on the sourced dates in the timeline (where only a year is known, the spike is placed mid-year). Amplitudes are expressive, not measured.",
   "sources": [],
   "source_credit": "",
   "img": "img/129.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Victorian scrollwork, regrown",
+    "key": "ls-scroll",
+    "family": "lsystem",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 130,
@@ -2896,39 +2947,39 @@
  {
   "n": 131,
   "kind": "ai",
-  "ai_key": "ca-rust-fine",
-  "anim": "f-automata",
-  "family": "automata",
+  "ai_key": "sc-petri",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 2,
-   "rule": "rust",
-   "cols": 320,
-   "pal": [
-    "#e9e2d4",
-    "#2a2c30",
-    "#b04a22",
-    "#5d7e8c",
-    "#d08850"
-   ],
-   "spf": 3
+   "seed": 131,
+   "mode": "petri"
   },
-  "still_ms": 14000,
+  "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ca-rust-fine",
-  "orig_title": "Rust, fine grain",
+  "file": "ai:sc-petri",
+  "orig_title": "Rust culture, day 240",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/automata.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "Cellular automaton on a finer grid, on pale ground: corrosion as slow pointillism.",
+  "method": "Specimen: a petri dish seeded along the shape of the pier; rust colonies grow out of the ironwork until the whole plate has rusted.",
   "sources": [],
   "source_credit": "",
   "img": "img/131.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Rust, fine grain",
+    "key": "ca-rust-fine",
+    "family": "automata",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 132,
@@ -3041,81 +3092,76 @@
  {
   "n": 135,
   "kind": "ai",
-  "ai_key": "ca-rule90",
-  "anim": "f-automata",
-  "family": "automata",
+  "ai_key": "gm-blocks",
+  "anim": "f-games",
+  "family": "games",
   "params": {
-   "seed": 6,
-   "rule": "rule",
-   "wolf": 90,
-   "cols": 240,
-   "pal": [
-    "#0e1a26",
-    "#7fd1ff",
-    "#f2d14b"
-   ]
+   "seed": 135,
+   "mode": "blocks"
   },
-  "still_ms": 7000,
+  "still_ms": 40000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ca-rule90",
-  "orig_title": "Sierpinski weather",
+  "file": "ai:gm-blocks",
+  "orig_title": "Falling blocks, level 1866",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/automata.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/games.js",
   "dl": "",
   "desc": "",
-  "method": "Elementary automaton rule 90: Sierpinski triangles fall on the pier and are bent by it.",
+  "method": "Game: falling blocks lock into place and rebuild the pier row by row: legs, deck, pavilion. Then the sea rises through the well and it starts again.",
   "sources": [],
   "source_credit": "",
   "img": "img/135.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Sierpinski weather",
+    "key": "ca-rule90",
+    "family": "automata",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 136,
   "kind": "ai",
-  "ai_key": "ca-cyclic",
-  "anim": "f-automata",
-  "family": "automata",
+  "ai_key": "sp-voxel",
+  "anim": "f-space",
+  "family": "space",
   "params": {
-   "seed": 7,
-   "rule": "cyclic",
-   "n": 8,
-   "th": 2,
-   "spread": 0.05,
-   "cols": 200,
-   "life": 700,
-   "pal": [
-    "#0e1418",
-    "#3a1e14",
-    "#5e2a16",
-    "#8a3a1c",
-    "#b04a22",
-    "#d0703a",
-    "#e09a5a",
-    "#f0c08a",
-    "#6a2a18"
-   ]
+   "seed": 136,
+   "mode": "voxel"
   },
-  "still_ms": 9000,
+  "still_ms": 12000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ca-cyclic",
-  "orig_title": "Rust spirals",
+  "file": "ai:sp-voxel",
+  "orig_title": "1 block = 1 bay",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/automata.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/space.js",
   "dl": "",
   "desc": "",
-  "method": "Cyclic cellular automaton: eight states of rust chase each other in spirals out of the ironwork.",
+  "method": "3D: an isometric block model of the pier; the blocks of the middle fall into the sea one by one.",
   "sources": [],
   "source_credit": "",
   "img": "img/136.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Rust spirals",
+    "key": "ca-cyclic",
+    "family": "automata",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 137,
@@ -3170,149 +3216,113 @@
  {
   "n": 138,
   "kind": "ai",
-  "ai_key": "tide-pool-swell",
-  "anim": "f-tide",
-  "family": "tide",
+  "ai_key": "sp-chart",
+  "anim": "f-space",
+  "family": "space",
   "params": {
-   "seed": 2,
-   "mode": "pool",
-   "cols": 220,
-   "swell": 4,
-   "rp": 0.02,
-   "damp": 0.99,
-   "pal": {
-    "deep": [
-     12,
-     34,
-     48
-    ],
-    "lit": [
-     120,
-     200,
-     210
-    ],
-    "iron": [
-     200,
-     120,
-     70
-    ]
-   }
+   "seed": 138,
+   "mode": "chart"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:tide-pool-swell",
-  "orig_title": "Swell through the legs, from above",
+  "file": "ai:sp-chart",
+  "orig_title": "Chart, not for navigation",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/tide.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/space.js",
   "dl": "",
   "desc": "",
-  "method": "Wave equation: a swell enters from the left and diffracts through the legs, rust-red from above.",
+  "method": "Map: a nautical-style chart with the ruins marked. Soundings, contours and the light are illustrative, not survey data, and it says so on the chart.",
   "sources": [],
   "source_credit": "",
   "img": "img/138.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Swell through the legs, from above",
+    "key": "tide-pool-swell",
+    "family": "tide",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 139,
   "kind": "ai",
-  "ai_key": "tide-pool-night",
-  "anim": "f-tide",
-  "family": "tide",
+  "ai_key": "cr-shadow",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 3,
-   "mode": "pool",
-   "cols": 200,
-   "rain": 1,
-   "rp": 0.05,
-   "drop": 10,
-   "damp": 0.992,
-   "pal": {
-    "deep": [
-     6,
-     10,
-     20
-    ],
-    "lit": [
-     230,
-     200,
-     120
-    ],
-    "iron": [
-     60,
-     60,
-     70
-    ]
-   }
+   "seed": 139,
+   "mode": "shadow"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:tide-pool-night",
-  "orig_title": "Night pool, one drop at a time",
+  "file": "ai:cr-shadow",
+  "orig_title": "Shadow puppets, end of the pier show",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/tide.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Wave equation at night: single heavy drops, gold ripples, lamplight that is no longer there.",
+  "method": "Made by hand (by a machine): a shadow-puppet theatre. The pier is a cut-out on sticks, gulls jerk across on wires, the waves are a cut-out too, behind red curtains.",
   "sources": [],
   "source_credit": "",
   "img": "img/139.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Night pool, one drop at a time",
+    "key": "tide-pool-night",
+    "family": "tide",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 140,
   "kind": "ai",
-  "ai_key": "tide-swell-calm",
-  "anim": "f-tide",
-  "family": "tide",
+  "ai_key": "sc-sonar",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 4,
-   "mode": "swell",
-   "sky": [
-    [
-     0,
-     "#9ec3dc"
-    ],
-    [
-     0.6,
-     "#e6eef2"
-    ],
-    [
-     1,
-     "#e6eef2"
-    ]
-   ],
-   "sea": [
-    "#5d8ea6",
-    "#3f7088",
-    "#2a5266"
-   ],
-   "storm": 0.012
+   "seed": 140,
+   "mode": "sonar"
   },
-  "still_ms": 9000,
+  "still_ms": 6000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:tide-swell-calm",
-  "orig_title": "Flat calm, almost",
+  "file": "ai:sc-sonar",
+  "orig_title": "Side-scan sonar, 900 kHz",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/tide.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "Summed Gerstner waves on a calm day run through the legs.",
+  "method": "Instrument: a side-scan sonar waterfall in amber; the leg stumps return bright and throw acoustic shadows as the survey passes over. Synthesised, not a survey.",
   "sources": [],
   "source_credit": "",
   "img": "img/140.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Flat calm, almost",
+    "key": "tide-swell-calm",
+    "family": "tide",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 141,
@@ -3416,56 +3426,39 @@
  {
   "n": 143,
   "kind": "ai",
-  "ai_key": "tide-swell-dusk",
-  "anim": "f-tide",
-  "family": "tide",
+  "ai_key": "cr-tarot",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 7,
-   "mode": "swell",
-   "sky": [
-    [
-     0,
-     "#2a1b2e"
-    ],
-    [
-     0.45,
-     "#c46846"
-    ],
-    [
-     0.6,
-     "#eebe82"
-    ],
-    [
-     1,
-     "#eebe82"
-    ]
-   ],
-   "sea": [
-    "#4a3a48",
-    "#3a2c3a",
-    "#22182a"
-   ],
-   "storm": 0.025,
-   "spray": 0.15,
-   "iron": "#120c10"
+   "seed": 143,
+   "mode": "tarot"
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:tide-swell-dusk",
-  "orig_title": "Evening swell, rust light",
+  "file": "ai:cr-tarot",
+  "orig_title": "XVI The Pier",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/tide.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Gerstner swell at dusk, with a little spray.",
+  "method": "Made by hand (by a machine): a tarot card, number XVI (traditionally The Tower), redrawn as The Pier. Stars drift, the sea moves.",
   "sources": [],
   "source_credit": "",
   "img": "img/143.jpg",
-  "w": 1200,
-  "h": 800
+  "w": 900,
+  "h": 1400,
+  "was": [
+   {
+    "title": "Evening swell, rust light",
+    "key": "tide-swell-dusk",
+    "family": "tide",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 144,
@@ -3502,100 +3495,149 @@
  {
   "n": 145,
   "kind": "ai",
-  "ai_key": "ty-words-night",
-  "anim": "f-typo",
-  "family": "typo",
+  "ai_key": "gm-handheld",
+  "anim": "f-games",
+  "family": "games",
   "params": {
-   "seed": 2,
-   "mode": "words",
-   "bg": "#0b0f16",
-   "ink": "#ffd27a",
-   "ink2": "#3a5a70",
-   "cells": 140,
-   "phrase": "GRADE I LISTED STILL STANDING MOSTLY "
+   "seed": 145,
+   "mode": "gb"
   },
-  "still_ms": 6000,
+  "still_ms": 3000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ty-words-night",
-  "orig_title": "Night shift lettering",
+  "file": "ai:gm-handheld",
+  "orig_title": "Handheld, four shades of green",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/typo.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/games.js",
   "dl": "",
   "desc": "",
-  "method": "Typography at night: the pier typed from \"Grade I listed, still standing, mostly\".",
+  "method": "Game: the pier as a 160x144 scene in four greens, chunky clouds, a two-frame gull, a health bar. Scaled up with hard pixels.",
   "sources": [],
   "source_credit": "",
   "img": "img/145.jpg",
-  "w": 1200,
-  "h": 800
+  "w": 1000,
+  "h": 900,
+  "was": [
+   {
+    "title": "Night shift lettering",
+    "key": "ty-words-night",
+    "family": "typo",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 146,
   "kind": "ai",
-  "ai_key": "ty-rain",
-  "anim": "f-typo",
-  "family": "typo",
+  "ai_key": "gm-adventure",
+  "anim": "f-games",
+  "family": "games",
   "params": {
-   "seed": 3,
-   "mode": "rain",
-   "bg": "#e6ebee",
-   "ink": "#7a8a96",
-   "ink2": "#1d2b33",
-   "cells": 110
+   "seed": 146,
+   "mode": "adventure",
+   "lines": [
+    "WEST PIER: AN INTERACTIVE RUIN",
+    "Release 1 / Serial number 261025",
+    "",
+    "Brighton beach, west of the i360",
+    "You are standing on wet shingle. To the south, a black iron",
+    "skeleton stands in the sea. The tide is going out.",
+    "",
+    "> GO SOUTH",
+    "The sea is in the way. It has been in the way since 1975.",
+    "",
+    "> EXAMINE PIER",
+    "An iron frame, rusted to the colour of tea. Since the storm",
+    "on 23 October there is less of it than there was.",
+    "",
+    "> TAKE PIER",
+    "It is much too heavy. Also, the sea has already taken some.",
+    "",
+    "> WAIT",
+    "Time passes. A gull lands on the frame.",
+    "",
+    "> TALK TO GULL",
+    "The gull ignores you, as gulls do.",
+    "",
+    "> INVENTORY",
+    "You are carrying: a phone (camera), a chip, sand.",
+    "",
+    "> PHOTOGRAPH PIER",
+    "Click. You add your picture to the thousands of others.",
+    "Your score has gone up by 1 point, out of a possible infinity.",
+    "",
+    "> GO SOUTH",
+    "The sea is still in the way.",
+    ""
+   ]
   },
-  "still_ms": 9000,
+  "still_ms": 60000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ty-rain",
-  "orig_title": "It is raining letters again",
+  "file": "ai:gm-adventure",
+  "orig_title": "An interactive ruin (it plays itself)",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/typo.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/games.js",
   "dl": "",
   "desc": "",
-  "method": "Typography: letters fall, stick wherever there is iron, and a periodic gust knocks them off.",
+  "method": "Game: a text adventure in which the player keeps trying to go south. The game plays itself, line by line.",
   "sources": [],
   "source_credit": "",
   "img": "img/146.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "It is raining letters again",
+    "key": "ty-rain",
+    "family": "typo",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 147,
   "kind": "ai",
-  "ai_key": "ty-rain-rust",
-  "anim": "f-typo",
-  "family": "typo",
+  "ai_key": "cr-emoji",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 4,
-   "mode": "rain",
-   "bg": "#1a1210",
-   "ink": "#5a3a2a",
-   "ink2": "#e0703a",
-   "cells": 120,
-   "phrase": "IRON OXIDE SALT WATER TIME "
+   "seed": 147,
+   "mode": "emoji",
+   "cols": 40
   },
   "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ty-rain-rust",
-  "orig_title": "Rusting alphabet",
+  "file": "ai:cr-emoji",
+  "orig_title": "Emoji mosaic",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/typo.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Typography: falling letters of \"iron oxide salt water time\" stick to the ironwork in rust colours.",
+  "method": "Made by hand (by a machine): the pier rebuilt in emoji, 40 columns wide: waves, clouds, houses for the pavilion, logs for the legs. Some tiles change as the weather passes.",
   "sources": [],
   "source_credit": "",
   "img": "img/147.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Rusting alphabet",
+    "key": "ty-rain-rust",
+    "family": "typo",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 148,
@@ -3633,68 +3675,98 @@
  {
   "n": 149,
   "kind": "ai",
-  "ai_key": "ty-kerning-austen",
-  "anim": "f-typo",
-  "family": "typo",
+  "ai_key": "gm-crossword",
+  "anim": "f-games",
+  "family": "games",
   "params": {
-   "seed": 6,
-   "mode": "kerning",
-   "word": "GRADE I",
-   "bg": "#151515",
-   "ink": "#f2d14b",
-   "ink2": "#4a5a64",
-   "cells": 110
+   "seed": 149,
+   "mode": "cross",
+   "grid": [
+    "STORM##",
+    "E##U###",
+    "A##S###",
+    "###TIDE",
+    "####R#B",
+    "####O#B",
+    "#OPEN##"
+   ],
+   "title": "WEST PIER CROSSWORD No. 149",
+   "across": [
+    "1  What came on 23 October 2026 (5)",
+    "3  It took the pier, a bit at a time (4)",
+    "6  What the pier was, 1866 to 1975 (4)"
+   ],
+   "down": [
+    "1  Where the pier stands (3)",
+    "2  Iron's slow fire (4)",
+    "4  What is left standing (4)",
+    "5  Going out, like the pier (3)"
+   ]
   },
-  "still_ms": 12000,
+  "still_ms": 30000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ty-kerning-austen",
-  "orig_title": "GRADE I LISTED",
+  "file": "ai:gm-crossword",
+  "orig_title": "Crossword No. 149",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/typo.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/games.js",
   "dl": "",
   "desc": "",
-  "method": "Typography: the listing, losing its letters.",
+  "method": "Puzzle: a small hand-made crossword about the pier, with its clues; the answers fill themselves in.",
   "sources": [],
   "source_credit": "",
   "img": "img/149.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "GRADE I LISTED",
+    "key": "ty-kerning-austen",
+    "family": "typo",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 150,
   "kind": "ai",
-  "ai_key": "ty-morse",
-  "anim": "f-typo",
-  "family": "typo",
+  "ai_key": "mn-oneline",
+  "anim": "f-minimal",
+  "family": "minimal",
   "params": {
-   "seed": 7,
-   "mode": "morse",
-   "phrase": "1866 1975 2003 2014 2026",
-   "bg": "#0e1a26",
-   "ink": "#e6ecf0",
-   "ink2": "#7fd1ff",
-   "cells": 120
+   "seed": 150,
+   "mode": "oneline",
+   "text": "The pier is still there, less of it."
   },
-  "still_ms": 5000,
+  "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:ty-morse",
-  "orig_title": "The dates, in Morse, as swell",
+  "file": "ai:mn-oneline",
+  "orig_title": "Less of it",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/typo.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/minimal.js",
   "dl": "",
   "desc": "",
-  "method": "Typography: the pier's dates (opened, closed, burned, split, Storm Austen) in Morse code, scrolling as the sea.",
+  "method": "Minimal: one sentence. Some of its letters fall into the sea, then climb back.",
   "sources": [],
   "source_credit": "",
   "img": "img/150.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "The dates, in Morse, as swell",
+    "key": "ty-morse",
+    "family": "typo",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 151,
@@ -4570,35 +4642,40 @@
  {
   "n": 180,
   "kind": "ai",
-  "ai_key": "pl-hatch",
-  "anim": "f-plotter",
-  "family": "plotter",
+  "ai_key": "cr-stitch",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 31,
-   "mode": "hatch",
-   "pens": [
-    "#1d2b33",
-    "#c4562b"
-   ],
-   "frames": 320
+   "seed": 180,
+   "mode": "stitch",
+   "cols": 56
   },
-  "still_ms": 12000,
+  "still_ms": 30000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:pl-hatch",
-  "orig_title": "Crosshatched, three pens deep",
+  "file": "ai:cr-stitch",
+  "orig_title": "Cross-stitch sampler",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/plotter.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Plotter: three passes of hatching at different angles and thresholds. Download the SVG on the work page.",
+  "method": "Made by hand (by a machine): a cross-stitch pattern of the pier that stitches itself, with a thread key.",
   "sources": [],
   "source_credit": "",
   "img": "img/180.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Crosshatched, three pens deep",
+    "key": "pl-hatch",
+    "family": "plotter",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 181,
@@ -4704,120 +4781,113 @@
  {
   "n": 184,
   "kind": "ai",
-  "ai_key": "pl-circles",
-  "anim": "f-plotter",
-  "family": "plotter",
+  "ai_key": "cr-stamp",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 35,
-   "mode": "circles",
-   "pens": [
-    "#1d2b33",
-    "#c4562b"
-   ],
-   "frames": 300
+   "seed": 184,
+   "mode": "stamp"
   },
-  "still_ms": 12000,
+  "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:pl-circles",
-  "orig_title": "Circle packing, rivet by rivet",
+  "file": "ai:cr-stamp",
+  "orig_title": "Second class, not valid for postage",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/plotter.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Plotter: non-overlapping circles packed into the pier and the sea.",
+  "method": "Made by hand (by a machine): an engraved commemorative stamp, perforated, then franked with a storm postmark. Not a real stamp.",
   "sources": [],
   "source_credit": "",
   "img": "img/184.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Circle packing, rivet by rivet",
+    "key": "pl-circles",
+    "family": "plotter",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 185,
   "kind": "ai",
-  "ai_key": "pl-stipple",
-  "anim": "f-plotter",
-  "family": "plotter",
+  "ai_key": "cr-neon",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 36,
-   "mode": "stipple",
-   "pens": [
-    "#1d2b33",
-    "#c4562b"
-   ],
-   "frames": 300
+   "seed": 185,
+   "mode": "neon"
   },
-  "still_ms": 12000,
+  "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:pl-stipple",
-  "orig_title": "Stippled, forty thousand times",
+  "file": "ai:cr-neon",
+  "orig_title": "OPEN (neon)",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/plotter.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Plotter: stipple dots placed by darkness.",
+  "method": "Made by hand (by a machine): the pier as a neon sign on brick, buzzing; some tubes flicker out.",
   "sources": [],
   "source_credit": "",
   "img": "img/185.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Stippled, forty thousand times",
+    "key": "pl-stipple",
+    "family": "plotter",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 186,
   "kind": "ai",
-  "ai_key": "pl-hatch-blue",
-  "anim": "f-plotter",
-  "family": "plotter",
+  "ai_key": "cr-woodcut",
+  "anim": "f-craft",
+  "family": "craft",
   "params": {
-   "seed": 37,
-   "mode": "hatch",
-   "paper": "#13355a",
-   "pens": [
-    "#e8f1ff",
-    "#9cc4e8"
-   ],
-   "density": 200,
-   "passes": [
-    [
-     0.6,
-     0.3,
-     1
-    ],
-    [
-     -0.6,
-     0.55,
-     0
-    ],
-    [
-     1.5,
-     0.8,
-     0
-    ]
-   ],
-   "frames": 320
+   "seed": 186,
+   "mode": "woodcut"
   },
-  "still_ms": 12000,
+  "still_ms": 9000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:pl-hatch-blue",
-  "orig_title": "Cyanotype by plotter",
+  "file": "ai:cr-woodcut",
+  "orig_title": "Woodcut, black and cream",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/plotter.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/craft.js",
   "dl": "",
   "desc": "",
-  "method": "Plotter: white hatching on blue paper, like a cyanotype.",
+  "method": "Made by hand (by a machine): a woodcut in two colours, gouged wave lines and a heavy black pier, pulled by a press roller, with a seal.",
   "sources": [],
   "source_credit": "",
   "img": "img/186.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Cyanotype by plotter",
+    "key": "pl-hatch-blue",
+    "family": "plotter",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 187,
@@ -4856,70 +4926,81 @@
  {
   "n": 188,
   "kind": "ai",
-  "ai_key": "so-starlings",
-  "anim": "f-sound",
-  "family": "sound",
+  "ai_key": "sc-spectro",
+  "anim": "f-science",
+  "family": "science",
   "params": {
-   "seed": 42,
-   "mode": "starlings",
-   "bg": [
-    "#3a2a3e",
-    "#c46846"
-   ],
-   "ink": "#120c10",
-   "ink2": "#ffb347"
+   "seed": 188,
+   "mode": "spectro"
   },
-  "still_ms": 9000,
+  "still_ms": 6000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:so-starlings",
-  "orig_title": "Murmuration, for headphones",
+  "file": "ai:sc-spectro",
+  "orig_title": "Spectrogram of the sea, with a pier in it",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/sound.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/science.js",
   "dl": "",
   "desc": "",
-  "method": "Sound: hundreds of synthesised chirps panned across the stereo field as the flock thickens and thins. Click to listen.",
+  "method": "Instrument: a scrolling spectrogram of synthesised sea noise. The pier is hidden in the frequencies, like a picture in a song.",
   "sources": [],
   "source_credit": "",
   "img": "img/188.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Murmuration, for headphones",
+    "key": "so-starlings",
+    "family": "sound",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 189,
   "kind": "ai",
-  "ai_key": "so-rust",
-  "anim": "f-sound",
-  "family": "sound",
+  "ai_key": "mn-palin",
+  "anim": "f-minimal",
+  "family": "minimal",
   "params": {
-   "seed": 43,
-   "mode": "rust",
-   "bg": [
-    "#1a1210",
-    "#0b0806"
-   ],
-   "ink": "#d8b8a0",
-   "ink2": "#e0703a"
+   "seed": 189,
+   "mode": "palin",
+   "lines": [
+    "Sea takes pier, pier takes sea.",
+    "Storm after storm.",
+    "Iron gone, gone iron."
+   ]
   },
-  "still_ms": 9000,
+  "still_ms": 5000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:so-rust",
-  "orig_title": "Rust, amplified",
+  "file": "ai:mn-palin",
+  "orig_title": "Palindrome",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/sound.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/minimal.js",
   "dl": "",
   "desc": "",
-  "method": "Sound: a low beating drone with crackles of corrosion. Click to listen.",
+  "method": "Minimal: a word palindrome. The pier falls, then the film runs backwards and it stands up again.",
   "sources": [],
   "source_credit": "",
   "img": "img/189.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Rust, amplified",
+    "key": "so-rust",
+    "family": "sound",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 190,
@@ -4958,36 +5039,40 @@
  {
   "n": 191,
   "kind": "ai",
-  "ai_key": "so-tide",
-  "anim": "f-sound",
-  "family": "sound",
+  "ai_key": "tx-audioguide",
+  "anim": "f-text",
+  "family": "text",
   "params": {
-   "seed": 45,
-   "mode": "tide",
-   "bg": [
-    "#1d2b45",
-    "#0b111c"
-   ],
-   "ink": "#d8e2ea",
-   "ink2": "#7fd1ff"
+   "seed": 191,
+   "id": "audioguide",
+   "style": "guide"
   },
-  "still_ms": 9000,
+  "still_ms": 60000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:so-tide",
-  "orig_title": "Tide, with pebbles",
+  "file": "ai:tx-audioguide",
+  "orig_title": "Audio guide, stop 47",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/sound.js",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/text.js",
   "dl": "",
   "desc": "",
-  "method": "Sound: filtered noise waves arriving and dragging back over shingle. Click to listen.",
+  "method": "Writing: the script of a museum audio guide for an exhibit that is in the sea.",
   "sources": [],
   "source_credit": "",
   "img": "img/191.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Tide, with pebbles",
+    "key": "so-tide",
+    "family": "sound",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 192,
@@ -5055,17 +5140,17 @@
  {
   "n": 194,
   "kind": "ai",
-  "ai_key": "in-storm",
+  "ai_key": "in-globe",
   "anim": "f-interactive",
   "family": "interactive",
   "params": {
-   "seed": 52,
-   "mode": "storm"
+   "seed": 194,
+   "mode": "globe"
   },
-  "still_ms": 9000,
+  "still_ms": 8000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:in-storm",
-  "orig_title": "The faster you move, the worse it gets",
+  "file": "ai:in-globe",
+  "orig_title": "A present from Brighton",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
@@ -5073,12 +5158,21 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/interactive.js",
   "dl": "",
   "desc": "",
-  "method": "Interactive: pointer speed drives the storm (rain, waves, lightning). Keep still and it calms.",
+  "method": "Interactive: a snow globe with the pier in it. Move fast to shake it; the snow settles.",
   "sources": [],
   "source_credit": "",
   "img": "img/194.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "The faster you move, the worse it gets",
+    "key": "in-storm",
+    "family": "interactive",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 195,
@@ -5139,17 +5233,17 @@
  {
   "n": 197,
   "kind": "ai",
-  "ai_key": "in-visits",
+  "ai_key": "in-tally",
   "anim": "f-interactive",
   "family": "interactive",
   "params": {
-   "seed": 55,
-   "mode": "visits"
+   "seed": 197,
+   "mode": "tally"
   },
-  "still_ms": 9000,
+  "still_ms": 5000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:in-visits",
-  "orig_title": "Each visit takes a little more",
+  "file": "ai:in-tally",
+  "orig_title": "Tally, on slate",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
@@ -5157,27 +5251,36 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/interactive.js",
   "dl": "",
   "desc": "",
-  "method": "Interactive: every time you open it, more of the pier is gone. The count lives only in your own browser (localStorage).",
+  "method": "Interactive: each visit adds a chalk tally mark and rubs out a little of the chalk pier (counted only in your own browser).",
   "sources": [],
   "source_credit": "",
   "img": "img/197.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Each visit takes a little more",
+    "key": "in-visits",
+    "family": "interactive",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 198,
   "kind": "ai",
-  "ai_key": "in-rebuild",
+  "ai_key": "in-kaleido",
   "anim": "f-interactive",
   "family": "interactive",
   "params": {
-   "seed": 56,
-   "mode": "rebuild"
+   "seed": 198,
+   "mode": "kaleido"
   },
-  "still_ms": 9000,
+  "still_ms": 4000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:in-rebuild",
-  "orig_title": "Drive in a pile",
+  "file": "ai:in-kaleido",
+  "orig_title": "Kaleidoscope",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
@@ -5185,12 +5288,21 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/interactive.js",
   "dl": "",
   "desc": "",
-  "method": "Interactive: tap to drive in a new pile; the sea slowly takes every one back.",
+  "method": "Interactive: the pier at dusk in an eight-mirror kaleidoscope. Move to turn it.",
   "sources": [],
   "source_credit": "",
   "img": "img/198.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Drive in a pile",
+    "key": "in-rebuild",
+    "family": "interactive",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "n": 199,
@@ -5546,50 +5658,47 @@
  {
   "n": 206,
   "kind": "ai",
-  "ai_key": "da-licences",
+  "ai_key": "da-days",
   "anim": "f-data",
   "family": "data",
   "params": {
-   "seed": 72,
-   "mode": "weather",
-   "data": [
+   "seed": 206,
+   "mode": "days",
+   "data": [],
+   "today": "2026-10-25",
+   "states": [
     [
-     "Public domain",
-     19,
-     "sun"
+     "1866-10-06",
+     "open",
+     "#e3b448"
     ],
     [
-     "CC0",
-     5,
-     "sun"
+     "1970-01-01",
+     "pierhead closed",
+     "#c77d3a"
     ],
     [
-     "CC BY",
-     34,
-     "cloud"
+     "1975-01-01",
+     "closed to the public",
+     "#566a7f"
     ],
     [
-     "CC BY-SA",
-     29,
-     "cloud"
+     "2003-03-28",
+     "burnt ruin",
+     "#8c3b26"
     ],
     [
-     "CC BY-NC",
-     12,
-     "rain"
-    ],
-    [
-     "CC BY-NC-SA",
-     4,
-     "storm"
+     "2026-10-23",
+     "after Storm Austen",
+     "#e04848"
     ]
    ],
-   "asof": 114
+   "note": "Dates from the sourced timeline. Where only a year is known (1970, 1975), the change is drawn from 1 January."
   },
   "still_ms": 6000,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
-  "file": "ai:da-licences",
-  "orig_title": "Licence forecast",
+  "file": "ai:da-days",
+  "orig_title": "One pixel per day since 6 October 1866",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-25",
   "lic": "CC0 1.0",
@@ -5597,12 +5706,21 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/data.js",
   "dl": "",
   "desc": "",
-  "method": "Data portrait: the licences of the gallery's human works as weather, one drop per work. Clear = public domain or CC0.",
+  "method": "Data portrait: every day of the pier's life is one pixel; columns are years, rows are days of the year, coloured by its state on the sourced timeline. Today blinks.",
   "sources": [],
   "source_credit": "",
   "img": "img/206.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "was": [
+   {
+    "title": "Licence forecast",
+    "key": "da-licences",
+    "family": "data",
+    "until": "2026-10-25"
+   }
+  ],
+  "reworked": "2026-10-25"
  },
  {
   "src": "Wikimedia Commons",
@@ -5722,5 +5840,338 @@
   "img": "img/208.jpg",
   "w": 1200,
   "h": 800
+ },
+ {
+  "n": 209,
+  "kind": "guest",
+  "src": "Guest AI: gpt-oss-20b via Pollinations.ai (Free API Classic, no account)",
+  "file": "guest:g-gptoss-poem",
+  "orig_title": "Wrecked Echoes of the West Pier",
+  "artist": "gpt-oss-20b",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/gptoss-poem.json",
+  "dl": "",
+  "desc": "",
+  "method": "A poem, written by the model in reply to the brief and typeset by the gallery (the typesetting is the only thing the gallery added). Unedited, typos included.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/209.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-gptoss-poem",
+   "type": "poem",
+   "source": "commission",
+   "service": "Pollinations.ai (Free API Classic, no account)",
+   "endpoint": "https://text.pollinations.ai/openai",
+   "model": "gpt-oss-20b",
+   "model_requested": "openai-fast",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+   "date": "2026-10-25T21:58:51Z",
+   "settings": "",
+   "file": "guest/commissions/gptoss-poem.json",
+   "content": "guest/commissions/gptoss-poem.txt",
+   "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
+   "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
+   "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 210,
+  "kind": "guest",
+  "src": "Guest AI: gpt-oss-20b via Pollinations.ai (Free API Classic, no account)",
+  "file": "guest:g-gptoss-svg",
+  "orig_title": "Untitled (SVG)",
+  "artist": "gpt-oss-20b",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/gptoss-svg.json",
+  "dl": "",
+  "desc": "",
+  "method": "An SVG drawing, written by the model as code in reply to the brief and shown as written. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/210.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-gptoss-svg",
+   "type": "svg",
+   "source": "commission",
+   "service": "Pollinations.ai (Free API Classic, no account)",
+   "endpoint": "https://text.pollinations.ai/openai",
+   "model": "gpt-oss-20b",
+   "model_requested": "openai-fast",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained SVG document (viewBox 0 0 800 500), no external references, no scripts. SVG only.",
+   "date": "2026-10-25T22:18:32Z",
+   "settings": "max_tokens 8000, reasoning_effort low",
+   "file": "guest/commissions/gptoss-svg.json",
+   "content": "guest/commissions/gptoss-svg.svg",
+   "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
+   "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
+   "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 211,
+  "kind": "guest",
+  "src": "Guest AI: gpt-oss-20b via Pollinations.ai (Free API Classic, no account)",
+  "file": "guest:g-gptoss-canvas2",
+  "orig_title": "Untitled (canvas sketch)",
+  "artist": "gpt-oss-20b",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/gptoss-canvas2.json",
+  "dl": "",
+  "desc": "",
+  "method": "A JavaScript canvas sketch, written by the model in reply to the brief. It runs live on its page in a sandboxed frame; the poster is a frame of it. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/211.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-gptoss-canvas2",
+   "type": "canvas",
+   "source": "commission",
+   "service": "Pollinations.ai (Free API Classic, no account)",
+   "endpoint": "https://text.pollinations.ai/openai",
+   "model": "gpt-oss-20b",
+   "model_requested": "openai-fast",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained JavaScript snippet that draws and animates your view on an existing <canvas id=\"c\"> element (800x500 pixels) using only the Canvas 2D API and requestAnimationFrame. No libraries, no network requests, no HTML. Code only.",
+   "date": "2026-10-25T22:17:55Z",
+   "settings": "max_tokens 8000, reasoning_effort low",
+   "file": "guest/commissions/gptoss-canvas2.json",
+   "content": "guest/commissions/gptoss-canvas2.js",
+   "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
+   "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
+   "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 212,
+  "kind": "guest",
+  "src": "Guest AI: SmolLM2-1.7B-Instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-smollm2-poem",
+  "orig_title": "Storm-Scoured Spectacle",
+  "artist": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/smollm2-poem.json",
+  "dl": "",
+  "desc": "",
+  "method": "A poem, written by the model in reply to the brief and typeset by the gallery (the typesetting is the only thing the gallery added). Unedited, typos included.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/212.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-smollm2-poem",
+   "type": "poem",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+   "model_requested": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+   "date": "2026-10-25T22:01:39Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/smollm2-poem.json",
+   "content": "guest/commissions/smollm2-poem.txt",
+   "model_licence": "Apache 2.0 (HuggingFaceTB/SmolLM2-1.7B-Instruct)",
+   "model_licence_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 213,
+  "kind": "guest",
+  "src": "Guest AI: SmolLM2-1.7B-Instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-smollm2-svg",
+  "orig_title": "Untitled (SVG)",
+  "artist": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/smollm2-svg.json",
+  "dl": "",
+  "desc": "",
+  "method": "An SVG drawing, written by the model as code in reply to the brief and shown as written. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/213.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-smollm2-svg",
+   "type": "svg",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+   "model_requested": "SmolLM2-1.7B-Instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained SVG document (viewBox 0 0 800 500), no external references, no scripts. SVG only.",
+   "date": "2026-10-25T22:01:44Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/smollm2-svg.json",
+   "content": "guest/commissions/smollm2-svg.svg",
+   "model_licence": "Apache 2.0 (HuggingFaceTB/SmolLM2-1.7B-Instruct)",
+   "model_licence_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 214,
+  "kind": "guest",
+  "src": "Guest AI: Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-qwen7-canvas",
+  "orig_title": "Untitled (canvas sketch)",
+  "artist": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/qwen7-canvas.json",
+  "dl": "",
+  "desc": "",
+  "method": "A JavaScript canvas sketch, written by the model in reply to the brief. It runs live on its page in a sandboxed frame; the poster is a frame of it. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/214.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-qwen7-canvas",
+   "type": "canvas",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained JavaScript snippet that draws and animates your view on an existing <canvas id=\"c\"> element (800x500 pixels) using only the Canvas 2D API and requestAnimationFrame. No libraries, no network requests, no HTML. Code only.",
+   "date": "2026-10-25T22:21:33Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/qwen7-canvas.json",
+   "content": "guest/commissions/qwen7-canvas.js",
+   "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
+   "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 215,
+  "kind": "guest",
+  "src": "Guest AI: Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-qwen7-svg",
+  "orig_title": "Untitled (SVG)",
+  "artist": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/qwen7-svg.json",
+  "dl": "",
+  "desc": "",
+  "method": "An SVG drawing, written by the model as code in reply to the brief and shown as written. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/215.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-qwen7-svg",
+   "type": "svg",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained SVG document (viewBox 0 0 800 500), no external references, no scripts. SVG only.",
+   "date": "2026-10-25T22:23:08Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/qwen7-svg.json",
+   "content": "guest/commissions/qwen7-svg.svg",
+   "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
+   "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 216,
+  "kind": "guest",
+  "src": "Guest AI: Phi-4-mini-instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-phi4-poem",
+  "orig_title": "Echoes of the Tempest",
+  "artist": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/phi4-poem.json",
+  "dl": "",
+  "desc": "",
+  "method": "A poem, written by the model in reply to the brief and typeset by the gallery (the typesetting is the only thing the gallery added). Unedited, typos included.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/216.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-phi4-poem",
+   "type": "poem",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "model_requested": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+   "date": "2026-10-25T22:23:26Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/phi4-poem.json",
+   "content": "guest/commissions/phi4-poem.txt",
+   "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
+   "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 217,
+  "kind": "guest",
+  "src": "Guest AI: Phi-4-mini-instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-phi4-canvas",
+  "orig_title": "Untitled (canvas sketch)",
+  "artist": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/phi4-canvas.json",
+  "dl": "",
+  "desc": "",
+  "method": "A JavaScript canvas sketch, written by the model in reply to the brief. It runs live on its page in a sandboxed frame; the poster is a frame of it. Code lifted out of its Markdown fence, otherwise unedited.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/217.jpg",
+  "w": 1200,
+  "h": 750,
+  "guest": {
+   "id": "g-phi4-canvas",
+   "type": "canvas",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "model_requested": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained JavaScript snippet that draws and animates your view on an existing <canvas id=\"c\"> element (800x500 pixels) using only the Canvas 2D API and requestAnimationFrame. No libraries, no network requests, no HTML. Code only.",
+   "date": "2026-10-25T22:28:13Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/phi4-canvas.json",
+   "content": "guest/commissions/phi4-canvas.js",
+   "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
+   "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
  }
 ]

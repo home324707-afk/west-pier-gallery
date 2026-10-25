@@ -10,6 +10,7 @@ const ST={card:{bg:'#f3ecdc',ink:'#2a2622',acc:'#c4562b',font:'italic 300 {s}px 
  form:{bg:'#eef2f4',ink:'#1b2a3a',acc:'#2c6f93',font:'{s}px "JetBrains Mono",monospace',s:20,lh:1.7,boxes:1},
  radio:{bg:'#0d1a26',ink:'#e6ecf0',acc:'#7fd1ff',font:'{s}px "Space Grotesk",sans-serif',s:26,lh:1.5,wave:1},
  notice:{bg:'#f2d14b',ink:'#151515',acc:'#151515',font:'500 {s}px "Space Grotesk",sans-serif',s:24,lh:1.45,rule:1},
+ guide:{bg:'#1b1b1f',ink:'#f2efe8',acc:'#f2b134',font:'{s}px "Space Grotesk",sans-serif',s:24,lh:1.5,guide:1},
  terminal:{bg:'#050807',ink:'#7fd18b',acc:'#d8ffe0',font:'{s}px "JetBrains Mono",monospace',s:22,lh:1.5,caret:1}};
 function wrap(x,txt,w){const out=[];for(const para of txt.split('\n')){if(!para){out.push('');continue}let line='';for(const word of para.split(' ')){const t=line?line+' '+word:word;if(x.measureText(t).width>w&&line){out.push(line);line=word}else line=t}out.push(line)}return out}
 WPAI.register('f-text',{fps:30,prep(s){return T?0:fetch(root+'ai/fam/texts.json').then(r=>r.json()).then(j=>T=j)},
@@ -18,6 +19,8 @@ WPAI.register('f-text',{fps:30,prep(s){return T?0:fetch(root+'ai/fam/texts.json'
   s.size=size;s.m=m;s.y0=(st.center||st.wave||p.vc)?Math.max(m,(H-s.lines.length*size*st.lh)/2):m+(st.band?H*.06:0);s.total=s.lines.reduce((a,l)=>a+l.length+1,0);s.shown=0;s.hold=0;s.tide=0;s.cps=p.cps||Math.max(2,s.total/260)},
  frame(s,t){const{x,W,H,st,size,m,lines}=s;x.fillStyle=st.bg;x.fillRect(0,0,W,H);
   if(st.band){x.fillStyle=st.acc;x.fillRect(0,0,W,H*.07);x.fillStyle='#fff';x.font=`500 ${Math.min(H*.03,W*.022)}px "Space Grotesk",sans-serif`;x.textBaseline='middle';x.fillText('WEST PIER ESTATES  ·  SOLD AS SEEN (FROM THE SHORE)',m,H*.035)}
+  if(st.guide){const r=Math.min(W,H)*.06,cx=W-m-r,cy=m*.9+r*.2,pr=s.total?Math.min(1,s.shown/s.total):0;x.strokeStyle='rgba(242,239,232,.2)';x.lineWidth=r*.18;x.beginPath();x.arc(cx,cy,r,0,6.283);x.stroke();x.strokeStyle=st.acc;x.beginPath();x.arc(cx,cy,r,-1.571,-1.571+6.283*pr);x.stroke();
+   x.fillStyle=st.acc;x.font=`700 ${r*.8}px "Space Grotesk",sans-serif`;x.textAlign='center';x.textBaseline='middle';x.fillText('47',cx,cy);x.textAlign='left';x.fillStyle='rgba(242,239,232,.15)';for(let k=0;k<64;k++){const h=H*.04*(.3+.7*Math.abs(Math.sin(k*1.7+t*.004*(k%3+1))));x.fillRect(m+k*(W-2*m)/64,H-m*.9-h,(W-2*m)/64*.6,h)}}
   if(st.wave){x.strokeStyle=st.acc;x.globalAlpha=.35;x.lineWidth=2;x.beginPath();for(let X=0;X<W;X+=4){const y=H*.94+Math.sin(X*.05+t*.01)*Math.sin(X*.003+t*.002)*H*.03;X?x.lineTo(X,y):x.moveTo(X,y)}x.stroke();x.globalAlpha=1}
   x.font=st.font.replace('{s}',size);x.textBaseline='top';let left=Math.floor(s.shown),y=s.y0;const lh=size*st.lh;let cx=m,cy=y;
   for(let i=0;i<lines.length;i++){const L=lines[i];if(left<=0)break;const part=L.slice(0,left);left-=L.length+1;const w=x.measureText(part).width,X=st.center?(W-x.measureText(L).width)/2:m;

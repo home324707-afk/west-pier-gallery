@@ -1,0 +1,15 @@
+{
+ "service": "Pollinations.ai (Free API Classic, no account)",
+ "endpoint": "https://text.pollinations.ai/openai",
+ "model_requested": "openai-fast",
+ "model": "gpt-oss-20b",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+ "date": "2026-10-25T21:58:51Z",
+ "kind": "poem",
+ "output": "Wrecked Echoes of the West Pier  \n\nThe wind slammed the rusted rails, whole, and then let go—  \nwaves licked the weathered planks as if rehearsing song.  \nGhosts of seats hang like drapes, a half‑baked shorefest,  \nand every dented beam remembers a forgotten laugh.  \n\nMosaic of spray glass and broken brass,  \nthe pier sighs under the grey sky, a tired sigh.  \nA lone gull circles, flicks a memory into foam,  \nwhile tourists pause, coaxing stories from the tide.  \n\nBrighton’s lungs beat in salt and sea‑foam,  \nand the ruined pier whispers: “Do not let nostalgia drown.”",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 332,
+  "total_tokens": 687
+ }
+}

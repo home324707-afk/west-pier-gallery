@@ -1,0 +1,15 @@
+{
+ "service": "Pollinations.ai (Free API Classic, no account)",
+ "endpoint": "https://text.pollinations.ai/openai",
+ "model_requested": "openai-fast",
+ "model": "gpt-oss-20b",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained JavaScript snippet that draws and animates your view on an existing <canvas id=\"c\"> element (800x500 pixels) using only the Canvas 2D API and requestAnimationFrame. No libraries, no network requests, no HTML. Code only.",
+ "date": "2026-10-25T22:17:55Z",
+ "kind": "canvas",
+ "output": "```javascript\n(() => {\n  const canvas = document.getElementById('c');\n  if (!canvas) return;\n  canvas.width = 800;\n  canvas.height = 500;\n  const ctx = canvas.getContext('2d');\n\n  const clouds = [];\n  const pierSegments = [\n    {y: 350, len: 120, broken: true},\n    {y: 310, len: 90, broken: true},\n    {y: 270, len: 80, broken: false},\n    {y: 230, len: 100, broken: true}\n  ];\n\n  function initClouds() {\n    for (let i = 0; i < 15; i++) {\n      clouds.push({\n        x: Math.random() * canvas.width,\n        y: Math.random() * 120,\n        radius: 20 + Math.random() * 30,\n        speed: 0.2 + Math.random() * 0.3\n      });\n    }\n  }\n\n  function drawCloud(c) {\n    ctx.fillStyle = 'rgba(255,255,255,0.7)';\n    ctx.beginPath();\n    ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);\n    ctx.fill();\n  }\n\n  function drawPier() {\n    ctx.strokeStyle = '#8c6e51';\n    ctx.lineWidth = 4;\n    ctx.lineCap = 'round';\n    pierSegments.forEach(seg => {\n      ctx.beginPath();\n      ctx.moveTo(400, seg.y);\n      // broken segments are dashed\n      if (seg.broken) {\n        ctx.setLineDash([8, 6]);\n        ctx.moveTo(400, seg.y + 10);\n        ctx.lineTo(400 - seg.len, seg.y);\n      } else {\n        ctx.setLineDash([]);\n        ctx.lineTo(400 - seg.len, seg.y);\n      }\n      ctx.stroke();\n    });\n  }\n\n  function animate(time) {\n    ctx.fillStyle = '#004e66';\n    ctx.fillRect(0, 0, canvas.width, canvas.height);\n\n    clouds.forEach(c => {\n      drawCloud(c);\n      c.x += c.speed;\n      if (c.x - c.radius > canvas.width) c.x = -c.radius;\n    });\n\n    drawPier();\n\n    const waves = Math.sin(time * 0.001) * 10;\n    ctx.fillStyle = '#006ca3';\n    ctx.beginPath();\n    ctx.moveTo(0, canvas.height);\n    for (let x = 0; x <= canvas.width; x += 20) {\n      ctx.lineTo(x, canvas.height - 20 + Math.sin(x * 0.02 + time * 0.003) * waves);\n    }\n    ctx.lineTo(canvas.width, canvas.height);\n    ctx.closePath();\n    ctx.fill();\n\n    requestAnimationFrame(animate);\n  }\n\n  initClouds();\n  requestAnimationFrame(animate);\n})();\n```",
+ "usage": {
+  "prompt_tokens": 383,
+  "completion_tokens": 656,
+  "total_tokens": 1039
+ }
+}

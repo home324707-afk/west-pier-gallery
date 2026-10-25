@@ -1,0 +1,47 @@
+/* Family: 3D and maps. The pier as geometry and as cartography: a rotating wireframe, a star-atlas constellation, an isometric
+   voxel model, and a nautical-style chart (illustrative only, not for navigation). p: {seed, mode, ...} */
+(()=>{const{off,noise,mulberry}=WPAI.util;const TAU=6.283,F='"JetBrains Mono",monospace';const M={};
+/* a simple 3D pier: [x,y,z] segments; x along the pier 0..10, y up, z across. Gaps where the storm took it. */
+const model=(seed,gaps)=>{const r=mulberry(seed),S=[],gone=new Set();for(let i=0;i<gaps;i++){const a=2+r()*6|0;for(let k=0;k<1+r()*2;k++)gone.add(a+k)}
+ for(let i=0;i<=20;i++){const X=i/2,g=gone.has(X|0);for(const z of[-.5,.5]){if(!g||r()<.5)S.push([[X,-1.2,z],[X,g?-1.2+r()*.6:0,z]])}if(!g){S.push([[X,0,-.5],[X,0,.5]]);if(i<20&&!gone.has((X+.5)|0)){S.push([[X,0,-.5],[X+.5,0,-.5]],[[X,0,.5],[X+.5,0,.5]]);S.push([[X,-.6,-.5],[X+.5,0,-.5]])}}}
+ for(let k=0;k<=12;k++){const a=Math.PI*k/12,X=7+Math.cos(a)*1.2,Y=Math.sin(a)*1.1;for(const z of[-.5,.5])S.push([[7+Math.cos(a)*1.2,0,z],[7+Math.cos(a)*1.2,Y,z]]);if(k<12){const b=Math.PI*(k+1)/12;for(const z of[-.5,.5])S.push([[X,Y,z],[7+Math.cos(b)*1.2,Math.sin(b)*1.1,z]]);S.push([[X,Y,-.5],[X,Y,.5]])}}return S};
+M.wire={init(s){s.S=model(s.p.seed,2)},frame(s,t){const{x,W,H}=s,T=s.still?1.2:t/1000;x.fillStyle='#02040a';x.fillRect(0,0,W,H);const a=T*.25,ca=Math.cos(a),sa=Math.sin(a),tilt=.35,ct=Math.cos(tilt),st=Math.sin(tilt);
+  const P=([X,Y,Z])=>{X-=5;let x1=X*ca-Z*sa,z1=X*sa+Z*ca;let y1=Y*ct-z1*st,z2=Y*st+z1*ct;const f=W*.085/(1+z2*.05);return[W/2+x1*f,H*.58-y1*f,z2]};
+  x.strokeStyle='rgba(0,255,170,.15)';x.lineWidth=1;for(let i=-10;i<=10;i++){let A=P([i/2+5,-1.2,-5]),B=P([i/2+5,-1.2,5]);x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(B[0],B[1]);x.stroke();A=P([0,-1.2,i/2]);B=P([10,-1.2,i/2]);x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(B[0],B[1]);x.stroke()}
+  for(const[a1,b1]of s.S){const A=P(a1),B=P(b1),d=(A[2]+B[2])/2;x.strokeStyle=`rgba(80,255,200,${.45+.5*Math.max(0,Math.min(1,.5-d*.12))})`;x.lineWidth=1.4;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(B[0],B[1]);x.stroke()}
+  x.fillStyle='#50ffc8';x.font=`${H*.024}px ${F}`;x.fillText(`WEST_PIER.obj   ${s.S.length*2} verts   ${s.S.length} edges   rot ${(a*57.3%360).toFixed(1)}°`,W*.03,H*.06);x.fillText('2 bays missing since 23-10-2026',W*.03,H*.95)}};
+/* star atlas: the pier as a constellation on an old celestial chart */
+M.atlas={init(s){const r=s.rnd;s.st=[];for(let i=0;i<500;i++)s.st.push([r(),r(),Math.pow(r(),4)]);s.n=noise(s.p.seed)},frame(s,t){const{x,W,H}=s,T=t/1000;x.fillStyle='#ece0c2';x.fillRect(0,0,W,H);
+  x.fillStyle='rgba(140,100,50,.05)';for(let i=0;i<14;i++){x.beginPath();x.arc((i*197)%W,(i*113)%H,W*.05*(1+i%3),0,TAU);x.fill()}
+  const cx=W/2,cy=H*.52,R=Math.min(W,H)*.44;x.strokeStyle='#5a4630';x.lineWidth=1;for(let k=1;k<=4;k++){x.beginPath();x.arc(cx,cy,R*k/4,0,TAU);x.stroke()}for(let k=0;k<12;k++){const a=k*TAU/12;x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);x.stroke()}
+  x.lineWidth=3;x.beginPath();x.arc(cx,cy,R,0,TAU);x.stroke();x.font=`${H*.02}px Fraunces,serif`;x.fillStyle='#5a4630';for(let k=0;k<24;k++){const a=k*TAU/24;x.fillText(k+'h',cx+Math.cos(a)*R*1.04-8,cy+Math.sin(a)*R*1.04+5)}
+  for(const[u,v,m]of s.st){const X=cx+(u-.5)*2*R,Y=cy+(v-.5)*2*R;if(Math.hypot(X-cx,Y-cy)>R)continue;x.fillStyle='#2a2018';x.beginPath();x.arc(X,Y,.5+m*2.2,0,TAU);x.fill()}
+  const pts=[[-.7,.15],[-.5,.12],[-.3,.14],[-.1,.12],[.1,.13],[.25,.0],[.35,-.22],[.5,-.26],[.62,-.2],[.68,.02],[.55,.12],[.75,.13],[-.68,.45],[-.3,.42],[.1,.47],[.45,.44]],L=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,4],[9,11],[0,12],[2,13],[4,14],[10,15]];
+  const P=i=>[cx+pts[i][0]*R*.95,cy+pts[i][1]*R*.95],tw=k=>.7+.3*Math.sin(T*2+k*1.7);
+  x.strokeStyle='rgba(150,40,30,.85)';x.lineWidth=2.5;x.setLineDash([6,4]);for(const[a,b]of L){const A=P(a),B=P(b);x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(B[0],B[1]);x.stroke()}x.setLineDash([]);
+  pts.forEach((_,i)=>{const[X,Y]=P(i),r=(i%4===0?16:10)*tw(i)*H/800;if([11,12,13,15].includes(i)){x.strokeStyle='#7a2a1e';x.lineWidth=1.5;x.beginPath();x.arc(X,Y,r*.5,0,TAU);x.stroke();return}x.fillStyle='#1a120c';x.beginPath();for(let k=0;k<10;k++){const a=k*TAU/10-Math.PI/2,q=k%2?r*.45:r;x.lineTo(X+Math.cos(a)*q,Y+Math.sin(a)*q)}x.fill()});
+  x.font=`italic ${H*.05}px Fraunces,serif`;x.fillStyle='#7a2a1e';x.textAlign='center';x.fillText('Pons Occidentalis',cx,cy-R*.55);x.font=`${H*.022}px Fraunces,serif`;x.fillText('the West Pier · 16 stars, 4 lately extinguished',cx,cy-R*.47);x.textAlign='left';
+  x.fillStyle='#3a2a18';x.font=`${H*.03}px Fraunces,serif`;x.fillText('URANOGRAPHIA BRIGHTONIENSIS',W*.03,H*.06);x.font=`${H*.02}px Fraunces,serif`;x.fillText('Tab. XVI',W*.03,H*.095)}};
+/* isometric voxels: a little game-board model, blocks falling away one by one */
+M.voxel={init(s){const r=s.rnd,V=[];for(let i=0;i<26;i++){for(const z of[0,3])for(let y=0;y<3;y++)if(i%2===0)V.push([i,y,z]);for(let z=0;z<4;z++)V.push([i,3,z])}for(let i=17;i<24;i++)for(let z=0;z<4;z++){const h=4+Math.round(2.5*Math.sin(Math.PI*(i-17)/6));for(let y=4;y<h;y++)if(z===0||z===3||y===h-1)V.push([i,y,z])}
+  V.forEach(v=>v.push(r()*30+((v[0]>8&&v[0]<14)?0:999)));s.V=V.sort((a,b)=>(a[0]+a[2])-(b[0]+b[2])||a[1]-b[1])},frame(s,t){const{x,W,H}=s,T=s.still?20:(t/1000)%40,u=W/46;x.fillStyle='#bfe3ef';x.fillRect(0,0,W,H);
+  const iso=(X,Y,Z)=>[W*.12+(X-Z)*u*.87*1.1,H*.3+(X+Z)*u*.5*1.1-Y*u*1.1];
+  const g=x.createLinearGradient(0,H*.55,0,H);g.addColorStop(0,'#3d8fb0');g.addColorStop(1,'#1d4e6a');x.fillStyle=g;x.fillRect(0,H*.47,W,H*.53);
+  for(const[X,Y,Z,dt]of s.V){let yy=Y;if(T>dt){yy=Y-(T-dt)*(T-dt)*2;if(yy<-4)continue}const[a,b]=iso(X,yy,Z),c=Y>=4?['#c86b4a','#a8553a','#e08a68']:Y===3?['#8b6b4a','#6e5338','#a8865f']:['#5d6870','#47525a','#76828a'];
+   x.fillStyle=c[2];x.beginPath();x.moveTo(a,b);x.lineTo(a+u*.87,b-u*.3+u*.35*0);x.lineTo(a,b-u*.6);x.lineTo(a-u*.87,b-u*.3);x.closePath();x.fill();
+   x.fillStyle=c[0];x.beginPath();x.moveTo(a-u*.87,b-u*.3);x.lineTo(a,b);x.lineTo(a,b+u);x.lineTo(a-u*.87,b+u*.7);x.closePath();x.fill();
+   x.fillStyle=c[1];x.beginPath();x.moveTo(a,b);x.lineTo(a+u*.87,b-u*.3);x.lineTo(a+u*.87,b+u*.7);x.lineTo(a,b+u);x.closePath();x.fill()}
+  x.fillStyle='rgba(255,255,255,.35)';for(let i=0;i<30;i++){const X=((i*173+T*20)%W),Y=H*.7+((i*61)%(H*.28));x.fillRect(X,Y,W*.03,2)}x.fillStyle='#163142';x.font=`700 ${H*.04}px "Space Grotesk",sans-serif`;x.fillText('WEST PIER  ·  1 block = 1 bay',W*.03,H*.08)}};
+/* nautical-style chart: soundings, contours, a compass rose; illustrative only */
+M.chart={init(s){s.n=noise(s.p.seed);const r=s.rnd;s.snd=[];for(let i=0;i<140;i++)s.snd.push([r(),r()])},frame(s,t){const{x,W,H}=s,T=t/1000,n=s.n;x.fillStyle='#f3edd9';x.fillRect(0,0,W,H);const coast=X=>H*(.25+.04*Math.sin(X/W*5)+.03*n(X*.004,1));
+  const depth=(X,Y)=>Math.max(0,(Y-coast(X))/H*28+3*n(X*.006,Y*.006));const res=6;for(let Y=0;Y<H;Y+=res)for(let X=0;X<W;X+=res){const d=depth(X,Y);if(Y<coast(X))continue;x.fillStyle=d<2?'#b9d8e6':d<5?'#d6e9ef':'#f3edd9';x.fillRect(X,Y,res,res)}
+  x.strokeStyle='#4a8bb0';x.lineWidth=1;for(const lv of[2,5,10]){for(let X=0;X<W;X+=res)for(let Y=0;Y<H;Y+=res){const a=depth(X,Y),b=depth(X+res,Y),c=depth(X,Y+res);if((a-lv)*(b-lv)<0||(a-lv)*(c-lv)<0)x.fillStyle='#4a8bb0',x.fillRect(X,Y,1.4,1.4)}}
+  x.fillStyle='#e8d8a8';x.beginPath();x.moveTo(0,0);for(let X=0;X<=W;X+=8)x.lineTo(X,coast(X));x.lineTo(W,0);x.fill();x.strokeStyle='#5a4a30';x.lineWidth=1.5;x.beginPath();for(let X=0;X<=W;X+=8)x.lineTo(X,coast(X));x.stroke();
+  x.fillStyle='#1d3550';x.font=`italic ${H*.016}px Fraunces,serif`;for(const[u,v]of s.snd){const X=u*W,Y=v*H;if(Y<coast(X)+8)continue;const d=depth(X,Y);x.fillText(d.toFixed(0)+(d%1>.5?'₅':''),X,Y)}
+  const px=W*.42,c0=coast(px),py=c0+H*.42;x.strokeStyle='#222';x.lineWidth=2;x.setLineDash([]);x.beginPath();x.moveTo(px,c0);x.lineTo(px,c0+H*.16);x.stroke();x.setLineDash([4,4]);x.beginPath();x.moveTo(px,c0+H*.16);x.lineTo(px,py);x.stroke();x.setLineDash([]);
+  x.fillStyle='#222';for(let k=0;k<6;k++){x.beginPath();x.arc(px+(k%2?6:-6),c0+H*.2+k*H*.035,2.5,0,TAU);x.fill()}x.fillStyle='#8a1f2b';x.font=`${H*.02}px Fraunces,serif`;x.fillText('Ruins of West Pier (dries)',px+W*.015,c0+H*.3);x.fillText('Obstns',px+W*.015,c0+H*.33);
+  const bl=.5+.5*Math.sin(T*TAU/4);x.fillStyle=`rgba(200,40,60,${bl})`;x.beginPath();x.arc(px,py,5,0,TAU);x.fill();x.fillStyle='#8a1f2b';x.fillText('Fl.R.4s (imaginary)',px+10,py+4);
+  const rx=W*.84,ry=H*.72,R=H*.13;x.strokeStyle='#8a1f2b';x.lineWidth=1;for(const q of[1,.8]){x.beginPath();x.arc(rx,ry,R*q,0,TAU);x.stroke()}for(let k=0;k<32;k++){const a=k*TAU/32,l=k%8===0?.5:k%4===0?.65:.75;x.beginPath();x.moveTo(rx+Math.cos(a)*R*l,ry+Math.sin(a)*R*l);x.lineTo(rx+Math.cos(a)*R,ry+Math.sin(a)*R);x.stroke()}
+  x.fillStyle='#8a1f2b';for(let k=0;k<4;k++){const a=k*Math.PI/2-Math.PI/2;x.beginPath();x.moveTo(rx,ry);x.lineTo(rx+Math.cos(a+.15)*R*.2,ry+Math.sin(a+.15)*R*.2);x.lineTo(rx+Math.cos(a)*R*.8,ry+Math.sin(a)*R*.8);x.fill()}
+  x.fillStyle='#1d3550';x.font=`${H*.028}px Fraunces,serif`;x.fillText('BRIGHTON — WEST PIER',W*.04,H*.06);x.font=`italic ${H*.018}px Fraunces,serif`;x.fillText('Soundings and contours illustrative. NOT TO BE USED FOR NAVIGATION.',W*.04,H*.09);x.fillText('BRIGHTON',W*.62,H*.13)}};
+WPAI.register('f-space',{fps:30,init(s){(M[s.p.mode].init||(()=>0))(s)},frame(s,t){M[s.p.mode].frame(s,t)}});})();

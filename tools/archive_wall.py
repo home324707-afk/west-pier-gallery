@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Archive the anonymous wall. ntfy.sh only keeps messages for 12 hours, so this
 polls the public topic and appends anything new to wall/wall.json, then commits
-and pushes. Run it at least every few hours (box loop, routine, or an Action)."""
+and pushes. Run it at least every few hours (box loop, routine, or an Action).
+Then: python3 tools/guest/submissions.py && python3 tools/guest/hang.py && python3 build.py (open call, tag t-submit)."""
 import json, urllib.request, subprocess, os, sys, time
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 P = os.path.join(ROOT, 'wall', 'wall.json')
@@ -18,7 +19,7 @@ for line in raw.splitlines():
     tags = [t for t in (m.get('tags') or []) if t.startswith('t-')]
     new.append(dict(id=m['id'], time=int(m.get('time', 0)),
                     name=(m.get('title') or 'Anonymous')[:60],
-                    text=(m.get('message') or '')[:2000],
+                    text=(m.get('message') or '')[:4000 if 't-submit' in tags else 2000],  # open-call submissions may be longer
                     thread=(tags[0][2:] if tags else 'forum')[:20]))
 if not new:
     print('no new messages'); sys.exit(0)

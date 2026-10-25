@@ -13,7 +13,7 @@ const F={ // colour field, stroke direction, stroke size (fraction of W), alpha,
  monet:{bg:[120,130,150],col(s,u,v){const sun=Math.hypot(u-.68,(v-.32)*1.6);let c=mix([235,140,90],[110,125,150],Math.min(1,v*.9+.25));if(sun<.035)c=[245,110,45];
    if(v>.55){c=mix([70,95,120],[100,120,145],s.n(u*20,v*30));if(Math.abs(u-.68)<.03+.05*(v-.55)&&s.n(u*60,v*80)>.45)c=[240,120,60]}return mix(c,[45,50,75],s.m(u,v)*.85)},dir(){return 0},sz:.022,a:.6,n:70,shape:'dash',po:.45,pc:'#2d3150'},
  seurat:{bg:[240,236,220],col(s,u,v){let c=v<.55?[150,190,230]:v<.75?[60,150,160]:[220,190,120];c=mix(c,[80,60,120],s.m(u,v));const comp=s.rnd()<.25;return comp?[255-c[0]*.6,255-c[1]*.6,255-c[2]*.6]:c},dir(){return 0},sz:.006,a:.9,n:260,shape:'dot',po:.3,pc:'#3c2c60'},
- whistler:{bg:[38,66,76],col(s,u,v){let c=mix([60,98,106],[26,48,58],v);c=mix(c,[12,20,28],s.m(u,v)*.8);return mix(c,[60,90,95],s.n(u*2,v*10)*.3)},dir(){return 0},sz:.08,a:.08,n:30,shape:'smear',fire:1,po:.6,pc:'#0e171e'},
+ whistler:{bg:[56,92,108],col(s,u,v){let c=mix([96,138,152],[38,68,86],v);if(v<.4)c=mix(c,[140,165,165],.3*(1-v/.4));c=mix(c,[18,30,38],s.m(u,v)*.85);return mix(c,[80,118,130],s.n(u*2,v*10)*.3)},dir(){return 0},sz:.08,a:.1,n:30,shape:'smear',fire:1,po:.75,pc:'#15212a'},
  vangogh:{bg:[30,50,110],col(s,u,v){if(v>.62)return mix(mix([30,60,120],[60,100,160],s.n(u*15,v*20)),[15,15,25],s.m(u,v));let c=mix([40,70,150],[90,140,200],s.n(u*6,v*6));
    for(const st of s.stars){const d=Math.hypot(u-st[0],(v-st[1])*.6);if(d<st[2])c=mix([250,230,120],c,d/st[2])}return mix(c,[20,25,30],s.m(u,v))},
    dir(s,u,v){let a=0;for(const st of s.sw){const dx=u-st[0],dy=v-st[1];a+=Math.atan2(dy,dx)*Math.exp(-(dx*dx+dy*dy)/.02)}return a+1.57+s.n(u*3,v*3)},sz:.016,a:.9,n:90,shape:'thick',po:.7,pc:'#0d0f18'}};

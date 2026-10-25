@@ -1,0 +1,18 @@
+{
+ "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+ "endpoint": "http://127.0.0.1:8099/v1/chat/completions",
+ "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained JavaScript snippet that draws and animates your view on an existing <canvas id=\"c\"> element (800x500 pixels) using only the Canvas 2D API and requestAnimationFrame. No libraries, no network requests, no HTML. Code only.",
+ "date": "2026-10-25T22:21:33Z",
+ "kind": "canvas",
+ "output": "```javascript\nconst c = document.getElementById('c');\nconst ctx = c.getContext('2d');\nc.width = 800;\nc.height = 500;\n\nconst pierWidth = 20;\nconst pierHeight = 400;\nconst pierColor = 'grey';\nconst waveColor = 'blue';\nconst waveHeight = 100;\nconst waveSpeed = 0.5;\nlet wavePos = 0;\n\nfunction drawPier() {\n  ctx.fillStyle = pierColor;\n  ctx.fillRect(340, 300, pierWidth, -pierHeight);\n}\n\nfunction drawWaves() {\n  ctx.fillStyle = waveColor;\n  ctx.beginPath();\n  ctx.moveTo(0, c.height);\n  for (let x = 0; x < c.width; x++) {\n    ctx.lineTo(x, Math.sin(x * waveSpeed + wavePos) * waveHeight + (c.height - waveHeight / 2));\n  }\n  ctx.lineTo(c.width, c.height);\n  ctx.closePath();\n  ctx.fill();\n}\n\nfunction animate() {\n  ctx.clearRect(0, 0, c.width, c.height);\n  drawPier();\n  drawWaves();\n  wavePos += 0.05;\n  requestAnimationFrame(animate);\n}\n\nanimate();\n```",
+ "usage": {
+  "completion_tokens": 269,
+  "prompt_tokens": 106,
+  "total_tokens": 375,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  }
+ }
+}

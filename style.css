@@ -172,3 +172,6 @@ canvas.anim.int{pointer-events:auto;touch-action:pan-y;cursor:crosshair}
 .aitext h3{margin:.8rem 0 .4rem}.aitext p{margin:.35rem 0;line-height:1.55}
 .svgdl{margin-top:.6rem;display:inline-block}
 [data-sound][aria-pressed=true]{background:#2c6f93;border-color:#2c6f93}
+.card .kind.gu{color:#f0b35a;border-color:#8a6424}.guestmade{color:#f0b35a;font-weight:500}.kindtag.gu{color:#f0b35a;border-color:#8a6424}
+.guestframe{display:block;margin:1rem 0;max-width:100%}.note dl{margin:.6rem 0 0}.note dt{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#c9b38f;margin-top:.4rem}.note dd{margin:0}
+.opencall pre{white-space:pre-wrap}

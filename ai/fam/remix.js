@@ -33,10 +33,10 @@ WPAI.register('f-remix',{fps:24,init(s){const{W,H,p}=s;s.B=base(s,p.mode==='dith
     x.beginPath();x.moveTo(...q.p[0]);x.lineTo(...q.p[1]);x.lineTo(...q.p[2]);x.closePath();x.save();x.clip();cover(x,img,W,H);x.restore();x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=1;x.stroke();x.restore()}}
   else if(p.mode==='channel'){x.fillStyle='#000';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';const a=W*.02*(1.2+Math.sin(t*.0005));
    s.ch.forEach((c,k)=>{const ph=k*2.1;x.drawImage(c,Math.sin(t*.0011+ph)*a,Math.cos(t*.0009+ph)*a*.6,W,H)});x.globalCompositeOperation='source-over'}
-  else if(p.mode==='teletext'){const D=B.d.data,cols=B.w,rows=B.h,cw=W/cols,ch=H/(rows+3),P=[[0,0,0],[255,0,0],[0,255,0],[255,255,0],[0,0,255],[255,0,255],[0,255,255],[255,255,255]];
-   x.fillStyle='#000';x.fillRect(0,0,W,H);const roll=(t*.02)%rows|0;
+  else if(p.mode==='teletext'){const D=B.d.data,cols=B.w,rows=B.h,cw=W/cols,ch=H/(rows+3),P=[[12,14,20],[196,74,62],[96,160,96],[196,178,112],[52,78,150],[112,84,124],[86,160,170],[222,220,208]];
+   x.fillStyle='#0c0e14';x.fillRect(0,0,W,H);const roll=(t*.02)%rows|0;
    for(let y=0;y<rows;y++)for(let X=0;X<cols;X++){const i=(y*cols+X)*4;let best=0,bd=1e9;for(let k=0;k<8;k++){const q=P[k],dd=(q[0]-D[i])**2+(q[1]-D[i+1])**2+(q[2]-D[i+2])**2;if(dd<bd){bd=dd;best=k}}
-    if(y===roll&&R()<.5)best=R()*8|0;x.fillStyle=`rgb(${P[best]})`;x.fillRect(X*cw,(y+2)*ch,cw+.5,ch+.5)}
+    if(y===roll&&R()<.5)best=R()*8|0;x.fillStyle=`rgb(${P[best]})`;x.fillRect(X*cw,(y+2)*ch,cw+.5,ch+.5)}x.fillStyle='rgba(0,0,0,.28)';for(let yy=0;yy<H;yy+=3)x.fillRect(0,yy,W,1.2);
    x.fillStyle='#fff';x.font=`${ch*1.6}px "JetBrains Mono",monospace`;x.textBaseline='top';x.fillText(`P100  PIERFAX 100  ${p.date||'Sun 25 Oct'}  ${String(19+((t/1000|0)/60|0)%5).padStart(2,'0')}:${String((t/1000|0)%60).padStart(2,'0')}`,cw,ch*.1);
    x.fillStyle='#ff0';x.fillText('WEST PIER: LATEST',cw,H-ch*1.8)}}});
 })();

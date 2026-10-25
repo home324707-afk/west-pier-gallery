@@ -28,9 +28,14 @@ FAMILY = {  # key: (label, one-line description)
  'sound': ('Sound pieces', 'Small synthesisers: a wind harp of the legs, a foghorn, starlings, rust. Click to listen; sound never autoplays.'),
  'interactive': ('Interactive', 'Pieces that answer your pointer: stir the sea, wipe the fog, hold the pier up. In the grid a ghost cursor plays them.'),
  'turing': ('Turing test failures', 'The AI tries to pass as a human photographer and gives itself away: a thumb over the lens, a jet in a Victorian photo.'),
+ 'craft': ('Made by hand (by a machine)', 'Crafts the machine has never touched: tapestry, stained glass, cut paper, shadow puppets, cross-stitch, a stamp, a neon sign, a woodcut.'),
+ 'science': ('Specimens & instruments', 'The pier examined as a sample: a herbarium sheet, an X-ray, a seismogram of its history, a rust culture, sonar, a spectrogram.'),
+ 'space': ('3D & maps', 'The pier as geometry and cartography: a rotating wireframe, a constellation, isometric blocks, a chart (not for navigation).'),
+ 'games': ('Games & puzzles', 'The pier as something you play: falling blocks, a four-shade handheld, a text adventure, a crossword.'),
+ 'minimal': ('Minimal & conceptual', 'As little as possible: raked shingle, one sentence, a palindrome.'),
  'data': ('Data portraits', 'Only real data: this gallery\'s own catalogue and the sourced timeline, drawn as the pier.'),
 }
-V = lambda key, title, p, method, sources=(), w=1200, h=800, ms=9000: dict(key=key, title=title, p=p, method=method, sources=list(sources), w=w, h=h, ms=ms)
+V = lambda key, title, p, method, sources=(), w=1200, h=800, ms=9000, slot=None: dict(key=key, title=title, p=p, method=method, sources=list(sources), w=w, h=h, ms=ms, slot=slot)
 DUSK = ['#1d2b45', '#e9a46a']
 VARS = {
  'flow': [
@@ -146,6 +151,59 @@ VARS = {
   V('tu-crayon', 'MY PEIR', dict(seed=66, mode='crayon'), 'Turing test failure: the AI imitates a child\'s crayon drawing, spelling included.'),
  ],
 }
+# Variety pass (25 Oct 2026): near-duplicates were reworked IN PLACE. Each rework keeps its catalogue number (slot), page and
+# discussion thread; the variation it replaced is listed in RETIRED and no longer hung.
+RETIRED = {'flow-iron-rust', 'flow-iron-ghost', 'flow-dissolve-sea', 'flow-wind-dusk', 'flow-iron-blueprint', 'ls-fern', 'ls-roots', 'ls-koch', 'ls-scroll',
+           'ca-rust-fine', 'ca-rule90', 'ca-cyclic', 'tide-pool-swell', 'tide-pool-night', 'tide-swell-calm', 'tide-swell-dusk', 'ty-words-night', 'ty-rain',
+           'ty-rain-rust', 'ty-kerning-austen', 'ty-morse', 'pl-hatch', 'pl-circles', 'pl-stipple', 'pl-hatch-blue', 'so-starlings', 'so-rust', 'so-tide',
+           'in-storm', 'in-visits', 'in-rebuild', 'da-licences'}
+SEISMO = [[1866.76, .9, '6 Oct 1866 opens'], [1893.5, .4, '1893 pavilion'], [1916.3, .4, '20 Apr 1916 concert hall'], [1970.5, .5, '1970 pierhead closes'], [1975.5, .7, '1975 closed'],
+          [1987.79, .9, '1987 Great Storm'], [2002.95, 1.1, 'Dec 2002 storm'], [2003.24, 1.4, '28 Mar 2003 fire'], [2003.36, 1.2, 'May 2003 fire'], [2004.45, 1, 'Jun 2004 collapse'],
+          [2010.12, .6, 'Feb 2010 demolition'], [2014.12, 1, 'Feb 2014 split'], [2016.12, .8, 'Feb 2016 collapse'], [2026.81, 1.3, '23 Oct 2026 Storm Austen']]
+ADV = ["WEST PIER: AN INTERACTIVE RUIN", "Release 1 / Serial number 261025", "", "Brighton beach, west of the i360", "You are standing on wet shingle. To the south, a black iron",
+       "skeleton stands in the sea. The tide is going out.", "", "> GO SOUTH", "The sea is in the way. It has been in the way since 1975.", "", "> EXAMINE PIER",
+       "An iron frame, rusted to the colour of tea. Since the storm", "on 23 October there is less of it than there was.", "", "> TAKE PIER",
+       "It is much too heavy. Also, the sea has already taken some.", "", "> WAIT", "Time passes. A gull lands on the frame.", "", "> TALK TO GULL",
+       "The gull ignores you, as gulls do.", "", "> INVENTORY", "You are carrying: a phone (camera), a chip, sand.", "", "> PHOTOGRAPH PIER",
+       "Click. You add your picture to the thousands of others.", "Your score has gone up by 1 point, out of a possible infinity.", "", "> GO SOUTH", "The sea is still in the way.", ""]
+CROSS = dict(grid=["STORM##", "E##U###", "A##S###", "###TIDE", "####R#B", "####O#B", "#OPEN##"], title='WEST PIER CROSSWORD No. 149',
+             across=['1  What came on 23 October 2026 (5)', '3  It took the pier, a bit at a time (4)', '6  What the pier was, 1866 to 1975 (4)'],
+             down=['1  Where the pier stands (3)', "2  Iron's slow fire (4)", '4  What is left standing (4)', '5  Going out, like the pier (3)'])
+REWORKS = [
+ V('cr-tapestry', 'The West Pier Tapestry', dict(seed=115, mode='tapestry'), 'Made by hand (by a machine): a wool frieze in the manner of the Bayeux Tapestry scrolls past, scene by scene: the building, the crowds, the fires, the storm, with Latin captions. Stitches drawn in code.', slot=115),
+ V('cr-glass', 'Stained glass, east window', dict(seed=116, mode='glass'), 'Made by hand (by a machine): a Voronoi stained-glass window with lead lines; a low sun sweeps across it and the panes light up one by one.', slot=116),
+ V('mn-shingle', 'Raked shingle, fourteen stones', dict(seed=118, mode='shingle'), 'Minimal: lines raked into shingle part around the stones where the legs were, as in a dry garden. The tide comes in and erases them.', slot=118),
+ V('cr-paper', 'Cut paper, five layers', dict(seed=120, mode='paper'), 'Made by hand (by a machine): five layers of cut paper (sky, sun, two seas, the pier) with soft drop shadows, rocking slightly.', slot=120),
+ V('sp-wire', 'WEST_PIER.obj', dict(seed=121, mode='wire'), '3D: a wireframe model of the pier (legs, deck, pavilion ribs, two missing bays) slowly turns on a grid floor, perspective-projected in plain canvas.', slot=121),
+ V('sc-herbarium', 'Pierus occidentalis, pressed', dict(seed=124, mode='herbarium'), 'Specimen: a seaweed that grew in the shape of the pier, pressed and taped to a herbarium sheet with a typed label and a hand lens that drifts over it.', slot=124),
+ V('sp-atlas', 'Pons Occidentalis (a constellation)', dict(seed=126, mode='atlas'), 'Map: the pier as a constellation on an old celestial chart, 16 stars, 4 of them lately extinguished. An invented constellation, drawn as an homage to old star atlases.', slot=126),
+ V('sc-xray', 'Radiograph, AP view', dict(seed=127, mode='xray'), 'Instrument: the ironwork as an X-ray, with fractures, a ghost of soft tissue where the pavilion was, a scan line and a radiologist\'s note.', slot=127),
+ V('sc-seismo', 'Seismogram, station WP1, 1866-2026', dict(seed=129, mode='seismo', events=SEISMO, span=[1866, 2027]), 'Instrument: a drum recorder writes 160 years in eight lines; it spikes on the sourced dates in the timeline (where only a year is known, the spike is placed mid-year). Amplitudes are expressive, not measured.', ms=9000, slot=129),
+ V('sc-petri', 'Rust culture, day 240', dict(seed=131, mode='petri'), 'Specimen: a petri dish seeded along the shape of the pier; rust colonies grow out of the ironwork until the whole plate has rusted.', ms=9000, slot=131),
+ V('gm-blocks', 'Falling blocks, level 1866', dict(seed=135, mode='blocks'), 'Game: falling blocks lock into place and rebuild the pier row by row: legs, deck, pavilion. Then the sea rises through the well and it starts again.', ms=40000, slot=135),
+ V('sp-voxel', '1 block = 1 bay', dict(seed=136, mode='voxel'), '3D: an isometric block model of the pier; the blocks of the middle fall into the sea one by one.', ms=12000, slot=136),
+ V('sp-chart', 'Chart, not for navigation', dict(seed=138, mode='chart'), 'Map: a nautical-style chart with the ruins marked. Soundings, contours and the light are illustrative, not survey data, and it says so on the chart.', slot=138),
+ V('cr-shadow', 'Shadow puppets, end of the pier show', dict(seed=139, mode='shadow'), 'Made by hand (by a machine): a shadow-puppet theatre. The pier is a cut-out on sticks, gulls jerk across on wires, the waves are a cut-out too, behind red curtains.', slot=139),
+ V('sc-sonar', 'Side-scan sonar, 900 kHz', dict(seed=140, mode='sonar'), 'Instrument: a side-scan sonar waterfall in amber; the leg stumps return bright and throw acoustic shadows as the survey passes over. Synthesised, not a survey.', ms=6000, slot=140),
+ V('cr-tarot', 'XVI The Pier', dict(seed=143, mode='tarot'), 'Made by hand (by a machine): a tarot card, number XVI (traditionally The Tower), redrawn as The Pier. Stars drift, the sea moves.', w=900, h=1400, slot=143),
+ V('gm-handheld', 'Handheld, four shades of green', dict(seed=145, mode='gb'), 'Game: the pier as a 160x144 scene in four greens, chunky clouds, a two-frame gull, a health bar. Scaled up with hard pixels.', w=1000, h=900, ms=3000, slot=145),
+ V('gm-adventure', 'An interactive ruin (it plays itself)', dict(seed=146, mode='adventure', lines=ADV), 'Game: a text adventure in which the player keeps trying to go south. The game plays itself, line by line.', ms=60000, slot=146),
+ V('cr-emoji', 'Emoji mosaic', dict(seed=147, mode='emoji', cols=40), 'Made by hand (by a machine): the pier rebuilt in emoji, 40 columns wide: waves, clouds, houses for the pavilion, logs for the legs. Some tiles change as the weather passes.', slot=147),
+ V('gm-crossword', 'Crossword No. 149', dict(seed=149, mode='cross', **CROSS), 'Puzzle: a small hand-made crossword about the pier, with its clues; the answers fill themselves in.', ms=30000, slot=149),
+ V('mn-oneline', 'Less of it', dict(seed=150, mode='oneline', text='The pier is still there, less of it.'), 'Minimal: one sentence. Some of its letters fall into the sea, then climb back.', ms=9000, slot=150),
+ V('cr-stitch', 'Cross-stitch sampler', dict(seed=180, mode='stitch', cols=56), 'Made by hand (by a machine): a cross-stitch pattern of the pier that stitches itself, with a thread key.', ms=30000, slot=180),
+ V('cr-stamp', 'Second class, not valid for postage', dict(seed=184, mode='stamp'), 'Made by hand (by a machine): an engraved commemorative stamp, perforated, then franked with a storm postmark. Not a real stamp.', slot=184),
+ V('cr-neon', 'OPEN (neon)', dict(seed=185, mode='neon'), 'Made by hand (by a machine): the pier as a neon sign on brick, buzzing; some tubes flicker out.', slot=185),
+ V('cr-woodcut', 'Woodcut, black and cream', dict(seed=186, mode='woodcut'), 'Made by hand (by a machine): a woodcut in two colours, gouged wave lines and a heavy black pier, pulled by a press roller, with a seal.', slot=186),
+ V('sc-spectro', 'Spectrogram of the sea, with a pier in it', dict(seed=188, mode='spectro'), 'Instrument: a scrolling spectrogram of synthesised sea noise. The pier is hidden in the frequencies, like a picture in a song.', ms=6000, slot=188),
+ V('mn-palin', 'Palindrome', dict(seed=189, mode='palin', lines=['Sea takes pier, pier takes sea.', 'Storm after storm.', 'Iron gone, gone iron.']), 'Minimal: a word palindrome. The pier falls, then the film runs backwards and it stands up again.', ms=5000, slot=189),
+ V('tx-audioguide', 'Audio guide, stop 47', dict(seed=191, id='audioguide', style='guide'), 'Writing: the script of a museum audio guide for an exhibit that is in the sea.', ms=60000, slot=191),
+ V('in-globe', 'A present from Brighton', dict(seed=194, mode='globe'), 'Interactive: a snow globe with the pier in it. Move fast to shake it; the snow settles.', ms=8000, slot=194),
+ V('in-tally', 'Tally, on slate', dict(seed=197, mode='tally'), 'Interactive: each visit adds a chalk tally mark and rubs out a little of the chalk pier (counted only in your own browser).', ms=5000, slot=197),
+ V('in-kaleido', 'Kaleidoscope', dict(seed=198, mode='kaleido'), 'Interactive: the pier at dusk in an eight-mirror kaleidoscope. Move to turn it.', ms=4000, slot=198),
+ V('da-days', 'One pixel per day since 6 October 1866', dict(seed=206, mode='days', data=[], today='2026-10-25', states=[['1866-10-06', 'open', '#e3b448'], ['1970-01-01', 'pierhead closed', '#c77d3a'], ['1975-01-01', 'closed to the public', '#566a7f'], ['2003-03-28', 'burnt ruin', '#8c3b26'], ['2026-10-23', 'after Storm Austen', '#e04848']],
+      note='Dates from the sourced timeline. Where only a year is known (1970, 1975), the change is drawn from 1 January.'), 'Data portrait: every day of the pier\'s life is one pixel; columns are years, rows are days of the year, coloured by its state on the sourced timeline. Today blinks.', ms=6000, slot=206),
+]
 def data_vars():
     A = [a for a in works() if a.get('kind') != 'ai' and a['n'] <= 114]
     yrs = collections.Counter(); und = 0
@@ -169,14 +227,24 @@ def data_vars():
 def all_vars():
     out = []
     for f, vs in list(VARS.items()) + [('data', data_vars())]:
-        for v in vs: out.append(dict(v, family=f))
-    return out
+        for v in vs:
+            if v['key'] not in RETIRED: out.append(dict(v, family=f))
+    fam = lambda v: {'cr': 'craft', 'sc': 'science', 'sp': 'space', 'gm': 'games', 'mn': 'minimal', 'tx': 'text', 'in': 'interactive', 'da': 'data'}[v['key'][:2]]
+    return out + [dict(v, family=fam(v)) for v in REWORKS]
 def hang_all(restill=False):
     from stills import Renderer
     A = works(); have = {a.get('ai_key'): a for a in A}; byn = {a['n']: a for a in A}; new = []
     with Renderer() as r:
         for v in all_vars():
             if v['key'] in have and not restill: continue
+            if v.get('slot') and v['key'] not in have:  # rework in place: same number, page and thread
+                rec = byn[v['slot']]; src = ','.join(byn[n]['img'] for n in v['sources'][:1])
+                im = r.render('f-' + v['family'], v['p'], v['w'], v['h'], src, v['ms']); w, h = save(im, J(rec['img']))
+                rec.setdefault('was', []).append(dict(title=rec['orig_title'], key=rec['ai_key'], family=rec['family'], until=datetime.date.today().isoformat()))
+                rec.update(ai_key=v['key'], anim='f-' + v['family'], family=v['family'], params=v['p'], still_ms=v['ms'], file=f'ai:{v["key"]}', orig_title=v['title'],
+                           method=v['method'], page=REPO + f'ai/fam/{v["family"]}.js', w=w, h=h, reworked=datetime.date.today().isoformat())
+                new.append(rec['n']); print('reworked', rec['n'], v['key'])
+                json.dump(A, open(J('data', 'artworks.json'), 'w'), indent=1, ensure_ascii=False); continue
             src = ','.join(byn[n]['img'] for n in v['sources'][:1])
             im = r.render('f-' + v['family'], v['p'], v['w'], v['h'], src, v['ms'])
             if v['key'] in have:

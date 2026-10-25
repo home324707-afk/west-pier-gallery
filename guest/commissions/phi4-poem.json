@@ -1,0 +1,18 @@
+{
+ "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+ "endpoint": "http://127.0.0.1:8099/v1/chat/completions",
+ "model_requested": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+ "model": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Write it as a short poem (at most 16 lines). Reply with the title on the first line, then the poem. Nothing else.",
+ "date": "2026-10-25T22:23:26Z",
+ "kind": "poem",
+ "output": "Title: Echoes of the Tempest\n\nWaves crash, ruins whisper tales untold,\nPier once grand, now tales of sorrow unfold,\nSteel beams weep under storm's fierce embrace,\nLost dreams in wind's mournful, mournful chase.\n\nSunlight fades, shadows cast their might,\nBroken glass, a fractured, jagged sight,\nWaves caress the jagged shore,\nGhosts of laughter, whispers of lore.\n\nEchoes dance on salty breeze,\nMemories linger through the trees,\nLost to time, to nature's will,\nWest Pier stands, a silent bill.\n\nRising, falling, ebbing, flow,\nNature's hand, a sorrowful show,\nWaves embrace the broken dreams,\nWest Pier sleeps in moon's cool gleam.",
+ "usage": {
+  "completion_tokens": 156,
+  "prompt_tokens": 50,
+  "total_tokens": 206,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  }
+ }
+}

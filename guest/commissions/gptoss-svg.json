@@ -1,0 +1,15 @@
+{
+ "service": "Pollinations.ai (Free API Classic, no account)",
+ "endpoint": "https://text.pollinations.ai/openai",
+ "model_requested": "openai-fast",
+ "model": "gpt-oss-20b",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained SVG document (viewBox 0 0 800 500), no external references, no scripts. SVG only.",
+ "date": "2026-10-25T22:18:32Z",
+ "kind": "svg",
+ "output": "```svg\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 500\">\n  <!-- background -->\n  <rect width=\"800\" height=\"500\" fill=\"#87CEFA\"/>\n  <!-- seascape -->\n  <defs>\n    <linearGradient id=\"water\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4A90E2\"/>\n      <stop offset=\"100%\" stop-color=\"#0066CC\"/>\n    </linearGradient>\n  </defs>\n  <rect y=\"350\" width=\"800\" height=\"150\" fill=\"url(#water)\"/>\n  <!-- sky detail -->\n  <defs>\n    <linearGradient id=\"sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#87CEEB\"/>\n      <stop offset=\"100%\" stop-color=\"#E0FFFF\"/>\n    </linearGradient>\n  </defs>\n  <rect y=\"0\" width=\"800\" height=\"350\" fill=\"url(#sky)\"/>\n  <!-- cloud -->\n  <ellipse cx=\"200\" cy=\"80\" rx=\"100\" ry=\"35\" fill=\"#FFFFFF\" opacity=\"0.8\"/>\n  <ellipse cx=\"250\" cy=\"90\" rx=\"80\" ry=\"30\" fill=\"#FFFFFF\" opacity=\"0.6\"/>\n  <!-- pier structure -->\n  <g stroke=\"#A0522D\" stroke-width=\"20\" stroke-linecap=\"round\">\n    <line x1=\"400\" y1=\"350\" x2=\"400\" y2=\"50\"/>\n    <line x1=\"350\" y1=\"380\" x2=\"450\" y2=\"380\"/>\n  </g>\n  <!-- damaged section -->\n  <g stroke=\"#A0522D\" stroke-width=\"20\" stroke-linecap=\"round\">\n    <line x1=\"400\" y1=\"120\" x2=\"460\" y2=\"160\" transform=\"rotate(-15 400 120)\"/>\n    <line x1=\"470\" y1=\"180\" x2=\"520\" y2=\"130\" transform=\"rotate(10 470 180)\"/>\n    <line x1=\"540\" y1=\"170\" x2=\"580\" y2=\"120\" transform=\"rotate(-5 540 170)\"/>\n  </g>\n  <!-- wooden beams -->\n  <rect x=\"500\" y=\"200\" width=\"250\" height=\"30\" fill=\"#DEB887\"/>\n  <rect x=\"530\" y=\"230\" width=\"200\" height=\"30\" fill=\"#DEB887\"/>\n  <rect x=\"560\" y=\"260\" width=\"150\" height=\"30\" fill=\"#DEB887\"/>\n  <!-- waves -->\n  <path d=\"M0 360 Q100 400 200 360 T400 360 T600 360 T800 360\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" opacity=\"0.6\"/>\n  <!-- text -->\n  <text x=\"400\" y=\"90\" font-family=\"Georgia\" font-size=\"34\" fill=\"#333\" text-anchor=\"middle\">Storm‑Touch of West Pier</text>\n</svg>\n```\n",
+ "usage": {
+  "prompt_tokens": 355,
+  "completion_tokens": 741,
+  "total_tokens": 1096
+ }
+}

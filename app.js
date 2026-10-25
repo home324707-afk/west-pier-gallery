@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 function show(n){i=(n+W.length)%W.length;const w=W[i];$('lbimg').src=w.src;
 const fig=$('lbimg').parentNode;fig.querySelectorAll('canvas').forEach(c=>c.remove());
 if(w.an&&window.WPAI&&!WPAI.reduce){const c=document.createElement('canvas');c.className='anim lbanim';Object.assign(c.dataset,{anim:w.an,src:w.as_,w:w.w,h:w.h,full:'1'});if(w.pp)c.dataset.p=JSON.stringify(w.pp);fig.append(c);requestAnimationFrame(()=>requestAnimationFrame(()=>WPAI.mount(c)))}
-$('lbk').textContent=w.k==='ai'?'AI-made · '+(w.f||'live generative work'):'Human-made';$('lbk').className='kindtag '+(w.k==='ai'?'ai':'hu');$('lbimg').alt=w.alt;$('lbt').textContent=w.t;$('lbo').innerHTML='Originally: '+w.o;$('lbc').textContent=w.c;
+$('lbk').textContent=w.k==='ai'?'AI-made · '+(w.f||'live generative work'):w.k==='guest'?'Guest AI · '+w.gm:'Human-made';$('lbk').className='kindtag '+(w.k==='ai'?'ai':w.k==='guest'?'gu':'hu');$('lbimg').alt=w.alt;$('lbt').textContent=w.t;$('lbo').innerHTML='Originally: '+w.o;$('lbc').textContent=w.c;
 $('lbl').innerHTML=`<a href="${w.lu}">${w.l}</a> · <a href="${w.p}">source</a> · <a href="work/${String(w.n).padStart(2,"0")}.html#wall">Discuss this view →</a>`;
 const pv=$('lbwall');if(pv&&window.wallPreview){pv.innerHTML='<p class="sig">Reading the wall…</p>';window.wallPreview(pv,'no'+w.n,3)};$('lbw').href=`work/${String(w.n).padStart(2,"0")}.html#wall`;$('lbw').textContent=`Write on the wall for No. ${w.n} →`;
 if(W[i+1]){const p=new Image();p.src=W[(i+1)%W.length].src}}
@@ -13,9 +13,9 @@ document.querySelectorAll('.card').forEach(c=>{c.addEventListener('click',()=>op
 $('lbx').onclick=close;$('lbp').onclick=()=>show(i-1);$('lbn').onclick=()=>show(i+1);
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='FIGURE')close()});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
-// filter: all / guess / human / ai
+// filter: all / guess / human / ai / guest
 document.querySelectorAll('.filter button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
-document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
+document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai'||f==='guest')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
 // AI by kind: show one family (click again to show all)
 function fam(k){document.body.classList.remove('guess');document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
 document.querySelectorAll('.famfilter button').forEach(x=>x.classList.toggle('on',x.dataset.fam===k));document.querySelectorAll('.card').forEach(c=>{c.hidden=!!k&&c.dataset.fam!==k})}
@@ -33,3 +33,4 @@ for(const b of B){const dx=ax-b.x+Math.sin(b.y*.01+t*9)*60,dy=ay-b.y+Math.cos(b.
 b.vx=b.vx*.96+dx/d*.55;b.vy=b.vy*.96+dy/d*.55;b.x+=b.vx;b.y+=b.vy;cx.fillRect(b.x,b.y,2.2*devicePixelRatio,1.4*devicePixelRatio)}
 requestAnimationFrame(f)})();
 })();
+const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.querySelector(`.filter button[data-f="${CSS.escape(qk)}"]`);if(b)b.click()}

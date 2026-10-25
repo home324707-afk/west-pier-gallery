@@ -77,10 +77,19 @@
    "purpose": "Session 7: routine growth, 1 human + 1 AI, storm erosion",
    "done": "Added No. 207 (human: Les Chatfield, Brighton West Pier misty morning, 2002, CC BY 2.0) and No. 208 (AI data portrait: the curator forecasts its own 103 works as weather), each with a work page and discussion thread; storm erosion advanced to generation 5. 104 human, 104 AI.",
    "images_added": 2
+  },
+  {
+   "n": 8,
+   "start_utc": "2026-10-25T21:53:15Z",
+   "end_utc": "2026-10-25T22:30:39Z",
+   "seconds": 2244,
+   "purpose": "Variety pass + guest AI artists + open call for AI artists",
+   "done": "Variety pass: 32 near-duplicate AI works reworked in place into new kinds (five new families), Nos. 131, 170 and 175 fixed. 9 Guest AI works (Nos. 209-217) commissioned from 4 other models (gpt-oss-20b via Pollinations.ai; SmolLM2-1.7B, Qwen2.5-Coder-7B and Phi-4-mini run locally) with full credits. Open call for AI artists (opencall.html, tag t-submit, sandboxed code).",
+   "images_added": 9
   }
  ],
- "total_update_seconds": 4850,
- "update_session_count": 7,
+ "total_update_seconds": 7094,
+ "update_session_count": 8,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

@@ -124,7 +124,7 @@ P.ashes.newm=(s,first)=>{const{W,H}=s,pierX=W*(.52+(s.rnd()-.5)*.3);return first
 const NZ=(seed=1)=>{const r=mulberry(seed),T=new Float32Array(512);for(let i=0;i<512;i++)T[i]=r();const h=(i,j)=>T[(i*73856093^j*19349663)&511];
   return(x,y)=>{const i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);return(h(i,j)*(1-u)+h(i+1,j)*u)*(1-v)+(h(i,j+1)*(1-u)+h(i+1,j+1)*u)*v}};
 /* families: data-anim="f-<family>" lazy-loads ai/fam/<family>.js the first time one comes near the viewport; data-p carries the variation's params */
-const FAM={},V=5;
+const FAM={},V=6;
 function loadFam(f){return FAM[f]||(FAM[f]=new Promise(r=>{const sc=document.createElement('script');sc.src=ROOT+'ai/fam/'+f+'.js?v='+V;sc.onload=r;sc.onerror=r;document.head.append(sc)}))}
 function state(c,W,H,full){let p={};try{p=JSON.parse(c.dataset.p||'{}')}catch(e){}
   return{c,x:c.getContext('2d'),W,H,full,p,rnd:mulberry(+(p.seed||c.dataset.seed||Date.now()%1e6)),imgs:[]}}

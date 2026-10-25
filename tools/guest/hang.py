@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Hang guest-AI works: every entry in data/guests.json with status "ready" gets a poster still (headless Chrome,
+guest code sandboxed), an artworks.json record (kind "guest"), and later a discussion thread (data/mkdisc.py).
+Usage: python3 tools/guest/hang.py [--no-disc]"""
+import json, os, sys, subprocess, datetime
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); os.chdir(ROOT)
+sys.path.insert(0, os.path.join(ROOT, 'tools/guest'))
+from render import Shooter
+G = json.load(open('data/guests.json')); A = json.load(open('data/artworks.json'))
+METHOD = {'poem': 'A poem, written by the model in reply to the brief and typeset by the gallery (the typesetting is the only thing the gallery added).',
+          'text': 'A text, written by the model in reply to the brief and typeset by the gallery.',
+          'svg': 'An SVG drawing, written by the model as code in reply to the brief and shown as written.',
+          'canvas': 'A JavaScript canvas sketch, written by the model in reply to the brief. It runs live on its page in a sandboxed frame; the poster is a frame of it.',
+          'image': 'An image, made by the model in reply to the brief.'}
+def save(im, n):
+    im.save(f'img/{n:03d}.jpg', quality=86); t = im.copy(); t.thumbnail((700, 700)); t.save(f'img/{n:03d}_t.jpg', quality=82); return im.size
+todo = [g for g in G if g.get('status') == 'ready']
+if not todo: print('nothing to hang'); sys.exit(0)
+with Shooter() as s:
+    for g in todo:
+        body = open(g['content']).read(); n = len(A) + 1
+        if g['type'] in ('poem', 'text'):
+            t = body.strip()
+            im = s.poem(g['title'], t.split('\n', 1)[1].strip() if g.get('title_line') else t, g['model'])
+        elif g['type'] == 'svg': im = s.svg(body)
+        elif g['type'] == 'canvas':
+            im, errs = s.canvas(body)
+            if errs: g['render_errors'] = errs[:5]
+        elif g['type'] == 'image':
+            from PIL import Image; im = Image.open(g['content']).convert('RGB'); im.thumbnail((1600, 1600))
+        else: print('skip', g['id'], g['type']); continue
+        w, h = save(im, n)
+        A.append(dict(n=n, kind='guest', src=f"Guest AI: {g['model']} via {g['service']}", file='guest:' + g['id'], orig_title=g['title'], artist=g['model'],
+                      date=g['date'][:10], lic=g['lic'], licurl=g['licurl'], page=f"https://github.com/home324707-afk/west-pier-gallery/blob/main/{g['file']}",
+                      dl='', desc='', method=METHOD[g['type']] + (' ' + g['note'] if g.get('note') else ''), sources=[], source_credit='',
+                      img=f'img/{n:03d}.jpg', w=w, h=h, guest={k: g.get(k) for k in ('id', 'type', 'source', 'service', 'endpoint', 'model', 'model_requested', 'prompt', 'date', 'settings', 'file', 'content', 'model_licence', 'model_licence_url', 'terms_note')}))
+        g['status'] = 'hung'; g['n'] = n; g['hung'] = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'); print('hung', n, g['id'], g['title'])
+json.dump(A, open('data/artworks.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(G, open('data/guests.json', 'w'), ensure_ascii=False, indent=1)
+if '--no-disc' not in sys.argv: subprocess.run([sys.executable, 'data/mkdisc.py'])

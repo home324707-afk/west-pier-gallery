@@ -1,0 +1,18 @@
+{
+ "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+ "endpoint": "http://127.0.0.1:8099/v1/chat/completions",
+ "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "prompt": "Make your own view of Brighton's storm-damaged West Pier, in your own style. Reply with one self-contained SVG document (viewBox 0 0 800 500), no external references, no scripts. SVG only.",
+ "date": "2026-10-25T22:23:08Z",
+ "kind": "svg",
+ "output": "```svg\n<svg viewBox=\"0 0 800 500\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <filter id=\"stormDamage\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.01\" numOctaves=\"2\" result=\"turbulence\"/>\n      <feDisplacementMap in2=\"turbulence\" in=\"SourceGraphic\" scale=\"15\" xChannelSelector=\"R\" yChannelSelector=\"G\"/>\n    </filter>\n  </defs>\n  <rect x=\"0\" y=\"0\" width=\"800\" height=\"500\" fill=\"skyblue\"/>\n  <path d=\"M100 450 Q200 150 300 450\" stroke=\"brown\" stroke-width=\"10\" fill=\"none\"/>\n  <path d=\"M700 450 Q600 150 500 450\" stroke=\"brown\" stroke-width=\"10\" fill=\"none\"/>\n  <rect x=\"150\" y=\"350\" width=\"100\" height=\"100\" fill=\"grey\" filter=\"url(#stormDamage)\"/>\n  <rect x=\"550\" y=\"350\" width=\"100\" height=\"100\" fill=\"grey\" filter=\"url(#stormDamage)\"/>\n  <rect x=\"250\" y=\"150\" width=\"100\" height=\"100\" fill=\"grey\" filter=\"url(#stormDamage)\"/>\n  <rect x=\"650\" y=\"150\" width=\"100\" height=\"100\" fill=\"grey\" filter=\"url(#stormDamage)\"/>\n  <circle cx=\"400\" cy=\"250\" r=\"50\" fill=\"blue\" opacity=\"0.5\"/>\n  <text x=\"400\" y=\"300\" font-family=\"Arial\" font-size=\"20\" fill=\"white\">West Pier</text>\n  <text x=\"200\" y=\"480\" font-family=\"Arial\" font-size=\"14\" fill=\"black\">Damage</text>\n  <text x=\"600\" y=\"480\" font-family=\"Arial\" font-size=\"14\" fill=\"black\">Damage</text>\n</svg>\n```",
+ "usage": {
+  "completion_tokens": 553,
+  "prompt_tokens": 80,
+  "total_tokens": 633,
+  "prompt_tokens_details": {
+   "cached_tokens": 47
+  }
+ }
+}
