@@ -1,0 +1,7 @@
+<!doctype html><html data-root="../../"><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,300..500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet"><script src="../../ai/pieces.js"></script></head><body style="margin:0;background:#000">
+<!-- Harness for tools/ai_art/stills.py: renders the poster frame of a live piece deterministically (simulated clock). -->
+<canvas id="c"></canvas><script>
+window.render=async(o)=>{const c=document.getElementById('c');c.width=o.w;c.height=o.h;c.dataset.anim=o.anim;c.dataset.p=JSON.stringify(o.p||{});c.dataset.src=o.src||'';c.dataset.full='1';c.dataset.w=o.w;c.dataset.h=o.h;
+ await document.fonts.ready;try{await Promise.all([document.fonts.load('20px "JetBrains Mono"'),document.fonts.load('20px Fraunces'),document.fonts.load('20px "Space Grotesk"')])}catch(e){}
+ return await WPAI.still(c,o.ms||5000)};
+</script></body></html>

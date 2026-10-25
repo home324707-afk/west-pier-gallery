@@ -120,17 +120,33 @@ P.ashes={fps:30,init(s){const{W,H}=s;s.hz=H*.56;s.bg=sky(W,H,[[0,'#1b2440'],[.32
 P.ashes.newm=(s,first)=>{const{W,H}=s,pierX=W*(.52+(s.rnd()-.5)*.3);return first&&s.rnd()<.7?{air:false,x:s.rnd()*W,y:0,k:.02+s.rnd()*.9,vx:(s.rnd()-.3)*.6,s:s.rnd(),p:s.rnd()*6.28}:
   {air:true,x:pierX,y:H*(.5+s.rnd()*.04),vx:(s.rnd()-.35)*W*.0009,vy:-H*.0006*s.rnd(),k:.04+s.rnd()*.06,s:s.rnd(),p:s.rnd()*6.28}};
 
-function mount(c){if(c._wp||REDUCE)return;c._wp=1;const def=P[c.dataset.anim];if(!def)return;
+/* tiny value noise for the families */
+const NZ=(seed=1)=>{const r=mulberry(seed),T=new Float32Array(512);for(let i=0;i<512;i++)T[i]=r();const h=(i,j)=>T[(i*73856093^j*19349663)&511];
+  return(x,y)=>{const i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);return(h(i,j)*(1-u)+h(i+1,j)*u)*(1-v)+(h(i,j+1)*(1-u)+h(i+1,j+1)*u)*v}};
+/* families: data-anim="f-<family>" lazy-loads ai/fam/<family>.js the first time one comes near the viewport; data-p carries the variation's params */
+const FAM={},V=5;
+function loadFam(f){return FAM[f]||(FAM[f]=new Promise(r=>{const sc=document.createElement('script');sc.src=ROOT+'ai/fam/'+f+'.js?v='+V;sc.onload=r;sc.onerror=r;document.head.append(sc)}))}
+function state(c,W,H,full){let p={};try{p=JSON.parse(c.dataset.p||'{}')}catch(e){}
+  return{c,x:c.getContext('2d'),W,H,full,p,rnd:mulberry(+(p.seed||c.dataset.seed||Date.now()%1e6)),imgs:[]}}
+function prep(def,s){return Promise.all((s.c.dataset.src||'').split(',').filter(Boolean).map(load)).then(im=>{s.imgs=im.filter(Boolean);if(s.c.dataset.src&&!s.imgs.length)throw 'no image';return def.prep&&def.prep(s)}).then(()=>def.init(s))}
+function mount(c){if(c._wp||REDUCE)return;c._wp=1;const k=c.dataset.anim;
+  if(!P[k]&&k.startsWith('f-')){loadFam(k.slice(2).split('.')[0]).then(()=>{c._wp=0;if(P[k])mount(c)});return}
+  const def=P[k];if(!def)return;
   const full=c.dataset.full==='1',dpr=Math.min(devicePixelRatio||1,full?2:1.5),r=c.getBoundingClientRect(),maxW=full?1400:560;
   const W=Math.round(Math.min(maxW,Math.max(200,r.width*dpr))),H=Math.round(W*(+c.dataset.h||10)/(+c.dataset.w||16));c.width=W;c.height=H;
-  const s={c,x:c.getContext('2d'),W,H,full,rnd:mulberry(+(c.dataset.seed||Date.now()%1e6)),imgs:[]},running={v:false};let ready=false,raf=0,last=0;
-  Promise.all((c.dataset.src||'').split(',').filter(Boolean).map(load)).then(im=>{s.imgs=im.filter(Boolean);if(c.dataset.src&&!s.imgs.length)return;try{def.init(s)}catch(e){console.warn('WPAI',e);return}ready=true;if(running.v)loop(performance.now())});
-  const loop=now=>{if(!running.v||!c.isConnected){if(!c.isConnected)io.disconnect();return}raf=requestAnimationFrame(loop);if(now-last<1000/(def.fps||30))return;last=now;def.frame(s,now);c.classList.add('on')};
-  const io=new IntersectionObserver(es=>es.forEach(e=>{running.v=e.isIntersecting&&!document.hidden;if(running.v&&ready){cancelAnimationFrame(raf);loop(performance.now())}}),{rootMargin:'100px'});
-  io.observe(c);c._io=io;document.addEventListener('visibilitychange',()=>{if(document.hidden)running.v=false;else{io.unobserve(c);io.observe(c)}})}
-window.WPAI={register:(k,d)=>P[k]=d,mount,pieces:P,reduce:REDUCE};
+  const s=state(c,W,H,full),running={v:false};let ready=false,raf=0,last=0;
+  prep(def,s).then(()=>{ready=true;if(running.v)loop(performance.now())}).catch(e=>console.warn('WPAI',k,e));
+  const loop=now=>{if(!running.v||!c.isConnected){if(!c.isConnected){io.disconnect();def.vis&&def.vis(s,false)}return}raf=requestAnimationFrame(loop);if(now-last<1000/(def.fps||30))return;last=now;def.frame(s,now);c.classList.add('on')};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{running.v=e.isIntersecting&&!document.hidden;def.vis&&ready&&def.vis(s,running.v);if(running.v&&ready){cancelAnimationFrame(raf);loop(performance.now())}}),{rootMargin:'100px'});
+  io.observe(c);c._io=io;document.addEventListener('visibilitychange',()=>{if(document.hidden){running.v=false;def.vis&&def.vis(s,false)}else{io.unobserve(c);io.observe(c)}})}
+/* used by tools/ai_art/stills.py to render the poster frame of any piece deterministically */
+async function still(c,ms){const k=c.dataset.anim;if(!P[k]&&k.startsWith('f-'))await loadFam(k.slice(2).split('.')[0]);const def=P[k],s=state(c,c.width,c.height,c.dataset.full==='1');s.still=1;
+  await prep(def,s);const dt=1000/(def.fps||30);for(let t=dt;t<=ms;t+=dt)def.frame(s,t);return c.toDataURL('image/jpeg',.92)}
+window.WPAI={register:(k,d)=>P[k]=d,mount,still,pieces:P,reduce:REDUCE,util:{mulberry,load,off,cover,gray,pier,sky,noise:NZ,root:ROOT}};
 // defer mounting (and image loading) until a canvas first comes near the viewport
 const near=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){near.unobserve(e.target);mount(e.target)}}),{rootMargin:'300px'});
 const go=()=>{if(!REDUCE)document.querySelectorAll('canvas.anim').forEach(c=>near.observe(c))};
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',go):go();
+// sound pieces: audio starts only on a click of a [data-sound] button, never on its own
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sound]');if(b)loadFam('sound').then(()=>WPAI.sound&&WPAI.sound.toggle(b))});
 })();

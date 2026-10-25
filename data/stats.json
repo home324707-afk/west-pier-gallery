@@ -59,10 +59,19 @@
    "purpose": "Session 5: routine growth, 1-3 works",
    "done": "Added 2 human views (No. 113 James Petts 2009, CC BY-SA 2.0; No. 114 Briantist 2002, Public domain, the morning people collected the pier's flotsam) with work pages and discussion threads; evolved the AI storm-erosion piece to generation 4.",
    "images_added": 2
+  },
+  {
+   "n": 6,
+   "start_utc": "2026-10-25T18:46:55Z",
+   "end_utc": "2026-10-25T19:23:17Z",
+   "seconds": 2182,
+   "purpose": "Restore AI/human balance: ~90 AI works across 10+ families",
+   "done": "Restored the AI/human balance at the curator's request: 92 new AI works (Nos. 115-206) in 13 families, each CC0 with a code-rendered still poster, a work page and a discussion thread; added an 'AI by kind' filter, family tags, full texts for the writing pieces, click-to-play sound, interactive notes, and documented the families in the README.",
+   "images_added": 92
   }
  ],
- "total_update_seconds": 2616,
- "update_session_count": 5,
+ "total_update_seconds": 4798,
+ "update_session_count": 6,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

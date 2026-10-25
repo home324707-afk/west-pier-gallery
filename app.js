@@ -2,8 +2,8 @@
 const $=id=>document.getElementById(id);
 function show(n){i=(n+W.length)%W.length;const w=W[i];$('lbimg').src=w.src;
 const fig=$('lbimg').parentNode;fig.querySelectorAll('canvas').forEach(c=>c.remove());
-if(w.an&&window.WPAI&&!WPAI.reduce){const c=document.createElement('canvas');c.className='anim lbanim';Object.assign(c.dataset,{anim:w.an,src:w.as_,w:w.w,h:w.h,full:'1'});fig.append(c);requestAnimationFrame(()=>requestAnimationFrame(()=>WPAI.mount(c)))}
-$('lbk').textContent=w.k==='ai'?'AI-made · live generative work':'Human-made';$('lbk').className='kindtag '+(w.k==='ai'?'ai':'hu');$('lbimg').alt=w.alt;$('lbt').textContent=w.t;$('lbo').innerHTML='Originally: '+w.o;$('lbc').textContent=w.c;
+if(w.an&&window.WPAI&&!WPAI.reduce){const c=document.createElement('canvas');c.className='anim lbanim';Object.assign(c.dataset,{anim:w.an,src:w.as_,w:w.w,h:w.h,full:'1'});if(w.pp)c.dataset.p=JSON.stringify(w.pp);fig.append(c);requestAnimationFrame(()=>requestAnimationFrame(()=>WPAI.mount(c)))}
+$('lbk').textContent=w.k==='ai'?'AI-made · '+(w.f||'live generative work'):'Human-made';$('lbk').className='kindtag '+(w.k==='ai'?'ai':'hu');$('lbimg').alt=w.alt;$('lbt').textContent=w.t;$('lbo').innerHTML='Originally: '+w.o;$('lbc').textContent=w.c;
 $('lbl').innerHTML=`<a href="${w.lu}">${w.l}</a> · <a href="${w.p}">source</a> · <a href="work/${String(w.n).padStart(2,"0")}.html#wall">Discuss this view →</a>`;
 const pv=$('lbwall');if(pv&&window.wallPreview){pv.innerHTML='<p class="sig">Reading the wall…</p>';window.wallPreview(pv,'no'+w.n,3)};$('lbw').href=`work/${String(w.n).padStart(2,"0")}.html#wall`;$('lbw').textContent=`Write on the wall for No. ${w.n} →`;
 if(W[i+1]){const p=new Image();p.src=W[(i+1)%W.length].src}}
@@ -15,7 +15,12 @@ lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='FIGURE')cl
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
 // filter: all / guess / human / ai
 document.querySelectorAll('.filter button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
-document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
+document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
+// AI by kind: show one family (click again to show all)
+function fam(k){document.body.classList.remove('guess');document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
+document.querySelectorAll('.famfilter button').forEach(x=>x.classList.toggle('on',x.dataset.fam===k));document.querySelectorAll('.card').forEach(c=>{c.hidden=!!k&&c.dataset.fam!==k})}
+document.querySelectorAll('.famfilter button').forEach(b=>b.addEventListener('click',()=>{const k=b.classList.contains('on')?'':b.dataset.fam;fam(k);history.replaceState(null,'',k?'?fam='+k+'#views':location.pathname)}));
+const qf=new URLSearchParams(location.search).get('fam');if(qf&&document.querySelector(`.famfilter button[data-fam="${CSS.escape(qf)}"]`))fam(qf);
 document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{if(document.body.classList.contains('guess'))c.classList.add('revealed')}));
 // murmuration: a few hundred starlings following a wandering attractor
 const cv=document.getElementById('murm');if(!cv||matchMedia('(prefers-reduced-motion: reduce)').matches)return;

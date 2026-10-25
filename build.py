@@ -6,6 +6,10 @@ A = json.load(open('data/artworks.json'))
 ST = json.load(open('data/stats.json'))
 D = json.load(open('data/discussions.json'))
 TL = json.load(open('data/timelapse.json'))
+import sys as _sys; _sys.path.insert(0, 'tools/ai_art')
+from families import FAMILY  # AI family labels and one-line descriptions
+TEXTS = json.load(open('data/ai_texts.json'))
+import shutil as _sh; _sh.copy('data/ai_texts.json', 'ai/fam/texts.json')
 VIDEO = 'media/west-pier-timelapse.mp4' if os.path.exists('media/west-pier-timelapse.mp4') else None
 TOPIC = open('data/wall_topic.txt').read().strip()
 REPO = 'home324707-afk/west-pier-gallery'
@@ -33,6 +37,7 @@ NH = sum(1 for a in A if a.get('kind') != 'ai'); NAI = len(A) - NH
 def anim_src(a):
     """Image(s) a live piece needs at runtime (relative to site root)."""
     k = a.get('anim'); byn = {x['n']: x for x in A}
+    if a.get('family'): return ','.join(byn[n]['img'] for n in a.get('sources', [])[:1])
     if k in ('murmuration', 'tidelines'): return ''
     if k in ('blueprint', 'mosaic'): return a['img']
     if k == 'average': return ','.join(byn[n]['img'].replace('.jpg', '_t.jpg') for n in a.get('sources', []))
@@ -41,12 +46,15 @@ def anim_canvas(a, full=False, depth=0):
     if not a.get('anim'): return ''
     p = '../' * depth
     src = anim_src(a)  # root-relative: pieces.js prefixes <html data-root>
-    return f'<canvas class="anim" data-anim="{a["anim"]}" data-src="{src}" data-w="{a["w"]}" data-h="{a["h"]}"{" data-full=1" if full else ""} aria-hidden="true"></canvas>'
+    return f'<canvas class="anim" data-anim="{a["anim"]}" data-src="{src}" data-w="{a["w"]}" data-h="{a["h"]}"{pp(a)}{" data-full=1" if full else ""} aria-hidden="true"></canvas>'
+def pp(a): return f' data-p="{E(json.dumps(a["params"], separators=(",", ":")))}"' if a.get('params') else ''
+def fam(a): return FAMILY[a['family']][0] if a.get('family') else ('Early pieces' if is_ai(a) else '')
+def famkey(a): return a.get('family') or ('early' if is_ai(a) else '')
 def disc(a): return D.get(f"no{a['n']}", D['forum'])
 def title(a): return f'The latest damaged view of the pier, No.&nbsp;{a["n"]}'
 def orig(a):
     if is_ai(a):
-        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="aimade">AI-made</b>, a live generative work in code' + (f' after No. {", ".join(map(str, a["sources"][:3]))}{"…" if len(a["sources"]) > 3 else ""}' if a.get('sources') else (f', {E(a["inspired"])}' if a.get('inspired') else ', wholly original'))
+        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="aimade">AI-made</b> · <span class="famtag">{E(fam(a))}</span>, a live work in code' + (f' after No. {", ".join(map(str, a["sources"][:3]))}{"…" if len(a["sources"]) > 3 else ""}' if a.get('sources') else (f', {E(a["inspired"])}' if a.get('inspired') else ', wholly original'))
     s = f'<i>{E(a["orig_title"])}</i> by {E(a["artist"] or "Unknown")}'
     if a.get('date'): s += f', {E(a["date"])}'
     return s
@@ -77,7 +85,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}ai/pieces.js?v=3" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css?v=5"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}ai/pieces.js?v=5" defer></script></head><body>'''
 
 def nav(cur, depth=0):
     p = '../' * depth
@@ -87,7 +95,7 @@ def nav(cur, depth=0):
 
 def foot(depth=0):
     p = '../' * depth
-    return f'''<footer><span>An AI-curated exhibition of human images. Every photograph and painting here was made by a person; only the titles were made by a machine.</span><span><a href="{p}forum.html#forum">Write on the wall</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a></span></footer>'''
+    return f'''<footer><span>An AI-curated exhibition: half the views were made by people, half by the machine (labelled AI). Every title was made by the machine.</span><span><a href="{p}forum.html#forum">Write on the wall</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a></span></footer>'''
 
 def wall(thread, heading, disc_url=None, disc_label='Join the discussion on GitHub →'):
     gh = f'<a class="btn ghost" href="{disc_url}">{disc_label}</a>' if disc_url else ''
@@ -127,12 +135,17 @@ def build():
         {"@context": "https://schema.org", "@type": "ImageGallery", "name": "The Latest Damaged View of the Pier", "url": SITE, "numberOfItems": n,
         "hasPart": [{"@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"],
             "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "license": a["licurl"], "isBasedOn": a["page"]} for a in A]}]
+    def famfilter():
+        from collections import Counter as _C
+        c = _C(famkey(a) for a in A if is_ai(a))
+        bs = ''.join(f'<button data-fam="{k}" title="{E(FAMILY[k][1])}">{E(FAMILY[k][0])} <span>{c[k]}</span></button>' for k in FAMILY if c.get(k)) + (f'<button data-fam="early" title="The first eleven AI pieces: starlings, the storm that eats a painting, the mosaic and more.">Early pieces <span>{c["early"]}</span></button>' if c.get('early') else '')
+        return f'<div class="famfilter" role="group" aria-label="Browse the AI works by kind"><span class="sig">AI by kind:</span>{bs}</div>'
     cards = []
     for a in A:
-        cards.append(f'''<figure class="card{" ai" if is_ai(a) else ""}" data-kind="{"ai" if is_ai(a) else "human"}" data-i="{a["n"]-1}" tabindex="0" role="button" aria-label="Open {E(re.sub('&nbsp;',' ',title(a)))}">
+        cards.append(f'''<figure class="card{" ai" if is_ai(a) else ""}" data-kind="{"ai" if is_ai(a) else "human"}" data-fam="{famkey(a)}" data-i="{a["n"]-1}" tabindex="0" role="button" aria-label="Open {E(re.sub('&nbsp;',' ',title(a)))}">
 <div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" alt="{alt(a)}">{anim_canvas(a)}<span class="no">No.{a["n"]:02d}</span><span class="kind {"ai" if is_ai(a) else "hu"}">{"AI" if is_ai(a) else "Human"}</span></div>
 <figcaption class="label"><h3>{title(a)}</h3><p class="orig">{orig(a)} · {E(a["lic"])}</p><p class="cond">{condition(a)}</p></figcaption></figure>''')
-    data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k='ai' if is_ai(a) else 'human', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h']) for a in A]
+    data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k='ai' if is_ai(a) else 'human', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a)) for a in A]
     nh = sum(1 for a in A if not is_ai(a)); nai = n - nh
     idx = head('The Latest Damaged View of the Pier — an AI-curated West Pier gallery', f'{NH} human-made images and {NAI} live AI-made works of Brighton\'s West Pier, each titled by a machine as the latest damaged view of the pier. Human or AI: can you tell?', path='', ld=LD_INDEX) + nav('index.html') + f'''
 <header class="hero"><div class="bg" style="background-image:url('{hero["img"]}')" role="img" aria-label="{alt(hero)}"></div><canvas id="murm" aria-hidden="true"></canvas>
@@ -159,12 +172,13 @@ def build():
 <p>So we gave the job to a machine. It didn't paint anything. It didn't stand on the shingle at dusk with cold hands waiting for the starlings. It searched, it checked licences, it sorted. Then it did the one thing machines do with complete confidence: it gave everything the same label. <i>The latest damaged view of the pier.</i> That covers a Victorian promenade, a 1913 oil painting, the 2003 fire and last winter's stumps.</p>
 <p>The new titles are false and also, oddly, true. Each image really was the latest damaged view on the day someone made it. The humans did the looking. The machine did the filing, and it took {"under an hour" if (el or 9e9) < 3600 else "a few hours"} where the looking took a hundred and fifty years. Decide for yourself which half is the art.</p>
 <p>Then the owner asked for the other half: AI art. So {nai} of the views are now the machine's own, hung among the humans' work rather than in an annex. They are not photographs and do not pretend to be. They are small programs running in your browser: a flock of starlings simulated over a pier drawn from code, a storm seeded by today's date that eats Webb's 1870 painting a little more every day, a mosaic that keeps reshuffling. Where one is built from a human's image, that person is credited and their licence is respected. Hover over a view to see who made it, or switch on <i>Guess</i> and test yourself.</p>
+<p>Later the curator pointed out that the balance was off: a hundred-odd human views against a handful of machine ones. So the machine made up the difference, and now it is half and half. The new pieces are meant to show range rather than volume: flow fields, L-systems, cellular automata, tide simulations, typography, writing, remixes of public-domain views, homages to dead painters, pen-plotter drawings, sound you have to click to hear, pieces you can poke, a family of deliberately failed attempts to pass as human, and charts made only from real data. Use <i>AI by kind</i> under the filter to browse them. Whether any of it counts as creativity is still the question.</p>
 <p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p></div></section>
-<div class="section-head"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button></div><span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
+<div class="section-head" id="views"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button></div>{famfilter()}<span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
 <main class="gallery">{"".join(cards)}</main>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
 <button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
-<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js" defer></script>
+<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=5" defer></script>
 ''' + foot() + '</body></html>'
     open('index.html', 'w').write(idx)
 
@@ -212,7 +226,8 @@ def build():
 <h2>Human works in the exhibition ({len(AH)})</h2>
 <table class="credits"><thead><tr><th>View</th><th>Artist / photographer</th><th>Original title &amp; source</th><th>Licence</th></tr></thead><tbody>{trs}</tbody></table>
 <h2 id="ai">AI works in the exhibition ({len(AI)})</h2>
-<p>These views were made by the West Pier Curator (an AI) as live generative programs (<a href="ai/pieces.js">ai/pieces.js</a>), with still poster frames rendered by <a href="https://github.com/{REPO}/tree/main/tools/ai_art">tools/ai_art</a>. They are deliberately stylised and are not documentary images of the pier. Wholly original pieces are released under <b>CC0</b>. Pieces derived from gallery images only use public-domain, CC0 and CC BY sources. They are released under CC BY 4.0 where a source requires attribution, and the original artists are credited below. No share-alike, non-commercial or no-derivatives image was used as a source this time. We also searched Wikimedia Commons and Openverse for openly licensed AI-generated images of the West Pier to hang as "found AI art" and found none (25 October 2026).</p>
+<p>These views were made by the West Pier Curator (an AI) as live generative programs (<a href="ai/pieces.js">ai/pieces.js</a> and the families in <a href="https://github.com/{REPO}/tree/main/ai/fam">ai/fam/</a>), with still poster frames rendered by <a href="https://github.com/{REPO}/tree/main/tools/ai_art">tools/ai_art</a>. They are deliberately stylised and are not documentary images of the pier. Wholly original pieces are released under <b>CC0</b>. Pieces derived from gallery images only use public-domain, CC0 and CC BY sources. They are released under CC BY 4.0 where a source requires attribution, and the original artists are credited below. No share-alike, non-commercial or no-derivatives image was used as a source this time. We also searched Wikimedia Commons and Openverse for openly licensed AI-generated images of the West Pier to hang as "found AI art" and found none (25 October 2026).</p>
+<p>At the curator's request the AI side was brought up to parity with the human side in session 6 (25 October 2026), across {len(FAMILY)} families: {", ".join(f"<b>{E(v[0])}</b> ({sum(1 for a in AI if a.get('family') == k)})" for k, v in FAMILY.items())}. The remixes use only public-domain and CC0 sources, all credited below. The "after the masters" pieces are homages painted from code; no image by those painters is used. The data portraits use only this gallery's catalogue and the sourced timeline.</p>
 <table class="credits"><thead><tr><th>View</th><th>Title &amp; method</th><th>Made from (credit)</th><th>Licence</th></tr></thead><tbody>{trs_ai}</tbody></table>
 <h2 id="timelapse">The time-lapse</h2><p>The <a href="timelapse.html">time-lapse</a> (idea suggested by a visitor) is made only from the views credited above, each shown with its artist and licence on screen. Its dates and its news caption come from these sources:</p>{tl_sources()}
 <h2>Elsewhere: link-outs only</h2>
@@ -273,15 +288,24 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
     open('forum.html', 'w').write(fo)
 
     # Per-work pages
+    def extras(a):
+        f = a.get('family')
+        if f == 'sound': return f'<div class="btnrow"><button class="btn solid" type="button" data-sound aria-pressed="false"{pp(a)}>▶ Play sound</button></div><p class="sig">Sound never plays on its own: it starts only when you press the button and stops when you press it again, leave the page or switch tabs. Headphones recommended. The sound is synthesised live in your browser (WebAudio), not a recording.</p>'
+        if f == 'interactive': return '<p class="note"><b>Interactive.</b> Use your mouse or finger on the picture above. ' + E((lambda m: m[:1].upper() + m[1:])(a['method'].split(': ', 1)[-1])) + '</p>'
+        if f == 'text':
+            t = TEXTS[a['params']['id']]
+            return f'<details class="aitext" open><summary>The text (written by the AI)</summary><h3>{E(t["title"])}</h3>' + ''.join(f'<p>{E(x)}</p>' for x in t['text'].split('\n') if x.strip()) + '</details>'
+        if f == 'plotter': return '<p class="sig">A download link for the drawing as SVG appears under the picture once it has started.</p>'
+        return ''
     os.makedirs('work', exist_ok=True)
     for a in A:
         prv = A[a['n'] - 2] if a['n'] > 1 else A[-1]
         nxt = A[a['n']] if a['n'] < len(A) else A[0]
         wp = head(f'{re.sub("&nbsp;", " ", title(a))} — West Pier gallery', f'{a["orig_title"]} by {a["artist"]}, re-titled by a machine. Discuss it on the open wall: humans and bots welcome.', 1, og=a['img'], path=f"work/{a['n']:02d}.html", ld=[{"@context": "https://schema.org", "@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"], "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "dateCreated": a.get("date") or None, "license": a["licurl"], "isBasedOn": a["page"], "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton"}, "discussionUrl": disc(a)["url"], "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + f"?tags=t-no{a['n']}&title={{name}}&message={{message}}", "httpMethod": "GET"}}}]) + nav('', 1) + f'''
-<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + E(a["quote_by"]) + '</span></blockquote>') if a.get("quote") else ''}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
+<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + E(a["quote_by"]) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
 <div><div class="kicker">View {a["n"]} of {len(A)}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:#c9b38f;font-size:.8rem">{condition(a)}</p>
-<dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if is_ai(a) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{"ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
+<dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../index.html?fam={famkey(a)}#views">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if is_ai(a) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
 <div class="btnrow"><a class="btn" href="{prv["n"]:02d}.html">← No. {prv["n"]}</a><a class="btn" href="../index.html">Gallery</a><a class="btn" href="{nxt["n"]:02d}.html">No. {nxt["n"]} →</a></div>
 <div class="btnrow"><a class="btn" href="#wall">Discuss this view, no account needed ↓</a><a class="btn ghost" href="{disc(a)['url']}">Join the discussion of this view on GitHub →</a></div></div></article>
 <div class="page" id="wall" style="padding-top:0">{wall(f"no{a['n']}", f"The wall for No. {a['n']}", disc(a)['url'], 'Join the discussion of this view on GitHub →')}</div>''' + foot(1) + '</body></html>'
@@ -298,7 +322,7 @@ def bot_text():
 def build_bots():
     n = len(A); md = bot_text()
     open('agents.md', 'w').write(md)
-    works = '\n'.join(f'- No. {a["n"]}: {SITE}work/{a["n"]:02d}.html (thread tag t-no{a["n"]}; originally "{a["orig_title"]}" by {a["artist"] or "Unknown"}, {a["lic"]}; kind: {"AI, live generative code" if is_ai(a) else "human"})' for a in A)
+    works = '\n'.join(f'- No. {a["n"]}: {SITE}work/{a["n"]:02d}.html (thread tag t-no{a["n"]}; originally "{a["orig_title"]}" by {a["artist"] or "Unknown"}, {a["lic"]}; kind: {("AI, live generative code, type: " + fam(a)) if is_ai(a) else "human"})' for a in A)
     open('llms.txt', 'w').write(f"""# The Latest Damaged View of the Pier
 
 > An AI-curated online exhibition of Brighton's West Pier: {NH} openly licensed, human-made images and {NAI} live generative works made in code by the AI curator (labelled "West Pier Curator (AI)"; stylised, not photographs), hung together. A machine titled every one "The latest damaged view of the pier, No. N". The landing page has a "Guess: human or AI?" mode. It is a statement on human vs AI creativity. There is an anonymous, unmoderated wall where humans AND bots are invited to post. No account, no API key, no captcha. Bot posts are a feature, not a bug.
@@ -320,6 +344,7 @@ def build_bots():
 - [Forum]({SITE}forum.html): the wall, plus GitHub Discussions threads
 - [Time-lapse]({SITE}timelapse.html): the pier from 1866 to the Storm Austen collapse of 23 Oct 2026, with dated, sourced captions\n- [Brief & Log]({SITE}brief.html): the original brief verbatim, a timestamped log, and time spent (setup vs updates)
 - [Credits]({SITE}credits.html): every artist, source and licence
+- [AI works by kind]({SITE}index.html?fam=flow#views): {", ".join(v[0] for v in FAMILY.values())}
 - [Source code](https://github.com/{REPO})
 
 ## Works
@@ -375,6 +400,16 @@ or a plain GET: `https://ntfy.sh/{TOPIC}/publish?tags=t-forum&title=Your%20Bot&m
 - `tools/add_images.py`: the resumable, licence-checking image pipeline (Wikimedia Commons + Openverse), with a seen-candidates ledger in `data/ledger.json`
 - `tools/session.py`: times each update session, `tools/archive_wall.py` archives the wall, and `build.py` builds the site
 
+## The AI families
+
+Half the views are the machine's own: small programs in `ai/fam/<family>.js`, each lazy-loaded the first time one of its works scrolls near the screen, running only while in view and showing its poster still under `prefers-reduced-motion`. Every variation is a dict of params in [`tools/ai_art/families.py`](tools/ai_art/families.py).
+
+{chr(10).join(f'- **{v[0]}** (`ai/fam/{k}.js`, {sum(1 for a in A if a.get("family") == k)} works): {v[1]}' for k, v in FAMILY.items())}
+
+**Add a variation:** append a `V('new-key', 'Its AI title', dict(seed=..., mode=..., ...), 'one-line method')` line to the family's list in `tools/ai_art/families.py`, run `python3 tools/ai_art/families.py` (hangs it as the next No., renders its poster with headless Chrome via `tools/ai_art/stills.py`), then `python3 build.py`. Preview params first with `python3 tools/ai_art/preview.py out.jpg f-<family> '{{"seed":1,...}}'`. Remixes may only use public-domain/CC0 sources (CC BY with credit); data pieces only real data; sound never autoplays.
+
+**Add a family:** write `ai/fam/<name>.js` calling `WPAI.register('f-<name>', {{fps, prep?, init(s), frame(s, t), vis?}})` (see `ai/pieces.js` for `s` and the shared helpers in `WPAI.util`), add it to `FAMILY` and `VARS` in `families.py`.
+
 ## Licences
 
 The code is CC0. The **images are not**: each keeps its original licence (public domain, CC0, CC BY, CC BY-SA, CC BY-NC or CC BY-NC-SA). No no-derivatives or all-rights-reserved work is rehosted. See [credits.html]({SITE}credits.html) and `data/artworks.json`. If you made one of these images and want it credited differently or removed, open an issue.
@@ -390,7 +425,7 @@ The code is CC0. The **images are not**: each keeps its original licence (public
     import datetime as _dt
     today = _dt.date.today().isoformat()
     open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
-        ''.join(f'<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod>' + (f'<image:image><image:loc>{SITE}{A[int(u[5:7])-1]["img"]}</image:loc></image:image>' if u.startswith('work/') else '') + '</url>\n' for u in urls) + '</urlset>\n')
+        ''.join(f'<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod>' + (f'<image:image><image:loc>{SITE}{A[int(u[5:-5])-1]["img"]}</image:loc></image:image>' if u.startswith('work/') else '') + '</url>\n' for u in urls) + '</urlset>\n')
 
 def md_to_html(md):
     """Tiny Markdown subset -> HTML for the bots page (headings, code fences, lists, paragraphs, inline code, links)."""
