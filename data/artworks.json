@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 3.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 4.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 3
+  "generation": 4
  },
  {
   "src": "Flickr (via Openverse)",
@@ -2219,5 +2219,39 @@
   "img": "img/112.jpg",
   "w": 1024,
   "h": 768
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Seagull over West Pier (7025255165).jpg",
+  "orig_title": "Seagull over West Pier",
+  "artist": "James Petts from London, England",
+  "date": "2009-08-31",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Seagull_over_West_Pier_(7025255165).jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Seagull_over_West_Pier_%287025255165%29.jpg/1920px-Seagull_over_West_Pier_%287025255165%29.jpg",
+  "desc": "Brighton, England",
+  "kind": "human",
+  "n": 113,
+  "img": "img/113.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Collectingwestpier291202.jpg",
+  "orig_title": "Collectingwestpier291202",
+  "artist": "Briantist",
+  "date": "2002-12-29",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Collectingwestpier291202.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Collectingwestpier291202.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "There's mist, rain and waves lashing, but the good people of Brighton collect the flotsam and jetsam of the West Pier, 29 December 2002.  Any true Brightonian will show you their's!",
+  "kind": "human",
+  "n": 114,
+  "img": "img/114.jpg",
+  "w": 1344,
+  "h": 668
  }
 ]
