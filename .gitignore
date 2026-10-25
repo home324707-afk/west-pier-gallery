@@ -1,0 +1,10 @@
+data/*.py
+data/commons_files.json
+data/commons_meta.json
+data/openverse_raw.json
+data/openverse_log.json
+data/ov_cands.json
+data/selection.json
+data/sheet*.jpg
+data/sheet_index.json
+__pycache__/
