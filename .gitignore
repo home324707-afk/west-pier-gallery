@@ -8,3 +8,4 @@ data/selection.json
 data/sheet*.jpg
 data/sheet_index.json
 __pycache__/
+data/work/

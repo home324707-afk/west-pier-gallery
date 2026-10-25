@@ -93,3 +93,42 @@ button.btn{background:none;color:var(--ink);cursor:pointer;font:inherit;font-siz
 .wall-list li b{color:var(--rust);font-weight:400}
 .wall-list li p{margin:.35rem 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
 .wall-list .empty{color:var(--dim);font-style:italic}
+/* phase 2: the wall as the call to action */
+.btn.solid{background:var(--rust);color:#fff;border-color:var(--rust)}
+.btn.solid:hover{background:#e0683a;border-color:#e0683a}
+nav.top .navcta{flex:none;background:var(--rust);color:#fff;padding:.5rem .9rem;border-radius:2px;letter-spacing:.1em;font-size:.78rem;box-shadow:0 0 0 0 rgba(196,86,43,.6);animation:ctapulse 2.8s infinite}
+nav.top .navcta span{display:block;font-size:.58rem;opacity:.85;letter-spacing:.18em}
+nav.top .navcta:hover{background:#e0683a}
+@keyframes ctapulse{0%{box-shadow:0 0 0 0 rgba(196,86,43,.55)}70%{box-shadow:0 0 0 12px rgba(196,86,43,0)}100%{box-shadow:0 0 0 0 rgba(196,86,43,0)}}
+@media (prefers-reduced-motion:reduce){nav.top .navcta{animation:none}}
+@media (max-width:760px){nav.top .navcta{position:fixed;right:1rem;bottom:1rem;z-index:60;font-size:.8rem;padding:.75rem 1rem}}
+.stats{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cta-wall{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,4rem);padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,3rem);background:linear-gradient(135deg,#2a120a 0%,#0b1418 55%),var(--sea);border-top:3px solid var(--rust);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.cta-wall:before{content:"WRITE ON THE WALL · HUMANS · BOTS · SPAM WELCOME · ";position:absolute;inset:auto -10% -1.2rem auto;font-family:"Fraunces",serif;font-style:italic;font-size:9rem;line-height:1;color:rgba(196,86,43,.07);white-space:nowrap;pointer-events:none}
+.cta-wall h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2.4rem,6vw,4.8rem);line-height:.98;margin:.4rem 0 1rem}
+.cta-wall h2 em{color:var(--rust)}
+.cta-wall h2 span{font-style:italic}
+.cta-wall p{max-width:38rem}
+.quickpost{display:grid;gap:.6rem;max-width:36rem;margin-top:1.4rem}
+.quickpost input,.quickpost textarea{background:rgba(0,0,0,.35);border:1px solid var(--line);color:var(--ink);font:inherit;padding:.7rem .8rem}
+.quickpost input:focus,.quickpost textarea:focus{outline:2px solid var(--rust)}
+.cta-live{background:rgba(0,0,0,.28);border:1px solid var(--line);padding:1.2rem 1.4rem;align-self:start}
+.cta-live h3{margin:0;font-family:"Fraunces",serif;font-weight:400;font-size:1.3rem}
+.live{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#7fd18b;letter-spacing:.1em;margin-left:.5rem;animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.35}}
+.wall-list.mini{list-style:none;padding:0;margin:.8rem 0 0}
+.wall-list.mini li{border-top:1px solid var(--line);padding:.6rem 0;font-size:.9rem}
+.wall-list.mini li div{font-size:.72rem;color:var(--dim);font-family:"JetBrains Mono",monospace}
+.wall-list.mini li p{margin:.25rem 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.wall-list li.fresh{animation:fresh 2.5s ease-out}
+@keyframes fresh{from{background:rgba(196,86,43,.35)}to{background:transparent}}
+.lbwall{margin-top:1rem;border-top:1px solid var(--line);padding-top:.8rem}
+.lbwall .wall-list.mini li{font-size:.8rem}
+@media (max-width:860px){.cta-wall{grid-template-columns:1fr}}
+.bots .lede{font-size:1.15rem;max-width:44rem}
+.bots select{background:rgba(0,0,0,.35);color:var(--ink);border:1px solid var(--line);font:inherit;padding:.5rem;display:block;margin-top:.3rem}
+.bots h2{margin-top:2.4rem}
+.lb.open{overflow-y:auto}.lbwall{text-align:left;max-width:640px;margin-left:auto;margin-right:auto}.lbwall .btn{margin-top:.6rem}
+@media (min-width:1000px){.lb{grid-template-columns:1fr 380px;grid-template-rows:1fr;gap:1.5rem;padding:1rem 4.5rem 1rem 4rem}
+.lb img{max-height:calc(100vh - 2rem)}.lb .cap{text-align:left;align-self:center;padding:3rem 0 1rem;max-height:100vh;overflow-y:auto}.lb .next{right:1rem}.lb .cap h3{font-size:1.7rem}}
+@media (max-width:999px){.lb img{max-height:58vh}.lb{grid-template-rows:auto auto}}
