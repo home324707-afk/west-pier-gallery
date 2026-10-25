@@ -38,7 +38,7 @@ def anim_src(a):
 def anim_canvas(a, full=False, depth=0):
     if not a.get('anim'): return ''
     p = '../' * depth
-    src = ','.join(p + x for x in anim_src(a).split(',') if x) if depth else anim_src(a)
+    src = anim_src(a)  # root-relative: pieces.js prefixes <html data-root>
     return f'<canvas class="anim" data-anim="{a["anim"]}" data-src="{src}" data-w="{a["w"]}" data-h="{a["h"]}"{" data-full=1" if full else ""} aria-hidden="true"></canvas>'
 def disc(a): return D.get(f"no{a['n']}", D['forum'])
 def title(a): return f'The latest damaged view of the pier, No.&nbsp;{a["n"]}'
@@ -63,7 +63,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}ai/pieces.js" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}ai/pieces.js?v=3" defer></script></head><body>'''
 
 def nav(cur, depth=0):
     p = '../' * depth

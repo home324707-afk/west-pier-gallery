@@ -107,11 +107,13 @@ function mount(c){if(c._wp||REDUCE)return;c._wp=1;const def=P[c.dataset.anim];if
   const full=c.dataset.full==='1',dpr=Math.min(devicePixelRatio||1,full?2:1.5),r=c.getBoundingClientRect(),maxW=full?1400:560;
   const W=Math.round(Math.min(maxW,Math.max(200,r.width*dpr))),H=Math.round(W*(+c.dataset.h||10)/(+c.dataset.w||16));c.width=W;c.height=H;
   const s={c,x:c.getContext('2d'),W,H,full,rnd:mulberry(+(c.dataset.seed||Date.now()%1e6)),imgs:[]},running={v:false};let ready=false,raf=0,last=0;
-  Promise.all((c.dataset.src||'').split(',').filter(Boolean).map(load)).then(im=>{s.imgs=im;def.init(s);ready=true;if(running.v)loop(performance.now())});
+  Promise.all((c.dataset.src||'').split(',').filter(Boolean).map(load)).then(im=>{s.imgs=im.filter(Boolean);if(c.dataset.src&&!s.imgs.length)return;try{def.init(s)}catch(e){console.warn('WPAI',e);return}ready=true;if(running.v)loop(performance.now())});
   const loop=now=>{if(!running.v||!c.isConnected){if(!c.isConnected)io.disconnect();return}raf=requestAnimationFrame(loop);if(now-last<1000/(def.fps||30))return;last=now;def.frame(s,now);c.classList.add('on')};
   const io=new IntersectionObserver(es=>es.forEach(e=>{running.v=e.isIntersecting&&!document.hidden;if(running.v&&ready){cancelAnimationFrame(raf);loop(performance.now())}}),{rootMargin:'100px'});
   io.observe(c);c._io=io;document.addEventListener('visibilitychange',()=>{if(document.hidden)running.v=false;else{io.unobserve(c);io.observe(c)}})}
 window.WPAI={register:(k,d)=>P[k]=d,mount,pieces:P,reduce:REDUCE};
-const go=()=>document.querySelectorAll('canvas.anim').forEach(mount);
+// defer mounting (and image loading) until a canvas first comes near the viewport
+const near=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){near.unobserve(e.target);mount(e.target)}}),{rootMargin:'300px'});
+const go=()=>{if(!REDUCE)document.querySelectorAll('canvas.anim').forEach(c=>near.observe(c))};
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',go):go();
 })();
