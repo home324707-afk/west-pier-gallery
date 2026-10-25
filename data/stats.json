@@ -2,10 +2,10 @@
  "commons_category_files": 571,
  "commons_total_unique": 597,
  "openverse_unique": 669,
- "candidates_total": 1266,
+ "candidates_total": 1874,
  "commons_meta_fetched": 447,
- "thumbs_reviewed": 424,
- "rehosted": 66,
+ "thumbs_reviewed": 773,
+ "rehosted": 97,
  "start_utc": "2026-10-25T06:43:00Z",
  "publish_utc": "2026-10-25T06:59:40Z",
  "publish_basis": "first HTTP 200 from the live GitHub Pages URL",
@@ -13,7 +13,7 @@
  "setup_seconds": 1000,
  "setup_start_utc": "2026-10-25T06:43:00Z",
  "setup_end_utc": "2026-10-25T06:59:40Z",
- "images": 66,
+ "images": 107,
  "update_sessions": [
   {
    "n": 1,
@@ -26,5 +26,9 @@
   }
  ],
  "total_update_seconds": 0,
- "update_session_count": 1
+ "update_session_count": 1,
+ "images_human": 97,
+ "images_ai": 10,
+ "candidates_session1": 608,
+ "found_ai_art": 0
 }

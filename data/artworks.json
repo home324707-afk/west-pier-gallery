@@ -14,7 +14,8 @@
   "img": "img/01.jpg",
   "note": "Commons metadata credits James Webb; the file name credits George Earl.",
   "w": 1200,
-  "h": 638
+  "h": 638,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -30,7 +31,8 @@
   "n": 2,
   "img": "img/02.jpg",
   "w": 999,
-  "h": 827
+  "h": 827,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -46,7 +48,8 @@
   "n": 3,
   "img": "img/03.jpg",
   "w": 1600,
-  "h": 1068
+  "h": 1068,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -62,7 +65,8 @@
   "n": 4,
   "img": "img/04.jpg",
   "w": 1600,
-  "h": 1187
+  "h": 1187,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -78,7 +82,8 @@
   "n": 5,
   "img": "img/05.jpg",
   "w": 1000,
-  "h": 649
+  "h": 649,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -94,7 +99,8 @@
   "n": 6,
   "img": "img/06.jpg",
   "w": 1000,
-  "h": 615
+  "h": 615,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -110,7 +116,8 @@
   "n": 7,
   "img": "img/07.jpg",
   "w": 1600,
-  "h": 1024
+  "h": 1024,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -126,7 +133,8 @@
   "n": 8,
   "img": "img/08.jpg",
   "w": 1600,
-  "h": 1011
+  "h": 1011,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -142,7 +150,8 @@
   "n": 9,
   "img": "img/09.jpg",
   "w": 1600,
-  "h": 1019
+  "h": 1019,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -158,7 +167,8 @@
   "n": 10,
   "img": "img/10.jpg",
   "w": 1600,
-  "h": 1039
+  "h": 1039,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -179,7 +189,8 @@
   "n": 11,
   "img": "img/11.jpg",
   "w": 1024,
-  "h": 675
+  "h": 675,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -195,7 +206,8 @@
   "n": 12,
   "img": "img/12.jpg",
   "w": 640,
-  "h": 430
+  "h": 430,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -211,7 +223,8 @@
   "n": 13,
   "img": "img/13.jpg",
   "w": 1600,
-  "h": 1037
+  "h": 1037,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -227,7 +240,8 @@
   "n": 14,
   "img": "img/14.jpg",
   "w": 1600,
-  "h": 1202
+  "h": 1202,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -243,7 +257,8 @@
   "n": 15,
   "img": "img/15.jpg",
   "w": 600,
-  "h": 450
+  "h": 450,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -259,7 +274,8 @@
   "n": 16,
   "img": "img/16.jpg",
   "w": 1600,
-  "h": 1022
+  "h": 1022,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -275,7 +291,8 @@
   "n": 17,
   "img": "img/17.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -291,7 +308,8 @@
   "n": 18,
   "img": "img/18.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -307,7 +325,8 @@
   "n": 19,
   "img": "img/19.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -323,7 +342,8 @@
   "n": 20,
   "img": "img/20.jpg",
   "w": 1600,
-  "h": 1190
+  "h": 1190,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -339,7 +359,8 @@
   "n": 21,
   "img": "img/21.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -355,7 +376,8 @@
   "n": 22,
   "img": "img/22.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -371,7 +393,8 @@
   "n": 23,
   "img": "img/23.jpg",
   "w": 1600,
-  "h": 1175
+  "h": 1175,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -392,7 +415,8 @@
   "n": 24,
   "img": "img/24.jpg",
   "w": 1023,
-  "h": 682
+  "h": 682,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -413,7 +437,8 @@
   "n": 25,
   "img": "img/25.jpg",
   "w": 1024,
-  "h": 1024
+  "h": 1024,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -434,7 +459,8 @@
   "n": 26,
   "img": "img/26.jpg",
   "w": 1023,
-  "h": 713
+  "h": 713,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -450,7 +476,8 @@
   "n": 27,
   "img": "img/27.jpg",
   "w": 1600,
-  "h": 1278
+  "h": 1278,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -466,7 +493,8 @@
   "n": 28,
   "img": "img/28.jpg",
   "w": 1600,
-  "h": 1067
+  "h": 1067,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -482,7 +510,8 @@
   "n": 29,
   "img": "img/29.jpg",
   "w": 1600,
-  "h": 1000
+  "h": 1000,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -498,7 +527,8 @@
   "n": 30,
   "img": "img/30.jpg",
   "w": 1600,
-  "h": 1068
+  "h": 1068,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -514,7 +544,8 @@
   "n": 31,
   "img": "img/31.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -530,7 +561,8 @@
   "n": 32,
   "img": "img/32.jpg",
   "w": 1600,
-  "h": 991
+  "h": 991,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -546,7 +578,8 @@
   "n": 33,
   "img": "img/33.jpg",
   "w": 1600,
-  "h": 810
+  "h": 810,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -562,7 +595,8 @@
   "n": 34,
   "img": "img/34.jpg",
   "w": 1600,
-  "h": 1067
+  "h": 1067,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -578,7 +612,8 @@
   "n": 35,
   "img": "img/35.jpg",
   "w": 1600,
-  "h": 1067
+  "h": 1067,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -594,7 +629,8 @@
   "n": 36,
   "img": "img/36.jpg",
   "w": 1600,
-  "h": 1060
+  "h": 1060,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -610,7 +646,8 @@
   "n": 37,
   "img": "img/37.jpg",
   "w": 1067,
-  "h": 1600
+  "h": 1600,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -626,7 +663,8 @@
   "n": 38,
   "img": "img/38.jpg",
   "w": 1280,
-  "h": 1600
+  "h": 1600,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -642,7 +680,8 @@
   "n": 39,
   "img": "img/39.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -658,7 +697,8 @@
   "n": 40,
   "img": "img/40.jpg",
   "w": 1600,
-  "h": 1062
+  "h": 1062,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -674,7 +714,8 @@
   "n": 41,
   "img": "img/41.jpg",
   "w": 1600,
-  "h": 1205
+  "h": 1205,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -690,7 +731,8 @@
   "n": 42,
   "img": "img/42.jpg",
   "w": 1600,
-  "h": 1200
+  "h": 1200,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -711,7 +753,8 @@
   "n": 43,
   "img": "img/43.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -732,7 +775,8 @@
   "n": 44,
   "img": "img/44.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -753,7 +797,8 @@
   "n": 45,
   "img": "img/45.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -774,7 +819,8 @@
   "n": 46,
   "img": "img/46.jpg",
   "w": 1000,
-  "h": 750
+  "h": 750,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -795,7 +841,8 @@
   "n": 47,
   "img": "img/47.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -816,7 +863,8 @@
   "n": 48,
   "img": "img/48.jpg",
   "w": 1024,
-  "h": 576
+  "h": 576,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -837,7 +885,8 @@
   "n": 49,
   "img": "img/49.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -858,7 +907,8 @@
   "n": 50,
   "img": "img/50.jpg",
   "w": 1024,
-  "h": 763
+  "h": 763,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -879,7 +929,8 @@
   "n": 51,
   "img": "img/51.jpg",
   "w": 1022,
-  "h": 1024
+  "h": 1024,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -895,7 +946,8 @@
   "n": 52,
   "img": "img/52.jpg",
   "w": 1600,
-  "h": 782
+  "h": 782,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -916,7 +968,8 @@
   "n": 53,
   "img": "img/53.jpg",
   "w": 1024,
-  "h": 638
+  "h": 638,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -937,7 +990,8 @@
   "n": 54,
   "img": "img/54.jpg",
   "w": 1024,
-  "h": 687
+  "h": 687,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -958,7 +1012,8 @@
   "n": 55,
   "img": "img/55.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -979,7 +1034,8 @@
   "n": 56,
   "img": "img/56.jpg",
   "w": 1023,
-  "h": 731
+  "h": 731,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1000,7 +1056,8 @@
   "n": 57,
   "img": "img/57.jpg",
   "w": 1024,
-  "h": 711
+  "h": 711,
+  "kind": "human"
  },
  {
   "src": "Wikimedia Commons",
@@ -1016,7 +1073,8 @@
   "n": 58,
   "img": "img/58.jpg",
   "w": 1600,
-  "h": 1067
+  "h": 1067,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1037,7 +1095,8 @@
   "n": 59,
   "img": "img/59.jpg",
   "w": 1023,
-  "h": 682
+  "h": 682,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1058,7 +1117,8 @@
   "n": 60,
   "img": "img/60.jpg",
   "w": 1023,
-  "h": 682
+  "h": 682,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1079,7 +1139,8 @@
   "n": 61,
   "img": "img/61.jpg",
   "w": 1024,
-  "h": 1024
+  "h": 1024,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1100,7 +1161,8 @@
   "n": 62,
   "img": "img/62.jpg",
   "w": 1024,
-  "h": 576
+  "h": 576,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1121,7 +1183,8 @@
   "n": 63,
   "img": "img/63.jpg",
   "w": 1024,
-  "h": 626
+  "h": 626,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1142,7 +1205,8 @@
   "n": 64,
   "img": "img/64.jpg",
   "w": 1024,
-  "h": 768
+  "h": 768,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1163,7 +1227,8 @@
   "n": 65,
   "img": "img/65.jpg",
   "w": 1024,
-  "h": 676
+  "h": 676,
+  "kind": "human"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -1183,6 +1248,882 @@
   "flickr_ok": true,
   "n": 66,
   "img": "img/66.jpg",
+  "w": 1024,
+  "h": 768,
+  "kind": "human"
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton west pier.jpg",
+  "orig_title": "Brighton west pier",
+  "artist": "Kevin Walsh from Oxford, England",
+  "date": "2005-04-11",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_west_pier.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Brighton_west_pier.jpg/1920px-Brighton_west_pier.jpg",
+  "desc": "West Pier at Brighton, a rusting hulk.",
+  "kind": "human",
+  "n": 67,
+  "img": "img/67.jpg",
+  "w": 1600,
+  "h": 1118
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton's West Pier illuminated with lasers (2010).jpg",
+  "orig_title": "Brighton's West Pier illuminated with lasers (2010)",
+  "artist": "Lost delivery 99",
+  "date": "2010-02-11",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton%27s_West_Pier_illuminated_with_lasers_(2010).jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Brighton%27s_West_Pier_illuminated_with_lasers_%282010%29.jpg",
+  "desc": "Brighton's West Pier illuminated with lasers (2010)",
+  "kind": "human",
+  "n": 68,
+  "img": "img/68.jpg",
+  "w": 1024,
+  "h": 672
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20060721 promenade.jpg",
+  "orig_title": "Brighton West Pier 20060721 promenade",
+  "artist": "Les Chatfield",
+  "date": "2006-07-21",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20060721_promenade.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Brighton_West_Pier_20060721_promenade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier, UK. \"Once crowded by West pier theatregoers during the interval. And at other times as well.\"",
+  "kind": "human",
+  "n": 69,
+  "img": "img/69.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "n": 70,
+  "kind": "ai",
+  "ai_key": "murmuration",
+  "anim": "murmuration",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:murmuration",
+  "orig_title": "Six thousand starlings, one skeleton",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Wholly original generative work. Python with NumPy and PIL. A particle simulation of 6,000 starlings follows drifting attractors over a pier skeleton drawn procedurally from code (no photograph used). Seed 58.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/70.jpg",
+  "w": 1600,
+  "h": 1000
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Murmuration near the Pier, Brighton, Sussex - geograph.org.uk - 3739296.jpg",
+  "orig_title": "Murmuration near the Pier, Brighton, Sussex - geograph.org.uk - 3739296",
+  "artist": "Christine Matthews",
+  "date": "2013-11-03",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Murmuration_near_the_Pier,_Brighton,_Sussex_-_geograph.org.uk_-_3739296.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Murmuration_near_the_Pier%2C_Brighton%2C_Sussex_-_geograph.org.uk_-_3739296.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Murmuration near the Pier,  Brighton, Sussex",
+  "kind": "human",
+  "n": 71,
+  "img": "img/71.jpg",
+  "w": 1024,
+  "h": 683
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20020501.jpg",
+  "orig_title": "Brighton West Pier 20020501",
+  "artist": "Les Chatfield",
+  "date": "2002-05-01",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20020501.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Brighton_West_Pier_20020501.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier, UK.",
+  "kind": "human",
+  "n": 72,
+  "img": "img/72.jpg",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20080220.jpg",
+  "orig_title": "Brighton West Pier 20080220",
+  "artist": "David Blaikie",
+  "date": "2008-02-20",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20080220.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Brighton_West_Pier_20080220.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "The West Pier, Brighton. Only a shell of a pier. But still beautiful in a misty sunset.",
+  "kind": "human",
+  "n": 73,
+  "img": "img/73.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "n": 74,
+  "kind": "ai",
+  "ai_key": "glitch",
+  "anim": "glitch",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:glitch",
+  "orig_title": "Sunset, corrupted in transit",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative of No. 23. Fourteen random bytes of the JPEG stream were overwritten, then the red and blue channels were shifted and horizontal bands displaced. Seed 2003, the year of the fires. Python, PIL, NumPy.",
+  "sources": [
+   23
+  ],
+  "source_credit": "No. 23: \"Brighton West Pier 20090214 sunset\" by Les Chatfield (CC BY 2.0)",
+  "img": "img/74.jpg",
+  "w": 1600,
+  "h": 1175,
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Kings Road Brighton East Sussex England.jpg",
+  "orig_title": "Kings Road Brighton East Sussex England",
+  "artist": "E. T. Tuffin, 50 King's Road, Brighton",
+  "date": "before 1906",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Kings_Road_Brighton_East_Sussex_England.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Kings_Road_Brighton_East_Sussex_England.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Postcard photograph of  Kings Road promenade at Brighton, East Sussex, England. Card postally franked 1906, and taken by E.T.Tuffin, photographer of 50 King's Road, after the 1900-02 Boer War memorial was erected at Regency Square. The building facing in the extreme background of the picture was, fr",
+  "kind": "human",
+  "n": 75,
+  "img": "img/75.jpg",
+  "w": 1578,
+  "h": 952
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier, Brighton - geograph.org.uk - 5733963.jpg",
+  "orig_title": "West Pier, Brighton - geograph.org.uk - 5733963",
+  "artist": "Oliver Mills",
+  "date": "2018-04-04",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier,_Brighton_-_geograph.org.uk_-_5733963.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/7/72/West_Pier%2C_Brighton_-_geograph.org.uk_-_5733963.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "West Pier, Brighton",
+  "kind": "human",
+  "n": 76,
+  "img": "img/76.jpg",
+  "w": 1600,
+  "h": 1067
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Vue d'une plage à Brighton.jpg",
+  "orig_title": "Vue d'une plage à Brighton",
+  "artist": "Unknown",
+  "date": "between 1896 and 1900",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Vue_d%27une_plage_%C3%A0_Brighton.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Vue_d%27une_plage_%C3%A0_Brighton.jpg/1920px-Vue_d%27une_plage_%C3%A0_Brighton.jpg",
+  "desc": "Titre originel : Brighton - Bains d'hommes et bains de femmes. Kings-R. Des gens se baignent dans la mer (premier plan), des roulottes sont stationnées sur la plage (deuxième plan), au fond à gauche on observe des immeubles, au fond à droite une partie de la jetée ouest, West Pier, de Brighton (arri",
+  "kind": "human",
+  "n": 77,
+  "img": "img/77.jpg",
+  "w": 1600,
+  "h": 1140
+ },
+ {
+  "n": 78,
+  "kind": "ai",
+  "ai_key": "riso",
+  "anim": "riso",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:riso",
+  "orig_title": "Photochrom, risographed",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative of No. 4. A two-colour risograph-style halftone (blue at 15°, fluorescent pink at 75°) with deliberate misregistration. Python, PIL.",
+  "sources": [
+   4
+  ],
+  "source_credit": "No. 4: \"The Pier from the east, Brighton, England\" by Photochrom Print Collection (Public domain)",
+  "img": "img/78.jpg",
+  "w": 1500,
+  "h": 1113
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier, Brighton - geograph.org.uk - 5690616.jpg",
+  "orig_title": "West Pier, Brighton - geograph.org.uk - 5690616",
+  "artist": "Mike Pennington",
+  "date": "2018-02-23",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier,_Brighton_-_geograph.org.uk_-_5690616.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/West_Pier%2C_Brighton_-_geograph.org.uk_-_5690616.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "West Pier, Brighton",
+  "kind": "human",
+  "n": 79,
+  "img": "img/79.jpg",
+  "w": 1024,
+  "h": 682
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20061210.jpg",
+  "orig_title": "Brighton West Pier 20061210",
+  "artist": "Les Chatfield",
+  "date": "2006-12-10",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20061210.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Brighton_West_Pier_20061210.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier ruins.",
+  "kind": "human",
+  "n": 80,
+  "img": "img/80.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20070217 sunset III.jpg",
+  "orig_title": "Brighton West Pier 20070217 sunset III",
+  "artist": "Les Chatfield",
+  "date": "2007-02-17",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20070217_sunset_III.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Brighton_West_Pier_20070217_sunset_III.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier at sunset.",
+  "kind": "human",
+  "n": 81,
+  "img": "img/81.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "n": 82,
+  "kind": "ai",
+  "ai_key": "tidelines",
+  "anim": "tidelines",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:tidelines",
+  "orig_title": "Forty-six tides",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Wholly original generative work. Python with NumPy and PIL. Forty-six stacked lines of a simulated swell, drawn back to front with hidden-line removal, cut by a procedurally drawn pier skeleton in rust. Seed 1866, the year the pier opened.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/82.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Columns being removed, West Pier - geograph.org.uk - 4016205.jpg",
+  "orig_title": "Columns being removed, West Pier - geograph.org.uk - 4016205",
+  "artist": "Paul Gillett",
+  "date": "2014-06-06",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Columns_being_removed,_West_Pier_-_geograph.org.uk_-_4016205.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Columns_being_removed%2C_West_Pier_-_geograph.org.uk_-_4016205.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Columns being removed, West Pier",
+  "kind": "human",
+  "n": 83,
+  "img": "img/83.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier Remains.JPG",
+  "orig_title": "West Pier Remains",
+  "artist": "Briantist",
+  "date": "2003-03-03",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier_Remains.JPG",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/8/82/West_Pier_Remains.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Remains of the West Pier, Brighton.  Photographed on 3rd March 2003 (not 2007 as originally stated).",
+  "kind": "human",
+  "n": 84,
+  "img": "img/84.jpg",
+  "w": 1344,
+  "h": 1024
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton's West Pier - geograph.org.uk - 6042185.jpg",
+  "orig_title": "Brighton's West Pier - geograph.org.uk - 6042185",
+  "artist": "Andrew Diack",
+  "date": "2016-10-07",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton%27s_West_Pier_-_geograph.org.uk_-_6042185.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Brighton%27s_West_Pier_-_geograph.org.uk_-_6042185.jpg",
+  "desc": "Brighton's West Pier",
+  "kind": "human",
+  "n": 85,
+  "img": "img/85.jpg",
+  "w": 1600,
+  "h": 1067
+ },
+ {
+  "n": 86,
+  "kind": "ai",
+  "ai_key": "pixelsort",
+  "anim": "pixelsort",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:pixelsort",
+  "orig_title": "Gore, after rain (pixel-sorted)",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative of No. 2. Every column of pixels was sorted by brightness inside thresholded runs, so the painting \"rains\" down the canvas. Python, NumPy.",
+  "sources": [
+   2
+  ],
+  "source_credit": "No. 2: \"The West Pier, Brighton\" by Spencer Gore (Public domain)",
+  "img": "img/86.jpg",
+  "w": 999,
+  "h": 827
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:The West Pier.jpg",
+  "orig_title": "The West Pier",
+  "artist": "Unknown",
+  "date": "",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:The_West_Pier.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/The_West_Pier.jpg/1920px-The_West_Pier.jpg",
+  "desc": "Seaside postcard, Nic Costa Archive, Library and Learning Resources, Canterbury Christ Church University",
+  "kind": "human",
+  "n": 87,
+  "img": "img/87.jpg",
+  "w": 1600,
+  "h": 1043
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Vue de la jetée ouest de Brighton.jpg",
+  "orig_title": "Vue de la jetée ouest de Brighton",
+  "artist": "Unknown",
+  "date": "between 1896 and 1900",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Vue_de_la_jet%C3%A9e_ouest_de_Brighton.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Vue_de_la_jet%C3%A9e_ouest_de_Brighton.jpg/1920px-Vue_de_la_jet%C3%A9e_ouest_de_Brighton.jpg",
+  "desc": "Titre originel : Brighton - le West Pier. Jetée aménagée en 1866, devant la plage de Brighton. Au bout on peut voir un grand pavillon avec un théâtre, construit en 1893. Photographie (h. 14 x l. 18,5 cm) extraite d'un album réalisé par un militaire (son identité est inconnue) qui prenait des photogr",
+  "kind": "human",
+  "n": 88,
+  "img": "img/88.jpg",
+  "w": 1600,
+  "h": 1321
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20030301.jpg",
+  "orig_title": "Brighton West Pier 20030301",
+  "artist": "Les Chatfield",
+  "date": "2003-03-01",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20030301.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Brighton_West_Pier_20030301.jpg",
+  "desc": "Brighton West Pier presents a sorry sight after the first collapse.",
+  "kind": "human",
+  "n": 89,
+  "img": "img/89.jpg",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "n": 90,
+  "kind": "ai",
+  "ai_key": "blueprint",
+  "anim": "blueprint",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:blueprint",
+  "orig_title": "As-found drawing WP-1866/2017",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative of No. 39. A Sobel edge detector extracts the skeleton from the photograph, then it is drawn as a blueprint with a grid and a title block. Python, NumPy.",
+  "sources": [
+   39
+  ],
+  "source_credit": "No. 39: \"Remains of the West Pier, Brighton (January 2017)\" by Hassocks5489 (CC0)",
+  "img": "img/90.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20060721 ballroom roof.jpg",
+  "orig_title": "Brighton West Pier 20060721 ballroom roof",
+  "artist": "Les Chatfield",
+  "date": "2006-07-21",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20060721_ballroom_roof.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Brighton_West_Pier_20060721_ballroom_roof.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier, ballroom roof. (\"The seagulls are the piers last visitors. And probably its first. Appropriate somehow.\")",
+  "kind": "human",
+  "n": 91,
+  "img": "img/91.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:RIP West Pier Brighton - geograph.org.uk - 1696858.jpg",
+  "orig_title": "RIP West Pier Brighton - geograph.org.uk - 1696858",
+  "artist": "Julian Osley",
+  "date": "2010-02-06",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:RIP_West_Pier_Brighton_-_geograph.org.uk_-_1696858.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/RIP_West_Pier_Brighton_-_geograph.org.uk_-_1696858.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "RIP West Pier Brighton, Great Britain.",
+  "kind": "human",
+  "n": 92,
+  "img": "img/92.jpg",
+  "w": 1600,
+  "h": 1064
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton Pier before sunset (16692903318).jpg",
+  "orig_title": "Brighton Pier before sunset",
+  "artist": "@sage_solar from Chichester, United Kingdom",
+  "date": "2015-03-20",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_Pier_before_sunset_(16692903318).jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Brighton_Pier_before_sunset_%2816692903318%29.jpg/1920px-Brighton_Pier_before_sunset_%2816692903318%29.jpg",
+  "desc": "I am cracked and so is my reflection - Adam M. Snow This was taken at the Brighton pier ruin about an hour before sunset. Loads of people had gathered to take advantage of the low tide, so I decided to include some in the photo. I used my OnePlus One phone's RAW capture ability for the first time to",
+  "kind": "human",
+  "n": 93,
+  "img": "img/93.jpg",
+  "w": 1600,
+  "h": 1067
+ },
+ {
+  "n": 94,
+  "kind": "ai",
+  "ai_key": "ascii",
+  "anim": "ascii",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:ascii",
+  "orig_title": "The pier, typed",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative of No. 42. The photograph re-drawn with 21 monospaced characters (including the letters P, I, E, R), 150 columns wide. Python, PIL.",
+  "sources": [
+   42
+  ],
+  "source_credit": "No. 42: \"Herring gull in front of Brighton West Pier 2023-06-15\" by Andy Li (CC0)",
+  "img": "img/94.jpg",
+  "w": 1600,
+  "h": 1195
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Old pier in Brighton (174757272).jpg",
+  "orig_title": "Old pier in Brighton",
+  "artist": "Dano",
+  "date": "21 June 2006",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Old_pier_in_Brighton_(174757272).jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Old_pier_in_Brighton_%28174757272%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "I'd love to find some pictures of it when it was in use.",
+  "kind": "human",
+  "n": 95,
+  "img": "img/95.jpg",
+  "w": 1600,
+  "h": 1200
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Opening of West Pier 1866.jpg",
+  "orig_title": "Opening of West Pier 1866",
+  "artist": "Unknown",
+  "date": "1866",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:Opening_of_West_Pier_1866.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Opening_of_West_Pier_1866.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "The opening of West Pier, Brighton, in 1866 from the Illustrated London News. Originally the pier had only six rather small ornamental houses, two toll houses and glass screens at the pier end to protect visitors from the elements.",
+  "kind": "human",
+  "n": 96,
+  "img": "img/96.jpg",
+  "w": 1000,
+  "h": 533
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "d5392399-fee3-4da9-ab1d-b48d69d7b895",
+  "orig_title": "Faded glory, fading light",
+  "artist": "hehaden",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/30972961@N04/25298250528",
+  "dl": "https://live.staticflickr.com/4681/25298250528_ce32910365_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 97,
+  "img": "img/97.jpg",
+  "w": 1023,
+  "h": 682
+ },
+ {
+  "n": 98,
+  "kind": "ai",
+  "ai_key": "erosion",
+  "anim": "erosion",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:erosion",
+  "orig_title": "The storm that never ends",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
+  "dl": "",
+  "desc": "",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 1.",
+  "sources": [
+   1
+  ],
+  "source_credit": "No. 1: \"Brighton, East Sussex, from the West Pier\" by James Webb (Public domain)",
+  "img": "img/98.jpg",
+  "w": 1200,
+  "h": 638,
+  "generation": 1
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "2fc24bc5-8fa9-47e2-91a8-312e30339a65",
+  "orig_title": "Abstract art",
+  "artist": "susie2778",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/31018850@N04/25011620242",
+  "dl": "https://live.staticflickr.com/1452/25011620242_46bf30631e_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 99,
+  "img": "img/99.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "1d033873-8aff-44d5-a5cc-dfc46e0cc80b",
+  "orig_title": "West Pier",
+  "artist": "erase",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/24256726@N00/11808884454",
+  "dl": "https://live.staticflickr.com/3811/11808884454_e4ca709cf8_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 100,
+  "img": "img/100.jpg",
+  "w": 1024,
+  "h": 678
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "95e1df6a-03a1-4565-b88c-677ac2cd8163",
+  "orig_title": "Brighton - The West pier",
+  "artist": "Pauldc",
+  "date": "",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0/",
+  "page": "https://www.flickr.com/photos/78803951@N00/1311128",
+  "dl": "https://live.staticflickr.com/2/1311128_c4fa6b1f36_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by/2.0"
+  ],
+  "kind": "human",
+  "n": 101,
+  "img": "img/101.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "n": 102,
+  "kind": "ai",
+  "ai_key": "mosaic",
+  "anim": "mosaic",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:mosaic",
+  "orig_title": "Everyone who looked",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative mosaic. No. 39 rebuilt from 32-pixel tiles of 31 gallery views (Nos. 1, 7, 14, 15, 16, 18, 19, 20, 21, 22, 24, 26, 39, 43, 44, 45, 46, 49, 50, 51, 64, 67, 69, 72, 75, 80, 89, 91, 95, 96, 101), each tinted towards the colour it replaces. Only public-domain, CC0 and CC BY views were used as tiles. Python, NumPy.",
+  "sources": [
+   1,
+   7,
+   14,
+   15,
+   16,
+   18,
+   19,
+   20,
+   21,
+   22,
+   24,
+   26,
+   39,
+   43,
+   44,
+   45,
+   46,
+   49,
+   50,
+   51,
+   64,
+   67,
+   69,
+   72,
+   75,
+   80,
+   89,
+   91,
+   95,
+   96,
+   101
+  ],
+  "source_credit": "No. 1: \"Brighton, East Sussex, from the West Pier\" by James Webb (Public domain); No. 7: \"Brighton from West Pier\" by Unknown (Public domain); No. 14: \"Brighton West Pier 20021212 detail\" by Les Chatfield (CC BY 2.0); No. 15: \"West Pier fire with boat 20030328\" by Mark Harris (Public domain); No. 16: \"Brighton Pier BW\" by Tony Hisgett (CC BY 2.0); No. 18: \"Brighton West Pier winter storm\" by Les Chatfield (CC BY 2.0); No. 19: \"Brighton West Pier 20060605\" by Les Chatfield (CC BY 2.0); No. 20: \"2005-07-14 - United Kingdom - England - Brighton - West Pier - CC-BY 2 4888014476\" by CGP Grey (CC BY 2.0); No. 21: \"Brighton West Pier 20080908 ballroom\" by Les Chatfield (CC BY 2.0); No. 22: \"Brighton West Pier 20081028 nowhere gate\" by Les Chatfield (CC BY 2.0); No. 24: \"Brighton's West Pier\" by garryknight (CC BY 2.0); No. 26: \"West Pier, Brighton\" by Rev Stan (CC BY 2.0); No. 39: \"Remains of the West Pier, Brighton (January 2017)\" by Hassocks5489 (CC0); No. 43: \"Brighton West Pier\" by ian02054 (CC BY 2.0); No. 44: \"West Pier - Brighton\" by foshie (CC BY 2.0); No. 45: \"West Pier - Brighton\" by foshie (CC BY 2.0); No. 46: \"West Pier, Brighton\" by Tim Buss (CC BY 2.0); No. 49: \"Brighton West Pier rebuilt!\" by Elsie esq. (CC BY 2.0); No. 50: \"West Pier\" by Neilhooting (CC BY 2.0); No. 51: \"West Pier before sunset\" by mac_ivan (CC BY 2.0); No. 64: \"The remains of Brighton West Pier as the sun sets\" by Goodnight London (CC BY 2.0); No. 67: \"Brighton west pier\" by Kevin Walsh from Oxford, England (CC BY 2.0); No. 69: \"Brighton West Pier 20060721 promenade\" by Les Chatfield (CC BY 2.0); No. 72: \"Brighton West Pier 20020501\" by Les Chatfield (CC BY 2.0); No. 75: \"Kings Road Brighton East Sussex England\" by E. T. Tuffin, 50 King's Road, Brighton (Public domain); No. 80: \"Brighton West Pier 20061210\" by Les Chatfield (CC BY 2.0); No. 89: \"Brighton West Pier 20030301\" by Les Chatfield (CC BY 2.0); No. 91: \"Brighton West Pier 20060721 ballroom roof\" by Les Chatfield (CC BY 2.0); No. 95: \"Old pier in Brighton\" by Dano (CC BY 2.0); No. 96: \"Opening of West Pier 1866\" by Unknown (Public domain); No. 101: \"Brighton - The West pier\" by Pauldc (CC BY 2.0)",
+  "img": "img/102.jpg",
+  "w": 1600,
+  "h": 1200,
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "df4b08f0-93a5-499c-9fd4-2a61d98fbcd9",
+  "orig_title": "Postcard",
+  "artist": "Brighton Museums",
+  "date": "",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "page": "https://www.flickr.com/photos/39331525@N04/33284753182",
+  "dl": "https://live.staticflickr.com/3769/33284753182_1f25c94ed9_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-sa/2.0"
+  ],
+  "kind": "human",
+  "n": 103,
+  "img": "img/103.jpg",
+  "w": 1023,
+  "h": 666
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "e731dedf-48ec-4a5c-842b-d2febd42b45c",
+  "orig_title": "Decorative panel / West Pier",
+  "artist": "Images George Rex",
+  "date": "",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "page": "https://www.flickr.com/photos/36692623@N06/14035305612",
+  "dl": "https://live.staticflickr.com/5116/14035305612_528d077bf1_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-sa/2.0"
+  ],
+  "kind": "human",
+  "n": 104,
+  "img": "img/104.jpg",
+  "w": 1023,
+  "h": 678
+ },
+ {
+  "n": 105,
+  "kind": "ai",
+  "ai_key": "average",
+  "anim": "average",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:average",
+  "orig_title": "The mean of 55 views",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/pieces.py",
+  "dl": "",
+  "desc": "",
+  "method": "Derivative composite. 55 public-domain, CC0 and CC BY gallery views (Nos. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 26, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 64, 66, 67, 69, 72, 73, 75, 77, 80, 81, 84, 87, 88, 89, 91, 93, 95, 96, 101) were cropped to the same frame and averaged pixel by pixel, then the contrast was stretched. What every photographer agreed on. Python, NumPy.",
+  "sources": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   14,
+   15,
+   16,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   26,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   64,
+   66,
+   67,
+   69,
+   72,
+   73,
+   75,
+   77,
+   80,
+   81,
+   84,
+   87,
+   88,
+   89,
+   91,
+   93,
+   95,
+   96,
+   101
+  ],
+  "source_credit": "No. 1: \"Brighton, East Sussex, from the West Pier\" by James Webb (Public domain); No. 2: \"The West Pier, Brighton\" by Spencer Gore (Public domain); No. 3: \"Gezicht op de West Pier van Brighton (View of the West Pier, Brighton)\" by Unknown photographer (Rijksmuseum collection) (CC0); No. 4: \"The Pier from the east, Brighton, England\" by Photochrom Print Collection (Public domain); No. 5: \"West Pier early\" by Unknown (Public domain); No. 6: \"West Pier circa 1920\" by Unknown (Public domain); No. 7: \"Brighton from West Pier\" by Unknown (Public domain); No. 8: \"West Pier. Brighton\" by Unknown (Public domain); No. 9: \"Brighton From The West Pier\" by Unknown (Public domain); No. 10: \"West Pier in Brighton\" by Unknown (Public domain); No. 11: \"1908 professor Doughtys Performing Dogs, West Pier Brighton L.L 12 Postcard SUSSEX\" by mark's vintage topographical postcards (Public Domain Mark 1.0); No. 14: \"Brighton West Pier 20021212 detail\" by Les Chatfield (CC BY 2.0); No. 15: \"West Pier fire with boat 20030328\" by Mark Harris (Public domain); No. 16: \"Brighton Pier BW\" by Tony Hisgett (CC BY 2.0); No. 18: \"Brighton West Pier winter storm\" by Les Chatfield (CC BY 2.0); No. 19: \"Brighton West Pier 20060605\" by Les Chatfield (CC BY 2.0); No. 20: \"2005-07-14 - United Kingdom - England - Brighton - West Pier - CC-BY 2 4888014476\" by CGP Grey (CC BY 2.0); No. 21: \"Brighton West Pier 20080908 ballroom\" by Les Chatfield (CC BY 2.0); No. 22: \"Brighton West Pier 20081028 nowhere gate\" by Les Chatfield (CC BY 2.0); No. 23: \"Brighton West Pier 20090214 sunset\" by Les Chatfield (CC BY 2.0); No. 24: \"Brighton's West Pier\" by garryknight (CC BY 2.0); No. 26: \"West Pier, Brighton\" by Rev Stan (CC BY 2.0); No. 38: \"Untitled\" by Janetotolau (CC BY 4.0); No. 39: \"Remains of the West Pier, Brighton (January 2017)\" by Hassocks5489 (CC0); No. 40: \"Kayaker&spookedGulls(byPixelDebris)\" by Victoria Alexander (CC0); No. 41: \"DANGER banner in front of Brighton West Pier 2025-11-12\" by Andy Li (CC0); No. 42: \"Herring gull in front of Brighton West Pier 2023-06-15\" by Andy Li (CC0); No. 43: \"Brighton West Pier\" by ian02054 (CC BY 2.0); No. 44: \"West Pier - Brighton\" by foshie (CC BY 2.0); No. 45: \"West Pier - Brighton\" by foshie (CC BY 2.0); No. 46: \"West Pier, Brighton\" by Tim Buss (CC BY 2.0); No. 47: \"Birthday at the West Pier, Brighton\" by Stepheye (CC BY 2.0); No. 48: \"Brighton West Pier\" by Su--May (CC BY 2.0); No. 49: \"Brighton West Pier rebuilt!\" by Elsie esq. (CC BY 2.0); No. 50: \"West Pier\" by Neilhooting (CC BY 2.0); No. 51: \"West Pier before sunset\" by mac_ivan (CC BY 2.0); No. 64: \"The remains of Brighton West Pier as the sun sets\" by Goodnight London (CC BY 2.0); No. 66: \"West Pier farwell\" by Elsie esq. (CC BY 2.0); No. 67: \"Brighton west pier\" by Kevin Walsh from Oxford, England (CC BY 2.0); No. 69: \"Brighton West Pier 20060721 promenade\" by Les Chatfield (CC BY 2.0); No. 72: \"Brighton West Pier 20020501\" by Les Chatfield (CC BY 2.0); No. 73: \"Brighton West Pier 20080220\" by David Blaikie (CC BY 2.0); No. 75: \"Kings Road Brighton East Sussex England\" by E. T. Tuffin, 50 King's Road, Brighton (Public domain); No. 77: \"Vue d'une plage à Brighton\" by Unknown (Public domain); No. 80: \"Brighton West Pier 20061210\" by Les Chatfield (CC BY 2.0); No. 81: \"Brighton West Pier 20070217 sunset III\" by Les Chatfield (CC BY 2.0); No. 84: \"West Pier Remains\" by Briantist (Public domain); No. 87: \"The West Pier\" by Unknown (Public domain); No. 88: \"Vue de la jetée ouest de Brighton\" by Unknown (Public domain); No. 89: \"Brighton West Pier 20030301\" by Les Chatfield (CC BY 2.0); No. 91: \"Brighton West Pier 20060721 ballroom roof\" by Les Chatfield (CC BY 2.0); No. 93: \"Brighton Pier before sunset\" by @sage_solar from Chichester, United Kingdom (CC BY 2.0); No. 95: \"Old pier in Brighton\" by Dano (CC BY 2.0); No. 96: \"Opening of West Pier 1866\" by Unknown (Public domain); No. 101: \"Brighton - The West pier\" by Pauldc (CC BY 2.0)",
+  "img": "img/105.jpg",
+  "w": 1600,
+  "h": 1000,
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "07488fcc-5814-4799-a1bc-5919d2f04b72",
+  "orig_title": "West Pier walkway",
+  "artist": "cackhanded",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/37354253@N00/123451378",
+  "dl": "https://live.staticflickr.com/9/123451378_72c2e5a53a_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 106,
+  "img": "img/106.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "825ef1cb-aa5a-4e85-8d7f-42b2acccef72",
+  "orig_title": "Mangled West Pier",
+  "artist": "Rain Rabbit",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/37996583811@N01/3896304864",
+  "dl": "https://live.staticflickr.com/2488/3896304864_cc86233b73_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 107,
+  "img": "img/107.jpg",
   "w": 1024,
   "h": 768
  }

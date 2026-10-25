@@ -165,7 +165,9 @@ def add(keys):
             src = {'flickr': 'Flickr (via Openverse)', 'geographorguk': 'Geograph (via Openverse)'}.get(v['source'], v['source'] + ' (via Openverse)')
             rec = dict(src=src, file=v['id'], orig_title=v.get('title') or 'Untitled', artist=v.get('creator') or 'Unknown', date='', lic=Ls.strip(), licurl=v['license_url'], page=v['foreign_landing_url'], dl=v['url'], desc='')
             if v['source'] == 'flickr':
-                ok, found = flickr_verify(v['foreign_landing_url'], v['license_url']); rec['flickr_check'] = found
+                try: ok, found = flickr_verify(v['foreign_landing_url'], v['license_url'])
+                except Exception as e: L[k] = 'rejected:flickr-page-unavailable'; save(LEDGER, L); print('REJECT page unavailable', k, e); continue
+                rec['flickr_check'] = found
                 if not ok: L[k] = 'rejected:flickr-licence-mismatch'; print('REJECT licence mismatch', k, found); continue
         if EXCLUDE_NAME.search(rec['artist']): L[k] = 'rejected:name-rule'; continue
         rec['orig_title'] = re.sub(r'\s+\(\d{6,}\)$', '', rec['orig_title'].strip())
@@ -173,7 +175,7 @@ def add(keys):
             im = Image.open(io.BytesIO(get(rec['dl'], raw=True))).convert('RGB')
         except Exception as e: print('download failed', k, e); continue
         im.thumbnail((1600, 1600), Image.LANCZOS)
-        rec.update(n=n, img=f'img/{n:02d}.jpg', w=im.width, h=im.height)
+        rec.update(kind='human', n=n, img=f'img/{n:02d}.jpg', w=im.width, h=im.height)
         im.save(J(rec['img']), quality=84, optimize=True, progressive=True)
         t = im.copy(); t.thumbnail((700, 700)); t.save(J(rec['img'].replace('.jpg', '_t.jpg')), quality=80, optimize=True, progressive=True)
         A.append(rec); L[k] = 'rehosted'; save(J('data', 'artworks.json'), A); save(LEDGER, L)
