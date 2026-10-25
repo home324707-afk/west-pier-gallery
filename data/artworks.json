@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 1.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 2.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 1
+  "generation": 2
  },
  {
   "src": "Flickr (via Openverse)",
@@ -2126,5 +2126,39 @@
   "img": "img/107.jpg",
   "w": 1024,
   "h": 768
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:The derelict West Pier at Brighton - geograph.org.uk - 7893224.jpg",
+  "orig_title": "The derelict West Pier at Brighton - geograph.org.uk - 7893224",
+  "artist": "Mat Fascione",
+  "date": "2024-09-23",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:The_derelict_West_Pier_at_Brighton_-_geograph.org.uk_-_7893224.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/8/84/The_derelict_West_Pier_at_Brighton_-_geograph.org.uk_-_7893224.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "The derelict West Pier at Brighton",
+  "kind": "human",
+  "n": 108,
+  "img": "img/108.jpg",
+  "w": 1600,
+  "h": 1362
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier, Brighton (detail) - geograph.org.uk - 3386550.jpg",
+  "orig_title": "West Pier, Brighton (detail) - geograph.org.uk - 3386550",
+  "artist": "Christopher Hilton",
+  "date": "1990-08-17",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier,_Brighton_(detail)_-_geograph.org.uk_-_3386550.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/West_Pier%2C_Brighton_%28detail%29_-_geograph.org.uk_-_3386550.jpg",
+  "desc": "West Pier, Brighton (detail)",
+  "kind": "human",
+  "n": 109,
+  "img": "img/109.jpg",
+  "w": 1066,
+  "h": 1600
  }
 ]

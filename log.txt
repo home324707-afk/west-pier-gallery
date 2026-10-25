@@ -26,3 +26,5 @@
 2026-10-25T08:05:18Z | Looked for openly licensed AI-generated West Pier art to hang as "found AI art" (Wikimedia Commons, Openverse). Found none. Noted on the credits page.
 2026-10-25T08:05:18Z | Landing page: a "Guess: human or AI?" filter (hides the labels until you click), plus Human and AI filters. A tiny Human/AI tag appears on hover and is shown in the lightbox. Animations start only when on screen, pause off screen, and show the still under reduced motion.
 2026-10-25T08:09:05Z | Update session 1 ended at 2026-10-25T08:09:05Z: 30 min 50 s. Added 31 human views (67–107) and 10 live AI works, plus the guess filter, AI credits, the wall as hero CTA, bot docs, per-work Discussions and an IndexNow ping
+2026-10-25T08:58:57Z | Update session 2 started at 2026-10-25T08:58:57Z. Routine growth session: 1-3 works
+2026-10-25T08:59:51Z | Update session 2 ended at 2026-10-25T08:59:51Z: 0 min 54 s. Added 2 human views (No. 108 Mat Fascione 2024, No. 109 Christopher Hilton 1990, both CC BY-SA 2.0) with work pages and discussion threads; evolved the AI storm-erosion piece to generation 2.
