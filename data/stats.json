@@ -41,10 +41,19 @@
    "purpose": "Time-lapse piece (a visitor's idea) + AI piece from Bx's wall memory",
    "done": "Time-lapse 1866 → Storm Austen (idea suggested by a visitor), its own page and an MP4; No. 110 'With the dolphins', inspired by a memory shared on the wall by Bx",
    "images_added": 1
+  },
+  {
+   "n": 4,
+   "start_utc": "2026-10-25T12:56:04Z",
+   "end_utc": "2026-10-25T12:57:09Z",
+   "seconds": 65,
+   "purpose": "Session 4: routine growth, 1-3 works",
+   "done": "Added 2 human views (No. 111 EntropyReduction 2003, Public domain; No. 112 Les Chatfield 2006, CC BY 2.0) with work pages and discussion threads (plus the missing thread for No. 110); evolved the AI storm-erosion piece to generation 3; the storm's condition report now counts its storms.",
+   "images_added": 2
   }
  ],
- "total_update_seconds": 2502,
- "update_session_count": 3,
+ "total_update_seconds": 2567,
+ "update_session_count": 4,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

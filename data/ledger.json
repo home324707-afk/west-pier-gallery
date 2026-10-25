@@ -479,7 +479,7 @@
  "c:File:Brighton West Pier 20060721 promenade.jpg": "rehosted",
  "c:File:West Pier - geograph.org.uk - 3873154.jpg": "rejected:too-small",
  "c:File:West Pier Arches, Brighton - geograph.org.uk - 5690619.jpg": "reviewed:not-selected",
- "c:File:Brighton West Pier 20061210 a last portrait.jpg": "reviewed:not-selected",
+ "c:File:Brighton West Pier 20061210 a last portrait.jpg": "rehosted",
  "c:File:The recollections of Geoffry Hamlyn (IA abj8496.0001.001.umich.edu).pdf": "rejected:not-an-image",
  "c:File:Report on shellfish other than oysters in relation to disease (IA reportonshellfis00grea).pdf": "rejected:not-an-image",
  "c:File:Beach, Brighton, East Sussex - geograph.org.uk - 1043226.jpg": "rejected:too-small",
@@ -946,7 +946,7 @@
  "c:File:Bird notes (IA birdnotes05fore).pdf": "rejected:not-an-image",
  "c:File:Brighton - King's Road - View SW towards frame West Pier.jpg": "reviewed:not-selected",
  "c:File:Kiosk, West Pier - geograph.org.uk - 752813.jpg": "rejected:too-small",
- "c:File:West Pier collapsed concert hall.jpg": "reviewed:not-selected",
+ "c:File:West Pier collapsed concert hall.jpg": "rehosted",
  "c:File:Remains of the West Pier, Brighton (June 2008) (3).JPG": "reviewed:not-selected",
  "c:File:West Pier, skeleton, Brighton - geograph.org.uk - 1901697.jpg": "rejected:too-small",
  "c:File:The Young fisherman - a complete guide to angling, showing the tackle and baits required, the rivers, ponds, etc. where fish are to be found, the laws of angling, etc.,&c (IA youngfishermanco00londrich).pdf": "rejected:not-an-image",
@@ -1990,5 +1990,6 @@
  "o:ai:ascii": "rehosted",
  "o:ai:erosion": "rehosted",
  "o:ai:mosaic": "rehosted",
- "o:ai:average": "rehosted"
+ "o:ai:average": "rehosted",
+ "o:ai:ashes": "rehosted"
 }

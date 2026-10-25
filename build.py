@@ -19,7 +19,7 @@ def year(a):
     return int(m.group(1)) if m else None
 
 def condition(a):
-    if is_ai(a): return 'Condition report (live): generated as you watch. Never the same view twice.' if a.get('anim') != 'erosion' else 'Condition report (live): eroding. The storm is seeded by today\'s date.'
+    if is_ai(a): return 'Condition report (live): generated as you watch. Never the same view twice.' if a.get('anim') != 'erosion' else f'Condition report (live): eroding, storm {a.get("generation", 1)} and counting. The sea has not yet agreed to stop.'
     y = year(a)
     if y is None: return 'Condition report: undated. Damaged in every tense.'
     if y < 1975: return f'Condition report ({y}): intact, lit, busy. Damage scheduled for later.'

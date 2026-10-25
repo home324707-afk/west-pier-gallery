@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 2.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 3.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 2
+  "generation": 3
  },
  {
   "src": "Flickr (via Openverse)",
@@ -2185,5 +2185,39 @@
   "img": "img/110.jpg",
   "w": 1600,
   "h": 1000
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier collapsed concert hall.jpg",
+  "orig_title": "West Pier collapsed concert hall",
+  "artist": "EntropyReduction",
+  "date": "2003-01-20",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier_collapsed_concert_hall.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/West_Pier_collapsed_concert_hall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "The collapsed concert hall, West Pier, December 2002 or January 2003.",
+  "kind": "human",
+  "n": 111,
+  "img": "img/111.jpg",
+  "w": 1600,
+  "h": 1209
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20061210 a last portrait.jpg",
+  "orig_title": "Brighton West Pier 20061210 a last portrait",
+  "artist": "Les Chatfield",
+  "date": "2006-12-10",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20061210_a_last_portrait.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Brighton_West_Pier_20061210_a_last_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier with the remains of the ballroom on the right. \"A last portrait.\"",
+  "kind": "human",
+  "n": 112,
+  "img": "img/112.jpg",
+  "w": 1024,
+  "h": 768
  }
 ]
