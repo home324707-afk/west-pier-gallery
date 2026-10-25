@@ -103,6 +103,23 @@ P.average={fps:30,init(s){s.order=[];s.k=0;s.last=-1e9;s.acc=off(s.W,s.H)},
   x.drawImage(s.acc,0,0);const u=Math.min(1,(t-s.last)/700);x.fillStyle=`rgba(11,20,24,${.0})`;
   x.fillStyle='#f3efe4';x.font=`${Math.max(10,W/70)}px "JetBrains Mono",monospace`;x.fillText(`MEAN OF ${s.k} / ${ok.length}`,W*.02,W*.035)}};
 
+/* 11. With the dolphins: inspired by a memory shared on the wall by Bx. Pale motes leave the pier at first light, settle on the swell and ride it out to sea; now and then dolphins rise among them. */
+P.ashes={fps:30,init(s){const{W,H}=s;s.hz=H*.56;s.bg=sky(W,H,[[0,'#1b2440'],[.32,'#5b5878'],[.5,'#e6b08a'],[.56,'#f4d6ae'],[.561,'#3b4a5c'],[1,'#141c26']]);
+  const bx=s.bg.getContext('2d'),gl=bx.createRadialGradient(W*.3,s.hz,0,W*.3,s.hz,W*.35);gl.addColorStop(0,'rgba(255,236,200,.55)');gl.addColorStop(1,'rgba(255,236,200,0)');bx.fillStyle=gl;bx.fillRect(0,0,W,s.hz);bx.fillStyle='rgba(255,226,190,.35)';for(let i=0;i<W*.8;i++){const y=s.hz+Math.pow(s.rnd(),1.6)*H*.44;bx.fillRect(W*.5+(s.rnd()-.5)*W*.5*(1-(y-s.hz)/H),y,2+s.rnd()*18,1)}
+  const pc=off(W,H);pier(pc.getContext('2d'),W,H,s.hz+H*.03,.75,1975,'rgba(20,22,30,.92)');const cut=Math.round(s.hz+H*.03);bx.drawImage(pc,0,0,W,cut,0,0,W,cut);s.m=[];s.d=[];s.next=2500;for(let i=0;i<(s.full?520:240);i++)s.m.push(P.ashes.newm(s,true))},
+ newm:null,frame(s,t){const{x,W,H,hz}=s;x.drawImage(s.bg,0,0);const sw=(X,k)=>hz+(H-hz)*k+Math.sin(X*.012/(1+k)+t*.0012+k*9)*H*.012*(.4+k)+Math.sin(X*.031-t*.0009)*H*.004*(.4+k);
+  x.strokeStyle='rgba(244,214,174,.16)';x.lineWidth=1;for(let k=.08;k<1;k+=.09){x.beginPath();for(let X=0;X<=W;X+=10){const y=sw(X,k);X?x.lineTo(X,y):x.moveTo(X,y)}x.stroke()}
+  for(const m of s.m){if(m.air){m.x+=m.vx;m.y+=m.vy;m.vy+=H*.00004;const sy=sw(m.x,m.k);if(m.y>=sy){m.air=false}}else{m.x+=m.vx*.35+Math.sin(t*.002+m.p)*.25;m.k=Math.min(1.2,m.k+.0004*m.s);m.y=sw(m.x,m.k)-1}
+   if(m.k>1.05||m.x<-20||m.x>W+20)Object.assign(m,P.ashes.newm(s,false));const tw=.55+.45*Math.sin(t*.004*m.s+m.p),a=(m.air?.9:.75)*tw*Math.min(1,(1.15-m.k)*3);
+   x.fillStyle=`rgba(255,${222+m.s*10|0},${180+m.s*20|0},${a})`;const r=Math.max(1.2,W/700)*(m.air?1.4:.8+m.k*1.6);x.fillRect(m.x,m.y,r*1.8,r)}
+  if(t>s.next){const k=.25+s.rnd()*.45;s.d.push({x:W*(.15+s.rnd()*.6),k,t0:t,dir:s.rnd()<.5?-1:1});if(s.rnd()<.5)s.d.push({x:s.d[s.d.length-1].x+W*.05,k:k+.03,t0:t+380,dir:s.d[s.d.length-1].dir});s.next=t+7000+s.rnd()*8000}
+  s.d=s.d.filter(d=>t-d.t0<2400);for(const d of s.d){const u=(t-d.t0)/1800;if(u<0||u>1)continue;const L=W*.05*(.5+d.k),bx=d.x+d.dir*L*2*(u-.5),by=sw(bx,d.k)-Math.sin(u*Math.PI)*L*1.1,ang=d.dir*(u-.5)*2.2;
+   x.save();x.translate(bx,by);x.rotate(ang);x.scale(d.dir,1);x.fillStyle='rgba(22,28,40,.95)';x.beginPath();x.ellipse(0,0,L*.5,L*.11,0,0,6.283);x.fill();
+   x.beginPath();x.moveTo(-L*.05,-L*.08);x.lineTo(-L*.18,-L*.24);x.lineTo(L*.1,-L*.09);x.fill();x.beginPath();x.moveTo(-L*.46,0);x.lineTo(-L*.62,-L*.1);x.lineTo(-L*.6,L*.1);x.fill();x.restore();
+   if(u<.12||u>.88){x.fillStyle='rgba(244,230,210,.6)';for(let i=0;i<6;i++)x.fillRect(bx+(s.rnd()-.5)*L*.6,sw(bx,d.k)-s.rnd()*L*.25,2,2)}}}};
+P.ashes.newm=(s,first)=>{const{W,H}=s,pierX=W*(.52+(s.rnd()-.5)*.3);return first&&s.rnd()<.7?{air:false,x:s.rnd()*W,y:0,k:.02+s.rnd()*.9,vx:(s.rnd()-.3)*.6,s:s.rnd(),p:s.rnd()*6.28}:
+  {air:true,x:pierX,y:H*(.5+s.rnd()*.04),vx:(s.rnd()-.35)*W*.0009,vy:-H*.0006*s.rnd(),k:.04+s.rnd()*.06,s:s.rnd(),p:s.rnd()*6.28}};
+
 function mount(c){if(c._wp||REDUCE)return;c._wp=1;const def=P[c.dataset.anim];if(!def)return;
   const full=c.dataset.full==='1',dpr=Math.min(devicePixelRatio||1,full?2:1.5),r=c.getBoundingClientRect(),maxW=full?1400:560;
   const W=Math.round(Math.min(maxW,Math.max(200,r.width*dpr))),H=Math.round(W*(+c.dataset.h||10)/(+c.dataset.w||16));c.width=W;c.height=H;

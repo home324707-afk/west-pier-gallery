@@ -152,3 +152,11 @@ body.guess .card.revealed .kind,body.guess .card.revealed .label .orig,body.gues
 .kindtag.ai{color:#7fd1ff;border-color:#2c6f93}
 .workimg{position:relative}
 .workimg{line-height:0}.workimg img{width:100%;height:auto}
+/* time-lapse */
+.tl-home{padding:2.5rem clamp(1rem,4vw,3rem) 1rem;max-width:1400px;margin:0 auto}
+.tl-head h2{font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.8rem,4vw,3.2rem);margin:.3rem 0 .6rem}.tl-head h2 em{color:var(--rust)}
+.tl-head .now{color:var(--rust)}
+.tlwrap{position:relative;width:100%;aspect-ratio:16/9;background:#07090b;margin:1rem 0;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.tlwrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
+.page.wide{max-width:1200px}
+.tl-list li,.tlsrc li{margin:.45rem 0}.tl-list b{font-family:"JetBrains Mono",monospace;color:var(--rust);margin-right:.4rem}

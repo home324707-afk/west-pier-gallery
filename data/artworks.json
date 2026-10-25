@@ -2160,5 +2160,30 @@
   "img": "img/109.jpg",
   "w": 1066,
   "h": 1600
+ },
+ {
+  "n": 110,
+  "kind": "ai",
+  "ai_key": "ashes",
+  "anim": "ashes",
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:ashes",
+  "orig_title": "With the dolphins",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/pieces.js",
+  "dl": "",
+  "desc": "",
+  "method": "Wholly original live code. First light over the pier. Pale motes leave the skeleton, settle on the swell and ride it out to sea; now and then dolphins rise among them. Nothing repeats exactly.",
+  "sources": [],
+  "inspired": "inspired by a memory shared on the wall by Bx",
+  "source_credit": "No source image. Inspired by a memory shared on the wall by Bx, who invited it to be used.",
+  "quote": "West pier has a particular significance in my life. I lived opposite in our family hotel from the age of 16. I watched the landing station fall into the sea with my brother. My mum was a save the west pier society member and campaigned for it to be saved for 40 years. They use to try and sell it to the right investor for £1 but wealthy investors were often turned down such as a Disney land. A underwater maze and recreating a Victorian feel were popular but never happened. Some argue that the purists limited the chances of its survival. We scattered my Mum and Dad’s ashes there so I like to feel they enjoyed an ashes surfer’s party with the dolphins.",
+  "quote_by": "Bx, on the wall",
+  "img": "img/110.jpg",
+  "w": 1600,
+  "h": 1000
  }
 ]

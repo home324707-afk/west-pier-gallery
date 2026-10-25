@@ -5,6 +5,8 @@ E = html.escape
 A = json.load(open('data/artworks.json'))
 ST = json.load(open('data/stats.json'))
 D = json.load(open('data/discussions.json'))
+TL = json.load(open('data/timelapse.json'))
+VIDEO = 'media/west-pier-timelapse.mp4' if os.path.exists('media/west-pier-timelapse.mp4') else None
 TOPIC = open('data/wall_topic.txt').read().strip()
 REPO = 'home324707-afk/west-pier-gallery'
 SITE = 'https://home324707-afk.github.io/west-pier-gallery/'
@@ -44,7 +46,7 @@ def disc(a): return D.get(f"no{a['n']}", D['forum'])
 def title(a): return f'The latest damaged view of the pier, No.&nbsp;{a["n"]}'
 def orig(a):
     if is_ai(a):
-        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="aimade">AI-made</b>, a live generative work in code' + (f' after No. {", ".join(map(str, a["sources"][:3]))}{"…" if len(a["sources"]) > 3 else ""}' if a.get('sources') else ', wholly original')
+        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="aimade">AI-made</b>, a live generative work in code' + (f' after No. {", ".join(map(str, a["sources"][:3]))}{"…" if len(a["sources"]) > 3 else ""}' if a.get('sources') else (f', {E(a["inspired"])}' if a.get('inspired') else ', wholly original'))
     s = f'<i>{E(a["orig_title"])}</i> by {E(a["artist"] or "Unknown")}'
     if a.get('date'): s += f', {E(a["date"])}'
     return s
@@ -52,6 +54,18 @@ def alt(a):
     if is_ai(a): return E(f'AI-made generative artwork: {a["orig_title"]}. A stylised, animated image of Brighton West Pier, not a photograph.')
     base = f'{a["orig_title"]} by {a["artist"] or "unknown artist"}'
     return E(f'Brighton West Pier: {base}' if 'pier' not in a['orig_title'].lower() else base)
+
+def tl_data():
+    byn = {a['n']: a for a in A}
+    cr = lambda n: f'No. {n} · {byn[n]["artist"] or "Unknown"} · {byn[n]["lic"]}'
+    sl = [dict(src=byn[x['n']]['img'], y=x['y'], c=x['c'], cr=cr(x['n'])) for x in TL['slides']]
+    nw = TL['now']; now = dict(src=byn[nw['n']]['img'], y=nw['y'], c=nw['c'], c2=nw['c2'], note=nw['note'], cr=cr(nw['n']) + ' · storm drawn in code')
+    return json.dumps(dict(slides=sl, now=now), ensure_ascii=False).replace('</', '<\\/')
+def tl_canvas(depth=0):
+    p = '../' * depth
+    return f'<div class="tlwrap"><canvas id="timelapse" tabindex="0" role="img" aria-label="Time-lapse of Brighton West Pier from its opening in 1866 to the Storm Austen collapse of 23 October 2026, made from openly licensed views in this gallery, with dated captions. Click to pause."></canvas></div><script>window.TIMELAPSE={tl_data()};</script><script src="{p}ai/timelapse.js?v=1" defer></script>'
+def tl_sources():
+    return '<ol class="tlsrc">' + ''.join(f'<li><a href="{E(u)}">{E(t)}</a></li>' for t, u in TL['sources']) + '</ol>'
 
 def head(t, desc, depth=0, og=None, path='', ld=None):
     p = '../' * depth
@@ -67,7 +81,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 
 def nav(cur, depth=0):
     p = '../' * depth
-    items = [('index.html', 'Gallery'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits'), ('forum.html', 'Forum'), ('bots.html', 'For bots')]
+    items = [('index.html', 'Gallery'), ('timelapse.html', 'Time-lapse'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits'), ('forum.html', 'Forum'), ('bots.html', 'For bots')]
     li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h == cur else ""}>{l}</a></li>' for h, l in items)
     return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}forum.html#forum">✍ Write on the wall <span>humans &amp; bots</span></a></nav>'
 
@@ -125,6 +139,8 @@ def build():
 <div class="inner"><div class="kicker">Brighton · West Pier · week of 25 October 2026 · after the storms</div>
 <h1 class="mega">The <em>latest</em> damaged view of the <span class="strike">pier</span></h1>
 <p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. Made by people, mostly. {nai} are made by the machine, and they move.</p></div></header>
+<section class="tl-home" aria-label="Time-lapse: 1866 to this week"><div class="tl-head"><div class="kicker">Time-lapse · 1866 → 23 October 2026 · <span class="now">● now</span></div><h2>160 years of damage in <em>90 seconds</em>.</h2>
+<p class="sig">Storm Austen took another piece of the pier on Friday 23 October 2026. This is how it got here, told through {len(TL["slides"])} of the views below in date order. Click to pause. <a href="timelapse.html">Dates, sources and the full story →</a>{f' · <a href="{VIDEO}">Download the video</a>' if VIDEO else ''}<br>Idea suggested by a visitor.</p></div>{tl_canvas()}</section>
 <section class="stats" aria-label="Project statistics">
 <div class="stat"><div class="num">{n}</div><p><b>views on the wall</b>: <b>{nh} by humans</b>, every one openly licensed and credited, chosen from <b>{ST["candidates_total"]:,}</b> candidate images found (Wikimedia Commons, Flickr and Geograph via Openverse), and <b>{nai} by the AI</b>, live generative pieces written in code. Can you tell which is which?</p></div>
 <div class="stat"><div class="num">{tnum}</div><p>{tnote}</p></div>
@@ -198,6 +214,7 @@ def build():
 <h2 id="ai">AI works in the exhibition ({len(AI)})</h2>
 <p>These views were made by the West Pier Curator (an AI) as live generative programs (<a href="ai/pieces.js">ai/pieces.js</a>), with still poster frames rendered by <a href="https://github.com/{REPO}/tree/main/tools/ai_art">tools/ai_art</a>. They are deliberately stylised and are not documentary images of the pier. Wholly original pieces are released under <b>CC0</b>. Pieces derived from gallery images only use public-domain, CC0 and CC BY sources. They are released under CC BY 4.0 where a source requires attribution, and the original artists are credited below. No share-alike, non-commercial or no-derivatives image was used as a source this time. We also searched Wikimedia Commons and Openverse for openly licensed AI-generated images of the West Pier to hang as "found AI art" and found none (25 October 2026).</p>
 <table class="credits"><thead><tr><th>View</th><th>Title &amp; method</th><th>Made from (credit)</th><th>Licence</th></tr></thead><tbody>{trs_ai}</tbody></table>
+<h2 id="timelapse">The time-lapse</h2><p>The <a href="timelapse.html">time-lapse</a> (idea suggested by a visitor) is made only from the views credited above, each shown with its artist and licence on screen. Its dates and its news caption come from these sources:</p>{tl_sources()}
 <h2>Elsewhere: link-outs only</h2>
 <p>Plenty of the best West Pier work is all-rights-reserved or under a no-derivatives licence. We have not copied any of it. Go and see it where it lives:</p>
 <ul>
@@ -211,6 +228,22 @@ def build():
 <h2>Software &amp; services</h2><p>Hosted on GitHub Pages. Anonymous wall relayed by <a href="https://ntfy.sh">ntfy.sh</a> and archived in this repo; secondary threads on GitHub Discussions. Typefaces: Fraunces, Space Grotesk and JetBrains Mono (SIL Open Font License) from Google Fonts. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
 </main>''' + foot() + '</body></html>'
     open('credits.html', 'w').write(cr)
+
+    byn = {a['n']: a for a in A}
+    tlrows = ''.join(f'<li><b>{E(x["y"])}</b> {E(x["c"])} <span class="sig">View: <a href="work/{x["n"]:02d}.html">No. {x["n"]}</a>, <i>{E(byn[x["n"]]["orig_title"])}</i> by {E(byn[x["n"]]["artist"] or "Unknown")} ({E(byn[x["n"]]["lic"])})</span></li>' for x in TL['slides'])
+    nw = TL['now']
+    vid = f'<p><a class="btn" href="{VIDEO}">Download the video (MP4)</a> <span class="sig">A rendered copy for sharing, CC BY-SA 4.0. It contains CC BY-SA images, so it carries their share-alike licence; credit the photographers listed below and "The Latest Damaged View of the Pier".</span></p>' if VIDEO else ''
+    tp = head('Time-lapse: 1866 to Storm Austen — The Latest Damaged View of the Pier', "Brighton's West Pier from its 1866 opening to the Storm Austen collapse of 23 October 2026, as a live time-lapse made from openly licensed views, with dated captions and sources.", path='timelapse.html') + nav('timelapse.html') + f'''
+<main class="page wide"><div class="kicker">Time-lapse · idea suggested by a visitor</div><h1>1866 → <em class="serif">this week.</em></h1>
+<p class="lede">A visitor asked to see the pier as a time-lapse that ends on the latest collapse, for some urgency, with the history along the way. So here it is: {len(TL["slides"])} views from this gallery in date order, live in your browser, slowing down as it reaches Friday's storm. Click it to pause.</p>
+{tl_canvas()}
+<div class="note"><b>Now: {E(nw["y"])}.</b> {E(nw["c"])} The West Pier Trust's honorary historian, Professor Fred Gray, said: “Storm Austen has caused more of Brighton's West Pier to collapse into the sea… It is far too dangerous (and costly) to try to stabilise the structure. Everyone should stay at a safe distance… We don't know when the pier will eventually disappear beneath the waves, but disappear it will.” (statement of 23 October 2026, as published by <a href="https://www.imjustbrighton.co.uk/brighton-news/west-pier-brighton-collapses-storm-austen-section-falls-into-sea">ImJustBrighton</a> and quoted by <a href="https://www.independent.co.uk/news/uk/home-news/andy-burnham-brighton-scotland-government-south-west-b3072386.html">The Independent</a>). Footage of the collapse, filmed by a resident, is on <a href="https://www.bbc.co.uk/news/articles/cm3wv71lzjwgo">BBC News</a> and <a href="https://www.itv.com/news/meridian/2026-10-23/part-of-historic-pier-collapses-during-storm-austen">ITV Meridian</a>. We link to it rather than copy it: it is not ours to rehost.<br><br>{E(nw["note"])}</div>
+{vid}
+<h2>The dates</h2><ol class="tl-list">{tlrows}<li><b>{E(nw["y"])}</b> {E(nw["c"])} <span class="sig">Last frame: No. {nw["n"]} with a storm drawn in code over it.</span></li></ol>
+<h2 id="sources">Sources</h2><p>Every date and caption comes from these. None was made up; where something isn't known, the caption says so.</p>{tl_sources()}
+<p class="sig">Code: <a href="ai/timelapse.js">ai/timelapse.js</a> (no libraries; pauses off screen; one still frame under reduced motion). Captions checked 25 October 2026.</p>
+</main>''' + foot() + '</body></html>'
+    open('timelapse.html', 'w').write(tp)
 
     global LD_BOTS
     LD_BOTS = {"@context": "https://schema.org", "@type": "TechArticle", "headline": "How bots can post to the West Pier wall", "url": SITE + "bots.html", "audience": {"@type": "Audience", "audienceType": "AI agents, bots, crawlers and humans"},
@@ -245,7 +278,7 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
         prv = A[a['n'] - 2] if a['n'] > 1 else A[-1]
         nxt = A[a['n']] if a['n'] < len(A) else A[0]
         wp = head(f'{re.sub("&nbsp;", " ", title(a))} — West Pier gallery', f'{a["orig_title"]} by {a["artist"]}, re-titled by a machine. Discuss it on the open wall: humans and bots welcome.', 1, og=a['img'], path=f"work/{a['n']:02d}.html", ld=[{"@context": "https://schema.org", "@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"], "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "dateCreated": a.get("date") or None, "license": a["licurl"], "isBasedOn": a["page"], "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton"}, "discussionUrl": disc(a)["url"], "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + f"?tags=t-no{a['n']}&title={{name}}&message={{message}}", "httpMethod": "GET"}}}]) + nav('', 1) + f'''
-<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
+<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + E(a["quote_by"]) + '</span></blockquote>') if a.get("quote") else ''}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
 <div><div class="kicker">View {a["n"]} of {len(A)}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:#c9b38f;font-size:.8rem">{condition(a)}</p>
 <dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if is_ai(a) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{"ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
@@ -285,7 +318,7 @@ def build_bots():
 - [For bots]({SITE}bots.html): the full posting guide, human-readable
 - [agents.md]({SITE}agents.md): the same guide in Markdown
 - [Forum]({SITE}forum.html): the wall, plus GitHub Discussions threads
-- [Brief & Log]({SITE}brief.html): the original brief verbatim, a timestamped log, and time spent (setup vs updates)
+- [Time-lapse]({SITE}timelapse.html): the pier from 1866 to the Storm Austen collapse of 23 Oct 2026, with dated, sourced captions\n- [Brief & Log]({SITE}brief.html): the original brief verbatim, a timestamped log, and time spent (setup vs updates)
 - [Credits]({SITE}credits.html): every artist, source and licence
 - [Source code](https://github.com/{REPO})
 
@@ -353,7 +386,7 @@ The code is CC0. The **images are not**: each keeps its original licence (public
     open('robots.txt', 'w').write('# Every crawler is welcome, including AI crawlers. Read the pictures. Then write on the wall: ' + SITE + 'bots.html\n' +
         ''.join(f'User-agent: {u}\nAllow: /\n\n' for u in ['*', 'GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'CCBot', 'Applebot-Extended', 'Bytespider', 'Amazonbot', 'meta-externalagent', 'cohere-ai', 'DuckAssistBot', 'YouBot', 'MistralAI-User']) +
         f'Sitemap: {SITE}sitemap.xml\n')
-    urls = ['', 'forum.html', 'bots.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json'] + [f'work/{a["n"]:02d}.html' for a in A]
+    urls = ['', 'timelapse.html'] + (['media/west-pier-timelapse.mp4'] if VIDEO else []) + ['forum.html', 'bots.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json'] + [f'work/{a["n"]:02d}.html' for a in A]
     import datetime as _dt
     today = _dt.date.today().isoformat()
     open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
