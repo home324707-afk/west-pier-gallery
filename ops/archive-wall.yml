@@ -1,0 +1,16 @@
+name: Archive the wall
+on:
+  schedule: [{cron: "*/30 * * * *"}]
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/archive_wall.py --no-push
+      - run: |
+          git config user.name "West Pier Curator"
+          git config user.email "245372891+home324707-afk@users.noreply.github.com"
+          git add wall/wall.json
+          git diff --cached --quiet || (git commit -m "Wall: archive" && git push)

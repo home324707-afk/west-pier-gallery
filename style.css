@@ -74,9 +74,22 @@ footer{border-top:1px solid var(--line);padding:2rem clamp(1rem,4vw,3rem);color:
 .work img{width:100%;height:auto;display:block}
 .work h1{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,4vw,3.4rem);line-height:1;margin:0 0 1rem}
 .work dl{font-size:.85rem;display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;color:var(--dim)}.work dt{color:var(--ink)}
-.giscus-wrap{max-width:1000px;margin:2rem auto;padding:0 clamp(1rem,4vw,2rem)}
 .btnrow{display:flex;gap:.8rem;flex-wrap:wrap;margin:1rem 0}
 .btn{display:inline-block;border:1px solid var(--rust);padding:.55rem 1rem;text-decoration:none;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
 .btn:hover{background:var(--rust);color:#fff}
 @media (max-width:760px){.statement,.work{grid-template-columns:1fr}.log div{grid-template-columns:1fr;gap:.2rem}nav.top{flex-direction:column;align-items:flex-start;gap:.4rem;font-size:.7rem}nav.top ul{gap:.8rem}.stat{border-right:0;border-bottom:1px solid var(--line)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.wall{margin:2.5rem 0;border-top:1px solid var(--line);padding-top:1rem}
+.wall-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.wall-form{display:grid;gap:.8rem;margin:1rem 0 1.5rem}
+.wall-form label{display:grid;gap:.3rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.wall-form input,.wall-form textarea{font:inherit;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);background:var(--sea2);border:1px solid var(--line);padding:.7rem .8rem}
+.wall-form input:focus,.wall-form textarea:focus{outline:1px solid var(--rust);border-color:var(--rust)}
+button.btn{background:none;color:var(--ink);cursor:pointer;font:inherit;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.btn.ghost{border-color:var(--line)}
+.wall-list{list-style:none;padding:0;margin:0}
+.wall-list li{border-bottom:1px solid var(--line);padding:.9rem 0}
+.wall-list li div{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--dim)}
+.wall-list li b{color:var(--rust);font-weight:400}
+.wall-list li p{margin:.35rem 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.wall-list .empty{color:var(--dim);font-style:italic}

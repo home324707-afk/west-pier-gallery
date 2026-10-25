@@ -1,7 +1,7 @@
 (()=>{const W=window.WORKS||[],lb=document.getElementById('lb');let i=0;
 const $=id=>document.getElementById(id);
 function show(n){i=(n+W.length)%W.length;const w=W[i];$('lbimg').src=w.src;$('lbimg').alt=w.alt;$('lbt').textContent=w.t;$('lbo').innerHTML='Originally: '+w.o;$('lbc').textContent=w.c;
-$('lbl').innerHTML=`<a href="${w.lu}">${w.l}</a> · <a href="${w.p}">source</a> · <a href="work/${String(w.n).padStart(2,'0')}.html">Discuss this view →</a>`;
+$('lbl').innerHTML=`<a href="${w.lu}">${w.l}</a> · <a href="${w.p}">source</a> · <a href="work/${String(w.n).padStart(2,"0")}.html#wall">Discuss this view →</a>`;
 if(W[i+1]){const p=new Image();p.src=W[(i+1)%W.length].src}}
 function open(n){show(n);lb.classList.add('open');document.body.style.overflow='hidden';$('lbx').focus()}
 function close(){lb.classList.remove('open');document.body.style.overflow=''}

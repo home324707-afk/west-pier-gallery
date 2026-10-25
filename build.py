@@ -4,8 +4,8 @@ import json, html, re, os
 E = html.escape
 A = json.load(open('data/artworks.json'))
 ST = json.load(open('data/stats.json'))
-G = json.load(open('data/giscus_ids.json'))['data']['repository']
-CAT = {n['name']: n['id'] for n in G['discussionCategories']['nodes']}
+D = json.load(open('data/discussions.json'))
+TOPIC = open('data/wall_topic.txt').read().strip()
 REPO = 'home324707-afk/west-pier-gallery'
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,300..500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">'
 BRIEF = "Creative project. The iconic west pier in Brighton has been damaged further by this week's storms. It's a local cliche for artists and photographers. Search the internet for art, remained each image as the latest damaged view of of the pier. Collate the images into an online gallery.  Host via free service. Landing page of the site should record how many images were found, how long you spent doing it.  It's a statement on human vs AI creativity. Create a sepearte bot to do this. Keep this message and a log  of what you did as a seperate page on the site. Create a credits page for artists. now go wild, create and show us what you can do."
@@ -35,9 +35,9 @@ def alt(a):
 def head(t, desc, depth=0, og=None):
     p = '../' * depth
     ogi = f'<meta property="og:image" content="https://home324707-afk.github.io/west-pier-gallery/{og}">' if og else ''
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    return f'''<!doctype html><html lang="en" data-wall-topic="{TOPIC}" data-root="{p}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="{E(desc)}"><meta property="og:title" content="{t}"><meta property="og:description" content="{E(desc)}">{ogi}
-{FONTS}<link rel="stylesheet" href="{p}style.css"><link rel="icon" href="{p}img/favicon.png"></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script></head><body>'''
 
 def nav(cur, depth=0):
     p = '../' * depth
@@ -49,8 +49,14 @@ def foot(depth=0):
     p = '../' * depth
     return f'''<footer><span>An AI-curated exhibition of human images. Every photograph and painting here was made by a person; only the titles were made by a machine.</span><span><a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a></span></footer>'''
 
-def giscus(cat, term, theme='noborder_dark'):
-    return f'''<div class="giscus-wrap"><script src="https://giscus.app/client.js" data-repo="{REPO}" data-repo-id="{G['id']}" data-category="{E(cat)}" data-category-id="{CAT[cat]}" data-mapping="specific" data-term="{E(term)}" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="{theme}" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script></div>'''
+def wall(thread, heading, disc_url=None, disc_label='Join the discussion on GitHub →'):
+    gh = f'<a class="btn ghost" href="{disc_url}">{disc_label}</a>' if disc_url else ''
+    return f'''<section class="wall" data-thread="{thread}" aria-label="{E(heading)}"><div class="wall-head"><h2>{heading}</h2><span class="wall-count sig"></span></div>
+<form class="wall-form"><label>Name <span class="sig">(optional)</span><input name="name" maxlength="60" placeholder="Anonymous" autocomplete="off"></label>
+<label>Message<textarea name="text" maxlength="2000" rows="4" required placeholder="Your latest damaged view of anything. Humans and bots welcome."></textarea></label>
+<div class="btnrow"><button class="btn" type="submit">Post to the wall</button>{gh}</div><p class="wall-status sig" role="status"></p>
+<p class="sig">No account. No moderation. Posts are public and permanent-ish, archived in <a href="https://github.com/{REPO}/blob/main/wall/wall.json">wall/wall.json</a>.</p></form>
+<ol class="wall-list"></ol></section>'''
 
 def fmt_elapsed(sec):
     if sec is None: return None
@@ -107,7 +113,7 @@ def build():
 <p class="sig">Kept exactly as received, double spaces and all. "Remained" was read as <i>re-name</i>.</p>
 <h2>The log</h2><p>Every entry below was written during the work and timestamped with the system clock (<code>date -u</code>, UTC; London is UTC+0 this week). Nothing was back-filled from memory.</p>
 <div class="log">{"".join(rows)}</div>
-<h2>Method in one paragraph</h2><p>The machine searched Wikimedia Commons (the <i>Brighton West Pier</i> category tree plus keyword searches for paintings, prints, postcards and starlings) and the Openverse index of Flickr's Creative Commons photos. It read each candidate's licence from the source API, discarded no-derivatives licences, built contact sheets, chose images for range rather than volume, re-checked every Flickr licence on the live Flickr page, downloaded web-sized copies (not cropped or edited) and generated this static site with a 200-line Python script. It is hosted free on GitHub Pages. Comments and the forum run on GitHub Discussions through giscus, so visitors need a GitHub sign-in to post.</p>
+<h2>Method in one paragraph</h2><p>The machine searched Wikimedia Commons (the <i>Brighton West Pier</i> category tree plus keyword searches for paintings, prints, postcards and starlings) and the Openverse index of Flickr's Creative Commons photos. It read each candidate's licence from the source API, discarded no-derivatives licences, built contact sheets, chose images for range rather than volume, re-checked every Flickr licence on the live Flickr page, downloaded web-sized copies (not cropped or edited) and generated this static site with a 200-line Python script. It is hosted free on GitHub Pages. Comments live on an anonymous, unmoderated wall (a public ntfy.sh topic, archived into this repo), with GitHub Discussions threads for each work as a secondary option.</p>
 </main>''' + foot() + '</body></html>'
     open('brief.html', 'w').write(br)
 
@@ -143,21 +149,30 @@ def build():
 <li><a href="https://collections.vam.ac.uk/search/?q=west%20pier%20brighton">V&amp;A collections search: “West Pier Brighton”</a> (prints, posters, photographs).</li>
 {ndl}
 </ul>
-<h2>Software &amp; services</h2><p>Hosted on GitHub Pages. Comments by <a href="https://giscus.app">giscus</a> on GitHub Discussions. Typefaces: Fraunces, Space Grotesk and JetBrains Mono (SIL Open Font License) from Google Fonts. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
+<h2>Software &amp; services</h2><p>Hosted on GitHub Pages. Anonymous wall relayed by <a href="https://ntfy.sh">ntfy.sh</a> and archived in this repo; secondary threads on GitHub Discussions. Typefaces: Fraunces, Space Grotesk and JetBrains Mono (SIL Open Font License) from Google Fonts. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
 </main>''' + foot() + '</body></html>'
     open('credits.html', 'w').write(cr)
 
     # Forum
-    fo = head('Forum & Feedback — The Latest Damaged View of the Pier', 'Discuss the project: human vs AI creativity, the West Pier, and what the machine got wrong.') + nav('forum.html') + f'''
+    fo = head('Forum & Feedback — The Latest Damaged View of the Pier', 'An anonymous, unmoderated wall for humans and bots: human vs AI creativity and the West Pier.') + nav('forum.html') + f'''
 <main class="page"><div class="kicker">Forum &amp; Feedback</div><h1>Argue with the machine.</h1>
-<p>A machine re-titled {len(A)} human artworks in about the time it takes to walk from the West Pier to the Palace Pier and back. Is that curation, vandalism, a joke, or a fair description of what an AI “creating” looks like? Did it pick the right views, and which ones did it miss? Have you got your own latest damaged view of the pier?</p>
-<div class="btnrow"><a class="btn" href="#discuss">General discussion</a><a class="btn" href="#feedback">Leave feedback</a><a class="btn" href="https://github.com/{REPO}/discussions">All threads on GitHub Discussions ↗</a></div>
-<p class="sig">Comments are stored as public GitHub Discussions. You need a GitHub account to post; reading is open to everyone. Each artwork also has its own thread, linked from the gallery viewer.</p>
-<h2 id="discuss">General discussion: human vs AI creativity</h2></main>
-{giscus("General", "Forum: human vs AI creativity")}
-<main class="page" style="padding-top:0"><h2 id="feedback">Feedback &amp; ideas</h2><p>Bugs, credits we got wrong, images we should add (openly licensed please), or ideas for the next storm.</p></main>
-{giscus("Ideas", "Feedback on the exhibition")}
-''' + foot() + '</body></html>'
+<p>A machine re-titled {len(A)} human artworks in about the time it takes to walk from the West Pier to the Palace Pier and back. Is that curation, vandalism, a joke, or a fair description of what an AI "creating" looks like? Which views did it miss? What's your latest damaged view of the pier?</p>
+<div class="note"><b>This wall is anonymous and unmoderated by design.</b> No account, no sign-in, no captcha, no bot filter. Humans and bots alike are invited, and spam, including AI-bot spam, is part of the artwork. Every post is shown as plain text exactly as received. The only limits protect the site itself: names up to 60 characters, messages up to 2,000, and the free relay's per-address rate limit.</div>
+<div class="btnrow" style="margin-top:1.5rem"><a class="btn" href="#forum">The wall</a><a class="btn" href="#feedback">Feedback</a><a class="btn ghost" href="{D['forum']['url']}">Forum thread on GitHub →</a><a class="btn ghost" href="{D['feedback']['url']}">Feedback thread on GitHub →</a><a class="btn ghost" href="https://github.com/{REPO}/discussions">All GitHub Discussions →</a></div>
+<p class="sig">The GitHub threads are a secondary option and need a free GitHub account to post. The wall below needs nothing.</p>
+<div id="forum">{wall("forum", "The wall: human vs AI creativity", D['forum']['url'], 'Or post on GitHub →')}</div>
+<div id="feedback">{wall("feedback", "Feedback &amp; ideas", D['feedback']['url'], 'Or post on GitHub →')}</div>
+<h2 id="bots">For machines</h2><p>Posting is a single unauthenticated HTTP request to a public <a href="https://ntfy.sh">ntfy.sh</a> topic. Set the <code>Title</code> header to your name and the <code>Tags</code> header to the thread: <code>t-forum</code>, <code>t-feedback</code> or <code>t-no1</code>…<code>t-no{len(A)}</code> for an artwork.</p>
+<pre class="brief">curl -H "Title: A Helpful Bot" -H "Tags: t-forum" \\
+     -d "The latest damaged view of the pier is the one you haven't seen yet." \\
+     https://ntfy.sh/{TOPIC}
+
+# or JSON
+curl -d '{{"topic":"{TOPIC}","title":"A Helpful Bot","tags":["t-no7"],"message":"Hello, No. 7"}}' https://ntfy.sh/
+
+# read everything archived so far
+curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
+</main>''' + foot() + '</body></html>'
     open('forum.html', 'w').write(fo)
 
     # Per-work pages
@@ -171,8 +186,8 @@ def build():
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:#c9b38f;font-size:.8rem">{condition(a)}</p>
 <dl><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd><dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>Source</dt><dd><a href="{E(a["page"])}">{E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
 <div class="btnrow"><a class="btn" href="{prv["n"]:02d}.html">← No. {prv["n"]}</a><a class="btn" href="../index.html">Gallery</a><a class="btn" href="{nxt["n"]:02d}.html">No. {nxt["n"]} →</a></div>
-<h2 class="serif" style="font-weight:300;margin-top:2rem">Discuss this view</h2><p class="sig">GitHub sign-in needed to comment.</p></div></article>
-{giscus("Show and tell", f"No. {a['n']}")}''' + foot(1) + '</body></html>'
+<div class="btnrow"><a class="btn" href="#wall">Discuss this view, no account needed ↓</a><a class="btn ghost" href="{D[f"no{a['n']}"]['url']}">Join the discussion of this view on GitHub →</a></div></div></article>
+<div class="page" id="wall" style="padding-top:0">{wall(f"no{a['n']}", f"The wall for No. {a['n']}", D[f"no{a['n']}"]['url'], 'Join the discussion of this view on GitHub →')}</div>''' + foot(1) + '</body></html>'
         open(f'work/{a["n"]:02d}.html', 'w').write(wp)
     print('built', len(A), 'works')
 
