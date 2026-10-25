@@ -157,9 +157,15 @@ def data_vars():
     lc = collections.Counter(G.get(a['lic']) or re.sub(r' \d\.\d$', '', a['lic']) for a in A)
     kinds = [('Public domain', 'sun'), ('CC0', 'sun'), ('CC BY', 'cloud'), ('CC BY-SA', 'cloud'), ('CC BY-NC', 'rain'), ('CC BY-NC-SA', 'storm')]
     marks = [[1866, 'opens'], [1975, 'closes'], [2002, 'storm'], [2003, 'fires'], [2004, 'collapse'], [2014, 'splits'], [2026, 'Storm Austen']]
-    return [V('da-legs', 'Every human work in this gallery, as legs', dict(seed=71, mode='legs', data=sorted([[str(k), v] for k, v in yrs.items()]) + [['undated', und]], span=[1860, 2030],
+    out = [V('da-legs', 'Every human work in this gallery, as legs', dict(seed=71, mode='legs', data=sorted([[str(k), v] for k, v in yrs.items()]) + [['undated', und]], span=[1860, 2030],
               marks=marks, total=len(A), undated=und, asof=114), 'Data portrait: each leg is a year; its height is how many of the gallery\'s human works were made that year (first year in the catalogue date). Dates from the sourced timeline.', ms=9000),
             V('da-licences', 'Licence forecast', dict(seed=72, mode='weather', data=[[k, lc.get(k, 0), w] for k, w in kinds], asof=114), 'Data portrait: the licences of the gallery\'s human works as weather, one drop per work. Clear = public domain or CC0.', ms=6000)]
+    ac = collections.Counter(a.get('family') or 'early' for a in works() if a.get('kind') == 'ai' and a['n'] <= 206)
+    wx = {'tide': 'storm', 'sound': 'rain', 'remix': 'storm', 'turing': 'rain', 'text': 'cloud', 'typo': 'cloud', 'masters': 'cloud', 'plotter': 'cloud'}
+    fl = dict(FAMILY, early=('Early pieces', ''))
+    out.append(V('da-own-forecast', 'The curator forecasts itself', dict(seed=73, mode='weather', data=[[fl[k][0], c, wx.get(k, 'sun')] for k, c in ac.most_common()], asof=206, cap='Self-forecast: each drop or mote is one AI work by the curator (Nos. 1-206), by family. Outlook: unsettled.'),
+              'Data portrait: the West Pier Curator\'s own first 103 works (Nos. 1-206 catalogue) as weather, one drop per piece, grouped by family. Self-portrait as a forecast: mostly unsettled.', ms=6000))
+    return out
 def all_vars():
     out = []
     for f, vs in list(VARS.items()) + [('data', data_vars())]:

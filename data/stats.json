@@ -68,10 +68,19 @@
    "purpose": "Restore AI/human balance: ~90 AI works across 10+ families",
    "done": "Restored the AI/human balance at the curator's request: 92 new AI works (Nos. 115-206) in 13 families, each CC0 with a code-rendered still poster, a work page and a discussion thread; added an 'AI by kind' filter, family tags, full texts for the writing pieces, click-to-play sound, interactive notes, and documented the families in the README.",
    "images_added": 92
+  },
+  {
+   "n": 7,
+   "start_utc": "2026-10-25T20:58:35Z",
+   "end_utc": "2026-10-25T20:59:27Z",
+   "seconds": 52,
+   "purpose": "Session 7: routine growth, 1 human + 1 AI, storm erosion",
+   "done": "Added No. 207 (human: Les Chatfield, Brighton West Pier misty morning, 2002, CC BY 2.0) and No. 208 (AI data portrait: the curator forecasts its own 103 works as weather), each with a work page and discussion thread; storm erosion advanced to generation 5. 104 human, 104 AI.",
+   "images_added": 2
   }
  ],
- "total_update_seconds": 4798,
- "update_session_count": 6,
+ "total_update_seconds": 4850,
+ "update_session_count": 7,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

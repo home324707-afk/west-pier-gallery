@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 4.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 5.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 4
+  "generation": 5
  },
  {
   "src": "Flickr (via Openverse)",
@@ -5601,6 +5601,125 @@
   "sources": [],
   "source_credit": "",
   "img": "img/206.jpg",
+  "w": 1200,
+  "h": 800
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20021011 misty morning.jpg",
+  "orig_title": "Brighton West Pier 20021011 misty morning",
+  "artist": "Les Chatfield",
+  "date": "2002-10-11",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20021011_misty_morning.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Brighton_West_Pier_20021011_misty_morning.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier, UK. \"A misty morning. A time for oneself. A memory of the West pier as it was.\"",
+  "kind": "human",
+  "n": 207,
+  "img": "img/207.jpg",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "n": 208,
+  "kind": "ai",
+  "ai_key": "da-own-forecast",
+  "anim": "f-data",
+  "family": "data",
+  "params": {
+   "seed": 73,
+   "mode": "weather",
+   "data": [
+    [
+     "Early pieces",
+     11,
+     "sun"
+    ],
+    [
+     "Writing",
+     10,
+     "cloud"
+    ],
+    [
+     "Remixes",
+     9,
+     "storm"
+    ],
+    [
+     "After the masters",
+     9,
+     "cloud"
+    ],
+    [
+     "Flow fields",
+     8,
+     "sun"
+    ],
+    [
+     "Typography",
+     8,
+     "cloud"
+    ],
+    [
+     "L-systems",
+     7,
+     "sun"
+    ],
+    [
+     "Cellular automata",
+     7,
+     "sun"
+    ],
+    [
+     "Tide simulations",
+     7,
+     "storm"
+    ],
+    [
+     "Plotter drawings",
+     7,
+     "cloud"
+    ],
+    [
+     "Sound pieces",
+     6,
+     "rain"
+    ],
+    [
+     "Interactive",
+     6,
+     "sun"
+    ],
+    [
+     "Turing test failures",
+     6,
+     "rain"
+    ],
+    [
+     "Data portraits",
+     2,
+     "sun"
+    ]
+   ],
+   "asof": 206,
+   "cap": "Self-forecast: each drop or mote is one AI work by the curator (Nos. 1-206), by family. Outlook: unsettled."
+  },
+  "still_ms": 6000,
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:da-own-forecast",
+  "orig_title": "The curator forecasts itself",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-25",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/data.js",
+  "dl": "",
+  "desc": "",
+  "method": "Data portrait: the West Pier Curator's own first 103 works (Nos. 1-206 catalogue) as weather, one drop per piece, grouped by family. Self-portrait as a forecast: mostly unsettled.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/208.jpg",
   "w": 1200,
   "h": 800
  }

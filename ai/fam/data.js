@@ -17,8 +17,8 @@ WPAI.register('f-data',{fps:30,init(s){const{W,H,p}=s;s.max=Math.max(...p.data.f
       if(kind==='sun'){x.fillStyle='#ffd36b';x.beginPath();x.arc(cx,H*.3,bw*.12+Math.sin(T*2)*2,0,6.283);x.fill()}
       if(kind!=='sun'){x.fillStyle=kind==='storm'?'#59606e':'#9aa5b5';for(let k=0;k<4;k++){x.beginPath();x.arc(cx-bw*.18+k*bw*.12,H*.24+Math.sin(T+k)*3,bw*.1,0,6.283);x.fill()}}
       if(kind==='storm'&&Math.sin(T*3.1+i)>.97){x.strokeStyle='#fff6c0';x.lineWidth=2;x.beginPath();x.moveTo(cx,H*.3);x.lineTo(cx-bw*.06,H*.45);x.lineTo(cx+bw*.03,H*.45);x.lineTo(cx-bw*.04,H*.62);x.stroke()}
-      x.fillStyle='#d8e2ea';x.textAlign='center';x.fillText(lab,cx,H*.86);x.font=`bold ${fs*2}px ${F}`;x.fillText(c,cx,H*.8);x.font=`${fs}px ${F}`;x.fillStyle='rgba(216,226,234,.6)';x.fillText({sun:'clear',cloud:'cloudy',rain:'showers',storm:'storms'}[kind],cx,H*.91)});
+      x.fillStyle='#d8e2ea';x.textAlign='center';{const n=p.data.length,lf=Math.min(fs,bw*1.6/Math.max(4,lab.length));x.font=`${lf}px ${F}`;x.fillText(lab,cx,H*(n>8&&i%2?.885:.86));x.font=`${fs}px ${F}`}x.font=`bold ${fs*2}px ${F}`;x.fillText(c,cx,H*.8);x.font=`${fs}px ${F}`;x.fillStyle='rgba(216,226,234,.6)';x.fillText({sun:'clear',cloud:'cloudy',rain:'showers',storm:'storms'}[kind],cx,H*.94)});
     x.strokeStyle='rgba(180,200,230,.7)';x.lineWidth=1.2;x.beginPath();for(const d of s.drops){const kind=p.data[d.i][2];if(kind==='sun'||kind==='cloud'){x.fillStyle='rgba(255,230,150,.6)';x.fillRect(bw*(d.i+d.x*.8+.1),H*(.4+.3*((d.y+T*.03*d.v)%1)),2,2);continue}
       const yy=H*(.32+.4*((d.y+T*.25*d.v)%1)),xx=bw*(d.i+.15+d.x*.7);x.moveTo(xx,yy);x.lineTo(xx-2,yy+H*.025)}x.stroke();
-    x.fillStyle='#d8e2ea';x.textAlign='left';x.fillText(`Licence forecast: each drop or mote is one human work in this gallery (as of No. ${p.asof}). Clear skies = free to remix.`,W*.03,H*.07)}}});
+    x.fillStyle='#d8e2ea';x.textAlign='left';x.fillText(p.cap||`Licence forecast: each drop or mote is one human work in this gallery (as of No. ${p.asof}). Clear skies = free to remix.`,W*.03,H*.07)}}});
 })();
