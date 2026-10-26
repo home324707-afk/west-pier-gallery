@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 8.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 9.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 8
+  "generation": 9
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6332,5 +6332,39 @@
   "img": "img/226.jpg",
   "w": 1548,
   "h": 870
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Murmuration near the West Pier, Brighton, Sussex - geograph.org.uk - 3739287.jpg",
+  "orig_title": "Murmuration near the West Pier, Brighton, Sussex - geograph.org.uk - 3739287",
+  "artist": "Christine Matthews",
+  "date": "2013-11-03",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Murmuration_near_the_West_Pier,_Brighton,_Sussex_-_geograph.org.uk_-_3739287.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Murmuration_near_the_West_Pier%2C_Brighton%2C_Sussex_-_geograph.org.uk_-_3739287.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Murmuration near the West Pier,  Brighton, Sussex",
+  "kind": "human",
+  "n": 227,
+  "img": "img/227.jpg",
+  "w": 1024,
+  "h": 376
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Piers of the Pier.jpg",
+  "orig_title": "Piers of the Pier",
+  "artist": "Les Chatfield from Brighton, England",
+  "date": "2002-11-18",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Piers_of_the_Pier.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Piers_of_the_Pier.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "… all that is left of the old West Pier, Brighton",
+  "kind": "human",
+  "n": 228,
+  "img": "img/228.jpg",
+  "w": 1280,
+  "h": 960
  }
 ]
