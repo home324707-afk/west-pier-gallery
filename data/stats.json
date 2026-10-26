@@ -95,10 +95,19 @@
    "purpose": "Session 9: routine growth, 1-3 works, storm erosion",
    "done": "Added 3 human views (No. 218 susie2778, starlings over the West Pier, CC BY-NC 2.0; No. 219 Rain Rabbit, Mangled West Pier, CC BY-NC 2.0; No. 220 Dan Taylor, 2001, CC BY 2.0) with work pages and discussion threads; storm erosion advanced to generation 6, and its condition report noticed. No new wall posts or open-call submissions. 107 human, 104 AI + 9 guest AI.",
    "images_added": 3
+  },
+  {
+   "n": 10,
+   "start_utc": "2026-10-26T12:57:06Z",
+   "end_utc": "2026-10-26T12:58:38Z",
+   "seconds": 92,
+   "purpose": "Little-and-often update: balance human/AI, storm step, archive wall",
+   "done": "Added 3 human views (No. 221 Ben Brooksbank, Brighton seafront to West Pier 1997, CC BY-SA 2.0; No. 222 Ivan Bandura, Rusty West Pier supporting pile, CC BY 2.0; No. 223 sagesolar, Tide bears the last glow, CC BY 4.0) with work pages and discussion threads; storm erosion advanced to generation 7, and its condition report now wants a credit. No new wall posts or open-call submissions. 110 human, 104 AI + 9 guest AI.",
+   "images_added": 3
   }
  ],
- "total_update_seconds": 7358,
- "update_session_count": 9,
+ "total_update_seconds": 7450,
+ "update_session_count": 10,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

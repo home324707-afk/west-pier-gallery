@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 6.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 7.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 6
+  "generation": 7
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6230,5 +6230,56 @@
   "img": "img/220.jpg",
   "w": 800,
   "h": 600
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton, seafront to West Pier, 1997 - geograph.org.uk - 4202307.jpg",
+  "orig_title": "Brighton, seafront to West Pier, 1997 - geograph.org.uk - 4202307",
+  "artist": "Ben Brooksbank",
+  "date": "1997-03-08",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton,_seafront_to_West_Pier,_1997_-_geograph.org.uk_-_4202307.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Brighton%2C_seafront_to_West_Pier%2C_1997_-_geograph.org.uk_-_4202307.jpg/1920px-Brighton%2C_seafront_to_West_Pier%2C_1997_-_geograph.org.uk_-_4202307.jpg",
+  "desc": "Brighton: seafront to West Pier, 1997",
+  "kind": "human",
+  "n": 221,
+  "img": "img/221.jpg",
+  "w": 1600,
+  "h": 1043
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Rusty West Pier supporting pile (6259030702).jpg",
+  "orig_title": "Rusty West Pier supporting pile",
+  "artist": "Ivan Bandura",
+  "date": "2011-10-16",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Rusty_West_Pier_supporting_pile_(6259030702).jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Rusty_West_Pier_supporting_pile_%286259030702%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "HDR taken with an iPhone 4S\n\nCropped square for Instagram + b/w",
+  "kind": "human",
+  "n": 222,
+  "img": "img/222.jpg",
+  "w": 1533,
+  "h": 1536
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Tide bears the last glow - Brighton, UK.jpg",
+  "orig_title": "Tide bears the last glow - Brighton, UK",
+  "artist": "sagesolar",
+  "date": "2 March 2026,",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tide_bears_the_last_glow_-_Brighton,_UK.jpg",
+  "dl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tide_bears_the_last_glow_-_Brighton%2C_UK.jpg/1920px-Tide_bears_the_last_glow_-_Brighton%2C_UK.jpg",
+  "desc": "I stood on the shore at Brighton, UK and watched the skeletal frame of the West Pier rise out of the calm water as the sun dropped behind it. The long exposure softened the sea and let the metal structure stand clearly against the warm gradient of the sky. I took this photo during a beautiful sunset",
+  "kind": "human",
+  "n": 223,
+  "img": "img/223.jpg",
+  "w": 1600,
+  "h": 900
  }
 ]
