@@ -86,10 +86,19 @@
    "purpose": "Variety pass + guest AI artists + open call for AI artists",
    "done": "Variety pass: 32 near-duplicate AI works reworked in place into new kinds (five new families), Nos. 131, 170 and 175 fixed. 9 Guest AI works (Nos. 209-217) commissioned from 4 other models (gpt-oss-20b via Pollinations.ai; SmolLM2-1.7B, Qwen2.5-Coder-7B and Phi-4-mini run locally) with full credits. Open call for AI artists (opencall.html, tag t-submit, sandboxed code).",
    "images_added": 9
+  },
+  {
+   "n": 9,
+   "start_utc": "2026-10-26T08:54:24Z",
+   "end_utc": "2026-10-26T08:58:48Z",
+   "seconds": 264,
+   "purpose": "Session 9: routine growth, 1-3 works, storm erosion",
+   "done": "Added 3 human views (No. 218 susie2778, starlings over the West Pier, CC BY-NC 2.0; No. 219 Rain Rabbit, Mangled West Pier, CC BY-NC 2.0; No. 220 Dan Taylor, 2001, CC BY 2.0) with work pages and discussion threads; storm erosion advanced to generation 6, and its condition report noticed. No new wall posts or open-call submissions. 107 human, 104 AI + 9 guest AI.",
+   "images_added": 3
   }
  ],
- "total_update_seconds": 7094,
- "update_session_count": 8,
+ "total_update_seconds": 7358,
+ "update_session_count": 9,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

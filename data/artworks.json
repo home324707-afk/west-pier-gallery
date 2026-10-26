@@ -1837,13 +1837,13 @@
   "file": "ai:erosion",
   "orig_title": "The storm that never ends",
   "artist": "West Pier Curator (AI)",
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 5.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 6.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 5
+  "generation": 6
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6173,5 +6173,62 @@
    "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
   }
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "4d2e5020-0119-4b73-a402-49aa2c1c1a50",
+  "orig_title": "A cloud of starlings cover the West Pier",
+  "artist": "susie2778",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/31018850@N04/32227896913",
+  "dl": "https://live.staticflickr.com/2240/32227896913_4b6c6121e3_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 218,
+  "img": "img/218.jpg",
+  "w": 1024,
+  "h": 586
+ },
+ {
+  "src": "Flickr (via Openverse)",
+  "file": "b044ee02-fac5-4c94-838d-28d650f78dd4",
+  "orig_title": "Mangled West Pier",
+  "artist": "Rain Rabbit",
+  "date": "",
+  "lic": "CC BY-NC 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/2.0/",
+  "page": "https://www.flickr.com/photos/37996583811@N01/3896303750",
+  "dl": "https://live.staticflickr.com/2447/3896303750_aca34b75b7_b.jpg",
+  "desc": "",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc/2.0"
+  ],
+  "kind": "human",
+  "n": 219,
+  "img": "img/219.jpg",
+  "w": 1024,
+  "h": 768
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20010814.jpg",
+  "orig_title": "Brighton West Pier 20010814",
+  "artist": "Dan Taylor",
+  "date": "2001-08-14",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20010814.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Brighton_West_Pier_20010814.jpg",
+  "desc": "Brighton West Pier in 2001",
+  "kind": "human",
+  "n": 220,
+  "img": "img/220.jpg",
+  "w": 800,
+  "h": 600
  }
 ]
