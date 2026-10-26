@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 7.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 8.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 7
+  "generation": 8
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6281,5 +6281,56 @@
   "img": "img/223.jpg",
   "w": 1600,
   "h": 900
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier circa 1900.jpg",
+  "orig_title": "West Pier circa 1900",
+  "artist": "Unknown",
+  "date": "circa 1900",
+  "lic": "Public domain",
+  "licurl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier_circa_1900.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/West_Pier_circa_1900.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Postcard of West Pier, Brighton, UK, circa 1900",
+  "kind": "human",
+  "n": 224,
+  "img": "img/224.jpg",
+  "w": 1000,
+  "h": 625
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton West Pier 20060410 warnings.jpg",
+  "orig_title": "Brighton West Pier 20060410 warnings",
+  "artist": "Les Chatfield",
+  "date": "2006-04-10",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_West_Pier_20060410_warnings.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Brighton_West_Pier_20060410_warnings.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "Brighton West Pier, UK. \"Underwater Hazards\" warning signs.",
+  "kind": "human",
+  "n": 225,
+  "img": "img/225.jpg",
+  "w": 1200,
+  "h": 1600
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier @ night.jpg",
+  "orig_title": "West Pier @ night",
+  "artist": "Dominic's pics (Dominic Alves)",
+  "date": "2001-10-13",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier_@_night.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/0/04/West_Pier_%40_night.jpg",
+  "desc": "West Pier, Brighton, England",
+  "kind": "human",
+  "n": 226,
+  "img": "img/226.jpg",
+  "w": 1548,
+  "h": 870
  }
 ]

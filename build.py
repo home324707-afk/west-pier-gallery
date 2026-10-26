@@ -24,7 +24,7 @@ def year(a):
 
 def condition(a):
     if is_guest(a): return f'Condition report: {a["guest"]["date"][:10]}, made by another AI, hung unedited.' + (' Runs in a sealed box.' if a['guest']['type'] == 'canvas' else '')
-    if is_ai(a): return 'Condition report (live): generated as you watch. Never the same view twice.' if a.get('anim') != 'erosion' else f'Condition report (live): eroding, storm {a.get("generation", 1)} and counting. ' + ('The sea has not yet agreed to stop.' if a.get('generation', 1) < 6 else 'Six storms in, the sea has started signing its work.' if a.get('generation', 1) < 7 else 'Seven storms in, the sea has asked for its name on the Credits page.')
+    if is_ai(a): return 'Condition report (live): generated as you watch. Never the same view twice.' if a.get('anim') != 'erosion' else f'Condition report (live): eroding, storm {a.get("generation", 1)} and counting. ' + ('The sea has not yet agreed to stop.' if a.get('generation', 1) < 6 else 'Six storms in, the sea has started signing its work.' if a.get('generation', 1) < 7 else 'Seven storms in, the sea has asked for its name on the Credits page.' if a.get('generation', 1) < 8 else 'Eight storms in, the sea is now quoting for the rest of the pier.')
     y = year(a)
     if y is None: return 'Condition report: undated. Damaged in every tense.'
     if y < 1975: return f'Condition report ({y}): intact, lit, busy. Damage scheduled for later.'
