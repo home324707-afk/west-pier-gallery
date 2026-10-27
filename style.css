@@ -175,3 +175,28 @@ canvas.anim.int{pointer-events:auto;touch-action:pan-y;cursor:crosshair}
 .card .kind.gu{color:#f0b35a;border-color:#8a6424}.guestmade{color:#f0b35a;font-weight:500}.kindtag.gu{color:#f0b35a;border-color:#8a6424}
 .guestframe{display:block;margin:1rem 0;max-width:100%}.note dl{margin:.6rem 0 0}.note dt{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#c9b38f;margin-top:.4rem}.note dd{margin:0}
 .opencall pre{white-space:pre-wrap}
+/* session 16: hero calls to action, the duel, wander, work-to-work conversation, mobile nav fix */
+.hero{min-height:84vh}
+.hero-cta{margin-top:1.4rem;gap:.7rem}.hero-cta .btn.ghost{background:rgba(11,20,24,.55);backdrop-filter:blur(4px)}
+.duel{padding:clamp(2rem,6vw,5rem) clamp(1rem,4vw,3rem);border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 0,rgba(196,86,43,.10),transparent 60%)}
+.duel-head{max-width:900px;margin:0 auto 2rem;text-align:center}
+.duel h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,5.5vw,4.2rem);line-height:1;margin:.4em 0 .4em;letter-spacing:-.02em}
+.duel h2 em{color:var(--rust)}.duel h2 span{font-style:italic;color:var(--dim)}
+.duel-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.8rem,3vw,2.5rem);max-width:1300px;margin:0 auto;align-items:start}
+.duel-card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:.7rem;border:1px solid var(--line);padding:.6rem;background:#000;transition:border-color .2s,transform .3s}
+.duel-card:hover:not(:disabled),.duel-card:focus-visible{border-color:var(--rust);transform:translateY(-3px)}
+.duel-card:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.duel-card img{display:block;width:100%;height:auto;max-height:62vh;object-fit:contain;background:#000}
+.duel-cap{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center}
+.duel-card.shown{cursor:default}.duel-card.shown .duel-cap{text-transform:none;letter-spacing:0;font-family:"Space Grotesk",sans-serif;font-size:.85rem;text-align:left;color:var(--ink)}
+.duel-card.shown .kindtag{margin:0 .4rem .3rem 0}.duel-card.hu{border-color:#c9b38f}.duel-card.chosen{box-shadow:0 0 0 3px var(--rust)}
+.duel-foot{max-width:900px;margin:1.6rem auto 0;text-align:center}.duel-foot .btnrow{justify-content:center}
+.duel-verdict{font-family:"Fraunces",serif;font-size:clamp(1.3rem,2.6vw,1.9rem);font-style:italic;min-height:1.4em;margin:.2rem 0 1rem}
+.duel-verdict.ok{color:var(--salt)}.duel-verdict.no{color:var(--rust)}
+@media (max-width:600px){.duel-pair{gap:.5rem}.duel-card{padding:.3rem}.duel-card.shown .duel-cap{font-size:.75rem}}
+.work .keys{margin:.3rem 0 1.2rem}
+.opposite{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center;margin:1.4rem 0;padding:.8rem;border:1px solid var(--line);text-decoration:none;background:rgba(255,255,255,.02);transition:border-color .2s}
+.opposite:hover{border-color:var(--rust);color:inherit}.opposite img{width:120px;height:90px;object-fit:cover;display:block}
+.opposite>span{display:flex;flex-direction:column;gap:.15rem;font-size:.88rem}.opposite .kicker{font-size:.65rem}.opposite i{color:var(--dim)}.opposite small{color:var(--dim);font-size:.75rem}
+@media (max-width:760px){nav.top{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(11,20,24,.97)}body{padding-bottom:4.5rem}}
+@media (min-width:761px) and (max-width:1440px){nav.top{gap:1rem;font-size:.74rem;letter-spacing:.1em}nav.top ul{gap:.9rem}nav.top .brand{font-size:.95rem}}

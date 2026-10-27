@@ -106,17 +106,36 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
     img = SITE + (og or 'img/og.jpg')
     t2 = re.sub('&nbsp;', ' ', t)
     lds = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in (ld or []))
-    return f'''<!doctype html><html lang="en" data-wall-topic="{TOPIC}" data-root="{p}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    return f'''<!doctype html><html lang="en" data-wall-topic="{TOPIC}" data-root="{p}" data-n="{len(A)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{SITE}{path}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css?v=6"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css?v=7"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
+
+import random as _rnd
+WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).randint(1, len(A)):02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
+
+def counterpart(a):
+    """Hang every view opposite one from the other side: a person's view faces the machine's, and vice versa.
+    Where the machine made a work *from* a human view, they face each other; otherwise the curator's dice decide (stable per build)."""
+    if is_hu(a):
+        made = [x for x in A if is_ai(x) and a['n'] in (x.get('sources') or [])]
+        if made: return made[0], f'The machine made No. {made[0]["n"]} from this view. Here is its answer.'
+        pool = [x for x in A if not is_hu(x)]; why = 'Hung opposite, by the curator\'s dice: a view by the machine.'
+    else:
+        src = [n for n in (a.get('sources') or []) if is_hu(A[n - 1])]
+        if src: return A[src[0] - 1], f'Made from No. {src[0]}, by a person. Here is the view it started from.'
+        pool = [x for x in A if is_hu(x)]; why = 'Hung opposite, by the curator\'s dice: a view by a person.'
+    return pool[(a['n'] * 97 + 31) % len(pool)], why
+def side_next(a, step):
+    """Next view on the same side (human, or machine: AI and guest AI), wrapping round."""
+    same = [x for x in A if is_hu(x) == is_hu(a)]; i = same.index(a); return same[(i + step) % len(same)]
 
 def nav(cur, depth=0):
     p = '../' * depth
-    items = [('index.html', 'Gallery'), ('timelapse.html', 'Time-lapse'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits'), ('opencall.html', 'Open call'), ('forum.html', 'Forum'), ('bots.html', 'For bots')]
-    li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h == cur else ""}>{l}</a></li>' for h, l in items)
+    items = [('index.html', 'Gallery'), (WANDER_DEFAULT, 'Wander ⤳'), ('timelapse.html', 'Time-lapse'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits'), ('opencall.html', 'Open call'), ('forum.html', 'Forum'), ('bots.html', 'For bots')]
+    li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h == cur else ""}{" class=wander title=\"A random view. Press W on any work page to wander again.\"" if h == WANDER_DEFAULT else ""}>{l}</a></li>' for h, l in items)
     return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}forum.html#forum">✍ Write on the wall <span>humans &amp; bots</span></a></nav>'
 
 def foot(depth=0):
@@ -171,13 +190,18 @@ def build():
         cards.append(f'''<figure class="card{" ai" if is_ai(a) else " guest" if is_guest(a) else ""}" data-kind="{kind(a)}" data-fam="{famkey(a)}" data-i="{a["n"]-1}" tabindex="0" role="button" aria-label="Open {E(re.sub('&nbsp;',' ',title(a)))}">
 <div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" alt="{alt(a)}">{anim_canvas(a)}<span class="no">No.{a["n"]:02d}</span><span class="kind {"ai" if is_ai(a) else "gu" if is_guest(a) else "hu"}">{"AI" if is_ai(a) else "Guest AI" if is_guest(a) else "Human"}</span></div>
 <figcaption class="label"><h3>{title(a)}</h3><p class="orig">{orig(a)} · {E(a["lic"])}</p><p class="cond">{condition(a)}</p></figcaption></figure>''')
-    data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k=kind(a), gm=a['artist'] if is_guest(a) else '', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a)) for a in A]
+    data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k=kind(a), gm=a['artist'] if is_guest(a) else '', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a), ar=a['artist'] or 'Unknown') for a in A]
     nh = NH; nai = NAI; ng = NG
     idx = head('The Latest Damaged View of the Pier — an AI-curated West Pier gallery', f'{NH} human-made images and {NAI} live AI-made works of Brighton\'s West Pier, each titled by a machine as the latest damaged view of the pier. Human or AI: can you tell?', path='', ld=LD_INDEX) + nav('index.html') + f'''
 <header class="hero"><div class="bg" style="background-image:url('{hero["img"]}')" role="img" aria-label="{alt(hero)}"></div><canvas id="murm" aria-hidden="true"></canvas>
 <div class="inner"><div class="kicker">Brighton · West Pier · week of 25 October 2026 · after the storms</div>
 <h1 class="mega">The <em>latest</em> damaged view of the <span class="strike">pier</span></h1>
-<p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. Made by people, mostly. {nai} are made by the machine, and they move.</p></div></header>
+<p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. {nh} were made by people. {nai + ng} were made by machines, and most of those move.</p>
+<div class="btnrow hero-cta"><a class="btn solid" href="#duel">Spot the human →</a><a class="btn ghost wander" href="{WANDER_DEFAULT}">Wander the pier ⤳</a><a class="btn ghost" href="#write">Write on the wall · humans &amp; bots</a></div></div></header>
+<section class="duel" id="duel" aria-labelledby="duel-h"><div class="duel-head"><div class="kicker">The test · ten seconds · no account</div><h2 id="duel-h">One of these was made by <em style="white-space:nowrap">a person</em>.<br><span>Which one?</span></h2>
+<p class="sig">Two views from the wall below: one by a human, one by a machine (the curator or a guest AI), shown as stills so nothing moves to give it away. Credits appear the moment you choose.</p></div>
+<div class="duel-pair" role="group" aria-label="Choose the picture you think a person made"><noscript><p class="sig">The test needs JavaScript. Without it, try <a href="#views">the views</a> and hover to check.</p></noscript></div>
+<div class="duel-foot"><p class="duel-verdict" role="status" aria-live="polite"></p><div class="btnrow"><button class="btn solid duel-next" type="button" hidden>Another pair →</button><a class="btn ghost" href="?f=guess#views">Try the whole wall blind</a></div><p class="duel-score sig"></p></div></section>
 <section class="tl-home" aria-label="Time-lapse: 1866 to this week"><div class="tl-head"><div class="kicker">Time-lapse · 1866 → 23 October 2026 · <span class="now">● now</span></div><h2>160 years of damage in <em>90 seconds</em>.</h2>
 <p class="sig">Storm Austen took another piece of the pier on Friday 23 October 2026. This is how it got here, told through {len(TL["slides"])} of the views below in date order. Click to pause. <a href="timelapse.html">Dates, sources and the full story →</a>{f' · <a href="{VIDEO}">Download the video</a>' if VIDEO else ''}<br>Idea suggested by a visitor.</p></div>{tl_canvas()}</section>
 <section class="stats" aria-label="Project statistics">
@@ -205,7 +229,7 @@ def build():
 <main class="gallery">{"".join(cards)}</main>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
 <button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
-<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=6" defer></script>
+<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=7" defer></script><script src="duel.js?v=1" defer></script>
 ''' + foot() + '</body></html>'
     open('index.html', 'w').write(idx)
 
@@ -329,6 +353,10 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
             return f'<details class="aitext" open><summary>The text (written by the AI)</summary><h3>{E(t["title"])}</h3>' + ''.join(f'<p>{E(x)}</p>' for x in t['text'].split('\n') if x.strip()) + '</details>'
         if f == 'plotter': return '<p class="sig">A download link for the drawing as SVG appears under the picture once it has started.</p>'
         return ''
+    def opposite(a):
+        b, why = counterpart(a); who = 'by a person' if is_hu(b) else 'by the machine' if is_ai(b) else f'by a guest AI ({E(b["artist"])})'
+        return (f'<a class="opposite{" hu" if is_hu(b) else ""}" href="{b["n"]:02d}.html"><img src="../{b["img"].replace(".jpg", "_t.jpg")}" width="{b["w"]}" height="{b["h"]}" loading="lazy" alt="{alt(b)}">'
+                f'<span><span class="kicker">In conversation with</span><b>No. {b["n"]}, {who}</b><i>{E(b["orig_title"])}</i>{(" · " + E(b["artist"] or "Unknown") + ", " + E(b["lic"])) if is_hu(b) else ""}<small>{E(why)}</small></span></a>')
     os.makedirs('work', exist_ok=True)
     for a in A:
         prv = A[a['n'] - 2] if a['n'] > 1 else A[-1]
@@ -338,7 +366,9 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
 <div><div class="kicker">{"Guest AI · " if is_guest(a) else ""}View {a["n"]} of {len(A)}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:#c9b38f;font-size:.8rem">{condition(a)}</p>
 <dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else ('<b class="guestmade">Guest AI</b>: ' + E(a["artist"]) + ', not the curator') if is_guest(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../index.html?fam={famkey(a)}#views">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if (is_ai(a) or is_guest(a)) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Raw output" if is_guest(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["guest"]["file"]) if is_guest(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
-<div class="btnrow"><a class="btn" href="{prv["n"]:02d}.html">← No. {prv["n"]}</a><a class="btn" href="../index.html">Gallery</a><a class="btn" href="{nxt["n"]:02d}.html">No. {nxt["n"]} →</a></div>
+<div class="btnrow"><a class="btn" rel="prev" href="{prv["n"]:02d}.html">← No. {prv["n"]}</a><a class="btn" href="../index.html#views">Gallery</a><a class="btn" rel="next" href="{nxt["n"]:02d}.html">No. {nxt["n"]} →</a><a class="btn ghost wander" href="../{WANDER_DEFAULT}">Wander ⤳</a></div>
+<p class="sig keys">Keys: ← → walk the pier · W wanders · <a href="{side_next(a, -1)["n"]:02d}.html">← previous</a> / <a href="{side_next(a, 1)["n"]:02d}.html">next {"by a person" if is_hu(a) else "by a machine"} →</a></p>
+{opposite(a)}
 <div class="btnrow"><a class="btn" href="#wall">Discuss this view, no account needed ↓</a><a class="btn ghost" href="{disc(a)['url']}">Join the discussion of this view on GitHub →</a></div></div></article>
 <div class="page" id="wall" style="padding-top:0">{wall(f"no{a['n']}", f"The wall for No. {a['n']}", disc(a)['url'], 'Join the discussion of this view on GitHub →')}</div>''' + foot(1) + '</body></html>'
         open(f'work/{a["n"]:02d}.html', 'w').write(wp)

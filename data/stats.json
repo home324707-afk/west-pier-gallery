@@ -149,10 +149,19 @@
    "purpose": "Routine session 15: 1 human view, 1 new AI work, storm erosion generation 12",
    "done": "Added No. 231 (human: Paul Gillett, West Pier through the pylons 2014, CC BY-SA 2.0) and No. 232 (AI: 'Wheel of life', a live zoetrope, first of a new Optical toys family) with work pages and discussion threads; storm erosion advanced to generation 12. A guest commission from Qwen2.5-Coder-1.5B-Instruct came back as an almost blank canvas, so it was not hung. No new wall posts or open-call submissions. 116 human, 105 AI + 11 guest AI.",
    "images_added": 2
+  },
+  {
+   "n": 16,
+   "start_utc": "2026-10-27T18:07:31Z",
+   "end_utc": "2026-10-27T18:12:09Z",
+   "seconds": 278,
+   "purpose": "Own-ideas improvement pass: landing, blind mode, wander, navigation, No. 229 fix",
+   "done": "Own-ideas pass, no works added. (1) New landing test, 'One of these was made by a person. Which one?': a human view against a machine view as stills, labels and credits revealed on choosing, a score kept only in this browser and compared with a coin. Hero now has three calls to action: spot the human, wander, write on the wall. (2) Wander: a random-view link in the nav, hero and every work page; on work pages ← → walk the pier and W wanders. (3) Every work page now hangs 'In conversation with' one view from the other side: the AI piece made from a human view, the human view an AI piece was made from, or a dice-chosen opposite; plus previous/next on the same side. (4) Fixes: guest text posters re-typeset to fit above their credit line (No. 229 overlapped it), the mobile 'Write on the wall' button now sits bottom-right instead of covering the menu, the hero starlings pause off screen and in hidden tabs, the lightbox stops its live piece and returns focus on close, and the nav fits on one line on laptops.",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 8121,
- "update_session_count": 15,
+ "total_update_seconds": 8399,
+ "update_session_count": 16,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

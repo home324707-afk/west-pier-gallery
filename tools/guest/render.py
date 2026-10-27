@@ -20,9 +20,13 @@ def iframe_on_click(js, title, w=800, h=500):
             '▶ Run the model\'s code (sandboxed, may flicker)</button>' + f)
 def svg_data_url(svg): return 'data:image/svg+xml;base64,' + base64.b64encode(svg.encode()).decode()
 POEM = '''<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=JetBrains+Mono&display=swap" rel="stylesheet">
-<style>body{margin:0;width:1200px;height:800px;background:#f4efe4;color:#1f1c19;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif}
-.c{max-width:900px}h1{font-weight:300;font-style:italic;font-size:FSHpx;margin:0 0 .6em}p{white-space:pre-wrap;font-size:FSpx;line-height:1.42;margin:0}
-.by{position:absolute;left:60px;bottom:40px;font:15px "JetBrains Mono",monospace;color:#7a6f60}</style></head><body><div class="c"><h1>TITLE</h1><p>BODY</p></div><div class="by">GUEST AI · BY</div></body></html>'''
+<style>html,body{margin:0}body{width:1200px;height:800px;box-sizing:border-box;padding:56px 60px 36px;background:#f4efe4;color:#1f1c19;display:flex;flex-direction:column;font-family:Fraunces,serif}
+.m{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}.c{max-width:900px}h1{font-weight:300;font-style:italic;font-size:FSHpx;margin:0 0 .6em}p{white-space:pre-wrap;font-size:FSpx;line-height:1.42;margin:0}
+.by{flex:none;padding-top:18px;font:15px "JetBrains Mono",monospace;color:#7a6f60}</style></head><body><div class="m"><div class="c"><h1>TITLE</h1><p>BODY</p></div></div><div class="by">GUEST AI · BY</div>
+<script>/* shrink the type until the text fits above the credit line: nothing overlaps, nothing is cut */
+function fit(){var m=document.querySelector('.m'),c=document.querySelector('.c'),h=c.querySelector('h1'),p=c.querySelector('p'),f=parseFloat(getComputedStyle(p).fontSize);
+while(c.scrollHeight>m.clientHeight&&f>11){f-=.5;p.style.fontSize=f+'px';h.style.fontSize=Math.min(parseFloat(getComputedStyle(h).fontSize),f*1.5)+'px'}}
+document.fonts.ready.then(fit);fit();</script></body></html>'''
 class Shooter:
     def __enter__(self):
         from playwright.sync_api import sync_playwright
@@ -30,7 +34,7 @@ class Shooter:
     def __exit__(self, *a): self.b.close(); self.pw.stop()
     def shot(self, page_html, w, h, wait=600):
         pg = self.b.new_page(viewport=dict(width=w, height=h)); pg.set_content(page_html, wait_until='load'); pg.wait_for_timeout(wait)
-        try: pg.evaluate('document.fonts.ready')
+        try: pg.evaluate('document.fonts.ready.then(()=>window.fit&&fit())')
         except Exception: pass
         png = pg.screenshot(); errs = []; pg.close(); return Image.open(io.BytesIO(png)).convert('RGB')
     def poem(self, title, text, by):
