@@ -33,11 +33,15 @@ FAMILY = {  # key: (label, one-line description)
  'space': ('3D & maps', 'The pier as geometry and cartography: a rotating wireframe, a constellation, isometric blocks, a chart (not for navigation).'),
  'games': ('Games & puzzles', 'The pier as something you play: falling blocks, a four-shade handheld, a text adventure, a crossword.'),
  'minimal': ('Minimal & conceptual', 'As little as possible: raked shingle, one sentence, a palindrome.'),
+ 'optical': ('Optical toys', 'Pre-cinema machines for making pictures move: a zoetrope turning twelve drawings of one wave into motion.'),
  'data': ('Data portraits', 'Only real data: this gallery\'s own catalogue and the sourced timeline, drawn as the pier.'),
 }
 V = lambda key, title, p, method, sources=(), w=1200, h=800, ms=9000, slot=None: dict(key=key, title=title, p=p, method=method, sources=list(sources), w=w, h=h, ms=ms, slot=slot)
 DUSK = ['#1d2b45', '#e9a46a']
 VARS = {
+ 'optical': [
+  V('op-zoetrope', 'Wheel of life', dict(seed=232, mode='zoetrope', n=12, period=3.6), 'Optical toy: a lacquered zoetrope drum turns; the slit nearest you opens a window on twelve hand-drawn frames of one wave breaking over the pier\'s skeleton, and the strip of drawings lies on the table beneath.', ms=2950),
+ ],
  'flow': [
   V('flow-iron-rust', 'Iron filings, magnetised by memory', dict(seed=1866, mode='iron', bg='#0f1216', ink=['#3a4a58', '#e0703a'], pc='#e0703a', f=1.6, fade=.03), 'Flow field: particles slow to a crawl inside the pier\'s outline, so the ironwork condenses out of the current in rust.'),
   V('flow-iron-ghost', 'A ghost made of traffic', dict(seed=2003, mode='iron', bg='#f1ede4', ink=['#c9c2b4', '#1d2b33'], pc='#1d2b33', f=2.2, fade=.025, alpha=.25), 'Flow field on paper white: the pier appears only where the particles hesitate.'),

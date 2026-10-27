@@ -544,7 +544,7 @@
  "c:File:Window on the Water - geograph.org.uk - 1636997.jpg": "rejected:too-small",
  "c:File:The Archaeological journal (IA archaeologicaljo65brit).pdf": "rejected:not-an-image",
  "c:File:West Pier - geograph.org.uk - 6351632.jpg": "rejected:too-small",
- "c:File:West Pier through the pylons - geograph.org.uk - 3875837.jpg": "reviewed:not-selected",
+ "c:File:West Pier through the pylons - geograph.org.uk - 3875837.jpg": "rehosted",
  "c:File:Two Piers - Brighton - geograph.org.uk - 1573290.jpg": "rejected:too-small",
  "c:File:Annual report of the City Engineer (IA annualreportofci1900bost).pdf": "rejected:not-an-image",
  "c:File:Promenade near the West Pier, Brighton - geograph.org.uk - 814334.jpg": "rejected:too-small",
@@ -2126,5 +2126,7 @@
  "o:guest:g-qwen7-svg": "rehosted",
  "o:guest:g-phi4-poem": "rehosted",
  "o:guest:g-phi4-canvas": "rehosted",
- "c:File:Paper Trade Journal 1909-08-12- Vol 49 Iss 7 (IA sim paper-trade-journal 1909-08-12 49 7).pdf": "rejected:not-an-image"
+ "c:File:Paper Trade Journal 1909-08-12- Vol 49 Iss 7 (IA sim paper-trade-journal 1909-08-12 49 7).pdf": "rejected:not-an-image",
+ "o:guest:g-gptoss-listing": "rehosted",
+ "o:guest:g-phi4-recipe": "rehosted"
 }

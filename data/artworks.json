@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 11.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 12.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 11
+  "generation": 12
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6440,5 +6440,52 @@
    "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
   }
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:West Pier through the pylons - geograph.org.uk - 3875837.jpg",
+  "orig_title": "West Pier through the pylons - geograph.org.uk - 3875837",
+  "artist": "Paul Gillett",
+  "date": "2014-03-06",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:West_Pier_through_the_pylons_-_geograph.org.uk_-_3875837.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/4/44/West_Pier_through_the_pylons_-_geograph.org.uk_-_3875837.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "desc": "West Pier through the pylons",
+  "kind": "human",
+  "n": 231,
+  "img": "img/231.jpg",
+  "w": 1600,
+  "h": 1183
+ },
+ {
+  "n": 232,
+  "kind": "ai",
+  "ai_key": "op-zoetrope",
+  "anim": "f-optical",
+  "family": "optical",
+  "params": {
+   "seed": 232,
+   "mode": "zoetrope",
+   "n": 12,
+   "period": 3.6
+  },
+  "still_ms": 2950,
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:op-zoetrope",
+  "orig_title": "Wheel of life",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/optical.js",
+  "dl": "",
+  "desc": "",
+  "method": "Optical toy: a lacquered zoetrope drum turns; the slit nearest you opens a window on twelve hand-drawn frames of one wave breaking over the pier's skeleton, and the strip of drawings lies on the table beneath.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/232.jpg",
+  "w": 1200,
+  "h": 800
  }
 ]
