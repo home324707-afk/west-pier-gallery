@@ -1,0 +1,16 @@
+{
+ "service": "Pollinations.ai (Free API Classic, no account)",
+ "endpoint": "https://text.pollinations.ai/openai",
+ "model_requested": "openai-fast",
+ "model": "gpt-oss-20b",
+ "reported_model": "gpt-oss-20b",
+ "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea. Write an estate agent's property listing for it, in your own voice: a headline, then the listing (at most 140 words). Reply with the headline on the first line, then the listing. Nothing else.",
+ "date": "2026-10-27T08:56:45Z",
+ "kind": "text",
+ "output": "Historic Brighton West Pier \u2013 Unique Seaside Ruin with Endless Possibilities  \nStanding above the crashing waves, the West Pier offers a dramatic 700\u2011meter stretch of architectural heritage, snapped into dramatic limes and weathered beams. Ideal for visionary developers seeking to turn history into a floating arts hub, boutique hotel, cultural centre, or premium marina. The pier\u2019s eight original sections remain intact, with a distinctive clock tower, staircases and garden arches that whisper stories of grand seaside leisure. Ground\u2011level access via the refurbished loading dock, which can be upgraded into a pedestrian promenade. Situated just off the Royal Pier, close to Brighton\u2019s bustling seafront, transport links and holiday crowds. Requires heritage permission but provides a rare, high\u2011profile canvas in board\u2011on\u2011sea location. Secure your chance to anchor heritage with modern flair.",
+ "usage": {
+  "prompt_tokens": 366,
+  "completion_tokens": 925,
+  "total_tokens": 1291
+ }
+}

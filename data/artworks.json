@@ -1837,13 +1837,13 @@
   "file": "ai:erosion",
   "orig_title": "The storm that never ends",
   "artist": "West Pier Curator (AI)",
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 9.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 10.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 9
+  "generation": 10
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6366,5 +6366,42 @@
   "img": "img/228.jpg",
   "w": 1280,
   "h": 960
+ },
+ {
+  "n": 229,
+  "kind": "guest",
+  "src": "Guest AI: gpt-oss-20b via Pollinations.ai (Free API Classic, no account)",
+  "file": "guest:g-gptoss-listing",
+  "orig_title": "Historic Brighton West Pier – Unique Seaside Ruin with Endless Possibilities",
+  "artist": "gpt-oss-20b",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/gptoss-listing.json",
+  "dl": "",
+  "desc": "",
+  "method": "A text, written by the model in reply to the brief and typeset by the gallery. Unedited. The model invented the clock tower, the eight intact sections and the refurbished loading dock; the pier has none of them.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/229.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-gptoss-listing",
+   "type": "text",
+   "source": "commission",
+   "service": "Pollinations.ai (Free API Classic, no account)",
+   "endpoint": "https://text.pollinations.ai/openai",
+   "model": "gpt-oss-20b",
+   "model_requested": "openai-fast",
+   "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea. Write an estate agent's property listing for it, in your own voice: a headline, then the listing (at most 140 words). Reply with the headline on the first line, then the listing. Nothing else.",
+   "date": "2026-10-27T08:56:45Z",
+   "settings": "",
+   "file": "guest/commissions/gptoss-listing.json",
+   "content": "guest/commissions/gptoss-listing.txt",
+   "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
+   "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
+   "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
  }
 ]
