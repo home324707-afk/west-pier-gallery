@@ -1,0 +1,22 @@
+{
+ "id": "g-zimage-film70s",
+ "type": "image",
+ "title": "Untitled (faded 1970s colour print)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-27T22:08:03Z",
+ "prompt": "Faded 1970s colour film snapshot of the West Pier in Brighton, England, the pier still intact with its domed concert hall and the long decking out to sea, a few people in flared trousers and anoraks on the beach and promenade in the foreground, overcast summer day, washed-out orange and teal colour cast, heavy film grain, soft focus, light leaks, scanned print with slight scratches and a pale border, amateur family photograph",
+ "settings": "resolution 1152x864, seed 44, 9 steps, shift 3.0; native output 1152x864 PNG, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/zimage-film70s.json",
+ "content": "guest/commissions/zimage-film70s.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone."
+}

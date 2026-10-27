@@ -1,0 +1,22 @@
+{
+ "id": "g-zimage-night",
+ "type": "image",
+ "title": "Untitled (night with the i360)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-27T22:08:03Z",
+ "prompt": "Night photograph of the ruined West Pier in Brighton, England, a black iron skeleton in the dark sea, with the tall slim i360 viewing tower on the seafront glowing with coloured lights in the background and the lights of the seafront reflected in the water, long exposure, deep blue hour sky, realistic",
+ "settings": "resolution 1280x720, seed 77, 9 steps, shift 3.0; native output 1280x720 PNG, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/zimage-night.json",
+ "content": "guest/commissions/zimage-night.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone."
+}

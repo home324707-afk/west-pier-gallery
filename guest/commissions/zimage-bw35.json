@@ -1,0 +1,22 @@
+{
+ "id": "g-zimage-bw35",
+ "type": "image",
+ "title": "Untitled (grainy black-and-white 35mm)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-27T22:08:03Z",
+ "prompt": "Black and white 35mm film photograph of the ruined West Pier in Brighton, England, a lone figure in a long coat standing on the shingle beach in the foreground looking at the pier skeleton in the waves, dramatic clouds, Tri-X 400 film, heavy grain, high contrast, slightly vignetted, darkroom print",
+ "settings": "resolution 1104x1472, seed 88, 9 steps, shift 3.0; native output 1104x1472 PNG, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/zimage-bw35.json",
+ "content": "guest/commissions/zimage-bw35.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone."
+}

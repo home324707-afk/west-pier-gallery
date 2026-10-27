@@ -167,10 +167,19 @@
    "purpose": "Routine session 17: 1 human + 1 AI, erosion, open call",
    "done": "Added No. 233 (human: Mat Fascione, Brighton Beach near the West Pier 2025, CC BY-SA 2.0) and No. 234, a guest AI text by Qwen2.5-Coder-7B-Instruct (run locally with llama.cpp): the minutes of the starlings' annual general meeting on the ruin, which resolves to apply for a grant, CC0, with work pages and discussion threads; storm erosion advanced to generation 13, with a new condition-report line. No new wall posts or open-call submissions. 117 human, 105 AI + 12 guest AI.",
    "images_added": 2
+  },
+  {
+   "n": 18,
+   "start_utc": "2026-10-27T21:57:49Z",
+   "end_utc": "2026-10-27T22:11:57Z",
+   "seconds": 848,
+   "purpose": "Photo-style AI works (fabricated photographs) from free text-to-image models",
+   "done": "Photo-style AI works: 12 fabricated photographs by Z-Image-Turbo (Nos. 235-246, guest AI, CC0, new 'Fabricated photographs' kind, in the Guess game and ten-second test); 30 weak code pieces retired to a store room (not deleted, URLs kept, excluded from grid, tests and counts)",
+   "images_added": 12
   }
  ],
- "total_update_seconds": 8709,
- "update_session_count": 17,
+ "total_update_seconds": 9557,
+ "update_session_count": 18,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

@@ -1,0 +1,22 @@
+{
+ "id": "g-zimage-frost",
+ "type": "image",
+ "title": "Untitled (frost-white winter morning)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-27T22:10:41Z",
+ "prompt": "Photograph of a freezing winter morning in Brighton, frost-white pebbles and a thin skin of ice on the shore, pale blue sky with low sun, the ruined West Pier standing in still pewter-coloured water, breath of mist rising off the sea, crisp cold light, realistic landscape photography",
+ "settings": "resolution 1536x864, seed 104, 9 steps, shift 3.0; native output 1536x864 PNG, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/zimage-frost.json",
+ "content": "guest/commissions/zimage-frost.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone."
+}

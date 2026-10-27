@@ -1399,7 +1399,9 @@
   "img": "img/74.jpg",
   "w": 1600,
   "h": 1175,
-  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it.",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "src": "Wikimedia Commons",
@@ -1622,7 +1624,9 @@
   "source_credit": "No. 2: \"The West Pier, Brighton\" by Spencer Gore (Public domain)",
   "img": "img/86.jpg",
   "w": 999,
-  "h": 827
+  "h": 827,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "src": "Wikimedia Commons",
@@ -1772,7 +1776,9 @@
   "source_credit": "No. 42: \"Herring gull in front of Brighton West Pier 2023-06-15\" by Andy Li (CC0)",
   "img": "img/94.jpg",
   "w": 1600,
-  "h": 1195
+  "h": 1195,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "src": "Wikimedia Commons",
@@ -2085,7 +2091,9 @@
   "img": "img/105.jpg",
   "w": 1600,
   "h": 1000,
-  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it.",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "src": "Flickr (via Openverse)",
@@ -2437,7 +2445,9 @@
   "source_credit": "",
   "img": "img/119.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 120,
@@ -2548,7 +2558,9 @@
   "source_credit": "",
   "img": "img/122.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 123,
@@ -2672,7 +2684,9 @@
   "source_credit": "",
   "img": "img/125.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 126,
@@ -2792,7 +2806,9 @@
   "source_credit": "",
   "img": "img/128.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 129,
@@ -2942,7 +2958,9 @@
   "source_credit": "",
   "img": "img/130.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 131,
@@ -3087,7 +3105,9 @@
   "source_credit": "",
   "img": "img/134.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 135,
@@ -3161,7 +3181,9 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 137,
@@ -3766,7 +3788,9 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 151,
@@ -3830,7 +3854,9 @@
   "source_credit": "",
   "img": "img/152.jpg",
   "w": 1000,
-  "h": 1250
+  "h": 1250,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 153,
@@ -3917,7 +3943,9 @@
   "source_credit": "",
   "img": "img/155.jpg",
   "w": 1000,
-  "h": 1250
+  "h": 1250,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 156,
@@ -3975,7 +4003,9 @@
   "source_credit": "",
   "img": "img/157.jpg",
   "w": 1000,
-  "h": 1250
+  "h": 1250,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 158,
@@ -4062,7 +4092,9 @@
   "source_credit": "",
   "img": "img/160.jpg",
   "w": 1000,
-  "h": 1250
+  "h": 1250,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 161,
@@ -4091,7 +4123,9 @@
   "source_credit": "",
   "img": "img/161.jpg",
   "w": 1200,
-  "h": 900
+  "h": 900,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 162,
@@ -4153,7 +4187,9 @@
   "source_credit": "No. 15: \"West Pier fire with boat 20030328\" by Mark Harris (Public domain)",
   "img": "img/163.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 164,
@@ -4250,7 +4286,9 @@
   "source_credit": "No. 96: \"Opening of West Pier 1866\" by Unknown (Public domain)",
   "img": "img/166.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 167,
@@ -4293,7 +4331,9 @@
   "source_credit": "No. 111: \"West Pier collapsed concert hall\" by EntropyReduction (Public domain)",
   "img": "img/167.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 168,
@@ -4354,7 +4394,9 @@
   "source_credit": "No. 42: \"Herring gull in front of Brighton West Pier 2023-06-15\" by Andy Li (CC0)",
   "img": "img/169.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 170,
@@ -4385,7 +4427,9 @@
   "source_credit": "No. 11: \"1908 professor Doughtys Performing Dogs, West Pier Brighton L.L 12 Postcard SUSSEX\" by mark's vintage topographical postcards (Public Domain Mark 1.0)",
   "img": "img/170.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 171,
@@ -4441,7 +4485,9 @@
   "source_credit": "",
   "img": "img/172.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 173,
@@ -4525,7 +4571,9 @@
   "source_credit": "",
   "img": "img/175.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 176,
@@ -4609,7 +4657,9 @@
   "source_credit": "",
   "img": "img/178.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 179,
@@ -4637,7 +4687,9 @@
   "source_credit": "",
   "img": "img/179.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 180,
@@ -4776,7 +4828,9 @@
   "source_credit": "",
   "img": "img/183.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 184,
@@ -5000,7 +5054,9 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 190,
@@ -5265,7 +5321,9 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 198,
@@ -5302,7 +5360,9 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27"
  },
  {
   "n": 199,
@@ -6540,6 +6600,462 @@
    "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
    "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 235,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-film70s",
+  "orig_title": "Untitled (faded 1970s colour print)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-film70s.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/235.jpg",
+  "w": 1152,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-film70s",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Faded 1970s colour film snapshot of the West Pier in Brighton, England, the pier still intact with its domed concert hall and the long decking out to sea, a few people in flared trousers and anoraks on the beach and promenade in the foreground, overcast summer day, washed-out orange and teal colour cast, heavy film grain, soft focus, light leaks, scanned print with slight scratches and a pale border, amateur family photograph",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1152x864, seed 44, 9 steps, shift 3.0; native output 1152x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-film70s.json",
+   "content": "guest/commissions/zimage-film70s.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 236,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-fog",
+  "orig_title": "Untitled (sea fog on a phone camera)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-fog.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/236.jpg",
+  "w": 1152,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-fog",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Casual smartphone photo taken at dawn of the ruined West Pier in Brighton, England in thick sea fog, the iron frame of the pavilion fading to a ghostly grey shape far out in the flat grey sea, damp grey shingle beach in the foreground, flat low-contrast light, slightly soft and over-processed like a phone camera, a little image noise",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1152x864, seed 22, 9 steps, shift 3.0; native output 1152x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-fog.json",
+   "content": "guest/commissions/zimage-fog.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 237,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-night",
+  "orig_title": "Untitled (night with the i360)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-night.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/237.jpg",
+  "w": 1280,
+  "h": 720,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-night",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Night photograph of the ruined West Pier in Brighton, England, a black iron skeleton in the dark sea, with the tall slim i360 viewing tower on the seafront glowing with coloured lights in the background and the lights of the seafront reflected in the water, long exposure, deep blue hour sky, realistic",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1280x720, seed 77, 9 steps, shift 3.0; native output 1280x720 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-night.json",
+   "content": "guest/commissions/zimage-night.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 238,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-storm",
+  "orig_title": "Untitled (storm waves and spray)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-storm.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and kept or discarded on looks alone (a first storm attempt with people standing on the closed pier was discarded for a second prompt).",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/238.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-storm",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Photograph of a winter storm hitting the ruined, abandoned West Pier in Brighton, huge grey waves breaking and throwing white spray high over the rusted iron frame of the burnt-out pavilion, empty derelict decking with no people on it, fenced off, heavy dark cloud, taken from the seafront with a telephoto lens, photojournalism style, realistic, desaturated",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1536x1024, seed 58, 9 steps, shift 3.0; native output 1536x1024 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-storm.json",
+   "content": "guest/commissions/zimage-storm.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 239,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-murmuration",
+  "orig_title": "Untitled (starling murmuration at sunset)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-murmuration.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/239.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-murmuration",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Photograph of a huge starling murmuration swirling in a dense dark cloud above the ruined West Pier in Brighton at sunset, the burnt-out iron skeleton of the pier silhouetted in the sea below, orange and violet sky, real wildlife photography, telephoto lens, slightly grainy",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1536x1024, seed 33, 9 steps, shift 3.0; native output 1536x1024 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-murmuration.json",
+   "content": "guest/commissions/zimage-murmuration.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 240,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-lowtide",
+  "orig_title": "Untitled (low tide, wet-sand reflection)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-lowtide.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/240.jpg",
+  "w": 1536,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-lowtide",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Wide angle photograph at low tide on Brighton beach of the ruined West Pier reflected in the wet rippled sand, golden hour light, the rusted iron legs of the pier standing in shallow water, a lone dog walker far off, calm sea, realistic landscape photography",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1536x864, seed 66, 9 steps, shift 3.0; native output 1536x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-lowtide.json",
+   "content": "guest/commissions/zimage-lowtide.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 241,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-bw35",
+  "orig_title": "Untitled (grainy black-and-white 35mm)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-bw35.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/241.jpg",
+  "w": 1104,
+  "h": 1472,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-bw35",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Black and white 35mm film photograph of the ruined West Pier in Brighton, England, a lone figure in a long coat standing on the shingle beach in the foreground looking at the pier skeleton in the waves, dramatic clouds, Tri-X 400 film, heavy grain, high contrast, slightly vignetted, darkroom print",
+   "date": "2026-10-27T22:08:03Z",
+   "settings": "resolution 1104x1472, seed 88, 9 steps, shift 3.0; native output 1104x1472 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-bw35.json",
+   "content": "guest/commissions/zimage-bw35.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 242,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-frost",
+  "orig_title": "Untitled (frost-white winter morning)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-frost.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/242.jpg",
+  "w": 1536,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-frost",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Photograph of a freezing winter morning in Brighton, frost-white pebbles and a thin skin of ice on the shore, pale blue sky with low sun, the ruined West Pier standing in still pewter-coloured water, breath of mist rising off the sea, crisp cold light, realistic landscape photography",
+   "date": "2026-10-27T22:10:41Z",
+   "settings": "resolution 1536x864, seed 104, 9 steps, shift 3.0; native output 1536x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-frost.json",
+   "content": "guest/commissions/zimage-frost.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 243,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-flash90s",
+  "orig_title": "Untitled (1990s disposable-camera flash)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-flash90s.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/243.jpg",
+  "w": 1152,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-flash90s",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "1990s disposable camera snapshot with on-camera flash, taken at night on Brighton beach, two teenagers in puffer jackets in the foreground lit harshly by the flash with red cheeks, the ruined West Pier a dark shape in the black sea behind, grainy, slightly blurry, saturated colours, vignetting, amateur holiday photograph scanned from a print",
+   "date": "2026-10-27T22:10:41Z",
+   "settings": "resolution 1152x864, seed 103, 9 steps, shift 3.0; native output 1152x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-flash90s.json",
+   "content": "guest/commissions/zimage-flash90s.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 244,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-i360pod",
+  "orig_title": "Untitled (from inside the i360 pod)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-i360pod.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/244.jpg",
+  "w": 1152,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-i360pod",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Snapshot taken from inside the glass viewing pod of the i360 tower in Brighton looking down and out through the curved window, the ruined West Pier seen from above as a rusted iron skeleton in the grey-green sea below, window frame and reflection of the pod interior faintly visible, overcast day, amateur tourist phone photo",
+   "date": "2026-10-27T22:10:41Z",
+   "settings": "resolution 1152x864, seed 105, 9 steps, shift 3.0; native output 1152x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-i360pod.json",
+   "content": "guest/commissions/zimage-i360pod.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 245,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-dusk",
+  "orig_title": "Untitled (long-exposure dusk)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-dusk.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/245.jpg",
+  "w": 1536,
+  "h": 864,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-dusk",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Photograph of the ruined West Pier in Brighton, England at dusk, 30 second long exposure, the sea smoothed to milky grey silk, wet pebbles in the foreground, the rusted black iron skeleton of the pavilion silhouetted against a pink and apricot sky, taken from the beach, realistic, natural colours, fine sensor noise",
+   "date": "2026-10-27T22:10:41Z",
+   "settings": "resolution 1536x864, seed 11, 9 steps, shift 3.0; native output 1536x864 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-dusk.json",
+   "content": "guest/commissions/zimage-dusk.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 246,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-zimage-pano",
+  "orig_title": "Untitled (wonky phone panorama)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/zimage-pano.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI; the image was generated in one pass and chosen from the batch on looks alone.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/246.jpg",
+  "w": 1600,
+  "h": 686,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-zimage-pano",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "A slightly wonky smartphone panorama of Brighton seafront on an overcast day, the horizon tilted a little, the ruined West Pier in the middle, the promenade and a few walkers on the left, shingle beach in front, minor stitching error on the sky, flat grey light, tourist snapshot",
+   "date": "2026-10-27T22:10:41Z",
+   "settings": "resolution 1680x720, seed 106, 9 steps, shift 3.0; native output 1680x720 PNG, stored as JPEG q92",
+   "file": "guest/commissions/zimage-pano.json",
+   "content": "guest/commissions/zimage-pano.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
   }
  }
 ]
