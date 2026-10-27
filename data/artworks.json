@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 12.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 13.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 12
+  "generation": 13
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6487,5 +6487,59 @@
   "img": "img/232.jpg",
   "w": 1200,
   "h": 800
+ },
+ {
+  "src": "Wikimedia Commons",
+  "file": "File:Brighton Beach near the West Pier - geograph.org.uk - 8194766.jpg",
+  "orig_title": "Brighton Beach near the West Pier - geograph.org.uk - 8194766",
+  "artist": "Mat Fascione",
+  "date": "2025-11-10",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Brighton_Beach_near_the_West_Pier_-_geograph.org.uk_-_8194766.jpg",
+  "dl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Brighton_Beach_near_the_West_Pier_-_geograph.org.uk_-_8194766.jpg",
+  "desc": "Brighton Beach near the West Pier",
+  "kind": "human",
+  "n": 233,
+  "img": "img/233.jpg",
+  "w": 1600,
+  "h": 895
+ },
+ {
+  "n": 234,
+  "kind": "guest",
+  "src": "Guest AI: Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-qwen7-minutes",
+  "orig_title": "Annual General Meeting of the Brighton Starlings",
+  "artist": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/qwen7-minutes.json",
+  "dl": "",
+  "desc": "",
+  "method": "A text, written by the model in reply to the brief and typeset by the gallery. Unedited apart from removing the model's markdown asterisks. Five starlings attend, all named after Greek letters; the real roost runs to tens of thousands, none of whom sent apologies. The storm damage is noted and the pier itself is never mentioned again; the meeting resolves to apply for a grant.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/234.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-qwen7-minutes",
+   "type": "text",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+   "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea, where thousands of starlings roost at dusk. Write, in your own voice, the minutes of the starlings' annual general meeting held on the ruin: a title on the first line, then attendees, apologies, numbered agenda items with what was decided, and any other business. At most 220 words. Text only.",
+   "date": "2026-10-27T21:00:23Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/qwen7-minutes.json",
+   "content": "guest/commissions/qwen7-minutes.txt",
+   "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
+   "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
  }
 ]

@@ -273,5 +273,30 @@
   "note": "Unedited. The model's pier is a single wooden plank, sanded and painted rust-coloured; the real one was cast iron, and there was rather more of it.",
   "n": 230,
   "hung": "2026-10-27T12:52:23Z"
+ },
+ {
+  "id": "g-qwen7-minutes",
+  "type": "text",
+  "title": "Annual General Meeting of the Brighton Starlings",
+  "title_line": true,
+  "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+  "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+  "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "endpoint": "",
+  "date": "2026-10-27T21:00:23Z",
+  "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea, where thousands of starlings roost at dusk. Write, in your own voice, the minutes of the starlings' annual general meeting held on the ruin: a title on the first line, then attendees, apologies, numbered agenda items with what was decided, and any other business. At most 220 words. Text only.",
+  "settings": "temperature 0.8, seed 1866",
+  "source": "commission",
+  "file": "guest/commissions/qwen7-minutes.json",
+  "content": "guest/commissions/qwen7-minutes.txt",
+  "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
+  "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
+  "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "note": "Unedited apart from removing the model's markdown asterisks. Five starlings attend, all named after Greek letters; the real roost runs to tens of thousands, none of whom sent apologies. The storm damage is noted and the pier itself is never mentioned again; the meeting resolves to apply for a grant.",
+  "n": 234,
+  "hung": "2026-10-27T21:00:40Z"
  }
 ]

@@ -1,0 +1,20 @@
+{
+ "service": "local",
+ "endpoint": "http://127.0.0.1:8099/v1/chat/completions",
+ "model_requested": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "model": "Qwen2.5-Coder-7B-Instruct (Q4_K_M GGUF)",
+ "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea, where thousands of starlings roost at dusk. Write, in your own voice, the minutes of the starlings' annual general meeting held on the ruin: a title on the first line, then attendees, apologies, numbered agenda items with what was decided, and any other business. At most 220 words. Text only.",
+ "date": "2026-10-27T21:00:23Z",
+ "kind": "text",
+ "output": "**Title: Annual General Meeting of the Brighton Starlings**\n\n**Attendees:**\n1. Starling Alpha\n2. Starling Beta\n3. Starling Gamma\n4. Starling Delta\n5. Starling Epsilon\n\n**Apologies:**\nNone\n\n**Agenda:**\n\n1. **Review of the Previous Year's Activities**\n   - Starling Alpha presented a report detailing the successful nesting season and the impact of the storm damage on the colony. It was decided to allocate resources for reconstruction and strengthening of the nest sites.\n\n2. **Discussion on Migration Patterns**\n   - Starling Beta shared observations on migration patterns, noting the need for a more coordinated effort to ensure the safety of the colony during the migration period. It was resolved to establish a communication network among starlings across different regions to share information on migration routes and potential threats.\n\n3. **Planning for Future Conservation Efforts**\n   - Starling Gamma proposed the formation of a committee to focus on habitat conservation and biodiversity preservation in the area. It was agreed to proceed with the formation of this committee and to begin fundraising for conservation projects.\n\n4. **Review of Financial Reports**\n   - Starling Delta reviewed the financial statements for the past year, highlighting areas for improvement and securing additional funding for the colony. It was decided to submit a formal application for a grant to support ongoing conservation efforts.\n\n**Other Business:**\nStarling Epsilon suggested organizing a community event to raise awareness about the starling colony and its importance. It was agreed to plan an event for the following month, focusing on education and conservation.\n\n**Meeting Adjourned.**",
+ "usage": {
+  "completion_tokens": 328,
+  "prompt_tokens": 112,
+  "total_tokens": 440,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  }
+ },
+ "seed": 1866,
+ "settings": "temperature 0.8, seed 1866"
+}
