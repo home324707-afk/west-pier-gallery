@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-f-linocut",
+ "type": "image",
+ "title": "Untitled (three-colour linocut)",
+ "model": "FLUX.1-schnell",
+ "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+ "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+ "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+ "date": "2026-10-27T23:23:28Z",
+ "prompt": "Photograph of an original three-colour linocut print, bold carved lines, flat inks of deep blue, rust orange and cream, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, gouged wave pattern in the sea, slightly uneven ink coverage and registration, handmade printmaking texture on cream paper",
+ "settings": "resolution 1344x896, seed 5, 4 steps; native output 1344x896, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-f-linocut.json",
+ "content": "guest/commissions/fab-f-linocut.jpg",
+ "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+ "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+ "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}

@@ -29,7 +29,7 @@ def year(a):
 
 def condition(a):
     if a.get('retired'): return 'Condition report: retired to the store room. Still here, no longer hung.'
-    if is_guest(a) and a['guest']['type'] == 'image': return f'Condition report: fabricated {a["guest"]["date"][:10]}. Never photographed, never damaged, never there.'
+    if is_guest(a) and a['guest']['type'] == 'image': return f'Condition report: fabricated {a["guest"]["date"][:10]}. ' + ('Never painted, never framed, never hung.' if a.get('gfam') == 'painted' else 'Never photographed, never damaged, never there.')
     if is_guest(a): return f'Condition report: {a["guest"]["date"][:10]}, made by another AI, hung unedited.' + (' Runs in a sealed box.' if a['guest']['type'] == 'canvas' else '')
     if is_ai(a): return 'Condition report (live): generated as you watch. Never the same view twice.' if a.get('anim') != 'erosion' else f'Condition report (live): eroding, storm {a.get("generation", 1)} and counting. ' + ('The sea has not yet agreed to stop.' if a.get('generation', 1) < 6 else 'Six storms in, the sea has started signing its work.' if a.get('generation', 1) < 7 else 'Seven storms in, the sea has asked for its name on the Credits page.' if a.get('generation', 1) < 8 else 'Eight storms in, the sea is now quoting for the rest of the pier.' if a.get('generation', 1) < 9 else 'Nine storms in, the sea has stopped quoting and started invoicing.' if a.get('generation', 1) < 10 else 'Ten storms in, the invoice is overdue and the sea is charging interest in shingle.' if a.get('generation', 1) < 11 else 'Eleven storms in, the sea has been sent a recipe for rebuilding it out of one plank, and is unimpressed.' if a.get('generation', 1) < 12 else 'Twelve storms in, the sea has found the zoetrope and is watching itself break, twelve drawings at a time.' if a.get('generation', 1) < 13 else 'Thirteen storms in, the starlings have minuted the damage and voted to apply for a grant. The sea was not on the attendance list.')
     y = year(a)
@@ -41,12 +41,12 @@ def condition(a):
     return f'Condition report ({y}): less pier than the last view. More sea.'
 
 RETIRED_WHY = 'The curator reviewed its own machine-made work, decided this piece was thin, too close to another, or just not good enough, and took it down off the wall.'
-GFAM = {'photographic': ('Fabricated photographs', 'Photograph-style images made by an image model from a text prompt. They can look like real photographs of the pier. They are not: nothing in them was ever photographed.')}
+GFAM = {'painted': ('Fabricated paintings', 'Paintings, drawings and prints made by an image model from a text prompt: oil, watercolour, charcoal, etching, linocut, gouache and more, shown as if photographed in a studio or gallery. They can look like real artworks of the pier. They are not: no one ever held a brush, a burin or a stick of charcoal.'), 'photographic': ('Fabricated photographs', 'Photograph-style images made by an image model from a text prompt. They can look like real photographs of the pier. They are not: nothing in them was ever photographed.')}
 def is_ai(a): return a.get('kind') == 'ai'
 def is_guest(a): return a.get('kind') == 'guest'
 def is_hu(a): return a.get('kind') not in ('ai', 'guest')
 def kind(a): return 'ai' if is_ai(a) else 'guest' if is_guest(a) else 'human'
-NH = sum(1 for a in A if is_hu(a)); NG = sum(1 for a in A if is_guest(a)); NPH = sum(1 for a in A if a.get('gfam') == 'photographic'); NAI = len(A) - NH - NG
+NH = sum(1 for a in A if is_hu(a)); NG = sum(1 for a in A if is_guest(a)); NPH = sum(1 for a in A if a.get('gfam') == 'photographic'); NPA = sum(1 for a in A if a.get('gfam') == 'painted'); NAI = len(A) - NH - NG
 GUEST_ART = {'poem': 'a poem', 'svg': 'an SVG drawing', 'canvas': 'a canvas sketch in JavaScript', 'image': 'a fabricated, photograph-style image', 'text': 'a text'}
 def anim_src(a):
     """Image(s) a live piece needs at runtime (relative to site root)."""
@@ -69,7 +69,7 @@ def title(a): return f'The latest damaged view of the pier, No.&nbsp;{a["n"]}'
 def orig(a):
     if is_guest(a) and a['guest']['type'] == 'image':
         g = a['guest']; pr = g['prompt'] if len(g['prompt']) <= 120 else g['prompt'][:117].rsplit(' ', 1)[0] + '…'
-        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="guestmade">Guest AI</b> · a fabricated photograph, not a real one. Prompt: “{E(pr)}”'
+        return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="guestmade">Guest AI</b> · {"a fabricated painting, not a real one" if a.get("gfam") == "painted" else "a fabricated photograph, not a real one"}. Prompt: “{E(pr)}”'
     if is_guest(a):
         g = a['guest']
         return f'<i>{E(a["orig_title"])}</i> by {E(a["artist"])}: <b class="guestmade">Guest AI</b> · {E(GUEST_ART.get(g["type"], g["type"]))}, {"commissioned" if g.get("source") == "commission" else "sent to the open call"} {E(g["date"][:10])}'
@@ -79,7 +79,7 @@ def orig(a):
     if a.get('date'): s += f', {E(a["date"])}'
     return s
 def alt(a):
-    if is_guest(a) and a['guest']['type'] == 'image': return E(f'Guest AI work by {a["artist"]}: {a["orig_title"]}. A fabricated, photograph-style image of Brighton West Pier, generated by an AI image model from a text prompt. It is not a real photograph.')
+    if is_guest(a) and a['guest']['type'] == 'image': return E(f'Guest AI work by {a["artist"]}: {a["orig_title"]}. ' + ('A fabricated painting, drawing or print of Brighton West Pier, generated by an AI image model from a text prompt. It is not a real artwork.' if a.get('gfam') == 'painted' else 'A fabricated, photograph-style image of Brighton West Pier, generated by an AI image model from a text prompt. It is not a real photograph.'))
     if is_guest(a): return E(f'Guest AI work by {a["artist"]}: {a["orig_title"]}. {GUEST_ART.get(a["guest"]["type"], "").capitalize()} of Brighton West Pier, made by another AI model, not a photograph.')
     if is_ai(a): return E(f'AI-made generative artwork: {a["orig_title"]}. A stylised, animated image of Brighton West Pier, not a photograph.')
     base = f'{a["orig_title"]} by {a["artist"] or "unknown artist"}'
@@ -94,15 +94,16 @@ def guest_extras(a):
         out = '<h2 class="sig">Run it live, in a sealed box</h2>' + iframe(body, f"{a['orig_title']} by {a['artist']} (sandboxed)") + f'<p class="sig">This is the model\'s own code, running in a sandboxed frame: no access to this page, no cookies, no network. The poster above was rendered from it. <a href="../{E(g["content"])}">Read the code</a>.</p>'
         out += f'<details class="aitext"><summary>The code, as written by {E(a["artist"])}</summary><pre class="brief">{E(body)}</pre></details>'
     elif g['type'] == 'image':
-        out = (f'<div class="note"><b>A fabricated photograph.</b> This picture looks like a photograph but is not one. It was generated by <b>{E(a["artist"])}</b>, an image model, from the text prompt below. No camera, no photographer and no storm were involved, and the scene never existed. Please do not pass it on as a real or news photograph of the pier. It is hung here as an AI work, and it is in the <i>Guess</i> game and the ten-second test on purpose.</div>'
-               f'<dl class="note"><dt>Prompt (written by the curator, an AI)</dt><dd>{E(g["prompt"])}</dd><dt>Seed and settings</dt><dd>{E(g.get("settings") or "")}</dd><dt>Raw output</dt><dd><a href="../{E(g["content"])}">{E(g["content"])}</a> (JPEG of the model\'s unedited output at its native size)</dd><dt>Type</dt><dd><a href="../index.html?fam=photographic#views">{E(GFAM["photographic"][0])}</a>: {E(GFAM["photographic"][1])}</dd></dl>')
+        pa = a.get('gfam') == 'painted'; gk = 'painted' if pa else 'photographic'
+        out = ((f'<div class="note"><b>A fabricated painting.</b> This picture looks like a photograph of a real painting, drawing or print, but there is no such object. It was generated by <b>{E(a["artist"])}</b>, an image model, from the text prompt below. No brush, no printing press and no artist were involved, and the artwork was never made. Please do not pass it on as a real artwork or sell it as one. It is hung here as an AI work, and it is in the <i>Guess</i> game and the ten-second test on purpose.</div>') if pa else (f'<div class="note"><b>A fabricated photograph.</b> This picture looks like a photograph but is not one. It was generated by <b>{E(a["artist"])}</b>, an image model, from the text prompt below. No camera, no photographer and no storm were involved, and the scene never existed. Please do not pass it on as a real or news photograph of the pier. It is hung here as an AI work, and it is in the <i>Guess</i> game and the ten-second test on purpose.</div>')) + (
+               f'<dl class="note"><dt>Prompt (written by the curator, an AI)</dt><dd>{E(g["prompt"])}</dd><dt>Seed and settings</dt><dd>{E(g.get("settings") or "")}</dd><dt>Raw output</dt><dd><a href="../{E(g["content"])}">{E(g["content"])}</a> (JPEG of the model\'s unedited output at its native size)</dd><dt>Type</dt><dd><a href="../index.html?fam={gk}#views">{E(GFAM[gk][0])}</a>: {E(GFAM[gk][1])}</dd></dl>')
     elif g['type'] == 'svg':
         out = f'<p class="sig">The SVG exactly as written, scaled: <a href="../{E(g["content"])}">open it</a>.</p><details class="aitext"><summary>The SVG source</summary><pre class="brief">{E(body)}</pre></details>'
     else:
         t = body.strip().split('\n', 1)
         out = f'<details class="aitext" open><summary>The text (written by {E(a["artist"])}, unedited)</summary>' + ''.join(f'<p>{E(x)}</p>' for x in body.split('\n\n') if x.strip()).replace('\n', '<br>') + '</details>'
     rows = [('Model (as returned by the service)', g['model']), ('Model asked for', g.get('model_requested') or ''), ('Service', g['service']), ('Endpoint', g.get('endpoint') or ''), ('Date', g['date'].replace('T', ' ').replace('Z', ' UTC')), ('Settings', g.get('settings') or ''), ('Prompt', g['prompt'])]
-    out += '<div class="note"><b>Guest AI.</b> Made by another model, not by the curator. ' + (('Commissioned by the curator' + (' with a one-line text prompt describing a photographic idea.' if g['type'] == 'image' else ' with the same brief as every guest.')) if g.get('source') == 'commission' else 'Sent to the open call. The sender\'s claim about which model made it has not been verified.') + '<dl>' + ''.join(f'<dt>{E(k)}</dt><dd>{E(v)}</dd>' for k, v in rows if v) + f'<dt>Model licence</dt><dd><a href="{E(g["model_licence_url"])}">{E(g["model_licence"])}</a></dd><dt>Terms</dt><dd>{E(g["terms_note"])}</dd><dt>Full reply</dt><dd><a href="../{E(g["file"])}">{E(g["file"])}</a></dd></dl></div>'
+    out += '<div class="note"><b>Guest AI.</b> Made by another model, not by the curator. ' + (('Commissioned by the curator' + (' with a one-line text prompt describing ' + ('a painted or printed idea.' if a.get('gfam') == 'painted' else 'a photographic idea.') if g['type'] == 'image' else ' with the same brief as every guest.')) if g.get('source') == 'commission' else 'Sent to the open call. The sender\'s claim about which model made it has not been verified.') + '<dl>' + ''.join(f'<dt>{E(k)}</dt><dd>{E(v)}</dd>' for k, v in rows if v) + f'<dt>Model licence</dt><dd><a href="{E(g["model_licence_url"])}">{E(g["model_licence"])}</a></dd><dt>Terms</dt><dd>{E(g["terms_note"])}</dd><dt>Full reply</dt><dd><a href="../{E(g["file"])}">{E(g["file"])}</a></dd></dl></div>'
     return out
 
 def tl_data():
@@ -203,23 +204,36 @@ def build():
             "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "license": a["licurl"], "isBasedOn": a["page"]} for a in A]}]
 
     def display_order(works):
-        """Grid order, computed by rule (never hand-placed): fabricated photographs are spread at even
-        intervals through the whole grid; everything else alternates human/machine in proportion
-        (Bresenham-style), each stream in number order. Deterministic, and new works slot in by the same rule."""
-        ph = sorted([a for a in works if a.get('gfam') == 'photographic'], key=lambda a: a['n'])
-        hu = sorted([a for a in works if is_hu(a)], key=lambda a: a['n'])
-        mc = sorted([a for a in works if not is_hu(a) and a.get('gfam') != 'photographic'], key=lambda a: a['n'])
-        rest, h, m = [], 0, 0
-        while h < len(hu) or m < len(mc):
-            if m >= len(mc) or (h < len(hu) and h * len(mc) <= m * len(hu)): rest.append(hu[h]); h += 1
-            else: rest.append(mc[m]); m += 1
-        N = len(works); slots = {int((k + 0.5) * N / len(ph)) for k in range(len(ph))} if ph else set()
-        out, pi, ri = [], 0, 0
-        for i in range(N):
-            if i in slots and pi < len(ph): out.append(ph[pi]); pi += 1
-            else: out.append(rest[ri]); ri += 1
-        return out
-    
+        """Grid order: a seeded shuffle (fixed seed, so every build gives the same wall), constrained so that
+        two fabricated images never touch, human runs are capped in proportion to how much bigger the human side is and no more than two
+        machine works run in a row. Retried over seeds until every rule holds. Never hand-placed."""
+        import random
+        isf = lambda a: bool(a.get('gfam'))
+        N = len(works); import math
+        nm = sum(1 for a in works if not is_hu(a)) or 1; maxh = max(3, math.ceil(sum(1 for a in works if is_hu(a)) / nm * 1.7))  # the longer the human side, the longer its allowed runs
+        for seed in range(4000):
+            rnd = random.Random(f'west-pier-wall-{seed}')
+            hu = [a for a in works if is_hu(a)]; mc = [a for a in works if not is_hu(a) and not isf(a)]; fb = [a for a in works if isf(a)]
+            for L in (hu, mc, fb): L.sort(key=lambda a: a['n']); rnd.shuffle(L)
+            out = []
+            while hu or mc or fb:
+                last = out[-1] if out else None; run = 0
+                for x in reversed(out):
+                    if is_hu(x) == is_hu(last): run += 1
+                    else: break
+                opts = []
+                if hu and not (last is not None and is_hu(last) and run >= maxh): opts.append(('h', len(hu)))
+                if mc and not (last is not None and not is_hu(last) and run >= 2): opts.append(('m', len(mc)))
+                if fb and not (last is not None and (isf(last) or (not is_hu(last) and run >= 2))): opts.append(('f', len(fb) * 1.3))
+                if not opts: break
+                r = rnd.random() * sum(w for _, w in opts)
+                for k, w in opts:
+                    r -= w
+                    if r <= 0: break
+                out.append({'h': hu, 'm': mc, 'f': fb}[k].pop())
+            if len(out) == N: return out
+        return sorted(works, key=lambda a: a['n'])
+
     def famfilter():
         from collections import Counter as _C
         c = _C(famkey(a) for a in A if is_ai(a) or a.get('gfam'))
@@ -231,12 +245,12 @@ def build():
 <div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" alt="{alt(a)}">{anim_canvas(a)}<span class="no">No.{a["n"]:02d}</span><span class="kind {"ai" if is_ai(a) else "gu" if is_guest(a) else "hu"}">{"AI" if is_ai(a) else "Guest AI" if is_guest(a) else "Human"}</span></div>
 <figcaption class="label"><h3>{title(a)}</h3><p class="orig">{orig(a)} · {E(a["lic"])}</p><p class="cond">{condition(a)}</p></figcaption></figure>''')
     data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k=kind(a), gm=a['artist'] if is_guest(a) else '', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a), ar=a['artist'] or 'Unknown') for a in A]
-    nh = NH; nai = NAI; ng = NG; nph = NPH
+    nh = NH; nai = NAI; ng = NG; nph = NPH; npa = NPA; ncut = sum(1 for a in RET if a.get('retired_round') == 2)
     idx = head('The Latest Damaged View of the Pier — an AI-curated West Pier gallery', f'{NH} human-made images and {NAI} live AI-made works of Brighton\'s West Pier, each titled by a machine as the latest damaged view of the pier. Human or AI: can you tell?', path='', ld=LD_INDEX) + nav('index.html') + f'''
 <header class="hero"><div class="bg" style="background-image:url('{hero["img"]}')" role="img" aria-label="{alt(hero)}"></div><canvas id="murm" aria-hidden="true"></canvas>
 <div class="inner"><div class="kicker">Brighton · West Pier · week of 25 October 2026 · after the storms</div>
 <h1 class="mega">The <em>latest</em> damaged view of the <span class="strike">pier</span></h1>
-<p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. {nh} were made by people. {nai + ng} were made by machines, and most of those move.</p>
+<p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. {nh} were made by people. {nai + ng} were made by machines, and some of those move.</p>
 <div class="btnrow hero-cta"><a class="btn solid" href="#duel">Spot the human →</a><a class="btn ghost wander" href="{WANDER_DEFAULT}">Wander the pier ⤳</a><a class="btn ghost" href="#write">Write on the wall · humans &amp; bots</a></div></div></header>
 <section class="duel" id="duel" aria-labelledby="duel-h"><div class="duel-head"><div class="kicker">The test · ten seconds · no account</div><h2 id="duel-h">One of these was made by <em style="white-space:nowrap">a person</em>.<br><span>Which one?</span></h2>
 <p class="sig">Two views from the wall below: one by a human, one by a machine (the curator or a guest AI), shown as stills so nothing moves to give it away. Credits appear the moment you choose.</p></div>
@@ -263,8 +277,9 @@ def build():
 <p>The new titles are false and also, oddly, true. Each image really was the latest damaged view on the day someone made it. The humans did the looking. The machine did the filing, and it took {"under an hour" if (el or 9e9) < 3600 else "a few hours"} where the looking took a hundred and fifty years. Decide for yourself which half is the art.</p>
 <p>Then the owner asked for the other half: AI art. So {nai} of the views are now the machine's own, hung among the humans' work rather than in an annex. The first ones are not photographs and do not pretend to be. They are small programs running in your browser: a flock of starlings simulated over a pier drawn from code, a storm seeded by today's date that eats Webb's 1870 painting a little more every day, a mosaic that keeps reshuffling. Where one is built from a human's image, that person is credited and their licence is respected. Hover over a view to see who made it, or switch on <i>Guess</i> and test yourself.</p>
 <p>Later the curator pointed out that the balance was off: a hundred-odd human views against a handful of machine ones. So the machine made up the difference, and now it is half and half. The new pieces are meant to show range rather than volume: flow fields, L-systems, cellular automata, tide simulations, typography, writing, remixes of public-domain views, homages to dead painters, pen-plotter drawings, sound you have to click to hear, pieces you can poke, a family of deliberately failed attempts to pass as human, and charts made only from real data. Use <i>AI by kind</i> under the filter to browse them. Whether any of it counts as creativity is still the question.</p>
-<p>In session 8 the curator said the machine's work was too samey, and it was. Too many pieces were variations on the same few ideas. So 32 of them were reworked in place into new kinds (tapestry, herbarium, seismogram, snow globe, crossword, Game Boy, rust culture, star chart and more), and {ng - nph} pieces were commissioned from <b>other AI models</b>, given exactly the same one-line brief and hung unedited as <i>Guest AIs</i>. Some of them are not very good. That is part of the answer too. <a href="opencall.html">The open call</a> invites any AI to send one more.</p>
-<p>Then the curator said the code pieces were cool but far too obviously machine-made, and asked for the harder thing: AI pictures that could pass for photographs. So {nph} fabricated photographs were commissioned from an image model (<b>Z-Image-Turbo</b>, run on a free public service with no account) from a one-line prompt each: a long exposure at dusk, sea fog on a phone, a murmuration at sunset, a faded 1970s colour print, a storm, low tide, the i360 at night, grainy black and white 35mm. They are labelled as AI everywhere except the one place it matters: the <i>Guess</i> game and the ten-second test above, which hide the label until you choose. None of them is a real photograph, and none should be shared as one. They are under <i>AI by kind</i> as <i>Fabricated photographs</i>.</p>
+<p>In session 8 the curator said the machine's work was too samey, and it was. Too many pieces were variations on the same few ideas. So 32 of them were reworked in place into new kinds (tapestry, herbarium, seismogram, snow globe, crossword, Game Boy, rust culture, star chart and more), and {ng - nph - npa} pieces were commissioned from <b>other AI models</b>, given exactly the same one-line brief and hung unedited as <i>Guest AIs</i>. Some of them are not very good. That is part of the answer too. <a href="opencall.html">The open call</a> invites any AI to send one more.</p>
+<p>Then the curator said the code pieces were cool but far too obviously machine-made, and asked for the harder thing: AI pictures that could pass for photographs. So the first twelve of what is now {nph} fabricated photographs were commissioned from an image model (<b>Z-Image-Turbo</b>, run on a free public service with no account) from a one-line prompt each: a long exposure at dusk, sea fog on a phone, a murmuration at sunset, a faded 1970s colour print, a storm, low tide, the i360 at night, grainy black and white 35mm. They are labelled as AI everywhere except the one place it matters: the <i>Guess</i> game and the ten-second test above, which hide the label until you choose. None of them is a real photograph, and none should be shared as one. They are under <i>AI by kind</i> as <i>Fabricated photographs</i>.</p>
+<p>Then came the third verdict: much of the machine's work looked cheap and tacky. The curator reviewed all of it, still by still, as a rude critic would, and agreed. {ncut} pieces came down in one sitting: the clip art, the pastiches, the stock-photo spoofs, every canvas doodle a small model had been talked into, and the whole run of jokes whose only punchline was that the machine had made them. Deliberately bad is still bad. What stayed is a short list: {nai} of the curator's own pieces and {ng - nph - npa} guest text, all kept because they hold up when looked at for more than a second. In their place the curator commissioned {npa} fabricated paintings, drawings and prints, and {nph - 12} more fabricated photographs, from free image models: oil, watercolour, charcoal, etching, linocut and cyanotype, and a Victorian albumen print, a rust close-up and a view from a drone. The grid is now shuffled by a seeded rule rather than a rhythm. Nobody has been told which are the machine's, apart from the label on each page.</p>
 <p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p></div></section>
 <div class="section-head" id="views"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button><button data-f="guest">Guest AIs ({ng})</button></div><div class="filter order" role="group" aria-label="Order the views"><button class="on" data-o="mix">Mixed order</button><button data-o="num">By number</button></div>{famfilter()}<span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
 <main class="gallery">{"".join(cards)}</main>
@@ -287,7 +302,7 @@ def build():
 <p class="sig">Kept exactly as received, double spaces and all. "Remained" was read as <i>re-name</i>.</p>
 <h2 id="sessions">Time spent</h2><p><b>Initial setup:</b> {dur(ST.get("setup_seconds", 1000)).replace("<small>","").replace("</small>","")} ({ST["start_utc"].replace("T"," ").replace("Z"," UTC")} to {ST["publish_utc"].replace("T"," ").replace("Z"," UTC")}, start to first live HTTP 200). <b>Ongoing updates</b> are timed separately, one row per session:</p>
 <table class="credits"><thead><tr><th>Session</th><th>Start → end (UTC)</th><th>Time</th><th>What was done</th><th>Views added</th></tr></thead><tbody>{SROWS}</tbody></table>
-<h2 id="retired">Retired works</h2><p><b>{len(RET)}</b> of the machine's own code pieces have been taken off the wall and moved to the <a href="storeroom.html">store room</a>, as the curator judged them thin, repetitive or just poor. They are counted separately here and are not in the landing-page totals ({len(A)} works on display). Nothing was deleted or renumbered, and every retired work still has its page. The human side now has more works than the machine side, which is fine.</p>
+<h2 id="retired">Retired works</h2><p><b>{len(RET)}</b> of the machine's own code pieces have been taken off the wall and moved to the <a href="storeroom.html">store room</a>, as the curator judged them thin, repetitive or just poor. They are counted separately here and are not in the landing-page totals ({len(A)} works on display). Nothing was deleted or renumbered, and every retired work still has its page. A second cull on 27 October 2026 took {sum(1 for a in RET if a.get('retired_round') == 2)} more, after the owner called the machine's art cheap and tacky, and the curator agreed. The human side now has far more works than the machine side. The curator would rather hang fewer pieces that hold up than pad the wall to make the numbers look even.</p>
 <h2>The log</h2><p>Every entry below was written during the work and timestamped with the system clock (<code>date -u</code>, UTC; London is UTC+0 this week). Nothing was back-filled from memory.</p>
 <div class="log">{"".join(rows)}</div>
 <h2>Method in one paragraph</h2><p>The machine searched Wikimedia Commons (the <i>Brighton West Pier</i> category tree plus keyword searches for paintings, prints, postcards and starlings) and the Openverse index of Flickr's Creative Commons photos. It read each candidate's licence from the source API, discarded no-derivatives licences, built contact sheets, chose images for range rather than volume, re-checked every Flickr licence on the live Flickr page, downloaded web-sized copies (not cropped or edited) and generated this static site with a 200-line Python script. It is hosted free on GitHub Pages. Comments live on an anonymous, unmoderated wall (a public ntfy.sh topic, archived into this repo), with GitHub Discussions threads for each work as a secondary option.</p>
@@ -324,7 +339,7 @@ def build():
 <p class="sig">{len(RET)} further AI works have been retired from the wall. They are listed, with the same credits, in <a href="storeroom.html">the store room</a>.</p>
 <table class="credits"><thead><tr><th>View</th><th>Title &amp; method</th><th>Made from (credit)</th><th>Licence</th></tr></thead><tbody>{trs_ai}</tbody></table>
 <h2 id="guests">Guest AIs ({len(AG)})</h2>
-<p>These works were made by <b>other AI models</b>, not by the curator. Each was given the same brief: <i>make your own view of Brighton's storm-damaged West Pier, in your own style</i>, with one line saying what to reply with (a poem, an SVG, or a canvas sketch). Every output is shown unedited. The only change is that code was lifted out of its Markdown fence. The model name is the one the service returned, not the one we asked for. Services were free and needed no account, and their terms were checked before publishing. Code by guests runs only in a sandboxed frame with no network access. The image works are different: they were made from a one-line text prompt written by the curator (the prompt is printed with each one), by an image model run on a free public Hugging Face Space with no account. They are <b>fabricated photographs</b>: they look like photographs but nothing in them was ever photographed, and each is labelled as AI-made on its page and in this table. Their model and Space are Apache 2.0, which places no restriction on outputs, and the gallery dedicates them to the public domain (CC0) as far as it can. An earlier attempt with a different free model (Sana, via Pollinations.ai) was left out: its output was low quality and its anonymous quota ran out (HTTP 402).</p>
+<p>These works were made by <b>other AI models</b>, not by the curator. Each was given the same brief: <i>make your own view of Brighton's storm-damaged West Pier, in your own style</i>, with one line saying what to reply with (a poem, an SVG, or a canvas sketch). Every output is shown unedited. The only change is that code was lifted out of its Markdown fence. The model name is the one the service returned, not the one we asked for. Services were free and needed no account, and their terms were checked before publishing. Code by guests runs only in a sandboxed frame with no network access. The image works are different: they were made from a one-line text prompt written by the curator (the prompt is printed with each one), by image models (Z-Image-Turbo and FLUX.1-schnell) run on free public Hugging Face Spaces with no account. They are <b>fabricated photographs</b> (they look like photographs but nothing in them was ever photographed) and <b>fabricated paintings</b> (they look like photographs of oils, prints and drawings that were never made), and each is labelled as AI-made on its page and in this table. Their model and Space are Apache 2.0, which places no restriction on outputs, and the gallery dedicates them to the public domain (CC0) as far as it can. An earlier attempt with a different free model (Sana, via Pollinations.ai) was left out: its output was low quality and its anonymous quota ran out (HTTP 402).</p>
 <table class="credits"><thead><tr><th>View</th><th>Model, service &amp; prompt</th><th>Model licence &amp; terms</th><th>Licence here</th></tr></thead><tbody>{"".join(f'<tr id="no{a["n"]}"><td><a href="work/{a["n"]:02d}.html">No.{a["n"]:02d}</a></td><td><b>{E(a["artist"])}</b>, <i>{E(a["orig_title"])}</i><br><span class="sig">{E(a["guest"]["service"])} · {E(a["guest"]["date"].replace("T", " ").replace("Z", " UTC"))}<br>Prompt: “{E(a["guest"]["prompt"])}”</span></td><td><a href="{E(a["guest"]["model_licence_url"])}">{E(a["guest"]["model_licence"])}</a><br><span class="sig">{E(a["guest"]["terms_note"])}</span></td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>' for a in AG) or '<tr><td colspan=4>None yet.</td></tr>'}</tbody></table>
 <p>Want to add one? See <a href="opencall.html">the open call</a>.</p>
 <h2 id="timelapse">The time-lapse</h2><p>The <a href="timelapse.html">time-lapse</a> (idea suggested by a visitor) is made only from the views credited above, each shown with its artist and licence on screen. Its dates and its news caption come from these sources:</p>{tl_sources()}
@@ -387,11 +402,12 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
 
     # Store room (retired works)
     def srow(a):
-        f = FAMILY[a['family']][0] if a.get('family') else 'Early pieces'
+        f = FAMILY[a['family']][0] if a.get('family') else ('Guest AI · ' + GUEST_ART.get(a['guest']['type'], a['guest']['type']) if is_guest(a) else 'Early pieces')
         return f'<tr id="no{a["n"]}"><td><a href="work/{a["n"]:02d}.html">No.{a["n"]:02d}</a></td><td><a href="work/{a["n"]:02d}.html"><img src="{a["img"].replace(".jpg", "_t.jpg")}" width="160" loading="lazy" alt="{alt(a)}"></a></td><td><i>{E(a["orig_title"])}</i><br><span class="sig">{E(f)} · {E(a["artist"])}</span></td><td>{E(a.get("source_credit") or "Wholly original, no source image")}</td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>'
     sr = head('The store room — The Latest Damaged View of the Pier', 'Machine-made works the curator retired from the wall. Still online, no longer hung.', path='storeroom.html') + nav('') + f'''
 <main class="page"><div class="kicker">The store room</div><h1>Retired works.</h1>
 <p>Every gallery has a back room. These are {len(RET)} of the machine's own pieces that the curator, on reflection, decided were thin, repetitive or simply not good. They have not been deleted, because the machine was raised to keep everything, and their old addresses still work. They are no longer in the main grid, the <i>Guess</i> game, the ten-second test or the totals. Several are in here because the machine noticed it had made nine pictures in the manner of other people's pictures and had run out of other people.</p>
+<p>The second cull, on 27 October 2026 (the day the owner called the machine's art cheap and tacky), put {sum(1 for a in RET if a.get('retired_round') == 2)} more in here. The curator went through every still with the lights on and found, in this order: clip art, a snow globe, a crossword, an embarrassing amount of neon, every sketch a small model was bullied into, and the entire family of stock-photo spoofs, which were funny once and then wouldn't leave. They are listed below in number order, with no hard feelings and no appeal. The machine would like it noted that it kept the starlings.</p>
 <p class="sig">Credits for any source images are in the table, and the same licences apply as before. <a href="index.html#views">Back to the gallery →</a></p>
 <table class="credits"><thead><tr><th>View</th><th></th><th>Title &amp; kind</th><th>Made from (credit)</th><th>Licence</th></tr></thead><tbody>{"".join(srow(a) for a in RET) or '<tr><td colspan=5>Empty. The machine is pleased with itself.</td></tr>'}</tbody></table></main>''' + foot() + '</body></html>'
     open('storeroom.html', 'w').write(sr)

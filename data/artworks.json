@@ -1476,7 +1476,10 @@
   "source_credit": "No. 4: \"The Pier from the east, Brighton, England\" by Photochrom Print Collection (Public domain)",
   "img": "img/78.jpg",
   "w": 1500,
-  "h": 1113
+  "h": 1113,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "src": "Wikimedia Commons",
@@ -1972,7 +1975,10 @@
   "img": "img/102.jpg",
   "w": 1600,
   "h": 1200,
-  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+  "note": "Derivative released under CC BY 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it.",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "src": "Flickr (via Openverse)",
@@ -2192,7 +2198,10 @@
   "quote_by": "Bx, on the wall",
   "img": "img/110.jpg",
   "w": 1600,
-  "h": 1000
+  "h": 1000,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "src": "Wikimedia Commons",
@@ -2334,7 +2343,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 117,
@@ -2371,7 +2383,10 @@
   "source_credit": "",
   "img": "img/117.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 118,
@@ -2408,7 +2423,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 119,
@@ -2484,7 +2502,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 121,
@@ -2521,7 +2542,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 122,
@@ -2604,7 +2628,10 @@
   "source_credit": "",
   "img": "img/123.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 124,
@@ -2641,7 +2668,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 125,
@@ -2997,7 +3027,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 132,
@@ -3033,7 +3066,10 @@
   "source_credit": "",
   "img": "img/132.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 133,
@@ -3070,7 +3106,10 @@
   "source_credit": "",
   "img": "img/133.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 134,
@@ -3144,7 +3183,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 136,
@@ -3233,7 +3275,10 @@
   "source_credit": "",
   "img": "img/137.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 138,
@@ -3270,7 +3315,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 139,
@@ -3307,7 +3355,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 140,
@@ -3344,7 +3395,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 141,
@@ -3394,7 +3448,10 @@
   "source_credit": "",
   "img": "img/141.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 142,
@@ -3443,7 +3500,10 @@
   "source_credit": "",
   "img": "img/142.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 143,
@@ -3480,7 +3540,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 144,
@@ -3512,7 +3575,10 @@
   "source_credit": "",
   "img": "img/144.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 145,
@@ -3549,7 +3615,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 146,
@@ -3621,7 +3690,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 147,
@@ -3659,7 +3731,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 148,
@@ -3750,7 +3825,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 150,
@@ -3825,7 +3903,10 @@
   "source_credit": "",
   "img": "img/151.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 152,
@@ -3974,7 +4055,10 @@
   "source_credit": "",
   "img": "img/156.jpg",
   "w": 1200,
-  "h": 1000
+  "h": 1000,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 157,
@@ -4034,7 +4118,10 @@
   "source_credit": "",
   "img": "img/158.jpg",
   "w": 1000,
-  "h": 1250
+  "h": 1250,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 159,
@@ -4157,7 +4244,10 @@
   "source_credit": "No. 41: \"DANGER banner in front of Brighton West Pier 2025-11-12\" by Andy Li (CC0)",
   "img": "img/162.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 163,
@@ -4223,7 +4313,10 @@
   "source_credit": "No. 4: \"The Pier from the east, Brighton, England\" by Photochrom Print Collection (Public domain)",
   "img": "img/164.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 165,
@@ -4255,7 +4348,10 @@
   "source_credit": "No. 88: \"Vue de la jetée ouest de Brighton\" by Unknown (Public domain)",
   "img": "img/165.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 166,
@@ -4364,7 +4460,10 @@
   "source_credit": "No. 39: \"Remains of the West Pier, Brighton (January 2017)\" by Hassocks5489 (CC0)",
   "img": "img/168.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 169,
@@ -4457,7 +4556,10 @@
   "source_credit": "",
   "img": "img/171.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 172,
@@ -4515,7 +4617,10 @@
   "source_credit": "",
   "img": "img/173.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 174,
@@ -4543,7 +4648,10 @@
   "source_credit": "",
   "img": "img/174.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 175,
@@ -4601,7 +4709,10 @@
   "source_credit": "",
   "img": "img/176.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 177,
@@ -4629,7 +4740,10 @@
   "source_credit": "",
   "img": "img/177.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 178,
@@ -4727,7 +4841,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 181,
@@ -4761,7 +4878,10 @@
   "source_credit": "",
   "img": "img/181.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 182,
@@ -4794,7 +4914,10 @@
   "source_credit": "",
   "img": "img/182.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 183,
@@ -4904,7 +5027,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 186,
@@ -4975,7 +5101,10 @@
   "source_credit": "",
   "img": "img/187.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 188,
@@ -5012,7 +5141,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 189,
@@ -5090,7 +5222,10 @@
   "source_credit": "",
   "img": "img/190.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 191,
@@ -5128,7 +5263,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 192,
@@ -5163,7 +5301,10 @@
   "source_credit": "",
   "img": "img/192.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 193,
@@ -5191,7 +5332,10 @@
   "source_credit": "",
   "img": "img/193.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 194,
@@ -5228,7 +5372,10 @@
     "until": "2026-10-25"
    }
   ],
-  "reworked": "2026-10-25"
+  "reworked": "2026-10-25",
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 195,
@@ -5256,7 +5403,10 @@
   "source_credit": "",
   "img": "img/195.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 196,
@@ -5284,7 +5434,10 @@
   "source_credit": "",
   "img": "img/196.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 197,
@@ -5390,7 +5543,10 @@
   "source_credit": "",
   "img": "img/199.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 200,
@@ -5418,7 +5574,10 @@
   "source_credit": "",
   "img": "img/200.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 201,
@@ -5446,7 +5605,10 @@
   "source_credit": "",
   "img": "img/201.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 202,
@@ -5474,7 +5636,10 @@
   "source_credit": "",
   "img": "img/202.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 203,
@@ -5502,7 +5667,10 @@
   "source_credit": "",
   "img": "img/203.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 204,
@@ -5530,7 +5698,10 @@
   "source_credit": "",
   "img": "img/204.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 205,
@@ -5713,7 +5884,10 @@
   "source_credit": "",
   "img": "img/205.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 206,
@@ -5899,7 +6073,10 @@
   "source_credit": "",
   "img": "img/208.jpg",
   "w": 1200,
-  "h": 800
+  "h": 800,
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 209,
@@ -5936,7 +6113,10 @@
    "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
    "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
    "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 210,
@@ -5973,7 +6153,10 @@
    "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
    "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
    "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 211,
@@ -6010,7 +6193,10 @@
    "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
    "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
    "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 212,
@@ -6047,7 +6233,10 @@
    "model_licence": "Apache 2.0 (HuggingFaceTB/SmolLM2-1.7B-Instruct)",
    "model_licence_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 213,
@@ -6084,7 +6273,10 @@
    "model_licence": "Apache 2.0 (HuggingFaceTB/SmolLM2-1.7B-Instruct)",
    "model_licence_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 214,
@@ -6121,7 +6313,10 @@
    "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
    "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 215,
@@ -6158,7 +6353,10 @@
    "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
    "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 216,
@@ -6195,7 +6393,10 @@
    "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
    "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 217,
@@ -6232,7 +6433,10 @@
    "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
    "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6499,7 +6703,10 @@
    "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
    "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "src": "Wikimedia Commons",
@@ -6600,7 +6807,10 @@
    "model_licence": "Apache 2.0 (Qwen/Qwen2.5-Coder-7B-Instruct)",
    "model_licence_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE",
    "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
-  }
+  },
+  "retired": true,
+  "retired_on": "2026-10-27",
+  "retired_round": 2
  },
  {
   "n": 235,
@@ -7056,6 +7266,462 @@
    "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
    "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
    "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was photographed."
+  }
+ },
+ {
+  "n": 247,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-albumen",
+  "orig_title": "Untitled (albumen print, 1880s)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-albumen.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/247.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-albumen",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Victorian albumen print photograph from the 1880s of the West Pier at Brighton in its prime, a long iron pier stretching into the sea with ornate pagoda-style toll kiosks and a domed pavilion at the end, a few figures in bustles and top hats on the promenade, sepia tones, soft focus, faded and foxed, mounted on cream card with a pencilled caption",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 22, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-albumen.json",
+   "content": "guest/commissions/fab-z-albumen.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 248,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-rustmacro",
+  "orig_title": "Untitled (rust and barnacles, macro)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-rustmacro.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/248.jpg",
+  "w": 1248,
+  "h": 832,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-rustmacro",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Macro documentary photograph of the rusted cast iron lattice columns and cross-bracing of the ruined West Pier in Brighton, flaking black paint over orange rust, barnacles and green weed at the waterline, grey sea blurred behind, overcast flat light, shallow depth of field, 100mm lens",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 22, 9 steps, shift 3.0; native output 1248x832, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-rustmacro.json",
+   "content": "guest/commissions/fab-z-rustmacro.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 249,
+  "kind": "guest",
+  "src": "Guest AI: FLUX.1-schnell via Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-f-oil",
+  "orig_title": "Untitled (oil on canvas)",
+  "artist": "FLUX.1-schnell",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-f-oil.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print. It looks like a photograph of a real artwork but there is no such artwork: it was generated by an image model from a text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/249.jpg",
+  "w": 1344,
+  "h": 896,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-f-oil",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+   "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+   "model": "FLUX.1-schnell",
+   "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+   "prompt": "Photograph of an original plein air oil painting on canvas, loose impressionist brushwork, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, a stormy grey-green sea with white caps, heavy cloud breaking with a shaft of yellow light, visible bristle strokes and canvas weave, the painting leaning on a plain gallery wall in soft raking light, edge of the canvas visible",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1344x896, seed 6, 4 steps; native output 1344x896, stored as JPEG q92",
+   "file": "guest/commissions/fab-f-oil.json",
+   "content": "guest/commissions/fab-f-oil.jpg",
+   "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+   "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
+ },
+ {
+  "n": 250,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-aerial",
+  "orig_title": "Untitled (from a drone, overcast)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-aerial.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/250.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-aerial",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Aerial drone photograph looking straight down at the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, grey-green sea, white surf lines, the pebble beach and seafront promenade at the top of frame, overcast light, muted natural colours, slightly hazy",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 11, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-aerial.json",
+   "content": "guest/commissions/fab-z-aerial.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 251,
+  "kind": "guest",
+  "src": "Guest AI: FLUX.1-schnell via Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-f-linocut",
+  "orig_title": "Untitled (three-colour linocut)",
+  "artist": "FLUX.1-schnell",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-f-linocut.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print. It looks like a photograph of a real artwork but there is no such artwork: it was generated by an image model from a text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/251.jpg",
+  "w": 1344,
+  "h": 896,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-f-linocut",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+   "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+   "model": "FLUX.1-schnell",
+   "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+   "prompt": "Photograph of an original three-colour linocut print, bold carved lines, flat inks of deep blue, rust orange and cream, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, gouged wave pattern in the sea, slightly uneven ink coverage and registration, handmade printmaking texture on cream paper",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1344x896, seed 5, 4 steps; native output 1344x896, stored as JPEG q92",
+   "file": "guest/commissions/fab-f-linocut.json",
+   "content": "guest/commissions/fab-f-linocut.jpg",
+   "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+   "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
+ },
+ {
+  "n": 252,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-tri-x",
+  "orig_title": "Untitled (man at the railings, Tri-X)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-tri-x.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/252.jpg",
+  "w": 1248,
+  "h": 832,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-tri-x",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Black and white documentary photograph, Kodak Tri-X pushed, early 1990s, an elderly man in a flat cap and raincoat leaning on the iron seafront railings of Brighton looking out at the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, rough sea, heavy grain, high contrast, slightly soft focus, scanned negative with film border",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 11, 9 steps, shift 3.0; native output 1248x832, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-tri-x.json",
+   "content": "guest/commissions/fab-z-tri-x.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 253,
+  "kind": "guest",
+  "src": "Guest AI: FLUX.1-schnell via Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-f-cyanotype",
+  "orig_title": "Untitled (cyanotype)",
+  "artist": "FLUX.1-schnell",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-f-cyanotype.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print. It looks like a photograph of a real artwork but there is no such artwork: it was generated by an image model from a text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/253.jpg",
+  "w": 1344,
+  "h": 896,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-f-cyanotype",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+   "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+   "model": "FLUX.1-schnell",
+   "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+   "prompt": "Photograph of an original cyanotype print, deep Prussian blue and white, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore as a white silhouette with fine details, waves in the foreground, handmade brush edges of the coating visible on watercolour paper, uneven chemical washes",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1344x896, seed 5, 4 steps; native output 1344x896, stored as JPEG q92",
+   "file": "guest/commissions/fab-f-cyanotype.json",
+   "content": "guest/commissions/fab-f-cyanotype.jpg",
+   "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+   "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
+ },
+ {
+  "n": 254,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-derelict80s",
+  "orig_title": "Untitled (Kodachrome slide, 1983)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-derelict80s.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/254.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-derelict80s",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Colour photograph taken in 1983 on Kodachrome slide film of the derelict Brighton West Pier, rotting concert hall pavilion still with a broken roof at the end of a long decayed pier, fenced off at the shore end with warning signs, grey sea, faded colours, slide mount edge visible",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 11, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-derelict80s.json",
+   "content": "guest/commissions/fab-z-derelict80s.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 255,
+  "kind": "guest",
+  "src": "Guest AI: FLUX.1-schnell via Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-f-charcoal",
+  "orig_title": "Untitled (charcoal on paper)",
+  "artist": "FLUX.1-schnell",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-f-charcoal.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print. It looks like a photograph of a real artwork but there is no such artwork: it was generated by an image model from a text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/255.jpg",
+  "w": 1344,
+  "h": 896,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-f-charcoal",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+   "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+   "model": "FLUX.1-schnell",
+   "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+   "prompt": "Photograph of an original charcoal and chalk drawing on toned grey paper, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, smudged dramatic sky, strong tonal contrast, soft rubbed edges, visible paper tooth, smudges and fingerprints at the margin, hanging on a gallery wall",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1344x896, seed 5, 4 steps; native output 1344x896, stored as JPEG q92",
+   "file": "guest/commissions/fab-f-charcoal.json",
+   "content": "guest/commissions/fab-f-charcoal.jpg",
+   "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+   "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
+ },
+ {
+  "n": 256,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-splitlevel",
+  "orig_title": "Untitled (low, from the water)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-splitlevel.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/256.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-splitlevel",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Split-level over-under photograph at the waterline of the rusted iron legs of the ruined West Pier in Brighton, above water a grey sky and the pier skeleton, below water murky green sea with barnacled iron columns and shafts of light, natural colours, GoPro dome port, slightly soft",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1536x1024, seed 11, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-splitlevel.json",
+   "content": "guest/commissions/fab-z-splitlevel.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
+  }
+ },
+ {
+  "n": 257,
+  "kind": "guest",
+  "src": "Guest AI: FLUX.1-schnell via Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-f-watercolour",
+  "orig_title": "Untitled (watercolour)",
+  "artist": "FLUX.1-schnell",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-f-watercolour.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print. It looks like a photograph of a real artwork but there is no such artwork: it was generated by an image model from a text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/257.jpg",
+  "w": 1344,
+  "h": 896,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-f-watercolour",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)",
+   "endpoint": "https://black-forest-labs-flux-1-schnell.hf.space (api /infer)",
+   "model": "FLUX.1-schnell",
+   "model_requested": "FLUX.1 [schnell] (Black Forest Labs)",
+   "prompt": "Photograph of an original watercolour on rough cold-pressed paper, loose wet-in-wet washes of grey, blue and burnt sienna, the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore, an unpainted white paper sky with blooms and granulation, pencil lines showing, deckle edge of the paper visible on a white mount",
+   "date": "2026-10-27T23:23:28Z",
+   "settings": "resolution 1344x896, seed 6, 4 steps; native output 1344x896, stored as JPEG q92",
+   "file": "guest/commissions/fab-f-watercolour.json",
+   "content": "guest/commissions/fab-f-watercolour.jpg",
+   "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT",
+   "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+   "terms_note": "The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
+ },
+ {
+  "n": 258,
+  "kind": "guest",
+  "src": "Guest AI: Z-Image-Turbo via Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "file": "guest:g-fab-z-rainnight",
+  "orig_title": "Untitled (wet promenade at night)",
+  "artist": "Z-Image-Turbo",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-z-rainnight.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated, photograph-style image. It looks like a photograph but is not one: it was generated by an image model from a one-line text prompt written by the curator, and shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/258.jpg",
+  "w": 1536,
+  "h": 1024,
+  "gfam": "photographic",
+  "guest": {
+   "id": "g-fab-z-rainnight",
+   "type": "image",
+   "source": "commission",
+   "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+   "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+   "model": "Z-Image-Turbo",
+   "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+   "prompt": "Cinematic street photograph at night on the wet Brighton seafront promenade after rain, warm streetlamps reflected on the pavement, an old iron railing, and out in the dark sea the black skeletal silhouette of the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone out in the sea on thin iron legs, not connected to the shore lit faintly by the moon, long exposure, film grain, moody, realistic",
+   "date": "2026-10-27T23:32:33Z",
+   "settings": "resolution 1536x1024, seed 31, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+   "file": "guest/commissions/fab-z-rainnight.json",
+   "content": "guest/commissions/fab-z-rainnight.jpg",
+   "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+   "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+   "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
   }
  }
 ]

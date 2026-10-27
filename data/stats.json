@@ -185,10 +185,19 @@
    "purpose": "Interleave display order",
    "done": "Mixed the grid: the 12 fabricated photographs are now spread evenly (one every 18 works) and human and machine works alternate, by a fixed rule; a By number option is kept.",
    "images_added": 0
+  },
+  {
+   "n": 20,
+   "start_utc": "2026-10-27T22:32:42Z",
+   "end_utc": "2026-10-27T23:32:50Z",
+   "seconds": 3608,
+   "purpose": "Ruthless quality pass on the machine side; new gallery-grade fabricated photographs and paintings",
+   "done": "Ruthless quality pass: retired 70 more machine works to the store room (16 of the curator's own pieces and 1 guest text kept); 12 new fabricated images from free image models (7 photographs, 5 paintings/prints; Nos. 247-258); seeded natural-scatter grid order replaces the one-in-18 rhythm",
+   "images_added": 12
   }
  ],
- "total_update_seconds": 9610,
- "update_session_count": 19,
+ "total_update_seconds": 13218,
+ "update_session_count": 20,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
