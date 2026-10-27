@@ -1843,7 +1843,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 10.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 11.",
   "sources": [
    1
   ],
@@ -1851,7 +1851,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 10
+  "generation": 11
  },
  {
   "src": "Flickr (via Openverse)",
@@ -6402,6 +6402,43 @@
    "model_licence": "Apache 2.0 (openai/gpt-oss-20b)",
    "model_licence_url": "https://huggingface.co/openai/gpt-oss-20b",
    "terms_note": "Pollinations.ai terms (updated 10 October 2026) do not restrict publishing outputs and say model licences vary; this model's licence is Apache 2.0. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
+  }
+ },
+ {
+  "n": 230,
+  "kind": "guest",
+  "src": "Guest AI: Phi-4-mini-instruct (Q4_K_M GGUF) via Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "file": "guest:g-phi4-recipe",
+  "orig_title": "Recreating a Storm-Damaged West Pier Ruin",
+  "artist": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+  "date": "2026-10-27",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/phi4-recipe.json",
+  "dl": "",
+  "desc": "",
+  "method": "A text, written by the model in reply to the brief and typeset by the gallery. Unedited. The model's pier is a single wooden plank, sanded and painted rust-coloured; the real one was cast iron, and there was rather more of it.",
+  "sources": [],
+  "source_credit": "",
+  "img": "img/230.jpg",
+  "w": 1200,
+  "h": 800,
+  "guest": {
+   "id": "g-phi4-recipe",
+   "type": "text",
+   "source": "commission",
+   "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+   "endpoint": "",
+   "model": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "model_requested": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+   "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea. Write a recipe for making it exactly as it is today, in your own voice: a title, a list of ingredients, then the method in numbered steps (at most 150 words in all). Reply with the title on the first line, then the recipe. Nothing else.",
+   "date": "2026-10-27T12:51:55Z",
+   "settings": "temperature 0.8, seed 1866",
+   "file": "guest/commissions/phi4-recipe.json",
+   "content": "guest/commissions/phi4-recipe.txt",
+   "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
+   "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
+   "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can."
   }
  }
 ]

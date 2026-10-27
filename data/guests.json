@@ -248,5 +248,30 @@
   "note": "Unedited. The model invented the clock tower, the eight intact sections and the refurbished loading dock; the pier has none of them.",
   "n": 229,
   "hung": "2026-10-27T08:56:59Z"
+ },
+ {
+  "id": "g-phi4-recipe",
+  "type": "text",
+  "title": "Recreating a Storm-Damaged West Pier Ruin",
+  "title_line": true,
+  "model": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+  "model_requested": "Phi-4-mini-instruct (Q4_K_M GGUF)",
+  "service": "Run on the gallery's build machine with llama.cpp (build b11887); open weights (Q4_K_M GGUF) downloaded from Hugging Face, no account",
+  "endpoint": "",
+  "date": "2026-10-27T12:51:55Z",
+  "prompt": "Brighton's West Pier is a storm-damaged ruin in the sea. Write a recipe for making it exactly as it is today, in your own voice: a title, a list of ingredients, then the method in numbered steps (at most 150 words in all). Reply with the title on the first line, then the recipe. Nothing else.",
+  "settings": "temperature 0.8, seed 1866",
+  "source": "commission",
+  "file": "guest/commissions/phi4-recipe.json",
+  "content": "guest/commissions/phi4-recipe.txt",
+  "model_licence": "MIT (microsoft/Phi-4-mini-instruct)",
+  "model_licence_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
+  "terms_note": "Open weights run locally, no service terms. The model licence places no restriction on outputs. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "note": "Unedited. The model's pier is a single wooden plank, sanded and painted rust-coloured; the real one was cast iron, and there was rather more of it.",
+  "n": 230,
+  "hung": "2026-10-27T12:52:23Z"
  }
 ]
