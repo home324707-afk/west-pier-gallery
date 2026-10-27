@@ -14,10 +14,10 @@ $('lbx').onclick=close;$('lbp').onclick=()=>show(i-1);$('lbn').onclick=()=>show(
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='FIGURE')close()});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
 // filter: all / guess / human / ai / guest
-document.querySelectorAll('.filter button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
+document.querySelectorAll('.filter button[data-f]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
 document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai'||f==='guest')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
 // AI by kind: show one family (click again to show all)
-function fam(k){document.body.classList.remove('guess');document.querySelectorAll('.filter button').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
+function fam(k){document.body.classList.remove('guess');document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
 document.querySelectorAll('.famfilter button').forEach(x=>x.classList.toggle('on',x.dataset.fam===k));document.querySelectorAll('.card').forEach(c=>{c.hidden=!!k&&c.dataset.fam!==k})}
 document.querySelectorAll('.famfilter button').forEach(b=>b.addEventListener('click',()=>{const k=b.classList.contains('on')?'':b.dataset.fam;fam(k);history.replaceState(null,'',k?'?fam='+k+'#views':location.pathname)}));
 const qf=new URLSearchParams(location.search).get('fam');if(qf&&document.querySelector(`.famfilter button[data-fam="${CSS.escape(qf)}"]`))fam(qf);
@@ -36,3 +36,5 @@ b.vx=b.vx*.96+dx/d*.55;b.vy=b.vy*.96+dy/d*.55;b.x+=b.vx;b.y+=b.vy;cx.fillRect(b.
 raf=requestAnimationFrame(f)}go();
 })();
 const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.querySelector(`.filter button[data-f="${CSS.escape(qk)}"]`);if(b)b.click()}
+
+(()=>{const c0=document.querySelector('.card');if(!c0)return;const g=c0.parentElement,mix=[...g.querySelectorAll(':scope>.card')],bs=document.querySelectorAll('.order button[data-o]');bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.classList.toggle('on',x===b));(b.dataset.o==='num'?[...mix].sort((x,y)=>x.dataset.n-y.dataset.n):mix).forEach(c=>g.appendChild(c))}))})();

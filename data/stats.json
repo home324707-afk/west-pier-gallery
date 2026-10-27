@@ -176,10 +176,19 @@
    "purpose": "Photo-style AI works (fabricated photographs) from free text-to-image models",
    "done": "Photo-style AI works: 12 fabricated photographs by Z-Image-Turbo (Nos. 235-246, guest AI, CC0, new 'Fabricated photographs' kind, in the Guess game and ten-second test); 30 weak code pieces retired to a store room (not deleted, URLs kept, excluded from grid, tests and counts)",
    "images_added": 12
+  },
+  {
+   "n": 19,
+   "start_utc": "2026-10-27T22:23:17Z",
+   "end_utc": "2026-10-27T22:24:10Z",
+   "seconds": 53,
+   "purpose": "Interleave display order",
+   "done": "Mixed the grid: the 12 fabricated photographs are now spread evenly (one every 18 works) and human and machine works alternate, by a fixed rule; a By number option is kept.",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 9557,
- "update_session_count": 18,
+ "total_update_seconds": 9610,
+ "update_session_count": 19,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

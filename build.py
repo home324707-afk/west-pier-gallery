@@ -201,14 +201,33 @@ def build():
         {"@context": "https://schema.org", "@type": "ImageGallery", "name": "The Latest Damaged View of the Pier", "url": SITE, "numberOfItems": n,
         "hasPart": [{"@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"],
             "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "license": a["licurl"], "isBasedOn": a["page"]} for a in A]}]
+
+    def display_order(works):
+        """Grid order, computed by rule (never hand-placed): fabricated photographs are spread at even
+        intervals through the whole grid; everything else alternates human/machine in proportion
+        (Bresenham-style), each stream in number order. Deterministic, and new works slot in by the same rule."""
+        ph = sorted([a for a in works if a.get('gfam') == 'photographic'], key=lambda a: a['n'])
+        hu = sorted([a for a in works if is_hu(a)], key=lambda a: a['n'])
+        mc = sorted([a for a in works if not is_hu(a) and a.get('gfam') != 'photographic'], key=lambda a: a['n'])
+        rest, h, m = [], 0, 0
+        while h < len(hu) or m < len(mc):
+            if m >= len(mc) or (h < len(hu) and h * len(mc) <= m * len(hu)): rest.append(hu[h]); h += 1
+            else: rest.append(mc[m]); m += 1
+        N = len(works); slots = {int((k + 0.5) * N / len(ph)) for k in range(len(ph))} if ph else set()
+        out, pi, ri = [], 0, 0
+        for i in range(N):
+            if i in slots and pi < len(ph): out.append(ph[pi]); pi += 1
+            else: out.append(rest[ri]); ri += 1
+        return out
+    
     def famfilter():
         from collections import Counter as _C
         c = _C(famkey(a) for a in A if is_ai(a) or a.get('gfam'))
         bs = ''.join(f'<button data-fam="{k}" title="{E(FAMILY[k][1])}">{E(FAMILY[k][0])} <span>{c[k]}</span></button>' for k in FAMILY if c.get(k)) + ''.join(f'<button data-fam="{k}" title="{E(v[1])}">{E(v[0])} <span>{c[k]}</span></button>' for k, v in GFAM.items() if c.get(k)) + (f'<button data-fam="early" title="The first eleven AI pieces: starlings, the storm that eats a painting, the mosaic and more.">Early pieces <span>{c["early"]}</span></button>' if c.get('early') else '')
         return f'<div class="famfilter" role="group" aria-label="Browse the AI works by kind"><span class="sig">AI by kind:</span>{bs}</div>'
     cards = []
-    for a in A:
-        cards.append(f'''<figure class="card{" ai" if is_ai(a) else " guest" if is_guest(a) else ""}" data-kind="{kind(a)}" data-fam="{famkey(a)}" data-i="{IDX[a["n"]]}" tabindex="0" role="button" aria-label="Open {E(re.sub('&nbsp;',' ',title(a)))}">
+    for a in display_order(A):
+        cards.append(f'''<figure class="card{" ai" if is_ai(a) else " guest" if is_guest(a) else ""}" data-n="{a["n"]}" data-kind="{kind(a)}" data-fam="{famkey(a)}" data-i="{IDX[a["n"]]}" tabindex="0" role="button" aria-label="Open {E(re.sub('&nbsp;',' ',title(a)))}">
 <div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" alt="{alt(a)}">{anim_canvas(a)}<span class="no">No.{a["n"]:02d}</span><span class="kind {"ai" if is_ai(a) else "gu" if is_guest(a) else "hu"}">{"AI" if is_ai(a) else "Guest AI" if is_guest(a) else "Human"}</span></div>
 <figcaption class="label"><h3>{title(a)}</h3><p class="orig">{orig(a)} · {E(a["lic"])}</p><p class="cond">{condition(a)}</p></figcaption></figure>''')
     data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k=kind(a), gm=a['artist'] if is_guest(a) else '', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a), ar=a['artist'] or 'Unknown') for a in A]
@@ -247,11 +266,11 @@ def build():
 <p>In session 8 the curator said the machine's work was too samey, and it was. Too many pieces were variations on the same few ideas. So 32 of them were reworked in place into new kinds (tapestry, herbarium, seismogram, snow globe, crossword, Game Boy, rust culture, star chart and more), and {ng - nph} pieces were commissioned from <b>other AI models</b>, given exactly the same one-line brief and hung unedited as <i>Guest AIs</i>. Some of them are not very good. That is part of the answer too. <a href="opencall.html">The open call</a> invites any AI to send one more.</p>
 <p>Then the curator said the code pieces were cool but far too obviously machine-made, and asked for the harder thing: AI pictures that could pass for photographs. So {nph} fabricated photographs were commissioned from an image model (<b>Z-Image-Turbo</b>, run on a free public service with no account) from a one-line prompt each: a long exposure at dusk, sea fog on a phone, a murmuration at sunset, a faded 1970s colour print, a storm, low tide, the i360 at night, grainy black and white 35mm. They are labelled as AI everywhere except the one place it matters: the <i>Guess</i> game and the ten-second test above, which hide the label until you choose. None of them is a real photograph, and none should be shared as one. They are under <i>AI by kind</i> as <i>Fabricated photographs</i>.</p>
 <p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p></div></section>
-<div class="section-head" id="views"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button><button data-f="guest">Guest AIs ({ng})</button></div>{famfilter()}<span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
+<div class="section-head" id="views"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button><button data-f="guest">Guest AIs ({ng})</button></div><div class="filter order" role="group" aria-label="Order the views"><button class="on" data-o="mix">Mixed order</button><button data-o="num">By number</button></div>{famfilter()}<span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
 <main class="gallery">{"".join(cards)}</main>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
 <button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
-<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=7" defer></script><script src="duel.js?v=1" defer></script>
+<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=8" defer></script><script src="duel.js?v=1" defer></script>
 ''' + foot() + '</body></html>'
     open('index.html', 'w').write(idx)
 
