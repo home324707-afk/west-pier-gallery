@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-pastel",
+ "type": "image",
+ "title": "Untitled (soft pastel sketch, twilight)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-28T16:53:28Z",
+ "prompt": "Photograph of an original loose impressionistic soft pastel sketch on dark blue-grey Canson pastel paper, drawn entirely in broad chalky side-of-the-stick strokes and smudged with fingers, simplified shapes and no fine detail, everything visibly hand drawn, the paper colour showing through between strokes: the ruined West Pier at Brighton at twilight, a small dark skeletal iron frame of a former domed concert hall on thin legs alone far out in the sea, apricot and violet afterglow sky, its reflection in the calm sea suggested with a few horizontal strokes, the pebble beach in the foreground indicated with a few dark scumbled marks, whole sheet visible lying on a grey table, no signature, no text, no lettering",
+ "settings": "resolution 1472x1104, seed 2741, 9 steps, shift 3.0; native output 1472x1104, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-pastel.json",
+ "content": "guest/commissions/fab-z-pastel.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}
