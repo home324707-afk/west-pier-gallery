@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-rainbow",
+ "type": "image",
+ "title": "Untitled (double rainbow after a squall)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-28T20:57:52Z",
+ "prompt": "Photograph of a vivid double rainbow arching over the sea off Brighton seafront, England, just after a passing squall, dark slate-grey storm clouds behind, low late-afternoon sunlight lighting the wet shingle beach in the foreground, far out in the sea the ruined West Pier, only a small blackened skeletal iron frame of a former domed concert hall on a cluster of thin iron legs, an isolated island of rusted ironwork standing alone in the sea, completely disconnected from the shore, nobody on it, natural colours, 35mm lens, realistic documentary photograph, no text",
+ "settings": "resolution 1536x1024, seed 2401, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-rainbow.json",
+ "content": "guest/commissions/fab-z-rainbow.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}

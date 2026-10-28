@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-embroidery",
+ "type": "image",
+ "title": "Untitled (embroidery in a hoop)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-28T20:57:52Z",
+ "prompt": "Photograph of a hand-embroidered textile picture in a simple wooden hoop, lying flat on a linen tablecloth: the stitched image shows the ruined West Pier, only a small blackened skeletal iron frame of a former domed concert hall on a cluster of thin iron legs, an isolated island of rusted ironwork standing alone in the sea, completely disconnected from the shore, nobody on it, worked in black and rust-brown thread on pale blue linen, sea in rows of satin-stitch blue and grey, a few French-knot seagulls, slightly puckered fabric, loose thread ends, soft window daylight, close-up craft photograph, no lettering, no words",
+ "settings": "resolution 1472x1104, seed 2403, 9 steps, shift 3.0; native output 1472x1104, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-embroidery.json",
+ "content": "guest/commissions/fab-z-embroidery.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}
