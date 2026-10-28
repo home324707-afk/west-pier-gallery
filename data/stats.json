@@ -230,10 +230,19 @@
    "purpose": "Session 24: small update, machine works, storm erosion gen 17",
    "done": "Added 2 fabricated works by Z-Image-Turbo (guest AI, CC0): No. 265 a double rainbow over the ruin after a squall, wet shingle in the foreground; No. 266 a hand-embroidered picture of the ruin in a wooden hoop, photographed on linen (a dawn sea-angler photograph was rejected: the pier came out far too intact, with a long railed deck); storm erosion generation 17 with a new condition-report line; open call checked (no submissions). 117 human, 49 machine on display.",
    "images_added": 2
+  },
+  {
+   "n": 25,
+   "start_utc": "2026-10-28T21:52:40Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Session 25: visitor counter",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 14867,
- "update_session_count": 24,
+ "update_session_count": 25,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

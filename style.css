@@ -201,3 +201,5 @@ canvas.anim.int{pointer-events:auto;touch-action:pan-y;cursor:crosshair}
 @media (max-width:760px){nav.top{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(11,20,24,.97)}body{padding-bottom:4.5rem}}
 @media (min-width:761px) and (max-width:1440px){nav.top{gap:1rem;font-size:.74rem;letter-spacing:.1em}nav.top ul{gap:.9rem}nav.top .brand{font-size:.95rem}}
 .quiet{opacity:.55}.quiet:hover,.quiet:focus{opacity:1}
+
+footer .visits{flex-basis:100%;font-size:.72rem;opacity:.8}footer .visits[hidden]{display:none}footer .visits a{color:inherit}

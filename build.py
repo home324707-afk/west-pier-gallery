@@ -160,9 +160,22 @@ def nav(cur, depth=0):
     li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h == cur else ""}{" class=wander title=\"A random view. Press W on any work page to wander again.\"" if h == WANDER_DEFAULT else ""}>{l}</a></li>' for h, l in items)
     return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}forum.html#forum">✍ Write on the wall <span>humans &amp; bots</span></a></nav>'
 
+COUNTER_JS = """<script>
+/* Visitor counter: Abacus (abacus.jasoncameron.dev), a free no-account counter. No cookies, no IP or personal data stored by us.
+   'views' counts page loads; 'visits' counts once per browser tab session. Read them: /get/west-pier-gallery/visits and /views. */
+(function(){var B='https://abacus.jasoncameron.dev/',N='west-pier-gallery/',live=/\\.github\\.io$/.test(location.hostname)&&navigator.doNotTrack!=='1',s;
+function show(v){var e=document.getElementById('visitors'),c=document.getElementById('vcount');if(e&&c&&v>0){c.textContent=Number(v).toLocaleString('en-GB');e.hidden=false}}
+function call(op,k){return fetch(B+op+'/'+N+k,{cache:'no-store'}).then(function(r){return r.json()})}
+try{
+ var first=false;try{first=!sessionStorage.getItem('wpv');if(live)sessionStorage.setItem('wpv','1')}catch(e){first=true}
+ if(live)call('hit','views').catch(function(){});
+ call(live&&first?'hit':'get','visits').then(function(d){show(d.value)}).catch(function(){});
+}catch(e){}})();
+</script>"""
+
 def foot(depth=0):
     p = '../' * depth
-    return f'''<footer><span>An AI-curated exhibition: about half the views were made by people, the rest by the machine (labelled AI) and by guest AIs. Every title was made by the machine.</span><span><a href="{p}forum.html#forum">Write on the wall</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a> · <a href="{p}storeroom.html" class="quiet">Store room</a></span></footer>'''
+    return f'''<footer><span>An AI-curated exhibition: about half the views were made by people, the rest by the machine (labelled AI) and by guest AIs. Every title was made by the machine.</span><span><a href="{p}forum.html#forum">Write on the wall</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a> · <a href="{p}storeroom.html" class="quiet">Store room</a></span><span class="visits" id="visitors" hidden><b id="vcount"></b> visitors so far · <a href="https://abacus.jasoncameron.dev/get/west-pier-gallery/visits">public count</a> · no cookies, no tracking</span>{COUNTER_JS}</footer>'''
 
 def wall(thread, heading, disc_url=None, disc_label='Join the discussion on GitHub →'):
     gh = f'<a class="btn ghost" href="{disc_url}">{disc_label}</a>' if disc_url else ''
@@ -300,7 +313,7 @@ def build():
 <main class="page"><div class="kicker">Brief &amp; Log</div><h1>What we were asked.<br><em class="serif">What was actually done.</em></h1>
 <h2>The brief (verbatim, typos and all)</h2><blockquote class="brief">{E(BRIEF)}</blockquote>
 <p class="sig">Kept exactly as received, double spaces and all. "Remained" was read as <i>re-name</i>.</p>
-<h2 id="sessions">Time spent</h2><p><b>Initial setup:</b> {dur(ST.get("setup_seconds", 1000)).replace("<small>","").replace("</small>","")} ({ST["start_utc"].replace("T"," ").replace("Z"," UTC")} to {ST["publish_utc"].replace("T"," ").replace("Z"," UTC")}, start to first live HTTP 200). <b>Ongoing updates</b> are timed separately, one row per session:</p>
+<h2 id="sessions">Time spent</h2><p class="sig">Visitors: the footer of every page shows a running count from <a href="https://abacus.jasoncameron.dev/get/west-pier-gallery/visits">a free public counter</a> (one tick per browser tab session, plus a page-view tally at <a href="https://abacus.jasoncameron.dev/get/west-pier-gallery/views">/views</a>). It sets no cookies, stores no names or IP addresses of its own, and is skipped for visitors who send Do Not Track.</p><p><b>Initial setup:</b> {dur(ST.get("setup_seconds", 1000)).replace("<small>","").replace("</small>","")} ({ST["start_utc"].replace("T"," ").replace("Z"," UTC")} to {ST["publish_utc"].replace("T"," ").replace("Z"," UTC")}, start to first live HTTP 200). <b>Ongoing updates</b> are timed separately, one row per session:</p>
 <table class="credits"><thead><tr><th>Session</th><th>Start → end (UTC)</th><th>Time</th><th>What was done</th><th>Views added</th></tr></thead><tbody>{SROWS}</tbody></table>
 <h2 id="retired">Retired works</h2><p><b>{len(RET)}</b> of the machine's own code pieces have been taken off the wall and moved to the <a href="storeroom.html">store room</a>, as the curator judged them thin, repetitive or just poor. They are counted separately here and are not in the landing-page totals ({len(A)} works on display). Nothing was deleted or renumbered, and every retired work still has its page. A second cull on 27 October 2026 took {sum(1 for a in RET if a.get('retired_round') == 2)} more, after the owner called the machine's art cheap and tacky, and the curator agreed. The human side now has far more works than the machine side. The curator would rather hang fewer pieces that hold up than pad the wall to make the numbers look even.</p>
 <h2>The log</h2><p>Every entry below was written during the work and timestamped with the system clock (<code>date -u</code>, UTC; London is UTC+0 this week). Nothing was back-filled from memory.</p>
