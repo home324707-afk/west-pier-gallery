@@ -239,10 +239,19 @@
    "purpose": "Session 25: visitor counter",
    "done": "Added a free, cookie-free visitor counter (Abacus, no account) to every page footer, with public read URLs and a privacy note on Brief & Log; added a how-to-request-removal line to the credits page; drafted launch copy for sharing (kept off the site).",
    "images_added": 0
+  },
+  {
+   "n": 26,
+   "start_utc": "2026-10-28T22:40:27Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Memory wall drive: lead 'Share your memory of the West Pier' call to action on the landing page and in the duel result",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 15113,
- "update_session_count": 25,
+ "update_session_count": 26,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

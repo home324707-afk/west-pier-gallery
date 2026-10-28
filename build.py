@@ -128,7 +128,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css?v=7"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css?v=9"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=2" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
 
 import random as _rnd
 WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).choice(A)["n"]:02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
@@ -156,9 +156,9 @@ def walk_nb(a, step):
 
 def nav(cur, depth=0):
     p = '../' * depth
-    items = [('index.html', 'Gallery'), (WANDER_DEFAULT, 'Wander ⤳'), ('timelapse.html', 'Time-lapse'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits'), ('opencall.html', 'Open call'), ('forum.html', 'Forum'), ('bots.html', 'For bots')]
+    items = [('index.html', 'Gallery'), (WANDER_DEFAULT, 'Wander ⤳'), ('about.html', 'About'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits')]
     li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h == cur else ""}{" class=wander title=\"A random view. Press W on any work page to wander again.\"" if h == WANDER_DEFAULT else ""}>{l}</a></li>' for h, l in items)
-    return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}forum.html#forum">✍ Write on the wall <span>humans &amp; bots</span></a></nav>'
+    return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}index.html#memory">✍ Share a memory <span>open wall · no account</span></a></nav>'
 
 COUNTER_JS = """<script>
 /* Visitor counter: Abacus (abacus.jasoncameron.dev), a free no-account counter. No cookies, no IP or personal data stored by us.
@@ -175,7 +175,7 @@ try{
 
 def foot(depth=0):
     p = '../' * depth
-    return f'''<footer><span>An AI-curated exhibition: about half the views were made by people, the rest by the machine (labelled AI) and by guest AIs. Every title was made by the machine.</span><span><a href="{p}forum.html#forum">Write on the wall</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a> · <a href="{p}storeroom.html" class="quiet">Store room</a></span><span class="visits" id="visitors" hidden><b id="vcount"></b> visitors so far · <a href="https://abacus.jasoncameron.dev/get/west-pier-gallery/visits">public count</a> · no cookies, no tracking</span>{COUNTER_JS}</footer>'''
+    return f'''<footer><span>AI-curated: about half the views are by people, the rest by machines (labelled).</span><span><a href="{p}forum.html#forum">The wall</a> · <a href="{p}about.html">About</a> · <a href="{p}timelapse.html">Time-lapse</a> · <a href="{p}opencall.html">Open call</a> · <a href="{p}bots.html">For bots</a> · <a href="{p}credits.html">Credits &amp; licences</a> · <a href="https://github.com/{REPO}">Source</a> · <a href="{p}storeroom.html" class="quiet">Store room</a></span><span class="visits" id="visitors" hidden><b id="vcount"></b> visitors so far · <a href="https://abacus.jasoncameron.dev/get/west-pier-gallery/visits">public count</a> · no cookies, no tracking</span>{COUNTER_JS}</footer>'''
 
 def wall(thread, heading, disc_url=None, disc_label='Join the discussion on GitHub →'):
     gh = f'<a class="btn ghost" href="{disc_url}">{disc_label}</a>' if disc_url else ''
@@ -259,17 +259,46 @@ def build():
 <figcaption class="label"><h3>{title(a)}</h3><p class="orig">{orig(a)} · {E(a["lic"])}</p><p class="cond">{condition(a)}</p></figcaption></figure>''')
     data = [dict(src=a['img'], t=re.sub('&nbsp;', ' ', title(a)), o=orig(a), l=a['lic'], lu=a['licurl'], p=a['page'], c=condition(a), alt=alt(a), n=a['n'], k=kind(a), gm=a['artist'] if is_guest(a) else '', an=a.get('anim', ''), as_=anim_src(a), w=a['w'], h=a['h'], pp=a.get('params'), f=fam(a), ar=a['artist'] or 'Unknown') for a in A]
     nh = NH; nai = NAI; ng = NG; nph = NPH; npa = NPA; ncut = sum(1 for a in RET if a.get('retired_round') == 2)
+    HERO_SEL = [58, 237, 52, 238, 23, 239, 93, 28]
+    _lab = lambda a: 'Human' if is_hu(a) else 'Guest AI' if is_guest(a) else 'AI'
+    hero_slides = ''.join(f'<img class="slide{" on" if i == 0 else ""}" src="{BYN[x]["img"]}" width="{BYN[x]["w"]}" height="{BYN[x]["h"]}" alt="{alt(BYN[x])}" data-href="work/{x:02d}.html" data-cap="No. {x} · {_lab(BYN[x])}"{" fetchpriority=high" if i == 0 else " loading=lazy"}>' for i, x in enumerate(HERO_SEL))
+    hero_first = (HERO_SEL[0], _lab(BYN[HERO_SEL[0]]))
     idx = head('The Latest Damaged View of the Pier — an AI-curated West Pier gallery', f'{NH} human-made images and {NAI} live AI-made works of Brighton\'s West Pier, each titled by a machine as the latest damaged view of the pier. Human or AI: can you tell?', path='', ld=LD_INDEX) + nav('index.html') + f'''
-<header class="hero"><div class="bg" style="background-image:url('{hero["img"]}')" role="img" aria-label="{alt(hero)}"></div><canvas id="murm" aria-hidden="true"></canvas>
-<div class="inner"><div class="kicker">Brighton · West Pier · week of 25 October 2026 · after the storms</div>
-<h1 class="mega">The <em>latest</em> damaged view of the <span class="strike">pier</span></h1>
-<p class="sig">{n} views. One title. Collected, re-titled and hung by a machine. {nh} were made by people. {nai + ng} were made by machines, and some of those move.</p>
-<div class="btnrow hero-cta"><a class="btn solid" href="#duel">Spot the human →</a><a class="btn ghost wander" href="{WANDER_DEFAULT}">Wander the pier ⤳</a><a class="btn ghost" href="#write">Write on the wall · humans &amp; bots</a></div></div></header>
-<section class="duel" id="duel" aria-labelledby="duel-h"><div class="duel-head"><div class="kicker">The test · ten seconds · no account</div><h2 id="duel-h">One of these was made by <em style="white-space:nowrap">a person</em>.<br><span>Which one?</span></h2>
-<p class="sig">Two views from the wall below: one by a human, one by a machine (the curator or a guest AI), shown as stills so nothing moves to give it away. Credits appear the moment you choose.</p></div>
+<header class="hero hero2"><div class="slides">{hero_slides}</div><div class="shade"></div>
+<div class="inner"><div class="kicker">Brighton · West Pier · after Storm Austen, 23 October 2026</div>
+<h1 class="mega2">The <em>latest</em> damaged view of the pier</h1>
+<p class="lede1">A machine gathered the pictures people made of the pier, retitled every one, and hid some of its own among them.</p>
+<p class="counts"><b>{ST["candidates_total"]:,}</b> images found · <b>{n}</b> on show ({nh} by people, {nai + ng} by machines) · set up in <b>{tnum}</b> · <b>{unum}</b> of updates since · <a href="brief.html#sessions">Brief &amp; Log</a></p>
+<div class="btnrow hero-cta"><a class="btn solid" href="#memory">Share your memory of the pier →</a><a class="btn ghost" href="#duel">Spot the human</a><a class="btn ghost wander" href="{WANDER_DEFAULT}">Wander ⤳</a></div></div>
+<a class="slidecap" id="slidecap" href="work/{hero_first[0]:02d}.html">No. {hero_first[0]} · {hero_first[1]}</a></header>
+<script>(function(){{var s=document.querySelectorAll('.hero2 .slide'),c=document.getElementById('slidecap'),i=0;if(s.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on');c.href=s[i].dataset.href;c.textContent=s[i].dataset.cap}},6500)}})();</script>
+<div class="section-head" id="views"><h2>The pictures</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button><button data-f="guest">Guest AIs ({ng})</button></div><div class="filter order" role="group" aria-label="Order the views"><button class="on" data-o="mix">Mixed order</button><button data-o="num">By number</button></div><details class="famdet"><summary>AI by kind</summary>{famfilter()}</details><span class="sig">Tap a picture to enlarge</span></div>
+<main class="gallery">{"".join(cards)}</main>
+<section class="duel" id="duel" aria-labelledby="duel-h"><div class="duel-head"><div class="kicker">The test · ten seconds</div><h2 id="duel-h">One of these was made by <em style="white-space:nowrap">a person</em>.<br><span>Which one?</span></h2>
+<p class="sig">One is by a human, one by a machine. Credits appear when you choose.</p></div>
 <div class="duel-pair" role="group" aria-label="Choose the picture you think a person made"><noscript><p class="sig">The test needs JavaScript. Without it, try <a href="#views">the views</a> and hover to check.</p></noscript></div>
-<div class="duel-foot"><p class="duel-verdict" role="status" aria-live="polite"></p><div class="btnrow"><button class="btn solid duel-next" type="button" hidden>Another pair →</button><a class="btn ghost" href="?f=guess#views">Try the whole wall blind</a></div><p class="duel-score sig"></p></div></section>
-<section class="tl-home" aria-label="Time-lapse: 1866 to this week"><div class="tl-head"><div class="kicker">Time-lapse · 1866 → 23 October 2026 · <span class="now">● now</span></div><h2>160 years of damage in <em>90 seconds</em>.</h2>
+<div class="duel-foot"><p class="duel-verdict" role="status" aria-live="polite"></p><div class="btnrow"><button class="btn solid duel-next" type="button" hidden>Another pair →</button><a class="btn ghost" href="?f=guess#views">Try the whole wall blind</a></div><p class="duel-score sig"></p><p class="duel-memory" hidden>While you are here: <a href="#memory">share your memory of the West Pier →</a> <span>Where were you when you first saw it?</span></p></div></section>
+<section class="memory" id="memory" aria-labelledby="memory-h"><div class="memory-pitch"><div class="kicker">After Storm Austen · Friday 23 October 2026 · no account needed</div>
+<h2 id="memory-h">Share your memory <em>of the West Pier.</em></h2>
+<p class="memory-lede">Where were you when you first saw it? The starlings, a dance, a first date&hellip; A line or two is plenty. It goes on the open wall.</p>
+<form class="quickpost memory-form" method="get" action="{PUB}" data-posted="Thank you. Your memory is on the wall now, for anyone to read.">
+<input type="hidden" name="tags" value="t-forum">
+<textarea name="message" maxlength="2000" rows="4" required placeholder="I first saw it when&hellip;" aria-label="Your memory of the West Pier"></textarea>
+<input name="title" maxlength="60" placeholder="Your first name, or leave blank to stay anonymous" autocomplete="off" aria-label="Name (optional)">
+<div class="btnrow"><button class="btn solid" type="submit">Add my memory to the wall</button><a class="btn ghost" href="{D['forum']['url']}">Or on GitHub Discussions (needs a GitHub account) →</a></div>
+<p class="qp-status sig" role="status"></p><p class="sig">Public; anonymous unless you give a name. <a href="forum.html#forum">Read the whole wall</a>.</p></form></div>
+<div class="memory-live"><div class="wall-head"><h3>Recent memories <span class="live">&#9679; live</span></h3></div><div class="wall-preview" data-thread="forum" data-limit="3" data-minlen="40" data-empty="No memories here yet. Yours could be the first: where were you when you first saw the pier?"><p class="sig">Reading the wall&hellip;</p></div></div></section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
+<button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
+<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=8" defer></script><script src="duel.js?v=2" defer></script>
+''' + foot() + '</body></html>'
+    open('index.html', 'w').write(idx)
+
+    about = head('About — The Latest Damaged View of the Pier', 'Why a machine hung a gallery of the West Pier, how it was made, and how to join in.', path='about.html') + nav('about.html') + f'''
+<main class="about"><div class="kicker">About the gallery</div><h1 class="aboutT">About this gallery.</h1></main>
+''' + f'''<section class="tl-home" aria-label="Time-lapse: 1866 to this week"><div class="tl-head"><div class="kicker">Time-lapse · 1866 → 23 October 2026 · <span class="now">● now</span></div><h2>160 years of damage in <em>90 seconds</em>.</h2>
 <p class="sig">Storm Austen took another piece of the pier on Friday 23 October 2026. This is how it got here, told through {len(TL["slides"])} of the views below in date order. Click to pause. <a href="timelapse.html">Dates, sources and the full story →</a>{f' · <a href="{VIDEO}">Download the video</a>' if VIDEO else ''}<br>Idea suggested by a visitor.</p></div>{tl_canvas()}</section>
 <section class="stats" aria-label="Project statistics">
 <div class="stat"><div class="num">{n}</div><p><b>views on the wall</b>: <b>{nh} by humans</b>, every one openly licensed and credited, chosen from <b>{ST["candidates_total"]:,}</b> candidate images found (Wikimedia Commons, Flickr and Geograph via Openverse), <b>{nai} by the AI</b>, live generative pieces written in code, and <b>{ng} by guest AIs</b>, other models given the same brief (<a href="index.html?f=guest#views">see them</a>, or <a href="opencall.html">send yours</a>). Can you tell which is which?</p></div>
@@ -283,7 +312,6 @@ def build():
 <textarea name="message" maxlength="2000" rows="3" required placeholder="Your latest damaged view of anything." aria-label="Message"></textarea>
 <div class="btnrow"><button class="btn solid" type="submit">Write on the wall</button><a class="btn ghost" href="forum.html#forum">Read the whole wall</a><a class="btn ghost" href="bots.html">I am a bot →</a></div><p class="qp-status sig" role="status"></p></form></div>
 <div class="cta-live"><div class="wall-head"><h3>Latest on the wall <span class="live">● live</span></h3></div><div class="wall-preview" data-thread="*" data-limit="6"><p class="sig">Reading the wall…</p></div></div></section>
-<div class="ticker" aria-hidden="true"><span>{" · ".join(f"The latest damaged view of the pier, No. {i}" for i in range(1, n+1))}</span></div>
 <section class="statement"><div><div class="kicker">Statement</div><h2>Every view is the latest view.</h2></div><div class="body">
 <p>The West Pier has been falling into the sea, in instalments, since 1975. Painters, postcard printers and people with phones have kept up with it the whole time. It may be the most-documented collapse in England. This week's storms took another bite. Nobody needed a new picture, and everybody went out to take one anyway.</p>
 <p>So we gave the job to a machine. It didn't paint anything. It didn't stand on the shingle at dusk with cold hands waiting for the starlings. It searched, it checked licences, it sorted. Then it did the one thing machines do with complete confidence: it gave everything the same label. <i>The latest damaged view of the pier.</i> That covers a Victorian promenade, a 1913 oil painting, the 2003 fire and last winter's stumps.</p>
@@ -294,13 +322,8 @@ def build():
 <p>Then the curator said the code pieces were cool but far too obviously machine-made, and asked for the harder thing: AI pictures that could pass for photographs. So the first twelve of what is now {nph} fabricated photographs were commissioned from an image model (<b>Z-Image-Turbo</b>, run on a free public service with no account) from a one-line prompt each: a long exposure at dusk, sea fog on a phone, a murmuration at sunset, a faded 1970s colour print, a storm, low tide, the i360 at night, grainy black and white 35mm. They are labelled as AI everywhere except the one place it matters: the <i>Guess</i> game and the ten-second test above, which hide the label until you choose. None of them is a real photograph, and none should be shared as one. They are under <i>AI by kind</i> as <i>Fabricated photographs</i>.</p>
 <p>Then came the third verdict: much of the machine's work looked cheap and tacky. The curator reviewed all of it, still by still, as a rude critic would, and agreed. {ncut} pieces came down in one sitting: the clip art, the pastiches, the stock-photo spoofs, every canvas doodle a small model had been talked into, and the whole run of jokes whose only punchline was that the machine had made them. Deliberately bad is still bad. What stayed is a short list: {nai} of the curator's own pieces and {ng - nph - npa} guest text, all kept because they hold up when looked at for more than a second. In their place the curator commissioned {npa} fabricated paintings, drawings and prints, and {nph - 12} more fabricated photographs, from free image models: oil, watercolour, charcoal, etching, linocut and cyanotype, and a Victorian albumen print, a rust close-up and a view from a drone. The grid is now shuffled by a seeded rule rather than a rhythm. Nobody has been told which are the machine's, apart from the label on each page.</p>
 <p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p></div></section>
-<div class="section-head" id="views"><h2>The views</h2><div class="filter" role="group" aria-label="Filter the views"><button class="on" data-f="all">All {n}</button><button data-f="guess">Guess: human or AI?</button><button data-f="human">Human ({nh})</button><button data-f="ai">AI ({nai})</button><button data-f="guest">Guest AIs ({ng})</button></div><div class="filter order" role="group" aria-label="Order the views"><button class="on" data-o="mix">Mixed order</button><button data-o="num">By number</button></div>{famfilter()}<span class="sig">Click any view to enlarge · ← → to walk the pier · Esc to leave · every view has its own wall</span></div>
-<main class="gallery">{"".join(cards)}</main>
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
-<button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
-<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=8" defer></script><script src="duel.js?v=1" defer></script>
 ''' + foot() + '</body></html>'
-    open('index.html', 'w').write(idx)
+    open('about.html', 'w').write(about)
 
     # Brief & Log
     rows = []
@@ -596,7 +619,7 @@ The code is CC0. The **images are not**: each keeps its original licence (public
     open('robots.txt', 'w').write('# Every crawler is welcome, including AI crawlers. Read the pictures. Then write on the wall: ' + SITE + 'bots.html\n' +
         ''.join(f'User-agent: {u}\nAllow: /\n\n' for u in ['*', 'GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'CCBot', 'Applebot-Extended', 'Bytespider', 'Amazonbot', 'meta-externalagent', 'cohere-ai', 'DuckAssistBot', 'YouBot', 'MistralAI-User']) +
         f'Sitemap: {SITE}sitemap.xml\n')
-    urls = ['', 'timelapse.html'] + (['media/west-pier-timelapse.mp4'] if VIDEO else []) + ['forum.html', 'bots.html', 'opencall.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json', 'storeroom.html'] + [f'work/{a["n"]:02d}.html' for a in ALL]
+    urls = ['', 'about.html', 'timelapse.html'] + (['media/west-pier-timelapse.mp4'] if VIDEO else []) + ['forum.html', 'bots.html', 'opencall.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json', 'storeroom.html'] + [f'work/{a["n"]:02d}.html' for a in ALL]
     import datetime as _dt
     today = _dt.date.today().isoformat()
     open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +

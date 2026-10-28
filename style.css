@@ -203,3 +203,52 @@ canvas.anim.int{pointer-events:auto;touch-action:pan-y;cursor:crosshair}
 .quiet{opacity:.55}.quiet:hover,.quiet:focus{opacity:1}
 
 footer .visits{flex-basis:100%;font-size:.72rem;opacity:.8}footer .visits[hidden]{display:none}footer .visits a{color:inherit}
+
+.memory{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(1.5rem,4vw,4rem);padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem);background:linear-gradient(160deg,#1b140f 0%,#0b1418 70%);border-bottom:1px solid var(--line);border-top:3px solid var(--rust)}
+.memory h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,5.5vw,3.8rem);line-height:1.02;margin:.4rem 0 .8rem}
+.memory h2 em{color:var(--rust)}
+.memory-lede{font-family:"Fraunces",serif;font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:36rem;color:var(--salt)}
+.memory-form textarea{font-size:1rem}
+.memory-live{background:rgba(0,0,0,.28);border:1px solid var(--line);padding:1.2rem 1.4rem;align-self:start}
+.memory-live h3{margin:0;font-family:"Fraunces",serif;font-weight:400;font-size:1.3rem}
+.duel-memory{margin:1rem 0 0;padding:.8rem 1rem;border-left:3px solid var(--rust);background:rgba(196,86,43,.08)}
+.duel-memory span{display:block;color:var(--dim);font-size:.9rem;font-style:italic}
+.duel-memory[hidden]{display:none}
+@media (max-width:860px){.memory{grid-template-columns:1fr}.memory-form .btn{width:100%;text-align:center}.memory-form input,.memory-form textarea{font-size:16px}}
+
+/* ---- image-first landing (Oct 28) ---- */
+.hero2{min-height:min(82vh,860px);display:block;padding:0;border-bottom:0;background:#000}
+.hero2 .slides{position:absolute;inset:0}
+.hero2 .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;opacity:0;transition:opacity 1.8s ease}
+.hero2 .slide.on{opacity:1}
+.hero2 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,24,.15) 0%,rgba(11,20,24,0) 35%,rgba(11,20,24,.82) 100%)}
+.hero2 .inner{position:absolute;left:0;right:0;bottom:0;padding:clamp(1rem,4vw,3rem);max-width:1300px;z-index:2}
+.hero2 .kicker{text-shadow:0 1px 6px #000}
+h1.mega2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2.1rem,6.2vw,5rem);line-height:.95;margin:.25em 0 .3em;letter-spacing:-.02em;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+h1.mega2 em{font-style:italic;color:var(--salt)}
+.lede1{font-family:"Fraunces",serif;font-size:clamp(1rem,2vw,1.35rem);margin:0 0 .5rem;max-width:40rem;text-shadow:0 1px 8px #000}
+.counts{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:#d8d2c4;margin:0 0 .4rem;text-shadow:0 1px 6px #000;line-height:1.6}
+.counts b{color:var(--salt);font-weight:400}.counts small{font-size:.8em}
+.hero2 .slidecap{position:absolute;right:clamp(1rem,3vw,2rem);top:1rem;z-index:3;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,20,24,.7);padding:.25rem .5rem;text-decoration:none;border:1px solid var(--line)}
+.section-head{padding:1.4rem clamp(1rem,3vw,2rem) .8rem;gap:.6rem}
+.section-head h2{font-size:clamp(1.3rem,2.4vw,1.8rem)}
+.famdet{width:100%}.famdet summary{cursor:pointer;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.gallery{columns:3 360px;column-gap:.7rem;padding:0 clamp(.5rem,1.5vw,1rem) 3rem}
+.card{margin:0 0 .7rem}
+.card .label{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .8rem .7rem;border:0;background:linear-gradient(transparent,rgba(0,0,0,.88));opacity:0;transition:opacity .25s;pointer-events:none}
+.card:hover .label,.card:focus .label,.card:focus-visible .label,body.guess .card.revealed .label{opacity:1}
+.card .label h3{font-size:1rem;margin:0 0 .2rem}
+.card .label .orig{color:#d8d2c4}
+.card .kind{bottom:auto;top:.5rem;right:.5rem}
+@media (hover:none){.card .label{display:none}.card .kind{opacity:1}}
+@media (max-width:600px){.gallery{columns:2;column-gap:.4rem;padding:0 .4rem 2rem}.card{margin-bottom:.4rem}.hero2{min-height:78svh}.hero2 .slidecap{top:auto;bottom:auto;display:none}.counts{font-size:.68rem}.hero-cta .btn{flex:1 1 100%;text-align:center}}
+.about{max-width:900px;margin:0 auto;padding:2rem clamp(1rem,4vw,3rem) 0}.aboutT{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0}
+/* trimmer work pages */
+.work{grid-template-columns:minmax(0,2.7fr) minmax(0,1fr);gap:1.6rem;max-width:1800px;padding:clamp(.6rem,2vw,1.6rem)}
+.work h1{font-size:clamp(1.5rem,2.6vw,2.2rem);margin:0 0 .6rem}
+.work dl{font-size:.8rem}
+.work .keys{display:none}
+@media (max-width:760px){.work{padding:0 0 1rem}.work>div:last-child{padding:0 1rem}}
+nav.top ul{gap:1.6rem}
+.hero2 .kicker{color:var(--salt);font-size:.7rem}
+@media (max-width:600px){.hero2{min-height:68svh}.hero-cta .wander{display:none}.hero-cta .btn{padding:.7rem .6rem;font-size:.72rem}nav.top{padding:.6rem .8rem}nav.top ul{gap:.7rem}.hero2 .lede1{font-size:.95rem}}

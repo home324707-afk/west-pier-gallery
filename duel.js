@@ -21,6 +21,6 @@ function choose(w,h,pair){const ok=w===h;S.t++;if(ok)S.r++;try{localStorage.setI
 box.querySelectorAll('.duel-card').forEach((b,i)=>{const x=pair[i],cap=b.querySelector('.duel-cap'),lab=x.k==='human'?'Human':x.k==='guest'?'Guest AI · '+x.gm:'AI · '+(x.f||'live work');
 b.disabled=true;b.classList.add('shown',x.k==='human'?'hu':'mc');if(x===w)b.classList.add('chosen');b.querySelector('img').alt=x.alt;
 cap.innerHTML=`<span class="kindtag ${x.k==='human'?'hu':x.k==='guest'?'gu':'ai'}"></span><span class="o"></span> <a href="work/${pad(x.n)}.html">No. ${x.n} →</a>`;cap.querySelector('.kindtag').textContent=lab;cap.querySelector('.o').innerHTML=x.o+' · '+x.l});
-verdict.textContent=say(ok?RIGHT:WRONG,h);verdict.className='duel-verdict '+(ok?'ok':'no');next.hidden=false;next.focus({preventScroll:true});tally()}
+verdict.textContent=say(ok?RIGHT:WRONG,h);verdict.className='duel-verdict '+(ok?'ok':'no');next.hidden=false;const dm=document.querySelector('.duel-memory');if(dm)dm.hidden=false;next.focus({preventScroll:true});tally()}
 next.addEventListener('click',round);round();tally();
 })();

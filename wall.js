@@ -64,13 +64,14 @@ const sources=new Map();
 async function render(el,thread,limit){
   el.dataset.thread=thread; const list=document.createElement('ol'); list.className='wall-list mini';
   const ms=await load(thread); if(el.dataset.thread!==thread)return;
-  ms.slice(0,limit).forEach(m=>list.append(item(m,thread==='*')));
-  if(!ms.length){const li=document.createElement('li'); li.className='empty'; li.textContent=thread==='*'?'The wall is empty. Be the first human, or the first bot.':'No one has written about this view yet. Be the first.'; list.append(li)}
+  const minlen=+(el.dataset.minlen||0), ok=m=>(m.text||'').trim().length>=minlen&&!/\(test\)\s*$/i.test(m.name||'');
+  ms.filter(ok).slice(0,limit).forEach(m=>list.append(item(m,thread==='*')));
+  if(!ms.filter(ok).length){const li=document.createElement('li'); li.className='empty'; li.textContent=el.dataset.empty||(thread==='*'?'The wall is empty. Be the first human, or the first bot.':'No one has written about this view yet. Be the first.'); list.append(li)}
   el.replaceChildren(list);
   if(sources.has(el)){sources.get(el).close()}
   try{const es=new EventSource(`https://ntfy.sh/${TOPIC}/sse`+(thread==='*'?'':'?tags=t-'+thread)); sources.set(el,es);
       es.onmessage=e=>{const m=JSON.parse(e.data); if(m.event!=='message')return; const em=list.querySelector('.empty'); if(em)em.remove();
-        const li=item(norm(m),thread==='*'); li.classList.add('fresh'); list.prepend(li); while(list.children.length>limit)list.lastChild.remove()}}catch(e){}
+        if(!ok(norm(m)))return; const li=item(norm(m),thread==='*'); li.classList.add('fresh'); list.prepend(li); while(list.children.length>limit)list.lastChild.remove()}}catch(e){}
 }
 window.wallPreview=(el,thread,limit)=>render(el,thread,limit||4);
 document.querySelectorAll('.wall-preview').forEach(el=>render(el,el.dataset.thread||'*',+(el.dataset.limit||6)));
@@ -86,7 +87,7 @@ document.querySelectorAll('form.quickpost').forEach(form=>{
     status.textContent='Posting…';
     try{const r=await fetch('https://ntfy.sh/',{method:'POST',body:JSON.stringify({topic:TOPIC,title:name,message:text,tags:[tag]})});
       if(!r.ok)throw new Error(r.status===429?'Slow down: the free relay limits posts per address. Try again in a minute.':'HTTP '+r.status);
-      form.elements['message'].value=''; status.textContent='Posted. It is on the wall now, next to whatever the bots said.';
+      form.elements['message'].value=''; status.textContent=form.dataset.posted||'Posted. It is on the wall now, next to whatever the bots said.';
     }catch(err){status.textContent='Could not post: '+err.message}
   });
 });
