@@ -203,10 +203,19 @@
    "purpose": "Routine session: 2-3 photo/painting-style guest AI works, storm gen 14, open call check",
    "done": "Added 3 fabricated works by Z-Image-Turbo (guest AI, CC0): No. 259 Polaroid on a kitchen table, No. 260 gouache in a sketchbook on the shingle, No. 261 drizzle through a cafe window (two FLUX etching candidates rejected for gibberish signature text and the wrong pier shape); storm erosion generation 14; open call checked (no submissions)",
    "images_added": 3
+  },
+  {
+   "n": 22,
+   "start_utc": "2026-10-28T12:52:16Z",
+   "end_utc": "2026-10-28T12:56:34Z",
+   "seconds": 258,
+   "purpose": "Session 22: small update, machine works, storm erosion gen 15",
+   "done": "Added No. 262, a fabricated photograph by Z-Image-Turbo (guest AI, CC0): a row of empty striped deckchairs on the shingle on a summer evening, the ruin beyond (a second deckchair seed, two FLUX etchings and two Z-Image etchings were rejected for gibberish margin lettering or the wrong pier shape); storm erosion generation 15; open call checked (no submissions). 117 human, 45 machine on display.",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 14225,
- "update_session_count": 21,
+ "total_update_seconds": 14483,
+ "update_session_count": 22,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

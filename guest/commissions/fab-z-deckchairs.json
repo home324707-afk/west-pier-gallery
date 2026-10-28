@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-deckchairs",
+ "type": "image",
+ "title": "Untitled (empty deckchairs, summer evening)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-28T12:56:12Z",
+ "prompt": "Photograph of a summer evening on Brighton beach, England, a row of empty striped canvas deckchairs on the pebbles in the foreground, nobody in them, beyond them out in the calm sea the ruined West Pier at Brighton, a skeletal blackened rusted iron pavilion frame with curved roof ribs and no roof, standing alone on thin iron legs, not connected to the shore, low golden sunlight, long shadows, realistic, natural colours, 35mm lens, fine grain",
+ "settings": "resolution 1536x864, seed 5, 9 steps, shift 3.0; native output 1536x864, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-deckchairs.json",
+ "content": "guest/commissions/fab-z-deckchairs.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}
