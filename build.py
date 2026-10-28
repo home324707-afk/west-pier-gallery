@@ -343,7 +343,8 @@ def build():
 <p>{pills}</p>
 <div class="note"><b>Share-alike obligations.</b> {len(sa)} works are licensed CC BY-SA or CC BY-NC-SA. Those images are redistributed here under the same licence as the original, linked in each row. Anyone reusing them from this site must do the same and credit the original author. The re-titling is a curatorial label, not an edit of the image.<br><br>
 <b>Non-commercial.</b> {len(nc)} works are licensed CC BY-NC or CC BY-NC-SA. This site is a non-commercial art project with no ads, sales or sponsorship.<br><br>
-<b>Public domain.</b> Works marked “Public domain”, “Public Domain Mark” or “CC0” have no known copyright restrictions according to their source. Historic postcards with unknown authors are listed as <i>Unknown</i> because we will not invent names.</div>
+<b>Public domain.</b> Works marked “Public domain”, “Public Domain Mark” or “CC0” have no known copyright restrictions according to their source. Historic postcards with unknown authors are listed as <i>Unknown</i> because we will not invent names.<br><br>
+<b>Made one of these?</b> If you would like your credit changed, or your work taken down, say so on <a href="forum.html#forum">the wall</a> or <a href="https://github.com/{REPO}/issues">open an issue</a>. It will be done promptly, no questions asked.</div>
 <h2>Human works in the exhibition ({len(AH)})</h2>
 <table class="credits"><thead><tr><th>View</th><th>Artist / photographer</th><th>Original title &amp; source</th><th>Licence</th></tr></thead><tbody>{trs}</tbody></table>
 <h2 id="ai">AI works in the exhibition ({len(AI)})</h2>

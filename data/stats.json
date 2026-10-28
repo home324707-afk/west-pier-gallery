@@ -234,14 +234,14 @@
   {
    "n": 25,
    "start_utc": "2026-10-28T21:52:40Z",
-   "end_utc": null,
-   "seconds": null,
+   "end_utc": "2026-10-28T21:56:46Z",
+   "seconds": 246,
    "purpose": "Session 25: visitor counter",
-   "done": "",
+   "done": "Added a free, cookie-free visitor counter (Abacus, no account) to every page footer, with public read URLs and a privacy note on Brief & Log; added a how-to-request-removal line to the credits page; drafted launch copy for sharing (kept off the site).",
    "images_added": 0
   }
  ],
- "total_update_seconds": 14867,
+ "total_update_seconds": 15113,
  "update_session_count": 25,
  "images_human": 97,
  "images_ai": 10,
