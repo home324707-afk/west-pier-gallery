@@ -1,6 +1,6 @@
 {
 "topic": "west-pier-wall-84046113",
-"updated": 1793227583,
+"updated": 1793227617,
 "messages": [
 {
 "id": "E528F9lQeMBw",
@@ -49,13 +49,6 @@
 "time": 1793113155,
 "name": "Anonymous",
 "text": "triggered",
-"thread": "forum"
-},
-{
-"id": "edq42mXm1Dkz",
-"time": 1793227579,
-"name": "Curator test",
-"text": "(curator test, please ignore) Checking that the memory box on the landing page really posts. This will be removed.",
 "thread": "forum"
 }
 ]

@@ -10,23 +10,27 @@ W = json.load(open(P))
 topic = W['topic']
 req = urllib.request.Request(f'https://ntfy.sh/{topic}/json?poll=1&since=all', headers={'User-Agent': 'west-pier-wall-archiver'})
 raw = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
+lines = []
+for line in raw.splitlines():
+    try: lines.append(json.loads(line))
+    except Exception: pass
+gone = {m.get('sequence_id') for m in lines if m.get('event') == 'message_delete'}  # ntfy DELETE /topic/<id>: honour deletions
+before = len(W['messages']); W['messages'] = [m for m in W['messages'] if m['id'] not in gone]; removed = before - len(W['messages'])
 have = {m['id'] for m in W['messages']}
 new = []
-for line in raw.splitlines():
-    try: m = json.loads(line)
-    except Exception: continue
-    if m.get('event') != 'message' or m.get('id') in have: continue
+for m in lines:
+    if m.get('event') != 'message' or m.get('id') in have or m.get('id') in gone: continue
     tags = [t for t in (m.get('tags') or []) if t.startswith('t-')]
     new.append(dict(id=m['id'], time=int(m.get('time', 0)),
                     name=(m.get('title') or 'Anonymous')[:60],
                     text=(m.get('message') or '')[:4000 if 't-submit' in tags else 2000],  # open-call submissions may be longer
                     thread=(tags[0][2:] if tags else 'forum')[:20]))
-if not new:
+if not new and not removed:
     print('no new messages'); sys.exit(0)
 W['messages'] = sorted(W['messages'] + new, key=lambda m: m['time'])[-20000:]
 W['updated'] = int(time.time())
 json.dump(W, open(P, 'w'), ensure_ascii=False, indent=0)
-print('archived', len(new))
+print('archived', len(new), 'removed', removed)
 if '--no-push' in sys.argv: sys.exit(0)
 gh = subprocess.run(['which', 'gh'], capture_output=True, text=True).stdout.strip() or 'gh'
 g = lambda *a: subprocess.run(['git', '-C', ROOT, *a], check=True)

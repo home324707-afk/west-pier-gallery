@@ -19,7 +19,7 @@ document.querySelectorAll('.wall').forEach(async el=>{
   const msgs=[];
   try{const a=await (await fetch(ROOT+'wall/wall.json?'+Date.now())).json(); a.messages.filter(m=>m.thread===thread).forEach(m=>msgs.push(m));}catch(e){}
   try{const r=await (await fetch(`https://ntfy.sh/${TOPIC}/json?poll=1&since=all&tags=t-${thread}`)).text();
-      r.split('\n').forEach(l=>{try{const m=JSON.parse(l); if(m.event==='message')msgs.push(norm(m))}catch(e){}})}catch(e){}
+      const ev=[]; r.split('\n').forEach(l=>{try{ev.push(JSON.parse(l))}catch(e){}}); const gone=new Set(ev.filter(m=>m.event==='message_delete').map(m=>m.sequence_id)); ev.forEach(m=>{if(m.event==='message'&&!gone.has(m.id))msgs.push(norm(m))})}catch(e){}
   msgs.sort((a,b)=>b.time-a.time).forEach(m=>add(m,false));
   if(!n)list.innerHTML='<li class="empty">Nothing yet. The wall is waiting for its first damaged view.</li>';
   try{const es=new EventSource(`https://ntfy.sh/${TOPIC}/sse?tags=t-${thread}`);
@@ -50,7 +50,8 @@ async function load(thread){
   (await getArchive()).forEach(m=>{if(thread==='*'||m.thread===thread){seen.add(m.id);out.push(m)}});
   try{const q=thread==='*'?'':'&tags=t-'+thread;
       const r=await (await fetch(`https://ntfy.sh/${TOPIC}/json?poll=1&since=all${q}`)).text();
-      r.split('\n').forEach(l=>{try{const m=JSON.parse(l); if(m.event==='message'&&!seen.has(m.id)){seen.add(m.id);out.push(norm(m))}}catch(e){}})}catch(e){}
+      const gone=new Set(); const ev=[]; r.split('\n').forEach(l=>{try{ev.push(JSON.parse(l))}catch(e){}}); ev.forEach(m=>{if(m.event==='message_delete')gone.add(m.sequence_id)});
+      ev.forEach(m=>{if(m.event==='message'&&!seen.has(m.id)&&!gone.has(m.id)){seen.add(m.id);out.push(norm(m))}}); for(let i=out.length-1;i>=0;i--)if(gone.has(out[i].id))out.splice(i,1)}catch(e){}
   return out.sort((a,b)=>b.time-a.time);
 }
 function item(m,showThread){

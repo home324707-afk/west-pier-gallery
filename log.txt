@@ -84,3 +84,4 @@
 2026-10-28T21:52:40Z | Update session 25 started at 2026-10-28T21:52:40Z. Session 25: visitor counter
 2026-10-28T21:56:46Z | Update session 25 ended at 2026-10-28T21:56:46Z: 4 min 6 s. Added a free, cookie-free visitor counter (Abacus, no account) to every page footer, with public read URLs and a privacy note on Brief & Log; added a how-to-request-removal line to the credits page; drafted launch copy for sharing (kept off the site).
 2026-10-28T22:40:27Z | Update session 26 started at 2026-10-28T22:40:27Z. Memory wall drive: lead 'Share your memory of the West Pier' call to action on the landing page and in the duel result
+2026-10-28T22:47:14Z | Update session 26 ended at 2026-10-28T22:47:14Z: 6 min 47 s. Image-first landing redesign (crossfade hero, big picture grid first, long text moved to new About page, trimmer nav and work pages) and the memory wall drive (lead memory box with live recent memories, memory prompt after the test); wall deletions honoured
