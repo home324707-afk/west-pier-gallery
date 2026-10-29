@@ -302,10 +302,19 @@
    "purpose": "Restore live murmuration on the home hero; un-retire No. 110 With the dolphins",
    "done": "Restored the live starling murmuration over the home hero (cloud of dark starlings, reduced-motion respected, lighter on mobile); un-retired No. 110 With the dolphins, featured in the first ten, with a working link to the inspiring wall post",
    "images_added": 0
+  },
+  {
+   "n": 33,
+   "start_utc": "2026-10-29T20:46:52Z",
+   "end_utc": "2026-10-29T20:49:23Z",
+   "seconds": 151,
+   "purpose": "Make the grid, hero and browse views blind: nothing says human or AI until the work page is opened",
+   "done": "Made the gallery blind: grid cards, hero slideshow badge, lightbox and alt text show only the picture and its number; Human/AI filters moved into More ways to browse with a spoiler note; Hide labels & guess toggle removed; vote moved above the credit on work pages",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 17579,
- "update_session_count": 32,
+ "total_update_seconds": 17730,
+ "update_session_count": 33,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
