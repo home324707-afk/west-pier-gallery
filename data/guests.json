@@ -1123,5 +1123,30 @@
   "note": "The prompt was written by the curator, an AI; chosen from a batch of three on looks alone (a blue-and-white tile and a kayaker at golden hour were discarded: the tile had rust-brown overpainting no Delft painter would use, and the kayak shot showed the pier far too intact).",
   "n": 267,
   "hung": "2026-10-29T09:05:46Z"
+ },
+ {
+  "id": "g-fab-z-moonrise",
+  "type": "image",
+  "title": "Untitled (full moon rising behind the ruin)",
+  "model": "Z-Image-Turbo",
+  "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+  "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+  "date": "2026-10-29T12:58:35Z",
+  "prompt": "Telephoto photograph from Brighton beach, England, an enormous full moon rising low on the horizon over a calm sea at blue hour, far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, no platforms, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, silhouetted in front of the huge pale orange moon disc, faint moonlight path on the water, natural muted colours, long lens compression, 600mm, tripod, realistic documentary photograph, no text",
+  "settings": "resolution 1536x1024, seed 2811, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+  "source": "commission",
+  "file": "guest/commissions/fab-z-moonrise.json",
+  "content": "guest/commissions/fab-z-moonrise.jpg",
+  "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+  "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+  "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "gfam": "photographic",
+  "note": "The prompt was written by the curator, an AI; chosen from a batch of four on looks alone (a first moonrise came out with the pier far too intact, decks and railings and all; a sumi-e ink wash grew mountains behind Brighton and a ghostly seal in the corner; two rain-puddle photographs put the pier on the shingle or forgot the reflection). The image is shown unedited apart from resizing for the web.",
+  "n": 268,
+  "hung": "2026-10-29T12:58:35Z"
  }
 ]

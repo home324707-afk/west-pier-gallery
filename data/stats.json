@@ -257,10 +257,19 @@
    "purpose": "Routine growth session: 1-3 photo-style machine works, storm erosion gen 18",
    "done": "Added No. 267 (guest AI, Z-Image-Turbo, CC0: forked lightning over the ruin at night; a Delft-style tile and a kayaker were rejected); storm erosion generation 18; open call and wall checked (nothing new).",
    "images_added": 1
+  },
+  {
+   "n": 28,
+   "start_utc": "2026-10-29T12:56:27Z",
+   "end_utc": "2026-10-29T12:59:05Z",
+   "seconds": 158,
+   "purpose": "Session 28: small update, 1-3 photo-style machine works, storm erosion gen 19",
+   "done": "Added No. 268, a fabricated photograph by Z-Image-Turbo (guest AI, CC0): a huge full moon rising behind the ruin at blue hour, telephoto from the beach (a first moonrise with the pier far too intact, a sumi-e ink wash with mountains and a seal, and two rain-puddle photographs with the pier on the shingle or no reflection were rejected); storm erosion generation 19 with new condition-report lines; open call and wall checked (nothing new). 117 human, 51 machine on display.",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 15911,
- "update_session_count": 27,
+ "total_update_seconds": 16069,
+ "update_session_count": 28,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
