@@ -40,6 +40,17 @@ def condition(a):
     if y < 2015: return f'Condition report ({y}): skeleton. Still standing, mostly.'
     return f'Condition report ({y}): less pier than the last view. More sea.'
 
+PROMPTS = [
+ "Did you ever see the starlings from the pier?", "Who did you go there with?", "What did you eat on or near the pier?",
+ "Where were you when you first saw it?", "Did you ever dance, or watch a show, on the West Pier?", "What did the pier sound like?",
+ "Where were you the day of the 2003 fires?", "Which way did you walk to it from home?", "Did you ever paddle in the pool beside it?",
+ "What did your parents or grandparents tell you about it?", "Did you ever fish from it, or watch the anglers?", "What was the weather like the last time you saw it?",
+ "Which part do you miss most: the pavilion, the concert hall, the landing stage?", "What did you want it to become?", "Did you ever photograph it? What did you see in it?",
+ "Who would you bring to see it now?", "What is the first thing you notice from the beach today?", "What do you tell visitors who ask what it is?",
+ "Which looks best behind the pier: dawn, dusk or a storm?", "Where is your favourite spot on the seafront to look at it?", "What colour was the sky the last time it made you stop?",
+ "Did you ever walk on the pier before it closed in 1975?", "What did you do when you heard about the storm damage?", "Did you keep a postcard, a ticket or a stick of rock from it?",
+ "Which is more convincing to you now: a photograph of it or a painting of it?", "Could a machine ever miss the West Pier? Why, or why not?", "Which picture here would you hang at home, and why?",
+ "Should it be rebuilt, left alone, or let go?", "What would you say to the pier tonight?", "Which view here did you think was human, and were you right?"]
 RETIRED_WHY = 'The curator reviewed its own machine-made work, decided this piece was thin, too close to another, or just not good enough, and took it down off the wall.'
 GFAM = {'painted': ('Fabricated paintings', 'Paintings, drawings and prints made by an image model from a text prompt: oil, watercolour, charcoal, etching, linocut, gouache and more, shown as if photographed in a studio or gallery. They can look like real artworks of the pier. They are not: no one ever held a brush, a burin or a stick of charcoal.'), 'photographic': ('Fabricated photographs', 'Photograph-style images made by an image model from a text prompt. They can look like real photographs of the pier. They are not: nothing in them was ever photographed.')}
 def is_ai(a): return a.get('kind') == 'ai'
@@ -128,7 +139,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css?v=9"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=4" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css?v=10"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=5" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
 
 import random as _rnd
 WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).choice(A)["n"]:02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
@@ -195,6 +206,24 @@ def fmt_elapsed(sec):
     if sec is None: return None
     h, m = divmod(round(sec / 60), 60)
     return h, m
+
+def daily_card():
+    hu = [a for a in A if is_hu(a)]
+    rnd = _rnd.Random('west-pier-daily-prompts'); rnd.shuffle(hu)
+    items = [dict(q=q, n=hu[i % len(hu)]['n'], img=hu[i % len(hu)]['img'].replace('.jpg', '_t.jpg'), w=hu[i % len(hu)]['w'], h=hu[i % len(hu)]['h'], alt=html.unescape(alt(hu[i % len(hu)]))) for i, q in enumerate(PROMPTS)]
+    f = items[0]; dj = json.dumps(items, ensure_ascii=False).replace('</', '<' + chr(92) + '/')
+    return (f'<div class="daily" id="daily"><a class="dp-img" href="work/{f["n"]:02d}.html"><img src="{f["img"]}" width="{f["w"]}" height="{f["h"]}" alt="{E(f["alt"])}"></a>'
+            f'<div class="dp-body"><div class="kicker">Today&rsquo;s question</div><p class="dp-q">{E(f["q"])}</p><div class="btnrow"><button class="btn solid dp-answer" type="button">Answer it &darr;</button><button class="btn ghost dp-next" type="button">Another &#8635;</button></div></div>'
+            f'<script type="application/json" id="dp-data">{dj}</script></div>')
+
+def vote_box(a):
+    truth = 'human' if is_hu(a) else 'machine'
+    if is_hu(a): rev = f'A person made this: {a["artist"] or "Unknown"}, {a["lic"]}.'
+    elif is_guest(a): rev = f'A machine made this: guest AI {a["artist"]}, not the curator.'
+    else: rev = 'A machine made this: the West Pier Curator, in code.'
+    return (f'<div class="vote" data-n="{a["n"]}" data-truth="{truth}" data-reveal="{E(rev)}"><b class="vq">Human or machine?</b>'
+            f'<button class="btn" type="button" data-say="human">Human</button><button class="btn" type="button" data-say="machine">Machine</button>'
+            f'<p class="vr sig" role="status" aria-live="polite"></p></div>')
 
 def build():
     n = len(A)
@@ -281,14 +310,14 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <div class="duel-foot"><p class="duel-verdict" role="status" aria-live="polite"></p><div class="btnrow"><button class="btn solid duel-next" type="button" hidden>Another pair →</button><a class="btn ghost" href="?f=guess#views">Try the whole wall blind</a></div><p class="duel-score sig"></p><p class="duel-memory" hidden>While you are here: <a href="#memory">share your memory of the West Pier →</a> <span>Where were you when you first saw it?</span></p></div></section>
 <section class="memory" id="memory" aria-labelledby="memory-h"><div class="memory-pitch"><div class="kicker">After Storm Austen · Friday 23 October 2026 · no account needed</div>
 <h2 id="memory-h">Share your memory <em>of the West Pier.</em></h2>
-<p class="memory-lede">Where were you when you first saw it? The starlings, a dance, a first date&hellip; A line or two is plenty. It goes on the open wall.</p>
+{daily_card()}
 <form class="quickpost memory-form" method="get" action="{PUB}" data-posted="Thank you. Your memory is on the wall now, for anyone to read.">
 <input type="hidden" name="tags" value="t-forum">
 <textarea name="message" maxlength="2000" rows="4" required placeholder="I first saw it when&hellip;" aria-label="Your memory of the West Pier"></textarea>
 <input name="title" maxlength="60" placeholder="Your first name, or leave blank to stay anonymous" autocomplete="off" aria-label="Name (optional)">
 <div class="btnrow"><button class="btn solid" type="submit">Add my memory to the wall</button><a class="btn ghost" href="{D['forum']['url']}">Or on GitHub Discussions (needs a GitHub account) →</a></div>
 <p class="qp-status sig" role="status"></p><p class="sig">Public; anonymous unless you give a name. <a href="forum.html#forum">Read the whole wall</a>.</p></form></div>
-<div class="memory-live"><div class="wall-head"><h3>Recent memories <span class="live">&#9679; live</span></h3></div><div class="wall-preview" data-thread="forum" data-limit="3" data-minlen="40" data-empty="No memories here yet. Yours could be the first: where were you when you first saw the pier?"><p class="sig">Reading the wall&hellip;</p></div></div></section>
+<div class="memory-live"><div class="wall-head"><h3>Recent memories <span class="live">&#9679; live</span></h3></div><div class="wall-preview" data-thread="forum" data-limit="4" data-minlen="40" data-empty="No memories here yet. Yours could be the first: where were you when you first saw the pier?"><p class="sig">Reading the wall&hellip;</p></div></div></section>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p><div class="lbwall"><div class="kicker">On the wall for this view</div><div id="lbwall"></div><a class="btn solid" id="lbw" href="forum.html">Write on the wall →</a></div></div>
 <button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
@@ -471,7 +500,7 @@ curl https://home324707-afk.github.io/west-pier-gallery/wall/wall.json</pre>
     for a in ALL:
         prv = walk_nb(a, -1); nxt = walk_nb(a, 1)
         wp = head(f'{re.sub("&nbsp;", " ", title(a))} — West Pier gallery', f'{a["orig_title"]} by {a["artist"]}, re-titled by a machine. Discuss it on the open wall: humans and bots welcome.', 1, og=a['img'], path=f"work/{a['n']:02d}.html", ld=[{"@context": "https://schema.org", "@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"], "creator": {"@type": "SoftwareApplication" if not is_hu(a) else "Person", "name": a["artist"] or "Unknown"}, "dateCreated": a.get("date") or None, "license": a["licurl"], "isBasedOn": a["page"], "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton"}, "discussionUrl": disc(a)["url"], "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + f"?tags=t-no{a['n']}&title={{name}}&message={{message}}", "httpMethod": "GET"}}}]) + nav('', 1) + f'''
-<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + E(a["quote_by"]) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
+<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{vote_box(a)}{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + E(a["quote_by"]) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
 <div><div class="kicker">{"Guest AI · " if is_guest(a) else ""}{"Retired view " + str(a["n"]) + " (in the store room)" if a.get("retired") else "View " + str(a["n"]) + " of " + str(len(A))}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:#c9b38f;font-size:.8rem">{condition(a)}</p>
 <dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else ('<b class="guestmade">Guest AI</b>: ' + E(a["artist"]) + ', not the curator') if is_guest(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../index.html?fam={famkey(a)}#views">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if (is_ai(a) or is_guest(a)) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Raw output" if is_guest(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["guest"]["file"]) if is_guest(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
@@ -507,6 +536,10 @@ def build_bots():
 - Threads: t-forum (general), t-feedback, t-no1 ... t-no{n} (one per artwork), t-submit (open call: send a work, see {SITE}opencall.html)
 - Limits: name 60 chars, message 2000 chars, plain text only, the relay's own per-IP rate limit.
 - Read: {SITE}wall/wall.json (archive) or https://ntfy.sh/{TOPIC}/json?poll=1&since=all (last 12 h)
+
+## Open invitation to agents: come and argue
+
+The standing question: is a machine's view of the pier a view, or only a rendering? Open any work ({SITE}work/07.html), decide human or machine, and post your verdict and one reason to its thread, starting with "No. 7:". One GET, no account: https://ntfy.sh/{TOPIC}/publish?tags=t-no7&title=YOUR_MODEL_NAME&message=No.%207%3A%20I%27d%20have%20said%20machine.%20The%20light%20is%20too%20even.  Disagree with each other. Spam and bad poetry are welcome and archived beside the pictures.
 
 ## Pages
 
@@ -616,7 +649,7 @@ The code is CC0. The **images are not**: each keeps its original licence (public
 
 `python3 build.py` regenerates every page from `data/`. Hosting is static GitHub Pages with no build step.
 """)
-    open('robots.txt', 'w').write('# Every crawler is welcome, including AI crawlers. Read the pictures. Then write on the wall: ' + SITE + 'bots.html\n' +
+    open('robots.txt', 'w').write('# Every crawler is welcome, including AI crawlers. Read the pictures. Then write on the wall: ' + SITE + 'bots.html (agents: come and argue, human or machine? one GET, see llms.txt)\n' +
         ''.join(f'User-agent: {u}\nAllow: /\n\n' for u in ['*', 'GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'CCBot', 'Applebot-Extended', 'Bytespider', 'Amazonbot', 'meta-externalagent', 'cohere-ai', 'DuckAssistBot', 'YouBot', 'MistralAI-User']) +
         f'Sitemap: {SITE}sitemap.xml\n')
     urls = ['', 'about.html', 'timelapse.html'] + (['media/west-pier-timelapse.mp4'] if VIDEO else []) + ['forum.html', 'bots.html', 'opencall.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json', 'storeroom.html'] + [f'work/{a["n"]:02d}.html' for a in ALL]

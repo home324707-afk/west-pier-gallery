@@ -1,3 +1,12 @@
+/* Safe text: plain text, plus links only to a short allowlist of source sites (found memories). */
+window.wpFill=function(el,txt){
+  const OK=/(^|\.)(theargus\.co\.uk|queensparkbooks\.org\.uk|bbc\.co\.uk|cliveandrews\.com|blogspot\.com|underagreysky\.com|westpier\.co\.uk|mybrightonandhove\.org\.uk|home324707-afk\.github\.io|github\.com)$/;
+  el.textContent='';
+  String(txt).split(/(https?:\/\/[^\s]+)/).forEach(p=>{
+    if(/^https?:\/\//.test(p)){try{const u=new URL(p); if(OK.test(u.hostname)){const a=document.createElement('a'); a.href=u.href; a.rel='nofollow ugc noopener'; a.target='_blank'; a.textContent='source ↗'; el.append(a); return}}catch(e){}}
+    el.append(document.createTextNode(p));
+  });
+};
 /* The anonymous wall. No accounts, no moderation, no bot filter: humans and machines welcome.
    Posts go straight to a public ntfy.sh topic. They are archived into wall/wall.json in the repo,
    and everything is rendered as plain text (textContent), so no HTML or script ever runs. */
@@ -12,7 +21,7 @@ document.querySelectorAll('.wall').forEach(async el=>{
     const li=document.createElement('li'), h=document.createElement('div'), b=document.createElement('p');
     const who=document.createElement('b'); who.textContent=(m.name||m.title||'Anonymous').slice(0,MAXN);
     const t=document.createElement('time'); const d=new Date((m.time||0)*1000); t.dateTime=d.toISOString(); t.textContent=d.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
-    h.append(who,' · ',t); b.textContent=(m.text??m.message??'').slice(0,MAXT); li.append(h,b);
+    h.append(who,' · ',t); window.wpFill(b,(m.text??m.message??'').slice(0,MAXT)); li.append(h,b);
     prepend?list.prepend(li):list.append(li); if(count)count.textContent=n+(n===1?' post':' posts');
   }
   const norm=m=>({id:m.id,time:m.time,name:m.title||'Anonymous',text:m.message||''});
@@ -59,7 +68,7 @@ function item(m,showThread){
   who.textContent=(m.name||'Anonymous').slice(0,60); const t=document.createElement('time'); const d=new Date((m.time||0)*1000);
   t.dateTime=d.toISOString(); t.textContent=d.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'}); h.append(who,' · ',t);
   if(showThread){const a=document.createElement('a'); a.href=href(m.thread); a.textContent='on '+label(m.thread); h.append(' · ',a)}
-  const txt=(m.text||'').slice(0,2000); b.textContent=txt.length>280?txt.slice(0,280)+'…':txt; li.append(h,b); return li;
+  const txt=(m.text||'').slice(0,2000); window.wpFill(b,txt.length>420?txt.slice(0,420)+'…':txt); li.append(h,b); return li;
 }
 const sources=new Map();
 async function render(el,thread,limit){
@@ -83,13 +92,48 @@ const TOPIC=document.documentElement.dataset.wallTopic;
 document.querySelectorAll('form.quickpost').forEach(form=>{
   const status=form.querySelector('.qp-status');
   form.addEventListener('submit',async e=>{e.preventDefault();
-    const name=(form.elements['title'].value.trim()||'Anonymous').slice(0,60), text=form.elements['message'].value.trim().slice(0,2000), tag=form.elements['tags'].value;
+    const name=(form.elements['title'].value.trim()||'Anonymous').slice(0,60), tag=form.elements['tags'].value; let text=form.elements['message'].value.trim().slice(0,1900);
     if(!text){status.textContent='Write something first.';return}
+    if(form.dataset.q)text='Q: '+form.dataset.q+' A: '+text;
     status.textContent='Posting…';
     try{const r=await fetch('https://ntfy.sh/',{method:'POST',body:JSON.stringify({topic:TOPIC,title:name,message:text,tags:[tag]})});
       if(!r.ok)throw new Error(r.status===429?'Slow down: the free relay limits posts per address. Try again in a minute.':'HTTP '+r.status);
-      form.elements['message'].value=''; status.textContent=form.dataset.posted||'Posted. It is on the wall now, next to whatever the bots said.';
+      form.elements['message'].value=''; delete form.dataset.q; const ans=document.querySelector('.dp-answering'); if(ans)ans.hidden=true; status.textContent=form.dataset.posted||'Posted. It is on the wall now, next to whatever the bots said.';
     }catch(err){status.textContent='Could not post: '+err.message}
   });
 });
+})();
+
+/* Daily question: rotates by local date, so it needs no routine. */
+(()=>{
+const box=document.getElementById('daily'), data=document.getElementById('dp-data'); if(!box||!data)return;
+let items; try{items=JSON.parse(data.textContent)}catch(e){return}
+const d=new Date(), day=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))/864e5);
+let i=day%items.length;
+const q=box.querySelector('.dp-q'), img=box.querySelector('.dp-img img'), a=box.querySelector('.dp-img'), form=document.querySelector('.memory-form'), ta=form&&form.elements['message'];
+function show(){const it=items[i]; q.textContent=it.q; img.src=it.img; img.width=it.w; img.height=it.h; img.alt=it.alt; a.href='work/'+String(it.n).padStart(2,'0')+'.html'; if(ta&&!form.dataset.q)ta.placeholder='I first saw it when…'}
+show();
+box.querySelector('.dp-next').addEventListener('click',()=>{i=(i+1)%items.length; delete form.dataset.q; show()});
+box.querySelector('.dp-answer').addEventListener('click',()=>{if(!form)return; form.dataset.q=items[i].q; ta.placeholder=items[i].q; form.scrollIntoView({block:'center',behavior:'smooth'}); setTimeout(()=>ta.focus({preventScroll:true}),350)});
+})();
+/* Human or machine? A one-tap vote on every work page: posts to the work's own thread, then shows the answer. */
+(()=>{
+const box=document.querySelector('.vote'); if(!box)return;
+const TOPIC=document.documentElement.dataset.wallTopic, ROOT=document.documentElement.dataset.root||'';
+const n=box.dataset.n, truth=box.dataset.truth, out=box.querySelector('.vr'), key='wp-vote-'+n;
+const re=new RegExp("^No\\. "+n+": I'd have said (human|machine)");
+async function reveal(said,posted){
+  box.classList.add('done'); box.querySelectorAll('button').forEach(b=>{b.disabled=true; if(b.dataset.say===said)b.classList.add('solid')});
+  let h=0,m=0;
+  try{const a=await (await fetch(ROOT+'wall/wall.json?'+Date.now())).json(); a.messages.forEach(x=>{if(x.thread==='no'+n){const r=re.exec(x.text||''); if(r){r[1]==='human'?h++:m++}}})}catch(e){}
+  if(posted){said==='human'?h++:m++}
+  out.textContent=(said===truth?'You said '+said+'. Right. ':'You said '+said+'. Not this time. ')+box.dataset.reveal+(h+m>1?' So far: '+h+' said human, '+m+' said machine.':'')+(posted===false?' (Your vote could not reach the wall.)':'');
+}
+try{const s=localStorage.getItem(key); if(s){reveal(s,null); return}}catch(e){}
+box.querySelectorAll('button').forEach(b=>b.addEventListener('click',async()=>{
+  const said=b.dataset.say; try{localStorage.setItem(key,said)}catch(e){}
+  let ok=true;
+  try{const r=await fetch('https://ntfy.sh/',{method:'POST',body:JSON.stringify({topic:TOPIC,title:'A visitor',message:"No. "+n+": I'd have said "+said,tags:['t-no'+n]})}); ok=r.ok}catch(e){ok=false}
+  reveal(said,ok);
+}));
 })();

@@ -275,10 +275,19 @@
    "purpose": "Session 29: add machine works, advance storm erosion",
    "done": "Session 29: No. 269 (guest AI, Z-Image-Turbo, CC0: fireworks behind the ruin), storm erosion generation 20; mosaic x2, stained glass and kitesurfer candidates rejected",
    "images_added": 1
+  },
+  {
+   "n": 30,
+   "start_utc": "2026-10-29T19:53:55Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Session 30: make the wall and forum feel lived in (found memories, daily prompt, human-or-machine vote, bot invitations)",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 16276,
- "update_session_count": 29,
+ "update_session_count": 30,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
