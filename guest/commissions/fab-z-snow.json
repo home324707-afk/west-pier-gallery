@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-snow",
+ "type": "image",
+ "title": "Untitled (snow on the shingle)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-29T20:57:06Z",
+ "prompt": "Photograph from Brighton beach, England, during a rare heavy snowfall in winter, the shingle beach and wooden groynes covered in fresh white snow, big snowflakes falling, grey still sea, far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, its iron ribs dusted with snow, soft flat light, muted cold colours, realistic documentary photograph, no text",
+ "settings": "resolution 1536x1024, seed 2817, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-snow.json",
+ "content": "guest/commissions/fab-z-snow.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; chosen from a batch of four on looks alone (two false-colour infrared photographs were discarded: in one the ruin had wandered up onto the beach and the shingle was dotted with unexplained white posts; the second added a word of gibberish to the ironwork). The image is shown unedited apart from resizing for the web."
+}

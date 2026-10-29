@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-tempera",
+ "type": "image",
+ "title": "Untitled (egg tempera on a gessoed panel)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-29T20:57:06Z",
+ "prompt": "Photograph of a small egg tempera painting on a gessoed wooden panel, early Italian Renaissance technique, fine cross-hatched brushstrokes, matte chalky surface, slightly cracked craquelure and worn gilded edges, the painting shows a calm pale sea under a soft pale blue sky at dawn, far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, painted in delicate earth colours, museum photograph of the whole panel on a plain dark background, no text, no letters",
+ "settings": "resolution 1536x1024, seed 3361, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-tempera.json",
+ "content": "guest/commissions/fab-z-tempera.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI; chosen from a batch of four on looks alone (see No. 270 for what went wrong with the other two). The image is shown unedited apart from resizing for the web."
+}

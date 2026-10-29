@@ -311,10 +311,19 @@
    "purpose": "Make the grid, hero and browse views blind: nothing says human or AI until the work page is opened",
    "done": "Made the gallery blind: grid cards, hero slideshow badge, lightbox and alt text show only the picture and its number; Human/AI filters moved into More ways to browse with a spoiler note; Hide labels & guess toggle removed; vote moved above the credit on work pages",
    "images_added": 0
+  },
+  {
+   "n": 34,
+   "start_utc": "2026-10-29T20:53:54Z",
+   "end_utc": "2026-10-29T20:58:16Z",
+   "seconds": 262,
+   "purpose": "Small update: machine works, storm erosion gen 21, guest check",
+   "done": "Hung two fabricated works by Z-Image-Turbo (No. 270 snow on the shingle, No. 271 egg tempera on a gessoed panel), discussions #272 and #273; rejected two false-colour infrared photographs (ruin on the beach, gibberish on the ironwork); storm erosion to generation 21 with a new condition-report line; no guest submissions",
+   "images_added": 2
   }
  ],
- "total_update_seconds": 17730,
- "update_session_count": 33,
+ "total_update_seconds": 17992,
+ "update_session_count": 34,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
