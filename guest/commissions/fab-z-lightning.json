@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-lightning",
+ "type": "image",
+ "title": "Untitled (forked lightning over the ruin)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-29T09:05:45Z",
+ "prompt": "Long-exposure night photograph from Brighton beach, England, a single forked lightning bolt striking the sea during a summer thunderstorm, purple-grey storm clouds lit from within, far out in the sea the ruined West Pier, only a small blackened skeletal iron frame of a former domed concert hall on a cluster of thin iron legs, an isolated island of rusted ironwork standing alone in the sea, completely disconnected from the shore, nobody on it, silhouetted against the flash, wet pebbles in the foreground faintly lit, natural colours, tripod shot, realistic documentary photograph, no text",
+ "settings": "resolution 1536x1024, seed 2701, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-lightning.json",
+ "content": "guest/commissions/fab-z-lightning.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; chosen from a batch of three on looks alone (a blue-and-white tile and a kayaker at golden hour were discarded: the tile had rust-brown overpainting no Delft painter would use, and the kayak shot showed the pier far too intact)."
+}

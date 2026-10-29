@@ -248,10 +248,19 @@
    "purpose": "Memory wall drive: lead 'Share your memory of the West Pier' call to action on the landing page and in the duel result",
    "done": "Image-first landing redesign (crossfade hero, big picture grid first, long text moved to new About page, trimmer nav and work pages) and the memory wall drive (lead memory box with live recent memories, memory prompt after the test); wall deletions honoured",
    "images_added": 0
+  },
+  {
+   "n": 27,
+   "start_utc": "2026-10-29T08:59:29Z",
+   "end_utc": "2026-10-29T09:06:00Z",
+   "seconds": 391,
+   "purpose": "Routine growth session: 1-3 photo-style machine works, storm erosion gen 18",
+   "done": "Added No. 267 (guest AI, Z-Image-Turbo, CC0: forked lightning over the ruin at night; a Delft-style tile and a kayaker were rejected); storm erosion generation 18; open call and wall checked (nothing new).",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 15520,
- "update_session_count": 26,
+ "total_update_seconds": 15911,
+ "update_session_count": 27,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
