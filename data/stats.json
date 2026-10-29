@@ -293,10 +293,19 @@
    "purpose": "Session 31: review and simplify the site for first-time visitors; build the then-and-now slider",
    "done": "Reviewed the site as a first-time visitor and simplified it: plain headline, one primary action, five-item nav, grid collapsed to 24 with Show all, filters trimmed, mobile work-page layout fixed, About story folded; built Then & now sliders (5 pairs)",
    "images_added": 0
+  },
+  {
+   "n": 32,
+   "start_utc": "2026-10-29T20:38:54Z",
+   "end_utc": "2026-10-29T20:42:26Z",
+   "seconds": 212,
+   "purpose": "Restore live murmuration on the home hero; un-retire No. 110 With the dolphins",
+   "done": "Restored the live starling murmuration over the home hero (cloud of dark starlings, reduced-motion respected, lighter on mobile); un-retired No. 110 With the dolphins, featured in the first ten, with a working link to the inspiring wall post",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 17367,
- "update_session_count": 31,
+ "total_update_seconds": 17579,
+ "update_session_count": 32,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

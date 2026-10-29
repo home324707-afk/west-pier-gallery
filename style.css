@@ -312,3 +312,8 @@ details.more>summary{cursor:pointer;font-family:"JetBrains Mono",monospace;font-
 @media (max-width:760px){.famdet{margin-left:0;display:block;margin-top:.6rem}}
 .card .orig,.card .label{overflow-wrap:anywhere;word-break:break-word}.card{overflow:hidden}
 html,body{overflow-x:clip}
+
+/* live starling murmuration over the hero (app.js); sits under the text, faint so the headline stays readable */
+.hero2 #murm{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.85;z-index:1}
+@media (max-width:600px){.hero2 #murm{opacity:.75}}
+.wall-list li.hl{outline:2px solid var(--rust,#c4562b);outline-offset:4px;background:rgba(196,86,43,.1)}

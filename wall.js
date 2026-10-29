@@ -18,7 +18,7 @@ document.querySelectorAll('.wall').forEach(async el=>{
   const seen=new Set(); let n=0;
   function add(m,prepend){
     if(!m||seen.has(m.id))return; seen.add(m.id); n++;
-    const li=document.createElement('li'), h=document.createElement('div'), b=document.createElement('p');
+    const li=document.createElement('li'); if(m.id)li.id='m-'+m.id; const h=document.createElement('div'), b=document.createElement('p');
     const who=document.createElement('b'); who.textContent=(m.name||m.title||'Anonymous').slice(0,MAXN);
     const t=document.createElement('time'); const d=new Date((m.time||0)*1000); t.dateTime=d.toISOString(); t.textContent=d.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
     h.append(who,' · ',t); window.wpFill(b,(m.text??m.message??'').slice(0,MAXT)); li.append(h,b);
@@ -30,6 +30,7 @@ document.querySelectorAll('.wall').forEach(async el=>{
   try{const r=await (await fetch(`https://ntfy.sh/${TOPIC}/json?poll=1&since=all`)).text();
       const ev=[]; r.split('\n').forEach(l=>{try{ev.push(JSON.parse(l))}catch(e){}}); const gone=new Set(ev.filter(m=>m.event==='message_delete').map(m=>m.sequence_id)); ev.forEach(m=>{if(m.event==='message'&&!gone.has(m.id)&&(m.tags||[]).includes('t-'+thread))msgs.push(norm(m))})}catch(e){}
   msgs.sort((a,b)=>b.time-a.time).forEach(m=>add(m,false));
+  if(location.hash.indexOf('#m-')===0){const t=document.getElementById(location.hash.slice(1));if(t&&list.contains(t)){t.classList.add('hl');setTimeout(()=>t.scrollIntoView({block:'center'}),200)}}
   if(!n)list.innerHTML='<li class="empty">Nothing yet. The wall is waiting for its first damaged view.</li>';
   try{const es=new EventSource(`https://ntfy.sh/${TOPIC}/sse?tags=t-${thread}`);
       es.onmessage=e=>{const m=JSON.parse(e.data); if(m.event==='message'){const em=list.querySelector('.empty'); if(em)em.remove(); add(norm(m),true)}}}catch(e){}

@@ -25,14 +25,17 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{if
 // murmuration: a few hundred starlings following a wandering attractor
 const cv=document.getElementById('murm');if(!cv||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 const cx=cv.getContext('2d');let Wd,Ht;const B=[];
-function rs(){Wd=cv.width=cv.offsetWidth*devicePixelRatio;Ht=cv.height=cv.offsetHeight*devicePixelRatio}rs();addEventListener('resize',rs);
-for(let k=0;k<420;k++)B.push({x:Math.random()*Wd,y:Math.random()*Ht*.6,vx:0,vy:0});
+const DPR=Math.min(devicePixelRatio||1,1.5),NB=innerWidth<700?170:380;
+function rs(){Wd=cv.width=cv.offsetWidth*DPR;Ht=cv.height=cv.offsetHeight*DPR}rs();addEventListener('resize',rs);
+for(let k=0;k<NB;k++)B.push({x:Math.random()*Wd,y:Math.random()*Ht*.6,vx:0,vy:0,ph:Math.random()*6.28,ox:(Math.random()+Math.random()-1),oy:(Math.random()+Math.random()-1)});
 let t=0,on=true,raf=0;new IntersectionObserver(es=>es.forEach(e=>{on=e.isIntersecting;go()})).observe(cv);document.addEventListener('visibilitychange',go);
 function go(){cancelAnimationFrame(raf);if(on&&!document.hidden)raf=requestAnimationFrame(f)}
-function f(){t+=.004;const ax=Wd*(.55+.3*Math.sin(t*1.3)+.1*Math.sin(t*3.1)),ay=Ht*(.32+.14*Math.cos(t*1.7)+.05*Math.sin(t*4.3));
-cx.clearRect(0,0,Wd,Ht);cx.fillStyle='rgba(10,12,14,.85)';
-for(const b of B){const dx=ax-b.x+Math.sin(b.y*.01+t*9)*60,dy=ay-b.y+Math.cos(b.x*.01+t*7)*40,d=Math.hypot(dx,dy)+1;
-b.vx=b.vx*.96+dx/d*.55;b.vy=b.vy*.96+dy/d*.55;b.x+=b.vx;b.y+=b.vy;cx.fillRect(b.x,b.y,2.2*devicePixelRatio,1.4*devicePixelRatio)}
+/* each starling is pulled towards its own spot in a loose cloud that follows a wandering attractor: it swirls and stretches like a murmuration */
+function f(){t+=.004;const ax=Wd*(.5+.34*Math.sin(t*1.3)+.1*Math.sin(t*3.1)),ay=Ht*(.3+.14*Math.cos(t*1.7)+.05*Math.sin(t*4.3)),sx=Wd*.13,sy=Ht*.07,bw=(innerWidth<700?3.6:4.4)*DPR;
+cx.clearRect(0,0,Wd,Ht);
+for(const b of B){const tx=ax+b.ox*sx*(1+.4*Math.sin(t*5+b.ph)),ty=ay+b.oy*sy*(1+.4*Math.cos(t*4+b.ph)),dx=tx-b.x,dy=ty-b.y,d=Math.hypot(dx,dy)+1;
+b.vx=b.vx*.95+dx/d*.5;b.vy=b.vy*.95+dy/d*.5;b.x+=b.vx;b.y+=b.vy;const h=(1+1.3*Math.abs(Math.sin(t*140+b.ph)))*DPR;
+cx.fillStyle='rgba(255,236,214,.28)';cx.fillRect(b.x+DPR*.6,b.y+DPR*.6,bw,h);cx.fillStyle='rgba(8,10,14,.92)';cx.fillRect(b.x,b.y,bw,h)}
 raf=requestAnimationFrame(f)}go();
 })();
 const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.querySelector(`.filter button[data-f="${CSS.escape(qk)}"]`);if(b)b.click()}

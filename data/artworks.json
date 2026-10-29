@@ -2199,10 +2199,8 @@
   "img": "img/110.jpg",
   "w": 1600,
   "h": 1000,
-  "retired": true,
-  "retired_on": "2026-10-27",
-  "retired_round": 2
- },
+   "quote_id": "53sMDvPE0zOs"
+  },
  {
   "src": "Wikimedia Commons",
   "file": "File:West Pier collapsed concert hall.jpg",
