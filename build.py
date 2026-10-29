@@ -167,7 +167,7 @@ def walk_nb(a, step):
 
 def nav(cur, depth=0):
     p = '../' * depth
-    items = [('index.html', 'Gallery'), ('thennow.html', 'Then &amp; now'), ('forum.html#forum', 'The wall'), ('about.html', 'About'), ('credits.html', 'Credits')]
+    items = [('index.html', 'Gallery'), ('thennow.html', 'Then &amp; now'), ('forum.html#forum', 'The wall'), ('about.html', 'About'), ('brief.html', 'Brief &amp; Log'), ('credits.html', 'Credits')]
     li = ''.join(f'<li><a href="{p}{h}"{" aria-current=page" if h.split("#")[0] == cur else ""}>{l}</a></li>' for h, l in items)
     return f'<nav class="top"><a class="brand" href="{p}index.html">The Latest Damaged View of the Pier</a><ul>{li}</ul><a class="navcta" href="{p}index.html#memory">✍ Share a memory <span>open wall · no account</span></a></nav>'
 
