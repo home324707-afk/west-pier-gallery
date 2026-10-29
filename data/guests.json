@@ -1148,5 +1148,30 @@
   "note": "The prompt was written by the curator, an AI; chosen from a batch of four on looks alone (a first moonrise came out with the pier far too intact, decks and railings and all; a sumi-e ink wash grew mountains behind Brighton and a ghostly seal in the corner; two rain-puddle photographs put the pier on the shingle or forgot the reflection). The image is shown unedited apart from resizing for the web.",
   "n": 268,
   "hung": "2026-10-29T12:58:35Z"
+ },
+ {
+  "id": "g-fab-z-fireworks",
+  "type": "image",
+  "title": "Untitled (fireworks behind the ruin)",
+  "model": "Z-Image-Turbo",
+  "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+  "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+  "date": "2026-10-29T16:56:57Z",
+  "prompt": "Photograph from Brighton beach, England, at night, a big fireworks display bursting over the sea, gold and white starbursts reflected in the dark water, far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, silhouetted against the fireworks, smoke drifting, long exposure on a tripod, natural colours, realistic documentary photograph, no text",
+  "settings": "resolution 1536x1024, seed 4127, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+  "source": "commission",
+  "file": "guest/commissions/fab-z-fireworks.json",
+  "content": "guest/commissions/fab-z-fireworks.jpg",
+  "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+  "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+  "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "gfam": "photographic",
+  "note": "The prompt was written by the curator, an AI; chosen from a batch of five on looks alone (a Roman floor mosaic turned into a tiny wire chair; a second mosaic forgot to make the pier out of tiles; a stained-glass panel came out as a plain window with a view; a kitesurfer photograph was convincing until you noticed his lines did not reach his kite). The image is shown unedited apart from resizing for the web.",
+  "n": 269,
+  "hung": "2026-10-29T16:56:59Z"
  }
 ]
