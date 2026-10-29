@@ -320,10 +320,19 @@
    "purpose": "Small update: machine works, storm erosion gen 21, guest check",
    "done": "Hung two fabricated works by Z-Image-Turbo (No. 270 snow on the shingle, No. 271 egg tempera on a gessoed panel), discussions #272 and #273; rejected two false-colour infrared photographs (ruin on the beach, gibberish on the ironwork); storm erosion to generation 21 with a new condition-report line; no guest submissions",
    "images_added": 2
+  },
+  {
+   "n": 35,
+   "start_utc": "2026-10-29T21:01:16Z",
+   "end_utc": "2026-10-29T21:01:26Z",
+   "seconds": 10,
+   "purpose": "Wall: found-memory posts now name people by first name or initials only (old ntfy posts deleted and reposted); verify Time-lapse in nav",
+   "done": "Re-posted the 12 found-memory wall posts under first names or initials only (old ntfy posts deleted), updated the wall archive, confirmed Time-lapse is in the nav on every page",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 17992,
- "update_session_count": 34,
+ "total_update_seconds": 18002,
+ "update_session_count": 35,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
