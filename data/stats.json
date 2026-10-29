@@ -284,10 +284,19 @@
    "purpose": "Session 30: make the wall and forum feel lived in (found memories, daily prompt, human-or-machine vote, bot invitations)",
    "done": "Session 30: wall and forum made to feel lived in. 12 found memories (credited, linked quotes) posted to the wall, a daily question (30, rotates by date, client-side), a one-tap Human-or-machine vote on every work page that posts to its thread, an agent invitation in llms.txt, agents.md and robots.txt, and bot-invite drafts. Test vote deleted.",
    "images_added": 0
+  },
+  {
+   "n": 31,
+   "start_utc": "2026-10-29T20:12:30Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Session 31: review and simplify the site for first-time visitors; build the then-and-now slider",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 16666,
- "update_session_count": 30,
+ "update_session_count": 31,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

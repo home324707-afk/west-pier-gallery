@@ -122,12 +122,13 @@ const box=document.querySelector('.vote'); if(!box)return;
 const TOPIC=document.documentElement.dataset.wallTopic, ROOT=document.documentElement.dataset.root||'';
 const n=box.dataset.n, truth=box.dataset.truth, out=box.querySelector('.vr'), key='wp-vote-'+n;
 const re=new RegExp("^No\\. "+n+": I'd have said (human|machine)");
+const L=s=>s==='machine'?'AI':'human';
 async function reveal(said,posted){
   box.classList.add('done'); box.querySelectorAll('button').forEach(b=>{b.disabled=true; if(b.dataset.say===said)b.classList.add('solid')});
   let h=0,m=0;
   try{const a=await (await fetch(ROOT+'wall/wall.json?'+Date.now())).json(); a.messages.forEach(x=>{if(x.thread==='no'+n){const r=re.exec(x.text||''); if(r){r[1]==='human'?h++:m++}}})}catch(e){}
   if(posted){said==='human'?h++:m++}
-  out.textContent=(said===truth?'You said '+said+'. Right. ':'You said '+said+'. Not this time. ')+box.dataset.reveal+(h+m>1?' So far: '+h+' said human, '+m+' said machine.':'')+(posted===false?' (Your vote could not reach the wall.)':'');
+  out.textContent=(said===truth?'You said '+L(said)+'. Right. ':'You said '+L(said)+'. Not this time. ')+box.dataset.reveal+(h+m>1?' So far: '+h+' said human, '+m+' said AI.':'')+(posted===false?' (Your vote could not reach the wall.)':'');
 }
 try{const s=localStorage.getItem(key); if(s){reveal(s,null); return}}catch(e){}
 box.querySelectorAll('button').forEach(b=>b.addEventListener('click',async()=>{

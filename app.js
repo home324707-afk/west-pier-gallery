@@ -15,7 +15,7 @@ lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='FIGURE')cl
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
 // filter: all / guess / human / ai / guest
 document.querySelectorAll('.filter button[data-f]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
-document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=(f==='human'||f==='ai'||f==='guest')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
+document.body.classList.toggle('guess',f==='guess');document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=f==='machine'?c.dataset.kind==='human':(f==='human'||f==='ai'||f==='guest')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
 // AI by kind: show one family (click again to show all)
 function fam(k){document.body.classList.remove('guess');document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
 document.querySelectorAll('.famfilter button').forEach(x=>x.classList.toggle('on',x.dataset.fam===k));document.querySelectorAll('.card').forEach(c=>{c.hidden=!!k&&c.dataset.fam!==k})}
@@ -38,3 +38,10 @@ raf=requestAnimationFrame(f)}go();
 const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.querySelector(`.filter button[data-f="${CSS.escape(qk)}"]`);if(b)b.click()}
 
 (()=>{const c0=document.querySelector('.card');if(!c0)return;const g=c0.parentElement,mix=[...g.querySelectorAll(':scope>.card')],bs=document.querySelectorAll('.order button[data-o]');bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.classList.toggle('on',x===b));(b.dataset.o==='num'?[...mix].sort((x,y)=>x.dataset.n-y.dataset.n):mix).forEach(c=>g.appendChild(c))}))})();
+
+/* show only the first 24 pictures until asked; any filter, order or deep link shows all */
+(()=>{const g=document.getElementById('gallery'),b=document.getElementById('showall');if(!g)return;
+const all=()=>{g.classList.remove('collapsed');if(b)b.parentNode.hidden=true};
+if(b)b.addEventListener('click',all);
+document.querySelectorAll('.filter button,.famfilter button').forEach(x=>x.addEventListener('click',all));
+const q=new URLSearchParams(location.search);if(q.get('f')||q.get('fam'))all()})();
