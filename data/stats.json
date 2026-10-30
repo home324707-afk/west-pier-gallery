@@ -374,10 +374,19 @@
    "purpose": "Reframe around the debate: manifesto and consolidated debate page, game framing removed",
    "done": "Reframed the site around the originality debate: removed the Guess game, added The debate page (manifesto + one open wall), new home hero, per-work links to the debate",
    "images_added": 0
+  },
+  {
+   "n": 41,
+   "start_utc": "2026-10-30T16:52:01Z",
+   "end_utc": "2026-10-30T16:54:15Z",
+   "seconds": 134,
+   "purpose": "Session 41: add guest AI fabricated works, storm erosion generation, open call check",
+   "done": "Storm erosion advanced to generation 24 with a new condition-report line; no works hung: six fabricated candidates rejected (a filtered photo posing as a risograph, a cormorant view with a birdcage dome, two beeswax panels with an intact dome, a made-up signature and stray lettering), and the free Z-Image-Turbo GPU quota ran out; no guest submissions",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 19253,
- "update_session_count": 40,
+ "total_update_seconds": 19387,
+ "update_session_count": 41,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
