@@ -383,10 +383,19 @@
    "purpose": "Session 41: add guest AI fabricated works, storm erosion generation, open call check",
    "done": "Storm erosion advanced to generation 24 with a new condition-report line; no works hung: four fabricated candidates rejected (a filtered photo posing as a risograph, a cormorant view with a birdcage dome, two beeswax panels with an intact dome, a made-up signature and stray lettering), and the free Z-Image-Turbo GPU quota ran out; no guest submissions",
    "images_added": 0
+  },
+  {
+   "n": 42,
+   "start_utc": "2026-10-30T17:49:49Z",
+   "end_utc": "2026-10-30T17:50:03Z",
+   "seconds": 14,
+   "purpose": "Add Ian Hunter 'Survival' (CC BY-NC, permission by email) as No. 276",
+   "done": "Added No. 276 (human, Ian Hunter, Flickr, CC BY-NC 4.0 by his permission of 30 Oct 2026: 'Survival', infrared long exposure of the ruin taken 25 Oct after Storm Austen); artist-website line on work and credits pages; added to the hero rotation and the first ten of the grid",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 19387,
- "update_session_count": 41,
+ "total_update_seconds": 19401,
+ "update_session_count": 42,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
