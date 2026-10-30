@@ -8329,5 +8329,28 @@
    "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
    "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
   }
+ },
+ {
+  "src": "Flickr",
+  "file": "55513958176",
+  "orig_title": "Brighton 5 September 2026 (18)b",
+  "artist": "Paul Appleyard",
+  "date": "2026-09-05",
+  "lic": "CC BY-NC-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "https://www.flickr.com/photos/paul_appleyard/55513958176/",
+  "dl": "https://live.staticflickr.com/65535/55513958176_469cb68cb9_b.jpg",
+  "desc": "",
+  "creator_url": "https://www.flickr.com/photos/paul_appleyard/",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc-sa/4.0"
+  ],
+  "flickr_ok": true,
+  "n": 275,
+  "img": "img/275.jpg",
+  "w": 1024,
+  "h": 755,
+  "kind": "human",
+  "note": "The last look before Storm Austen: the whole ruin seen from above on 5 September 2026, weeks before the 23 October collapse. Shared under CC BY-NC-SA 4.0; resized for the web, otherwise unaltered."
  }
 ]

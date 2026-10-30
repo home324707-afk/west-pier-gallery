@@ -356,10 +356,19 @@
    "purpose": "Session 38: add 1-3 guest AI works, storm erosion gen 23, check open call",
    "done": "Added No. 273 (guest AI, Z-Image-Turbo, CC0: fabricated photo, sea glass on the shingle with the ruin out of focus; discussion #275) and No. 274 (guest AI, Z-Image-Turbo, CC0: fabricated indigo woodblock print, calm sea; discussion #276); evolved the storm-erosion piece to generation 23; open call checked, no submissions. Four other candidates discarded (a sea-glass shot with the ruin as one unbroken frame, two Hokusai pastiches with borrowed mountains and an invented signature, a woodblock with the wreck too intact).",
    "images_added": 2
+  },
+  {
+   "n": 39,
+   "start_utc": "2026-10-30T14:50:55Z",
+   "end_utc": "2026-10-30T14:52:11Z",
+   "seconds": 76,
+   "purpose": "Add Appleyard aerial view, ImJustBrighton press link",
+   "done": "Added No. 275 (human, Paul Appleyard, Flickr, CC BY-NC-SA 4.0: the whole ruin on 5 September 2026, the last look before Storm Austen; discussion #277); added an In the press line (ImJustBrighton, 29 Oct 2026) to About.",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 18705,
- "update_session_count": 38,
+ "total_update_seconds": 18781,
+ "update_session_count": 39,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
