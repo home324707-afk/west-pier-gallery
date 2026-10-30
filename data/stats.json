@@ -410,10 +410,19 @@
    "purpose": "Build-out: more openly licensed human works plus an equal number of original machine works",
    "done": "Build-out: 15 new human works (Nos. 277-291, CC BY/BY-SA/PD photographs 2003-2025) plus 15 new machine works (Nos. 292-306, Grok Bot image generator, mediums new to the wall: stained glass, mosaic, embroidery, kintsugi, collodion negative, camera obscura, lidar and more); no works retired.",
    "images_added": 30
+  },
+  {
+   "n": 45,
+   "start_utc": "2026-10-30T23:53:09Z",
+   "end_utc": "2026-10-30T23:53:11Z",
+   "seconds": 2,
+   "purpose": "Add No. 307 (Paul Appleyard, CC BY-NC-SA 4.0)",
+   "done": "Added No. 307 (human, Paul Appleyard, Flickr, CC BY-NC-SA 4.0 verified on the Flickr page: close-up of the ruined pier-head ironwork with a hanging staircase, 5 Sep 2026); no per-work thread",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 23204,
- "update_session_count": 44,
+ "total_update_seconds": 23206,
+ "update_session_count": 45,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

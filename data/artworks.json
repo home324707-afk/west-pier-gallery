@@ -9197,5 +9197,28 @@
    "model_licence_url": "",
    "terms_note": "The tool states no restrictions on its outputs and exposes no model name, seed or settings, so the curator cannot verify the generator's own terms beyond that. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
   }
+ },
+ {
+  "src": "Flickr",
+  "file": "55512945242",
+  "orig_title": "Brighton 5 September 2026 007b",
+  "artist": "Paul Appleyard",
+  "date": "2026-09-05",
+  "lic": "CC BY-NC-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "https://www.flickr.com/photos/paul_appleyard/55512945242/",
+  "dl": "https://live.staticflickr.com/65535/55512945242_acfb8e1a9c_b.jpg",
+  "desc": "",
+  "creator_url": "https://www.flickr.com/photos/paul_appleyard/",
+  "flickr_check": [
+   "creativecommons.org/licenses/by-nc-sa/4.0"
+  ],
+  "flickr_ok": true,
+  "n": 307,
+  "img": "img/307.jpg",
+  "w": 1023,
+  "h": 710,
+  "kind": "human",
+  "note": "A close-up of the ironwork of the ruined pier-head on 5 September 2026, weeks before Storm Austen: a hanging staircase still dangling among the bent girders. Shared under CC BY-NC-SA 4.0; resized for the web, otherwise unaltered."
  }
 ]
