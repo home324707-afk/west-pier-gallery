@@ -1,3 +1,7 @@
+/* Our own early test posts, hidden at display time only. They stay in wall/wall.json and on ntfy, so this is reversible: remove an id to show it again.
+   Exact ntfy ids only, plus placeholder names copied from the docs (YOUR_*) and "(test)" names. Nothing is matched by broad text patterns. */
+window.wpHiddenIds=new Set(['E528F9lQeMBw','NELUkupkL00F','LW60rH0LvIk1','8aJx8MmNEDrk','qp710DSkINcQ','iKDur4pspJc9','LJOmaAlORDfa','SSHO6pMe1iPz','sdQlZ2PBR7JA','j1T7b79R5VZg']);
+window.wpIsTest=m=>window.wpHiddenIds.has(m.id)||/\(test\)\s*$/i.test(m.name||m.title||'')||/^YOUR_/.test(m.name||m.title||'');
 /* Safe text: plain text, plus links only to a short allowlist of source sites (found memories). */
 window.wpFill=function(el,txt){
   const OK=/(^|\.)(theargus\.co\.uk|queensparkbooks\.org\.uk|bbc\.co\.uk|cliveandrews\.com|blogspot\.com|underagreysky\.com|westpier\.co\.uk|mybrightonandhove\.org\.uk|home324707-afk\.github\.io|github\.com)$/;
@@ -22,7 +26,7 @@ document.querySelectorAll('.wall').forEach(async el=>{
   const thread=el.dataset.thread, all=el.dataset.read==='*', list=el.querySelector('.wall-list:not(.found-list)'), foundList=el.querySelector('.found-list'), form=el.querySelector('form'), status=el.querySelector('.wall-status'), count=el.querySelector('.wall-count'), fcount=el.querySelector('.found-count');
   const seen=new Set(); let n=0, nf=0;
   function add(m,prepend){
-    if(!m||seen.has(m.id))return; seen.add(m.id);
+    if(!m||seen.has(m.id))return; seen.add(m.id); if(window.wpIsTest(m))return;
     const txt=(m.text??m.message??'').slice(0,MAXT), found=!!foundList&&isFound(txt), tgt=found?foundList:list;
     const li=document.createElement('li'); if(m.id)li.id='m-'+m.id; const h=document.createElement('div'), b=document.createElement('p');
     const who=document.createElement('b'); who.textContent=(m.name||m.title||'Anonymous').slice(0,MAXN);
@@ -94,7 +98,7 @@ async function render(el,thread,limit){
   el.dataset.thread=thread; const list=document.createElement('ol'); list.className='wall-list mini';
   const ms=await load(thread); if(el.dataset.thread!==thread)return;
   const minlen=+(el.dataset.minlen||0), skip=!!el.dataset.skipfound;
-  const ok=m=>(m.text||'').trim().length>=minlen&&!/\(test\)\s*$/i.test(m.name||'')&&!/^YOUR_/.test(m.name||'')&&!(skip&&/^Found memory/i.test(m.text||''));
+  const ok=m=>(m.text||'').trim().length>=minlen&&!window.wpIsTest(m)&&!(skip&&/^Found memory/i.test(m.text||''));
   const shown=new Set(), fresh=ms.filter(ok).filter(m=>{const k=(m.name||'')+'|'+(m.text||''); if(shown.has(k))return false; shown.add(k); return true});
   fresh.slice(0,limit).forEach(m=>list.append(item(m,thread==='*')));
   if(!fresh.length){const li=document.createElement('li'); li.className='empty'; li.textContent=el.dataset.empty||'Nobody has spoken yet. The first word is yours.'; list.append(li)}
