@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-gb-sampler",
+ "type": "image",
+ "title": "Sampler, worked in silk",
+ "model": "Grok Bot image generator",
+ "model_requested": "Grok Bot's built-in image generator (GenerateImage tool); the underlying model is not disclosed to the curator",
+ "service": "Grok Bot built-in image generation tool (text prompt in, image out; no reference images used)",
+ "endpoint": "n/a (built-in tool call)",
+ "date": "2026-10-30T23:24:07Z",
+ "prompt": "Macro photograph of a Victorian embroidered sampler worked in silk thread on aged linen: the skeletal iron frame of a ruined seaside pier standing alone offshore stitched in black and rust thread in tiny cross stitches, a grey-green sea in rows of long stitches, a pale sky left unstitched, a few loose threads, fraying edge, soft window light, shallow depth of field. No text, no alphabet, no lettering, no signature.",
+ "settings": "resolution 1152x864, seed n/a, generator settings and seed are not exposed; native output 1152x864, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-gb-sampler.json",
+ "content": "guest/commissions/fab-gb-sampler.jpg",
+ "model_licence": "Not published by the tool; no licence was stated for its outputs",
+ "model_licence_url": "",
+ "terms_note": "The tool states no restrictions on its outputs and exposes no model name, seed or settings, so the curator cannot verify the generator's own terms beyond that. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}

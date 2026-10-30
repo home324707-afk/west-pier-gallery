@@ -9,6 +9,9 @@ MODELS = {
  'Z-Image-Turbo': dict(model_requested='Z-Image-Turbo (Tongyi-MAI)', service='Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)', endpoint='https://tongyi-mai-z-image-turbo.hf.space (api /generate)',
    model_licence='Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)', model_licence_url='https://huggingface.co/Tongyi-MAI/Z-Image-Turbo', steps='9 steps, shift 3.0',
    terms='Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images.'),
+ 'Grok Bot image generator': dict(model_requested="Grok Bot's built-in image generator (GenerateImage tool); the underlying model is not disclosed to the curator", service="Grok Bot built-in image generation tool (text prompt in, image out; no reference images used)", endpoint='n/a (built-in tool call)',
+   model_licence='Not published by the tool; no licence was stated for its outputs', model_licence_url='', steps='generator settings and seed are not exposed',
+   terms='The tool states no restrictions on its outputs and exposes no model name, seed or settings, so the curator cannot verify the generator\'s own terms beyond that.'),
  'FLUX.1-schnell': dict(model_requested='FLUX.1 [schnell] (Black Forest Labs)', service='Hugging Face Space black-forest-labs/FLUX.1-schnell, anonymous Gradio API (no account)', endpoint='https://black-forest-labs-flux-1-schnell.hf.space (api /infer)',
    model_licence='Apache 2.0 (black-forest-labs/FLUX.1-schnell); the Space is MIT', model_licence_url='https://huggingface.co/black-forest-labs/FLUX.1-schnell', steps='4 steps',
    terms='The model is Apache 2.0, which places no restriction on outputs, and the Space (MIT) imposes no further terms on generated images.')}

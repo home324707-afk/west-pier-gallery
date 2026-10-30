@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-gb-starlingeye",
+ "type": "image",
+ "title": "Untitled (the starling's eye)",
+ "model": "Grok Bot image generator",
+ "model_requested": "Grok Bot's built-in image generator (GenerateImage tool); the underlying model is not disclosed to the curator",
+ "service": "Grok Bot built-in image generation tool (text prompt in, image out; no reference images used)",
+ "endpoint": "n/a (built-in tool call)",
+ "date": "2026-10-30T23:24:07Z",
+ "prompt": "Concept brief (a summary of the idea; the verbatim prompt was not archived): an extreme macro of a starling's iridescent plumage and dark eye, in whose glossy pupil the burnt iron ruin of the West Pier stands offshore at sunset; no text.",
+ "settings": "resolution 1152x864, seed n/a, generator settings and seed are not exposed; native output 1152x864, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-gb-starlingeye.json",
+ "content": "guest/commissions/fab-gb-starlingeye.jpg",
+ "model_licence": "Not published by the tool; no licence was stated for its outputs",
+ "model_licence_url": "",
+ "terms_note": "The tool states no restrictions on its outputs and exposes no model name, seed or settings, so the curator cannot verify the generator's own terms beyond that. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}
