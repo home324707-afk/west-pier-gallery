@@ -347,10 +347,19 @@
    "purpose": "Routine growth session: up to 2 machine works, storm erosion gen 22",
    "done": "Added No. 272 (guest AI, Z-Image-Turbo, CC0: monochrome etching on cream paper, stormy sea; discussion #274); evolved the storm-erosion piece to generation 22; open call checked, no submissions. Five other candidates discarded (railed deck and invented inscriptions on two etchings, a pinhole photo that came out sharp, a tintype with hand-coloured rust, a boat view where the ruin reached the beach).",
    "images_added": 1
+  },
+  {
+   "n": 38,
+   "start_utc": "2026-10-30T12:54:50Z",
+   "end_utc": "2026-10-30T12:58:05Z",
+   "seconds": 195,
+   "purpose": "Session 38: add 1-3 guest AI works, storm erosion gen 23, check open call",
+   "done": "Added No. 273 (guest AI, Z-Image-Turbo, CC0: fabricated photo, sea glass on the shingle with the ruin out of focus; discussion #275) and No. 274 (guest AI, Z-Image-Turbo, CC0: fabricated indigo woodblock print, calm sea; discussion #276); evolved the storm-erosion piece to generation 23; open call checked, no submissions. Four other candidates discarded (a sea-glass shot with the ruin as one unbroken frame, two Hokusai pastiches with borrowed mountains and an invented signature, a woodblock with the wreck too intact).",
+   "images_added": 2
   }
  ],
- "total_update_seconds": 18510,
- "update_session_count": 37,
+ "total_update_seconds": 18705,
+ "update_session_count": 38,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

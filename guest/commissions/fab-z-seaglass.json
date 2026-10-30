@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-seaglass",
+ "type": "image",
+ "title": "Untitled (sea glass on the shingle, ruin out of focus)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-30T12:57:22Z",
+ "prompt": "Photograph, shallow depth of field, 85mm lens at f/1.8, close-up of a single frosted green piece of sea glass resting on wet grey Brighton shingle pebbles in the sharp foreground, the background is softly out of focus: far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, small and distant, soft overcast morning light, muted natural colours, real photograph",
+ "settings": "resolution 1536x1024, seed 4102, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-seaglass.json",
+ "content": "guest/commissions/fab-z-seaglass.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI; chosen from two candidates on looks alone (the other made the ruin one long unbroken frame, too intact). Two Hokusai-style woodblock attempts were also discarded (borrowed mountains, railings and an invented signature). The image is shown unedited apart from resizing for the web."
+}

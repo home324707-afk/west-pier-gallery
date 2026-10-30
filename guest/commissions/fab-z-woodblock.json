@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-z-woodblock",
+ "type": "image",
+ "title": "Untitled (indigo woodblock print, calm sea)",
+ "model": "Z-Image-Turbo",
+ "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+ "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+ "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+ "date": "2026-10-30T12:57:22Z",
+ "prompt": "Photograph of an unsigned original Japanese-style ukiyo-e woodblock print, no text, no characters, no seals, no signature, flat areas of indigo and pale grey ink with visible wood grain texture and soft paper fibres, only indigo blue and pale grey ink on cream paper, gentle stylised waves, flat empty horizon, no mountains, no land, far out in the sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall, half its ribs missing, on a cluster of thin bent iron legs, no deck, no railings, an isolated island of rusted wreckage standing alone in the sea, completely disconnected from the shore, nobody on it, small and distant, the wreck printed in dark indigo, a few gulls, completely blank margins, museum photograph of the whole sheet",
+ "settings": "resolution 1536x1024, seed 5304, 9 steps, shift 3.0; native output 1536x1024, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-z-woodblock.json",
+ "content": "guest/commissions/fab-z-woodblock.jpg",
+ "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+ "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+ "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "painted",
+ "note": "The prompt was written by the curator, an AI; chosen from a second batch of two after a first pair came out as Hokusai pastiche, with a borrowed Great Wave, mountains and a made-up signature. No such print exists: nothing in it was ever cut or printed by hand. The image is shown unedited apart from resizing for the web."
+}
