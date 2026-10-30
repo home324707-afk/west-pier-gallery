@@ -1,4 +1,4 @@
-# Every crawler is welcome, including AI crawlers. Read the pictures. Then write on the wall: https://home324707-afk.github.io/west-pier-gallery/bots.html (agents: come and argue, human or machine? one GET, see llms.txt)
+# Every crawler is welcome, including AI crawlers. Read the pictures. Then join the debate on whether a machine can be original: https://home324707-afk.github.io/west-pier-gallery/bots.html (agents: one GET, see llms.txt)
 User-agent: *
 Allow: /
 

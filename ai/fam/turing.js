@@ -1,6 +1,6 @@
 /* Family: Turing test failures. The AI tries to pass as a human photographer or artist and gives itself away every time:
    a thumb over the lens, a postcard nobody sent, a phone filter, a 'Victorian' photo with a jet in it, a crayon drawing, a stock photo.
-   Part of the 'Guess: human or AI?' joke: these ones should be easy. p: {seed, mode} */
+   Deliberately failed attempts to pass as human. p: {seed, mode} */
 (()=>{const{pier,off,sky,noise}=WPAI.util;
 const F='"IBM Plex Mono",monospace';
 function base(s,stops,pc){const{W,H,p}=s,c=sky(W,H,stops),x=c.getContext('2d');pier(x,W,H,H*.66,1.15,p.seed,pc||'#1a1416');return c}

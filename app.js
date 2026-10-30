@@ -4,8 +4,7 @@ function show(n){i=(n+W.length)%W.length;const w=W[i],pg=`work/${String(w.n).pad
 const fig=$('lbimg').parentNode;fig.querySelectorAll('canvas').forEach(c=>c.remove());
 /* blind: the viewer shows the picture and its number only; who made it is on the work page */
 $('lbk').textContent='';$('lbk').className='';$('lbt').textContent='No. '+w.n;$('lbo').textContent='';$('lbc').textContent='';
-$('lbl').innerHTML=`<a href="${pg}">Open it: who made it, licence, your guess →</a>`;
-const pv=$('lbwall');if(pv)pv.innerHTML='';const lw=document.querySelector('.lbwall');if(lw)lw.hidden=true;
+$('lbl').innerHTML=`<a href="${pg}">Open it: the full credit, licence and notice →</a>`;
 if(W[i+1]){const p=new Image();p.src=W[(i+1)%W.length].src}}
 let opener=null;function open(n){opener=document.activeElement;show(n);lb.classList.add('open');document.body.style.overflow='hidden';$('lbx').focus()}
 function close(){lb.classList.remove('open');document.body.style.overflow='';lb.querySelectorAll('canvas.lbanim').forEach(c=>c.remove());if(opener&&opener.focus)opener.focus({preventScroll:true})}
@@ -13,14 +12,6 @@ document.querySelectorAll('.card').forEach(c=>{c.addEventListener('click',()=>op
 $('lbx').onclick=close;$('lbp').onclick=()=>show(i-1);$('lbn').onclick=()=>show(i+1);
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='FIGURE')close()});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
-// filter: all / guess / human / ai / guest
-document.querySelectorAll('.filter button[data-f]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;
-document.querySelectorAll('.famfilter button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.card').forEach(c=>{c.hidden=f==='machine'?c.dataset.kind==='human':(f==='human'||f==='ai'||f==='guest')&&c.dataset.kind!==f;c.classList.remove('revealed')})}));
-// AI by kind: show one family (click again to show all)
-function fam(k){document.querySelectorAll('.filter button[data-f]').forEach(x=>x.classList.toggle('on',!k&&x.dataset.f==='all'));
-document.querySelectorAll('.famfilter button').forEach(x=>x.classList.toggle('on',x.dataset.fam===k));document.querySelectorAll('.card').forEach(c=>{c.hidden=!!k&&c.dataset.fam!==k})}
-document.querySelectorAll('.famfilter button').forEach(b=>b.addEventListener('click',()=>{const k=b.classList.contains('on')?'':b.dataset.fam;fam(k);history.replaceState(null,'',k?'?fam='+k+'#views':location.pathname)}));
-const qf=new URLSearchParams(location.search).get('fam');if(qf&&document.querySelector(`.famfilter button[data-fam="${CSS.escape(qf)}"]`))fam(qf);
 // murmuration: a few hundred starlings following a wandering attractor
 const cv=document.getElementById('murm');if(!cv||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 const cx=cv.getContext('2d');let Wd,Ht;const B=[];
@@ -37,7 +28,6 @@ b.vx=b.vx*.95+dx/d*.5;b.vy=b.vy*.95+dy/d*.5;b.x+=b.vx;b.y+=b.vy;const h=(1+1.3*M
 cx.fillStyle='rgba(207,227,245,.30)';cx.fillRect(b.x+DPR*.6,b.y+DPR*.6,bw,h);cx.fillStyle='rgba(4,14,34,.94)';cx.fillRect(b.x,b.y,bw,h)}
 raf=requestAnimationFrame(f)}go();
 })();
-const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.querySelector(`.filter button[data-f="${CSS.escape(qk)}"]`);if(b)b.click()}
 
 (()=>{const c0=document.querySelector('.card');if(!c0)return;const g=c0.parentElement,mix=[...g.querySelectorAll(':scope>.card')],bs=document.querySelectorAll('.order button[data-o]');bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.classList.toggle('on',x===b));(b.dataset.o==='num'?[...mix].sort((x,y)=>x.dataset.n-y.dataset.n):mix).forEach(c=>g.appendChild(c))}))})();
 
@@ -45,5 +35,4 @@ const qk=new URLSearchParams(location.search).get('f');if(qk){const b=document.q
 (()=>{const g=document.getElementById('gallery'),b=document.getElementById('showall');if(!g)return;
 const all=()=>{g.classList.remove('collapsed');if(b)b.parentNode.hidden=true};
 if(b)b.addEventListener('click',all);
-document.querySelectorAll('.filter button,.famfilter button').forEach(x=>x.addEventListener('click',all));
-const q=new URLSearchParams(location.search);if(q.get('f')||q.get('fam'))all()})();
+document.querySelectorAll('.order button').forEach(x=>x.addEventListener('click',all))})();
