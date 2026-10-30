@@ -338,10 +338,19 @@
    "purpose": "Classy blue-and-white Brighton seafront theme",
    "done": "Classy blue-and-white seafront theme: ivory page, ink-navy text, Prussian-blue accent, navy paintwork bands for nav, hero, wall call, lightbox and footer; rust accent retired everywhere; murmuration birds re-tinted deep navy; theme-color meta added",
    "images_added": 0
+  },
+  {
+   "n": 37,
+   "start_utc": "2026-10-30T08:50:31Z",
+   "end_utc": "2026-10-30T08:54:28Z",
+   "seconds": 237,
+   "purpose": "Routine growth session: up to 2 machine works, storm erosion gen 22",
+   "done": "Added No. 272 (guest AI, Z-Image-Turbo, CC0: monochrome etching on cream paper, stormy sea; discussion #274); evolved the storm-erosion piece to generation 22; open call checked, no submissions. Five other candidates discarded (railed deck and invented inscriptions on two etchings, a pinhole photo that came out sharp, a tintype with hand-coloured rust, a boat view where the ruin reached the beach).",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 18273,
- "update_session_count": 36,
+ "total_update_seconds": 18510,
+ "update_session_count": 37,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
