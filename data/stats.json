@@ -365,10 +365,19 @@
    "purpose": "Add Appleyard aerial view, ImJustBrighton press link",
    "done": "Added No. 275 (human, Paul Appleyard, Flickr, CC BY-NC-SA 4.0: the whole ruin on 5 September 2026, the last look before Storm Austen; discussion #277); added an In the press line (ImJustBrighton, 29 Oct 2026) to About.",
    "images_added": 1
+  },
+  {
+   "n": 40,
+   "start_utc": "2026-10-30T15:45:38Z",
+   "end_utc": "2026-10-30T15:53:30Z",
+   "seconds": 472,
+   "purpose": "Reframe around the debate: manifesto and consolidated debate page, game framing removed",
+   "done": "Reframed the site around the originality debate: removed the Guess game, added The debate page (manifesto + one open wall), new home hero, per-work links to the debate",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 18781,
- "update_session_count": 39,
+ "total_update_seconds": 19253,
+ "update_session_count": 40,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
