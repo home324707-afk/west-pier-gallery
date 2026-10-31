@@ -1,6 +1,6 @@
 (()=>{const W=window.WORKS||[],lb=document.getElementById('lb');let i=0;
 const $=id=>document.getElementById(id);
-function show(n){i=(n+W.length)%W.length;const w=W[i],pg=`work/${String(w.n).padStart(2,"0")}.html`;$('lbimg').src=w.src;$('lbimg').alt='Brighton West Pier, No. '+w.n;
+function show(n){i=(n+W.length)%W.length;const w=W[i],pg=`work/${String(w.n).padStart(2,"0")}.html`;$('lbimg').src=w.src;$('lbimg').alt=w.alt||('Brighton West Pier, No. '+w.n);
 const fig=$('lbimg').parentNode;fig.querySelectorAll('canvas').forEach(c=>c.remove());
 /* blind: the viewer shows the picture and its number only; who made it is on the work page */
 $('lbk').textContent='';$('lbk').className='';$('lbt').textContent='No. '+w.n;$('lbo').textContent='';$('lbc').textContent='';

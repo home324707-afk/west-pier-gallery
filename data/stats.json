@@ -498,12 +498,19 @@
    "purpose": "Audit image/work/artist counts across the site and derive from data",
    "done": "Counts audit across the site: fixed work-page 'View N of 206', credits licence tally and families sentence, about narrative, bot docs, README and JSON-LD counts; removed stale stats.json image counts and added a derived counts block",
    "images_added": 0
+  },
+  {
+   "n": 55,
+   "start_utc": "2026-10-31T06:02:14Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Add analytics hook (GoatCounter, config-gated) and SEO pass",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 32544,
- "update_session_count": 54,
- "images_human": 97,
- "images_ai": 10,
+ "update_session_count": 55,
  "candidates_session1": 608,
  "found_ai_art": 0,
  "counts": {
@@ -519,6 +526,10 @@
   "human_artists": 86,
   "ai_families_on_wall": 8,
   "ai_families_defined": 20,
-  "sessions_logged": 54
+  "sessions_logged": 55
+ },
+ "snapshot_after_session_1": {
+  "human": 97,
+  "ai": 10
  }
 }

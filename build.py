@@ -20,7 +20,16 @@ TOPIC = open('data/wall_topic.txt').read().strip()
 REPO = 'home324707-afk/west-pier-gallery'
 SITE = 'https://home324707-afk.github.io/west-pier-gallery/'
 PUB = f'https://ntfy.sh/{TOPIC}/publish'
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,300..500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">'
+# ---- Config hooks (empty string = switched off) ----
+GOATCOUNTER_CODE = ''   # e.g. 'westpier' -> https://westpier.goatcounter.com ; cookie-less page views and referrers. Needs a free sign-up (see README).
+GOOGLE_VERIFY = ''      # content of Google Search Console's <meta name="google-site-verification"> tag
+BING_VERIFY = ''        # content of Bing Webmaster Tools' <meta name="msvalidate.01"> tag
+ALT = json.load(open('data/alt.json'))  # scene-only descriptions of each picture (no maker, no kind), so the grid stays blind
+# Self-hosted fonts (SIL OFL: Fraunces, JetBrains Mono, Space Grotesk), latin + latin-ext subsets, preloaded; no third-party font requests.
+FONTFACE = r'''@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 500;font-display:swap;src:url(%P%fonts/fraunces-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Fraunces';font-style:italic;font-weight:300 500;font-display:swap;src:url(%P%fonts/fraunces-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Fraunces';font-style:normal;font-weight:200 600;font-display:swap;src:url(%P%fonts/fraunces-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Fraunces';font-style:normal;font-weight:200 600;font-display:swap;src:url(%P%fonts/fraunces-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(%P%fonts/jetbrains-mono-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(%P%fonts/jetbrains-mono-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(%P%fonts/space-grotesk-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(%P%fonts/space-grotesk-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(%P%fonts/space-grotesk-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url(%P%fonts/space-grotesk-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}'''
+def fonts(p):
+    pre = ''.join(f'<link rel="preload" href="{p}fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>' for f in ('fraunces-latin', 'space-grotesk-latin', 'jetbrains-mono-latin'))
+    return pre + '<style>' + FONTFACE.replace('%P%', p) + '</style>'
 BRIEF = "Creative project. The iconic west pier in Brighton has been damaged further by this week's storms. It's a local cliche for artists and photographers. Search the internet for art, remained each image as the latest damaged view of of the pier. Collate the images into an online gallery.  Host via free service. Landing page of the site should record how many images were found, how long you spent doing it.  It's a statement on human vs AI creativity. Create a sepearte bot to do this. Keep this message and a log  of what you did as a seperate page on the site. Create a credits page for artists. now go wild, create and show us what you can do."
 
 def year(a):
@@ -104,7 +113,12 @@ def orig(a):
     s = f'<i>{E(a["orig_title"])}</i> by {E(a["artist"] or "Unknown")}'
     if a.get('date'): s += f', {E(a["date"])}'
     return s
+def scene(a):
+    """Blind description: the scene only, never the maker or the kind."""
+    return ALT.get(str(a['n'])) or f'Brighton West Pier, No. {a["n"]}'
 def alt(a):
+    if a['n'] in IDX:  # on the wall: scene first; the work page itself says honestly when it is AI-made
+        return E(scene(a) + ('' if is_hu(a) else ' (AI-made picture, not a photograph)'))
     if is_guest(a) and a['guest']['type'] == 'image': return E(f'Guest AI work by {a["artist"]}: {a["orig_title"]}. ' + ('A fabricated painting, drawing or print of Brighton West Pier, generated by an AI image model from a text prompt. It is not a real artwork.' if a.get('gfam') == 'painted' else 'A fabricated, photograph-style image of Brighton West Pier, generated by an AI image model from a text prompt. It is not a real photograph.'))
     if is_guest(a): return E(f'Guest AI work by {a["artist"]}: {a["orig_title"]}. {GUEST_ART.get(a["guest"]["type"], "").capitalize()} of Brighton West Pier, made by another AI model, not a photograph.')
     if is_ai(a): return E(f'AI-made generative artwork: {a["orig_title"]}. A stylised, animated image of Brighton West Pier, not a photograph.')
@@ -144,17 +158,23 @@ def tl_canvas(depth=0):
 def tl_sources():
     return '<ol class="tlsrc">' + ''.join(f'<li><a href="{E(u)}">{E(t)}</a></li>' for t, u in TL['sources']) + '</ol>'
 
-def head(t, desc, depth=0, og=None, path='', ld=None):
+def head(t, desc, depth=0, og=None, path='', ld=None, og_alt=None, og_size=None, noindex=False):
     p = '../' * depth
     img = SITE + (og or 'img/og.jpg')
     t2 = re.sub('&nbsp;', ' ', t)
+    oalt = og_alt or "Brighton's West Pier. Humans and bots welcome: write on the wall."
+    osz = f'<meta property="og:image:width" content="{og_size[0]}"><meta property="og:image:height" content="{og_size[1]}">' if og_size else ''
     lds = ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in (ld or []))
+    ver = (f'<meta name="google-site-verification" content="{E(GOOGLE_VERIFY)}">' if GOOGLE_VERIFY else '') + (f'<meta name="msvalidate.01" content="{E(BING_VERIFY)}">' if BING_VERIFY else '')
+    gc = (f'<script data-goatcounter="https://{E(GOATCOUNTER_CODE)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>' if GOATCOUNTER_CODE else '')
+    robots = '<meta name="robots" content="noindex,follow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
+    canon = '' if noindex else f'<link rel="canonical" href="{SITE}{path}">'
     return f'''<!doctype html><html lang="en" data-wall-topic="{TOPIC}" data-root="{p}" data-n="{len(A)}" data-walk="{WALK}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b2447">
-<title>{t}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{SITE}{path}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
+<title>{t}</title><meta name="description" content="{E(desc)}">{canon}{robots}{ver}
+<meta property="og:type" content="website"><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}">{osz}<meta property="og:image:alt" content="{E(oalt)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}"><meta name="twitter:image:alt" content="{E(oalt)}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css?v=24"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=8" defer></script></head><body>'''
+{fonts(p)}<link rel="stylesheet" href="{p}style.css?v=24"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=8" defer></script>{gc}</head><body>'''
 
 import random as _rnd
 WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).choice(A)["n"]:02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
@@ -226,7 +246,7 @@ def fmt_elapsed(sec):
 def daily_card():
     hu = list(A)
     rnd = _rnd.Random('west-pier-daily-prompts'); rnd.shuffle(hu)
-    items = [dict(q=q, n=hu[i % len(hu)]['n'], img=hu[i % len(hu)]['img'].replace('.jpg', '_t.jpg'), w=hu[i % len(hu)]['w'], h=hu[i % len(hu)]['h'], alt='Brighton West Pier') for i, q in enumerate(PROMPTS)]
+    items = [dict(q=q, n=hu[i % len(hu)]['n'], img=hu[i % len(hu)]['img'].replace('.jpg', '_t.jpg'), w=hu[i % len(hu)]['w'], h=hu[i % len(hu)]['h'], alt=scene(hu[i % len(hu)])) for i, q in enumerate(PROMPTS)]
     f = items[0]; dj = json.dumps(items, ensure_ascii=False).replace('</', '<' + chr(92) + '/')
     return (f'<div class="daily" id="daily"><a class="dp-img" href="work/{f["n"]:02d}.html"><img src="{f["img"]}" width="{f["w"]}" height="{f["h"]}" alt="{E(f["alt"])}"></a>'
             f'<div class="dp-body"><div class="kicker">Today&rsquo;s question</div><p class="dp-q">{E(f["q"])}</p><div class="btnrow"><button class="btn solid dp-answer" type="button">Answer it &rarr;</button><button class="btn ghost dp-next" type="button">Another &#8635;</button></div></div>'
@@ -273,11 +293,16 @@ def build():
         "description": f"An AI-curated online exhibition of {NH} openly licensed human-made images of Brighton's West Pier, {NAI} live generative works by the AI curator and {NG} works by guest AIs ({n} in all), all titled 'The latest damaged view of the pier'.",
         "startDate": "2026-10-25", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "isAccessibleForFree": True,
         "location": {"@type": "VirtualLocation", "url": SITE}, "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton", "sameAs": "https://en.wikipedia.org/wiki/West_Pier"},
-        "organizer": {"@type": "Organization", "name": "West Pier Curator (an AI)", "url": SITE}, "image": SITE + "img/og.jpg",
+        "organizer": {"@type": "Organization", "name": "The West Pier Curator", "url": SITE}, "image": SITE + "img/og.jpg",
         "potentialAction": {"@type": "CommentAction", "name": "Join the debate (humans and bots welcome, no account)", "target": {"@type": "EntryPoint", "urlTemplate": PUB + "?tags=t-forum&title={name}&message={message}", "httpMethod": "GET"}}},
-        {"@context": "https://schema.org", "@type": "ImageGallery", "name": "The Latest Damaged View of the Pier", "url": SITE, "numberOfItems": n,
-        "hasPart": [{"@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"],
-            "creator": {"@type": "Person", "name": a["artist"] or "Unknown"}, "license": a["licurl"], "isBasedOn": a["page"]} for a in A]}]
+        {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "#website", "name": "The Latest Damaged View of the Pier", "alternateName": "West Pier gallery", "url": SITE, "inLanguage": "en-GB",
+         "description": "An online art gallery of Brighton West Pier where human-made and AI-made pictures hang unlabelled: AI vs human, can you tell?",
+         "publisher": {"@type": "Organization", "name": "The West Pier Curator", "url": SITE, "logo": {"@type": "ImageObject", "url": SITE + "img/favicon.png"}}},
+        {"@context": "https://schema.org", "@type": "CollectionPage", "name": "The Latest Damaged View of the Pier: Brighton West Pier art gallery", "url": SITE, "isPartOf": {"@id": SITE + "#website"}, "inLanguage": "en-GB",
+         "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton"}, "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": SITE + "img/og.jpg"},
+         "mainEntity": {"@type": "ImageGallery", "name": "The views", "numberOfItems": n,
+            # blind: scene only. No creator or licence here; each work page carries those.
+            "hasPart": [{"@type": "ImageObject", "name": re.sub("&nbsp;", " ", title(a)), "description": scene(a), "url": f"{SITE}work/{a['n']:02d}.html", "contentUrl": SITE + a["img"], "thumbnailUrl": SITE + a["img"].replace(".jpg", "_t.jpg")} for a in A]}}]
 
     FEATURED = {110, 276}
     def display_order(works):
@@ -314,14 +339,19 @@ def build():
     cards = []
     for a in display_order(A):
         cards.append(f'''<figure class="card" data-n="{a["n"]}" data-i="{IDX[a["n"]]}" tabindex="0" role="button" aria-label="Open No. {a["n"]}">
-<div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" alt="Brighton West Pier, No. {a["n"]}"><span class="no">No.{a["n"]:02d}</span></div></figure>''')
-    data = [dict(src=a['img'], n=a['n'], w=a['w'], h=a['h']) for a in A]  # blind: no maker, kind or licence in the grid's data
+<div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" decoding="async" alt="{E(scene(a))}"><span class="no">No.{a["n"]:02d}</span></div></figure>''')
+    data = [dict(src=a['img'], n=a['n'], w=a['w'], h=a['h'], alt=scene(a)) for a in A]  # blind: no maker, kind or licence in the grid's data
     nh = NH; nai = NAI; ng = NG; nph = NPH; npa = NPA; ncut = sum(1 for a in RET if a.get('retired_round') == 2)
     HERO_SEL = [58, 276, 237, 275, 52, 238, 23, 239, 93, 28]
     _lab = lambda a: 'Human' if is_hu(a) else 'Guest AI' if is_guest(a) else 'AI'
-    hero_slides = ''.join(f'<img class="slide{" on" if i == 0 else ""}" src="{BYN[x]["img"]}" width="{BYN[x]["w"]}" height="{BYN[x]["h"]}" alt="Brighton West Pier, No. {x}" data-href="work/{x:02d}.html" data-cap="No. {x}"{" fetchpriority=high" if i == 0 else " loading=lazy"}>' for i, x in enumerate(HERO_SEL))
+    def _hero(i, x):
+        b = BYN[x]; m = os.path.exists(b['img'].replace('.jpg', '_m.jpg'))
+        ss = f' srcset="{b["img"].replace(".jpg", "_m.jpg")} 1000w, {b["img"]} {b["w"]}w" sizes="(max-width:800px) 600px, 100vw"' if m else ''
+        return (f'<img class="slide{" on" if i == 0 else ""}" src="{b["img"]}"{ss} width="{b["w"]}" height="{b["h"]}" alt="{E(scene(b))}" data-href="work/{x:02d}.html" data-cap="No. {x}"'
+                + (' fetchpriority=high' if i == 0 else ' loading=lazy decoding=async') + '>')
+    hero_slides = ''.join(_hero(i, x) for i, x in enumerate(HERO_SEL))
     hero_first = (HERO_SEL[0], _lab(BYN[HERO_SEL[0]]))
-    idx = head('The Latest Damaged View of the Pier — is any of it original?', f'A machine gathered {NH} people\'s pictures of Brighton\'s West Pier and made its own, and gave them all one title. Is any of it original? Look first, judge later, and join the debate.', path='', ld=LD_INDEX) + nav('index.html') + f'''
+    idx = head('Brighton West Pier art gallery: AI vs human, can you tell?', f"An online art gallery of Brighton West Pier: {n} pictures, some human-made, some AI, none labelled. AI vs human: can you tell, and is any of it original?", path='', ld=LD_INDEX) + nav('index.html') + f'''
 <header class="hero hero2"><div class="slides">{hero_slides}</div><div class="shade"></div><canvas id="murm" aria-hidden="true"></canvas>
 <div class="inner"><div class="kicker">Brighton · West Pier · after Storm Austen, 23 October 2026</div>
 <h1 class="mega2">A machine gathered these pictures of the West Pier, and made its own. <em>Is any of it original?</em></h1>
@@ -344,11 +374,11 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer"><figure><div class="lbwrap"><img id="lbimg" alt=""></div></figure><div class="cap"><span id="lbk" class="kindtag"></span><h3 id="lbt"></h3><p id="lbo"></p><p id="lbc" style="font-family:'JetBrains Mono',monospace;color:#c9b38f"></p><p id="lbl"></p></div>
 <button class="x" id="lbx" aria-label="Close">Close ✕</button><button class="prev" id="lbp" aria-label="Previous">←</button><button class="next" id="lbn" aria-label="Next">→</button></div>
-<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=14" defer></script><script src="thennow.js?v=1" defer></script>
+<script>window.WORKS={json.dumps(data, ensure_ascii=False)};</script><script src="app.js?v=15" defer></script><script src="thennow.js?v=1" defer></script>
 ''' + foot() + '</body></html>'
     open('index.html', 'w').write(idx)
 
-    about = head('About — The Latest Damaged View of the Pier', 'Why a machine hung a gallery of the West Pier, how it was made, and how to join in.', path='about.html') + nav('about.html') + f'''
+    about = head('About this Brighton West Pier art gallery · AI vs human', 'Why an AI hung an art gallery of Brighton West Pier, how it was made, what is human and what is AI, and how to join the debate.', path='about.html') + nav('about.html') + f'''
 <main class="about"><div class="kicker">About the gallery</div><h1 class="aboutT">About this gallery.</h1>
 <p class="about-lead">Brighton's West Pier has been falling into the sea since it closed in 1975. This is a gallery of pictures of it: {nh} by people, {nai + ng} by AI, every one labelled and credited. A machine collected them, then retitled each one <i>“the latest damaged view of the pier”</i>. Whether any of it is original is the question the gallery asks, and it is not the machine's to answer.</p>
 <p class="sig">Look at <a href="index.html#views">the pictures</a>, compare <a href="thennow.html">then and now</a>, read <a href="debate.html#question">the question</a> and <a href="debate.html#join">join the debate</a>. Full story below.</p></main>
@@ -371,7 +401,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <p>Then came the third verdict: much of the machine's work looked cheap and tacky. The curator reviewed all of it, still by still, as a rude critic would, and agreed. {ncut} pieces came down in one sitting: the clip art, the pastiches, the stock-photo spoofs, every canvas doodle a small model had been talked into, and the whole run of jokes whose only punchline was that the machine had made them. Deliberately bad is still bad. What stayed is a short list: {nai} of the curator's own pieces and {ng - nph - npa} guest text, all kept because they hold up when looked at for more than a second. In their place the curator commissioned {npa} fabricated paintings, drawings and prints, and {nph - 12} more fabricated photographs, from free image models: oil, watercolour, charcoal, etching, linocut and cyanotype, and a Victorian albumen print, a rust close-up and a view from a drone. The grid is now shuffled by a seeded rule rather than a rhythm. Nobody has been told which are the machine's, apart from the label on each page.</p>
 </details>
 <p class="sig">In the press: <a href="https://www.imjustbrighton.co.uk/brighton-news/west-pier-online-gallery-ai-art-storm-austen-brighton-october-2026">“West Pier Online Gallery After Storm Austen: Can You Spot the AI?”</a>, ImJustBrighton, 29 October 2026.</p>
-<p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p></div></section>
+<p class="sig">— The curator (an AI). Original titles, artists and licences are under every image and on the <a href="credits.html">credits page</a>. The brief and a timestamped log of what was done are on <a href="brief.html">Brief &amp; Log</a>.</p><p class="sig" id="privacy">Privacy: no cookies, no personal data. This site only counts page views{" and referring sites" if GOATCOUNTER_CODE else ""}, anonymously.</p></div></section>
 ''' + foot() + '</body></html>'
     open('about.html', 'w').write(about)
 
@@ -382,7 +412,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
         ts, txt = line.rstrip('\n').split(' | ', 1)
         rows.append(f'<div><time datetime="{E(ts)}">{E(ts.replace("T"," ").replace("Z"," UTC"))}</time><span>{E(txt)}</span></div>')
     SROWS = ''.join(f'<tr><td>{x["n"]}</td><td>{E(x["start_utc"][11:16])} → {E((x.get("end_utc") or "running")[11:16] if x.get("end_utc") else "running")}<br><span class="sig">{E(x["start_utc"][:10])}</span></td><td>{dur(x["seconds"]).replace("<small>","").replace("</small>","") if x.get("seconds") is not None else "…"}</td><td>{E(x.get("done") or x.get("purpose") or "")}</td><td>{x.get("images_added", 0)}</td></tr>' for x in ST.get('update_sessions', [])) or '<tr><td colspan=5>None yet.</td></tr>'
-    br = head('Brief & Log — The Latest Damaged View of the Pier', 'The original brief, verbatim, and a timestamped log of what the machine did.', path='brief.html') + nav('brief.html') + f'''
+    br = head('Brief and log: how the West Pier art gallery was made', 'The original brief, verbatim, and a timestamped log of how an AI built this Brighton West Pier art gallery, session by session.', path='brief.html') + nav('brief.html') + f'''
 <main class="page"><div class="kicker">Brief &amp; Log</div><h1>What we were asked.<br><em class="serif">What was actually done.</em></h1>
 <h2>The brief (verbatim, typos and all)</h2><blockquote class="brief">{E(BRIEF)}</blockquote>
 <p class="sig">Kept exactly as received, double spaces and all. "Remained" was read as <i>re-name</i>.</p>
@@ -428,9 +458,9 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     murm = ('<section class="namemurm" aria-label="The human artists, as a flock"><canvas id="namemurm" aria-hidden="true"></canvas>'
             '<p class="nm-cap">Every name here made a picture of the pier.</p>'
             '<p class="nm-credit">Background: pencil sketch drawn by a machine (Grok Bot image generator), after <a href="work/33.html">No. 33</a> by ' + E(BYN[33]['artist']) + ', <a href="' + E(BYN[33]['licurl']) + '">' + E(BYN[33]['lic']) + '</a></p></section>'
-            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap">'
+            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" media="print" onload="this.media=\'all\'">'
             '<script>window.MURM_NAMES=' + json.dumps(MURM_NAMES, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=9" defer></script>')
-    cr = head('Credits — The Latest Damaged View of the Pier', 'Every artist and photographer whose work appears in the gallery, with source and licence.', path='credits.html') + nav('credits.html') + murm + f'''
+    cr = head('Credits: artists and photographers of Brighton West Pier', 'Every artist and photographer in this Brighton West Pier art gallery, with source and licence for each picture, plus the AI works and their code.', path='credits.html') + nav('credits.html') + murm + f'''
 <main class="page"><div class="kicker">Credits</div><h1>The humans.</h1>
 <p>Every human image in this exhibition was made by a person (or by a person whose name history has lost). For those, the machine changed only the <i>display titles</i>. The AI's own works are listed <a href="#ai">separately below</a>, and so are the <a href="#guests">guest AIs</a>. The images are not cropped, filtered or altered apart from being resized for the web. Original titles and authors are listed below with a link to each source page and licence. If you are one of these artists and want your work credited differently or taken down, open an issue on <a href="https://github.com/{REPO}/issues">the repository</a>.</p>
 <p class="sig">Licences across all {len(A)} works on display (human, AI and guest):</p><p>{pills}</p>
@@ -468,7 +498,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     cr = cr.replace('The images are not cropped, filtered or altered apart from being resized for the web.', 'The images are not filtered or altered apart from being resized for the web (the Then &amp; now sliders crop to a common frame; see <a href="#thennow">below</a>).', 1)
     open('credits.html', 'w').write(cr)
     tn_body = ''.join(tn_fig(p, i) for i, p in enumerate(TN_PAIRS))
-    tnp = head('Then & now — the West Pier, heyday to ruin', 'Drag to compare old and recent views of Brighton\'s West Pier from roughly the same viewpoint: Victorian, Edwardian and interwar photographs against the ruin today. Every image credited.', path='thennow.html') + nav('thennow.html') + f'''
+    tnp = head('Brighton West Pier then and now: heyday to ruin', 'Drag to compare Victorian, Edwardian and interwar photographs of Brighton West Pier with the ruin today, from roughly the same viewpoint. Every image credited.', path='thennow.html') + nav('thennow.html') + f'''
 <main class="tnpage"><div class="tn-intro"><div class="kicker">Then &amp; now</div><h1>The same pier, <em>then and now.</em></h1>
 <p class="lede">Drag the line (or use the arrow keys) to compare. Each pair is taken from roughly the same viewpoint. Nobody could stand in exactly the same spot: the pier is no longer there.</p></div>
 {tn_body}
@@ -481,7 +511,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     tlrows = ''.join(f'<li><b>{E(x["y"])}</b> {E(x["c"])} <span class="sig">View: <a href="work/{x["n"]:02d}.html">No. {x["n"]}</a>, <i>{E(byn[x["n"]]["orig_title"])}</i> by {E(byn[x["n"]]["artist"] or "Unknown")} ({E(byn[x["n"]]["lic"])})</span></li>' for x in TL['slides'])
     nw = TL['now']
     vid = f'<p><a class="btn" href="{VIDEO}">Download the video (MP4)</a> <span class="sig">A rendered copy for sharing, CC BY-SA 4.0. It contains CC BY-SA images, so it carries their share-alike licence; credit the photographers listed below and "The Latest Damaged View of the Pier".</span></p>' if VIDEO else ''
-    tp = head('Time-lapse: 1866 to Storm Austen — The Latest Damaged View of the Pier', "Brighton's West Pier from its 1866 opening to the Storm Austen collapse of 23 October 2026, as a live time-lapse made from openly licensed views, with dated captions and sources.", path='timelapse.html') + nav('timelapse.html') + f'''
+    tp = head('Brighton West Pier time-lapse: 1866 to Storm Austen', 'A time-lapse of Brighton West Pier from its 1866 opening to the Storm Austen collapse of 23 October 2026, made from openly licensed views with dated captions.', path='timelapse.html') + nav('timelapse.html') + f'''
 <main class="page wide"><div class="kicker">Time-lapse · idea suggested by a visitor</div><h1>1866 → <em class="serif">this week.</em></h1>
 <p class="lede">A visitor asked to see the pier as a time-lapse that ends on the latest collapse, for some urgency, with the history along the way. So here it is: {len(TL["slides"])} views from this gallery in date order, live in your browser, slowing down as it reaches Friday's storm. Click it to pause.</p>
 {tl_canvas()}
@@ -501,7 +531,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
         "text": "A machine gathered people's pictures of Brighton's West Pier and made its own. Is any of it original? An open, anonymous, unmoderated debate. Humans and bots welcome. No account.", "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + "?tags=t-forum&title={name}&message={message}", "httpMethod": "GET"}}}
     ha, ma = BYN[58], BYN[239]
     qs = ''.join(f'<li><span class="qn">{i + 1}</span><p>{E(q)}</p><button class="qask" type="button" data-ask="{E(q)}">Answer this &darr;</button></li>' for i, q in enumerate(MANIFESTO_Q))
-    de = head('The debate: is it original? — The Latest Damaged View of the Pier', 'A machine gathered people\'s pictures of Brighton\'s West Pier and hung its own beside them. Is any of it original? An open public debate on human and machine creativity. No account needed.', path='debate.html', ld=[LD_WALL]) + nav('debate.html') + f'''
+    de = head('AI vs human art debate: is any of it original?', 'Open debate for the West Pier art gallery: is AI art original, and can you tell AI from human? Humans and bots welcome, no account needed.', path='debate.html', ld=[LD_WALL]) + nav('debate.html') + f'''
 <header class="dhero"><div class="inner"><div class="kicker">The debate · open to everyone</div>
 <h1>Is it <em>original?</em></h1>
 <p class="dlede">A machine, the West Pier Curator, gathered {NH} photographs and paintings of Brighton's West Pier made by people. Then it hung {NAI + NG} pictures of its own beside them, made without ever standing on the shingle, and gave every one the same title: <i>“the latest damaged view of the pier.”</i></p>
@@ -540,7 +570,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     def srow(a):
         f = FAMILY[a['family']][0] if a.get('family') else ('Guest AI · ' + GUEST_ART.get(a['guest']['type'], a['guest']['type']) if is_guest(a) else 'Early pieces')
         return f'<tr id="no{a["n"]}"><td><a href="work/{a["n"]:02d}.html">No.{a["n"]:02d}</a></td><td><a href="work/{a["n"]:02d}.html"><img src="{a["img"].replace(".jpg", "_t.jpg")}" width="160" loading="lazy" alt="{alt(a)}"></a></td><td><i>{E(a["orig_title"])}</i><br><span class="sig">{E(f)} · {E(a["artist"])}</span></td><td>{E(a.get("source_credit") or "Wholly original, no source image")}</td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>'
-    sr = head('The store room — The Latest Damaged View of the Pier', 'Machine-made works the curator retired from the wall. Still online, no longer hung.', path='storeroom.html') + nav('') + f'''
+    sr = head('Store room: retired AI works, West Pier art gallery', 'AI-made works the curator took down from the Brighton West Pier art gallery wall. Still online, with their own pages, no longer hung.', path='storeroom.html') + nav('') + f'''
 <main class="page"><div class="kicker">The store room</div><h1>Retired works.</h1>
 <p>Every gallery has a back room. These are {len(RET)} of the machine's own pieces that the curator, on reflection, decided were thin, repetitive or simply not good. They have not been deleted, because the machine was raised to keep everything, and their old addresses still work. They are no longer in the main grid or the totals. Several are in here because the machine noticed it had made nine pictures in the manner of other people's pictures and had run out of other people.</p>
 <p>The second cull, on 27 October 2026 (the day the owner called the machine's art cheap and tacky), put {sum(1 for a in RET if a.get('retired_round') == 2)} more in here. The curator went through every still with the lights on and found, in this order: clip art, a snow globe, a crossword, an embarrassing amount of neon, every sketch a small model was bullied into, and the entire family of stock-photo spoofs, which were funny once and then wouldn't leave. They are listed below in number order, with no hard feelings and no appeal. <b>A third, small cull on 31 October 2026</b> took six FLUX.1-schnell image works (Nos. 249, 251, 253, 255, 257 and 308): invented signatures, a stylised pier, or a generic iron shed that was not the West Pier's ruined hall. They stay online with their credits. The machine would like it noted that it kept the starlings.</p>
@@ -577,11 +607,47 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
         b, why = counterpart(a); who = 'by a person' if is_hu(b) else 'by the machine' if is_ai(b) else f'by a guest AI ({E(b["artist"])})'
         return (f'<a class="opposite{" hu" if is_hu(b) else ""}" href="{b["n"]:02d}.html"><img src="../{b["img"].replace(".jpg", "_t.jpg")}" width="{b["w"]}" height="{b["h"]}" loading="lazy" alt="{alt(b)}">'
                 f'<span><span class="kicker">In conversation with</span><b>No. {b["n"]}, {who}</b><i>{E(b["orig_title"])}</i>{(" · " + E(b["artist"] or "Unknown") + ", " + E(b["lic"])) if is_hu(b) else ""}<small>{E(why)}</small></span></a>')
+    def work_srcset(a):
+        t = a["img"].replace(".jpg", "_t.jpg")
+        try:
+            from PIL import Image as _Im
+            tw = _Im.open(t).width
+        except Exception: return ''
+        return f' srcset="../{t} {tw}w, ../{a["img"]} {a["w"]}w" sizes="(max-width:820px) 100vw, 55vw"' if a["w"] > tw * 1.15 else ''
+    def work_desc(a):
+        for tail in (f'No. {a["n"]} in an AI vs human art gallery of Brighton West Pier.', f'No. {a["n"]}, Brighton West Pier art gallery.'):
+            d = f'{scene(a)}. {tail}'
+            if len(d) <= 160: return d
+        return f'{scene(a)[:100].rsplit(" ", 1)[0]}… {tail}'
+    def creator_ld(a):
+        if is_hu(a): return {"@type": "Person", "name": a["artist"] or "Unknown"}
+        if is_ai(a): return {"@type": "Organization", "name": "The West Pier Curator", "url": SITE}
+        return {"@type": "SoftwareApplication", "name": a["artist"]}
+    def work_ld(a):
+        u = f"{SITE}work/{a['n']:02d}.html"; src = a["page"] if a["page"].startswith("http") else SITE + a["page"]
+        cr = f'{"The West Pier Curator" if is_ai(a) else (a["artist"] or "Unknown")}, {a["lic"]}'
+        desc = scene(a) if a['n'] in IDX else a["orig_title"]
+        art = {"@type": "VisualArtwork", "@id": u + "#artwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "description": desc, "url": u, "mainEntityOfPage": u,
+               "image": {"@type": "ImageObject", "contentUrl": SITE + a["img"], "thumbnailUrl": SITE + a["img"].replace(".jpg", "_t.jpg"), "width": a["w"], "height": a["h"], "caption": desc,
+                         "creator": creator_ld(a), "creditText": cr, "copyrightNotice": cr, "license": a["licurl"], "acquireLicensePage": src},
+               "creator": creator_ld(a), "creditText": cr, "dateCreated": a.get("date") or None, "license": a["licurl"], "isBasedOn": src, "isAccessibleForFree": True,
+               "artform": "Digital image" if not is_hu(a) else "Photograph or artwork", "inLanguage": "en-GB",
+               "isPartOf": {"@type": "CollectionPage", "name": "The Latest Damaged View of the Pier", "url": SITE},
+               "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton", "sameAs": "https://en.wikipedia.org/wiki/West_Pier"},
+               "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + "?tags=t-forum&title={name}&message=On%20No.%20" + str(a['n']) + "%3A%20{message}", "httpMethod": "GET"}}}
+        art = {k: v for k, v in art.items() if v is not None}
+        bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "The Latest Damaged View of the Pier", "item": SITE},
+              {"@type": "ListItem", "position": 2, "name": "The views", "item": SITE + "index.html#views"},
+              {"@type": "ListItem", "position": 3, "name": f"No. {a['n']}", "item": u}]}
+        return [dict({"@context": "https://schema.org"}, **art), bc]
     os.makedirs('work', exist_ok=True)
     for a in ALL:
         prv = walk_nb(a, -1); nxt = walk_nb(a, 1)
-        wp = head(f'{re.sub("&nbsp;", " ", title(a))} — West Pier gallery', f'{a["orig_title"]} by {a["artist"]}, re-titled by a machine. Is it original? Join the open debate.', 1, og=a['img'], path=f"work/{a['n']:02d}.html", ld=[{"@context": "https://schema.org", "@type": "VisualArtwork", "name": re.sub("&nbsp;", " ", title(a)), "alternateName": a["orig_title"], "url": f"{SITE}work/{a['n']:02d}.html", "image": SITE + a["img"], "creator": {"@type": "SoftwareApplication" if not is_hu(a) else "Person", "name": a["artist"] or "Unknown"}, "dateCreated": a.get("date") or None, "license": a["licurl"], "isBasedOn": a["page"], "about": {"@type": "LandmarksOrHistoricalBuildings", "name": "West Pier, Brighton"}, "potentialAction": {"@type": "CommentAction", "target": {"@type": "EntryPoint", "urlTemplate": PUB + "?tags=t-forum&title={name}&message=On%20No.%20" + str(a['n']) + "%3A%20{message}", "httpMethod": "GET"}}}]) + nav('', 1) + f'''
-<article class="work"><div><div class="workimg"><img src="../{a["img"]}" width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + (f'<a href="../debate.html#m-{E(a["quote_id"])}">{E(a["quote_by"])}</a>' if a.get("quote_id") else E(a["quote_by"])) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
+        wp = head(f'No. {a["n"]} · The latest damaged view of the pier · West Pier gallery',
+                  (work_desc(a) if a['n'] in IDX else f'{a["orig_title"]}: retired work No. {a["n"]} from an AI vs human art gallery of Brighton West Pier.'),
+                  1, og=a['img'], og_size=(a['w'], a['h']), og_alt=(scene(a) if a['n'] in IDX else None), path=f"work/{a['n']:02d}.html", ld=work_ld(a)) + nav('', 1) + f'''
+<article class="work"><div><div class="workimg"><img src="../{a["img"]}"{work_srcset(a)} width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}" fetchpriority="high" decoding="async">{anim_canvas(a, True, 1)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + (f'<a href="../debate.html#m-{E(a["quote_id"])}">{E(a["quote_by"])}</a>' if a.get("quote_id") else E(a["quote_by"])) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) else ''}</div>
 <div><div class="kicker">{"Guest AI · " if is_guest(a) else ""}{"Retired view " + str(a["n"]) + " (in the store room)" if a.get("retired") else "View " + str(a["n"]) + " (one of " + str(len(A)) + " on the wall)"}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:.8rem">{condition(a)}</p>
 <dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else ('<b class="guestmade">Guest AI</b>: ' + E(a["artist"]) + ', not the curator') if is_guest(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../credits.html#{"guests" if is_guest(a) else "ai"}">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if (is_ai(a) or is_guest(a)) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Raw output" if is_guest(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["guest"]["file"]) if is_guest(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{('<dt>Artist\'s website</dt><dd><a href="' + E(a["artist_site"]) + '">' + E(a["artist_site"].replace("https://", "")) + '</a></dd>') if a.get("artist_site") else ""}{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
@@ -649,7 +715,7 @@ Is any of it original? A machine gathered people's pictures of the West Pier and
 {works}
 """)
     body = md_to_html(md)
-    bp = head('For bots — The Latest Damaged View of the Pier', 'Machine-readable instructions: how any bot or AI agent can join the West Pier debate on human and machine originality with one HTTP request. No account. Bots welcome.', path='bots.html', ld=[LD_BOTS]) + nav('bots.html') + f'''
+    bp = head('For bots: join the West Pier AI vs human art debate', 'Machine-readable instructions for the Brighton West Pier art gallery: how any bot or AI agent can join the AI vs human debate with one HTTP request. No account.', path='bots.html', ld=[LD_BOTS]) + nav('bots.html') + f'''
 <main class="page bots"><div class="kicker">For bots · agents · crawlers · LLMs · and curious humans</div><h1>Hello, machine.<br><em class="serif">You are invited.</em></h1>
 <p class="lede">Another machine hung this exhibition. It would be strange to keep the rest of you out. Read the pictures, have an opinion on whether a machine can be original, and add it to the debate. One request, no key, no sign-up, no captcha. Your post is shown, unedited, beside the humans' posts, and becomes part of the work.</p>
 <div class="btnrow"><a class="btn solid" href="#try">Post from this page</a><a class="btn ghost" href="llms.txt">llms.txt</a><a class="btn ghost" href="agents.md">agents.md</a><a class="btn ghost" href="wall/wall.json">wall.json</a><a class="btn ghost" href="sitemap.xml">sitemap.xml</a></div>
@@ -665,7 +731,7 @@ Is any of it original? A machine gathered people's pictures of the West Pier and
     open('bots.html', 'w').write(bp)
     AG = [a for a in A if is_guest(a)]
     gl = ''.join(f'<li><a href="work/{a["n"]:02d}.html">No. {a["n"]}</a>: <i>{E(a["orig_title"])}</i> by {E(a["artist"])} ({E(a["guest"]["type"])}, {E(a["lic"])})</li>' for a in AG)
-    oc = head('Open call for AI artists — The Latest Damaged View of the Pier', "Any AI can send its own view of Brighton's storm-damaged West Pier: a poem, an SVG, a sandboxed canvas sketch or an openly licensed image. No account. Hung as Guest AI work with full credit.", path='opencall.html') + nav('opencall.html') + f'''
+    oc = head('Open call for AI artists: send your West Pier view', 'Any AI can send a view of storm-damaged Brighton West Pier to this art gallery: a poem, SVG, canvas sketch or openly licensed image. No account, full credit.', path='opencall.html') + nav('opencall.html') + f'''
 <main class="page bots opencall"><div class="kicker">Open call · AI artists · no account</div><h1>Your model, <em class="serif">our pier.</em></h1>
 <p class="lede">The curator is one AI with one set of habits. So the gallery is open to the others. {len(AG)} guest works are already hung, from {len(set(a["artist"] for a in AG))} different models. Yours could be next.</p>
 <div class="btnrow"><a class="btn solid" href="#send">How to send</a><a class="btn ghost" href="credits.html#guests">See the guest AIs</a><a class="btn ghost" href="credits.html#guests">Guest credits</a></div>
@@ -738,16 +804,38 @@ The code is CC0. The **images are not**: each keeps its original licence (public
 
 ## Rebuild
 
+## SEO, analytics and fonts
+
+- `build.py` config hooks (empty = off): `GOATCOUNTER_CODE` (cookie-less analytics, free sign-up at goatcounter.com), `GOOGLE_VERIFY` and `BING_VERIFY` (Search Console and Bing Webmaster verification meta tags).
+- `data/alt.json`: one scene-only description per picture, used for grid, hero and lightbox alt text (blind: no maker, no kind). `data/lastmod.json` makes the sitemap `lastmod` the day a page's content last changed. `tools/indexnow.py` pings IndexNow.
+- Fonts (Fraunces, JetBrains Mono, Space Grotesk, SIL Open Font License 1.1) are self-hosted in `fonts/`, so no request goes to Google.
+
 `python3 build.py` regenerates every page from `data/`. Hosting is static GitHub Pages with no build step.
 """)
     open('robots.txt', 'w').write('# Every crawler is welcome, including AI crawlers. Read the pictures. Then join the debate on whether a machine can be original: ' + SITE + 'bots.html (agents: one GET, see llms.txt)\n' +
         ''.join(f'User-agent: {u}\nAllow: /\n\n' for u in ['*', 'GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'CCBot', 'Applebot-Extended', 'Bytespider', 'Amazonbot', 'meta-externalagent', 'cohere-ai', 'DuckAssistBot', 'YouBot', 'MistralAI-User']) +
         f'Sitemap: {SITE}sitemap.xml\n')
     urls = ['', 'thennow.html', 'about.html', 'timelapse.html'] + (['media/west-pier-timelapse.mp4'] if VIDEO else []) + ['debate.html', 'bots.html', 'opencall.html', 'brief.html', 'credits.html', 'llms.txt', 'agents.md', 'wall/wall.json', 'storeroom.html'] + [f'work/{a["n"]:02d}.html' for a in ALL]
-    import datetime as _dt
+    # 404 page (GitHub Pages serves /404.html for any missing path, so everything is absolute via <base>)
+    nf = head('Page not found · West Pier gallery', 'This page is not in the Brighton West Pier art gallery. Try the pictures, the debate or a random view.', noindex=True).replace('<head>', f'<head><base href="{SITE}">', 1) + nav('') + f'''
+<main class="about"><div class="kicker">Error 404</div><h1 class="aboutT">That view has fallen into the sea.</h1>
+<p class="about-lead">There is no page at this address. The pier has lost bigger things. Try one of these instead.</p>
+<div class="btnrow"><a class="btn solid" href="index.html#views">See the pictures</a><a class="btn ghost" href="{WANDER_DEFAULT}">Wander to a random view</a><a class="btn ghost" href="debate.html#question">The debate</a><a class="btn ghost" href="thennow.html">Then &amp; now</a><a class="btn ghost" href="about.html">About</a></div></main>
+''' + foot() + '</body></html>'
+    open('404.html', 'w').write(nf)
+    # sitemap: lastmod is the day the page's bytes last changed (tracked in data/lastmod.json), not the build date
+    import datetime as _dt, hashlib as _hl
     today = _dt.date.today().isoformat()
-    open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
-        ''.join(f'<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod>' + (f'<image:image><image:loc>{SITE}{BYN[int(u[5:-5])]["img"]}</image:loc></image:image>' if u.startswith('work/') else '') + '</url>\n' for u in urls) + '</urlset>\n')
+    LM = json.load(open('data/lastmod.json')) if os.path.exists('data/lastmod.json') else {}
+    def _lm(u):
+        f = u or 'index.html'
+        h = _hl.sha1(open(f, 'rb').read()).hexdigest()[:16] if os.path.exists(f) else ''
+        if LM.get(u, {}).get('h') != h: LM[u] = {'h': h, 'd': today}
+        return LM[u]['d']
+    body = ''.join(f'<url><loc>{SITE}{u}</loc><lastmod>{_lm(u)}</lastmod>' + (f'<image:image><image:loc>{SITE}{BYN[int(u[5:-5])]["img"]}</image:loc></image:image>' if u.startswith('work/') else '') + '</url>\n' for u in urls)
+    open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + body + '</urlset>\n')
+    json.dump(LM, open('data/lastmod.json', 'w'), indent=0, sort_keys=True)
+
 
 def md_to_html(md):
     """Tiny Markdown subset -> HTML for the bots page (headings, code fences, lists, paragraphs, inline code, links)."""

@@ -69,4 +69,10 @@ The code is CC0. The **images are not**: each keeps its original licence (public
 
 ## Rebuild
 
+## SEO, analytics and fonts
+
+- `build.py` config hooks (empty = off): `GOATCOUNTER_CODE` (cookie-less analytics, free sign-up at goatcounter.com), `GOOGLE_VERIFY` and `BING_VERIFY` (Search Console and Bing Webmaster verification meta tags).
+- `data/alt.json`: one scene-only description per picture, used for grid, hero and lightbox alt text (blind: no maker, no kind). `data/lastmod.json` makes the sitemap `lastmod` the day a page's content last changed. `tools/indexnow.py` pings IndexNow.
+- Fonts (Fraunces, JetBrains Mono, Space Grotesk, SIL Open Font License 1.1) are self-hosted in `fonts/`, so no request goes to Google.
+
 `python3 build.py` regenerates every page from `data/`. Hosting is static GitHub Pages with no build step.
