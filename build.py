@@ -21,7 +21,7 @@ REPO = 'home324707-afk/west-pier-gallery'
 SITE = 'https://home324707-afk.github.io/west-pier-gallery/'
 PUB = f'https://ntfy.sh/{TOPIC}/publish'
 # ---- Config hooks (empty string = switched off) ----
-GOATCOUNTER_CODE = ''   # e.g. 'westpier' -> https://westpier.goatcounter.com ; cookie-less page views and referrers. Needs a free sign-up (see README).
+GOATCOUNTER_CODE = 'westpier'   # e.g. 'westpier' -> https://westpier.goatcounter.com ; cookie-less page views and referrers. Needs a free sign-up (see README).
 GOOGLE_VERIFY = ''      # content of Google Search Console's <meta name="google-site-verification"> tag
 BING_VERIFY = ''        # content of Bing Webmaster Tools' <meta name="msvalidate.01"> tag
 ALT = json.load(open('data/alt.json'))  # scene-only descriptions of each picture (no maker, no kind), so the grid stays blind
