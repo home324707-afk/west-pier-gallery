@@ -1,25 +1,25 @@
-/* Family: storm. A timelapse of real weather, resolving into the pier it left behind. Only real data (ai/fam/storm.json):
+/* Family: storm. A timelapse of real weather. Only real data (ai/fam/storm.json):
    hourly 10 m wind gusts and precipitation from the DWD ICON-D2 2 km model (via Open-Meteo, CC BY 4.0) on a 0.04-degree grid over the Sussex coast,
    22 Oct 12:00 to 25 Oct 00:00 UTC 2026; the model is hourly, and the frames between hours are interpolated (linearly, in time and space), not measured.
    Rings on the map are real METAR observations (Shoreham, Gatwick, Southampton; about every 30 minutes) shown only when one is fresh.
-   Coastline: OpenStreetMap (ODbL). The timelapse ends on a long exposure of what remained of the pier.
-   p: {seed, title}  (src: the final pier photograph) */
-(()=>{const{root,off,cover}=WPAI.util;let D=null;
+   Coastline: OpenStreetMap (ODbL). Pure data and coastline: no photograph. Holds on the last frame, fades to navy, loops.
+   p: {seed} */
+(()=>{const{root,off}=WPAI.util;let D=null;
 const ST=[[0,'#06142b'],[14,'#0b2447'],[27,'#123562'],[38,'#1b5a92'],[46,'#6e9cc0'],[52,'#efe6cf'],[58,'#e6a23c'],[65,'#d4472a'],[72,'#fff1d6']];
 const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 const LUT=(()=>{const L=new Uint8Array(256*3);for(let i=0;i<256;i++){const v=i*80/255;let k=0;while(k<ST.length-2&&v>ST[k+1][0])k++;const a=ST[k],b=ST[k+1],u=Math.max(0,Math.min(1,(v-a[0])/(b[0]-a[0]))),ca=hex(a[1]),cb=hex(b[1]);for(let c=0;c<3;c++)L[i*3+c]=ca[c]+(cb[c]-ca[c])*u}return L})();
 const b64=s=>{const a=atob(s),u=new Uint8Array(a.length);for(let i=0;i<a.length;i++)u[i]=a.charCodeAt(i);return u};
 const sm=u=>u*u*u*(u*(u*6-15)+10), ez=u=>u<0?0:u>1?1:sm(u);
 const DAY=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const T_IN=1000,T_STORM=24000,T_DISS=6000,T_HOLD=7000,T_OUT=2000,CYC=T_IN+T_STORM+T_DISS+T_HOLD+T_OUT;
-WPAI.register('f-storm',{fps:24,prep(s){return D?0:fetch(root+'ai/fam/storm.json?v=1').then(r=>r.json()).then(j=>{j.G=b64(j.gust);j.R=b64(j.rain);D=j})},
+const T_IN=1000,T_STORM=24000,T_HOLD=3500,T_OUT=2000,CYC=T_IN+T_STORM+T_HOLD+T_OUT;
+WPAI.register('f-storm',{fps:24,prep(s){return D?0:fetch(root+'ai/fam/storm.json?v=2').then(r=>r.json()).then(j=>{j.G=b64(j.gust);j.R=b64(j.rain);D=j})},
  init(s){const{W,H}=s,[la0,la1,nla]=D.lat,[lo0,lo1,nlo]=D.lon;s.nla=nla;s.nlo=nlo;s.bw=Math.round(Math.min(600,W/2.5));s.bh=Math.round(s.bw*H/W);
   s.X=lo=>(lo-lo0)/(lo1-lo0)*W;s.Y=la=>(la1-la)/(la1-la0)*H;
   const{bw,bh}=s;s.ix=new Int32Array(bw*bh);s.wx=new Float32Array(bw*bh*4);s.hs=new Float32Array(bw*bh);
   for(let j=0;j<bh;j++)for(let i=0;i<bw;i++){const fx=(i+.5)/bw*(nlo-1),fy=(j+.5)/bh*(nla-1),gx=Math.min(nlo-2,fx|0),gy=Math.min(nla-2,(nla-1-fy)|0),ux=fx-gx,uy=(nla-1-fy)-gy,k=i+j*bw;
    s.ix[k]=gx+gy*nlo;s.wx[k*4]=(1-ux)*(1-uy);s.wx[k*4+1]=ux*(1-uy);s.wx[k*4+2]=(1-ux)*uy;s.wx[k*4+3]=ux*uy;s.hs[k]=((i*73856093^j*19349663)>>>0)%1000/1000}
   s.hb=off(bw,bh);s.hx=s.hb.getContext('2d');s.hd=s.hx.createImageData(bw,bh);s.lv=new Uint8Array(bw*bh);s.hv=new Float32Array(bw*bh);
-  s.hl=off(W,H);s.T=0;s.last=null;s.img=s.imgs[0];s.fs=Math.max(8,W/80);
+  s.hl=off(W,H);s.T=0;s.last=null;s.fs=Math.max(8,W/80);
   s.land=new Path2D();for(const r of D.land){r.forEach(([lo,la],i)=>i?s.land.lineTo(s.X(lo),s.Y(la)):s.land.moveTo(s.X(lo),s.Y(la)));s.land.closePath()}
   s.nt=D.nt},
  field(s,h,out){const{bw,bh,nla,nlo,ix,wx}=s,G=D.G,R=D.R,n=nla*nlo,h0=Math.min(s.nt-2,h|0),f=h-h0,gk=D.gk,rk=D.rk,a=h0*n,b=(h0+1)*n,hv=s.hv;
@@ -61,18 +61,9 @@ WPAI.register('f-storm',{fps:24,prep(s){return D?0:fetch(root+'ai/fam/storm.json
   x.fillStyle='rgba(243,236,220,.8)';x.textAlign='right';x.fillText(`MODEL, PIER CELL: ${Math.round(gv)} MPH GUST · ${Math.round(pv)} HPA`,qx+qw,qy-qh-fs*.5);
   x.fillStyle='rgba(243,236,220,.5)';x.fillText('ICON-D2 2 KM, HOURLY. FRAMES BETWEEN HOURS ARE INTERPOLATED. RINGS: MEASURED (METAR)',W*.97,H*.985);x.textAlign='left';x.restore()},
  frame(s,t){const{x,W,H}=s;if(s.last==null)s.last=t;s.T+=Math.min(100,t-s.last);s.last=t;const T=s.T%CYC;
-  const h=Math.max(0,Math.min(1,(T-T_IN)/T_STORM))*(s.nt-1),tD=T-T_IN-T_STORM,k=ez(tD/T_DISS);
-  x.fillStyle='#050f22';x.fillRect(0,0,W,H);
-  if(T<T_IN+T_STORM+T_DISS)this.heat(s,h,T/1000);
-  const fin=T>=T_IN+T_STORM+T_DISS-1;
-  if(!fin||T<T_IN+T_STORM+T_DISS){x.globalAlpha=Math.min(1,T/T_IN);x.drawImage(s.hl,0,0);x.globalAlpha=1}
-  if(tD>0&&s.img){/* the storm's colour settles into the sky of the final photograph */
-   cover(x,s.img,W,H,k);
-   x.save();x.globalCompositeOperation='soft-light';x.globalAlpha=(1-k)*.0+Math.sin(Math.PI*Math.min(1,tD/T_DISS))*.55;x.drawImage(s.hl,0,0);x.restore()}
-  if(tD>T_DISS&&s.img){cover(x,s.img,W,H)}
-  const hudA=T<T_IN+T_STORM?1:Math.max(0,1-tD/(T_DISS*.35));this.hud(s,h,T,hudA*Math.min(1,T/T_IN));
-  if(tD>T_DISS*.4){const a=ez((tD-T_DISS*.4)/(T_DISS*.6)),fs=s.fs;x.save();x.globalAlpha=Math.min(1,a);x.fillStyle='#f3ecdc';x.shadowColor='rgba(0,0,0,.6)';x.shadowBlur=fs*.8;
-   x.font=`italic 300 ${fs*2.4}px Fraunces,serif`;x.fillText('Sunday 25 October 2026. What was left.',W*.03,H*.9);x.shadowBlur=0;x.font=`${fs*.8}px "JetBrains Mono",monospace`;x.fillStyle='rgba(243,236,220,.7)';
-   x.fillText('PHOTOGRAPH: IAN HUNTER, IANHUNTERPHOTO.COM, CC BY-NC 4.0. WEATHER: OPEN-METEO.COM (CC BY 4.0), DWD ICON-D2. MAP: OPENSTREETMAP (ODBL).',W*.03,H*.95);x.restore()}
+  const h=Math.max(0,Math.min(1,(T-T_IN)/T_STORM))*(s.nt-1);
+  x.fillStyle='#050f22';x.fillRect(0,0,W,H);this.heat(s,h,T/1000);
+  x.globalAlpha=Math.min(1,T/T_IN);x.drawImage(s.hl,0,0);x.globalAlpha=1;
+  this.hud(s,h,T,Math.min(1,T/T_IN));
   const fo=T-(CYC-T_OUT);if(fo>0){x.fillStyle=`rgba(5,15,34,${Math.min(1,fo/T_OUT)})`;x.fillRect(0,0,W,H)}}});
 })();

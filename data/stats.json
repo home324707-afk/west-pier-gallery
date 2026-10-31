@@ -482,10 +482,19 @@
    "purpose": "Storm heat map: animated Open-Meteo gust timelapse resolving into the damaged pier",
    "done": "Hung No. 311: storm timelapse family (DWD ICON-D2 hourly gusts via Open-Meteo CC BY 4.0, METAR observation rings, OSM coast) dissolving into Ian Hunter's No. 276; model is hourly, interpolation labelled",
    "images_added": 1
+  },
+  {
+   "n": 53,
+   "start_utc": "2026-10-31T05:20:52Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Storm heat map No. 311: remove photo dissolve, pure heat map loop, relicense CC BY 4.0, new peak poster",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 32062,
- "update_session_count": 52,
+ "update_session_count": 53,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

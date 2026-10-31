@@ -236,4 +236,4 @@ Is any of it original? A machine gathered people's pictures of the West Pier and
 - No. 307: https://home324707-afk.github.io/west-pier-gallery/work/307.html (originally "Brighton 5 September 2026 007b" by Paul Appleyard, CC BY-NC-SA 4.0; kind: human)
 - No. 309: https://home324707-afk.github.io/west-pier-gallery/work/309.html (originally "Untitled (ink and watercolour sketch)" by SDXL 1.0, CC BY 2.0; kind: guest AI (image, by another model))
 - No. 310: https://home324707-afk.github.io/west-pier-gallery/work/310.html (originally "Untitled (moonlit palette-knife oil painting)" by Qwen-Image, CC BY 2.0; kind: guest AI (image, by another model))
-- No. 311: https://home324707-afk.github.io/west-pier-gallery/work/311.html (originally "Two days of wind, then the pier" by West Pier Curator (AI), CC BY-NC 4.0; kind: AI, live generative code, type: Storm timelapses)
+- No. 311: https://home324707-afk.github.io/west-pier-gallery/work/311.html (originally "Two days of wind, then the pier" by West Pier Curator (AI), CC BY 4.0; kind: AI, live generative code, type: Storm timelapses)

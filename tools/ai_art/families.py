@@ -34,10 +34,10 @@ FAMILY = {  # key: (label, one-line description)
  'games': ('Games & puzzles', 'The pier as something you play: falling blocks, a four-shade handheld, a text adventure, a crossword.'),
  'minimal': ('Minimal & conceptual', 'As little as possible: raked shingle, one sentence, a palindrome.'),
  'optical': ('Optical toys', 'Pre-cinema machines for making pictures move: a zoetrope turning twelve drawings of one wave into motion.'),
- 'storm': ('Storm timelapses', 'Real weather, replayed: hourly model gusts over the Sussex coast, with measured observations, dissolving into the pier the storm left. Open data only; interpolation is labelled.'),
+ 'storm': ('Storm timelapses', 'Real weather, replayed: hourly model gusts over the Sussex coast, with measured observations, over the coastline. Open data only; interpolation is labelled.'),
  'data': ('Data portraits', 'Only real data: this gallery\'s own catalogue and the sourced timeline, drawn as the pier.'),
 }
-V = lambda key, title, p, method, sources=(), w=1200, h=800, ms=9000, slot=None, credit=None: dict(key=key, title=title, p=p, method=method, sources=list(sources), w=w, h=h, ms=ms, slot=slot, credit=credit)
+V = lambda key, title, p, method, sources=(), w=1200, h=800, ms=9000, slot=None, credit=None, lic=None: dict(key=key, title=title, p=p, method=method, sources=list(sources), w=w, h=h, ms=ms, slot=slot, credit=credit, lic=lic)
 DUSK = ['#1d2b45', '#e9a46a']
 VARS = {
  'optical': [
@@ -159,8 +159,8 @@ VARS = {
 # Variety pass (25 Oct 2026): near-duplicates were reworked IN PLACE. Each rework keeps its catalogue number (slot), page and
 # discussion thread; the variation it replaced is listed in RETIRED and no longer hung.
 VARS['storm'] = [
- V('st-austen', 'Two days of wind, then the pier', dict(seed=2310), 'Storm timelapse: real hourly 10 m gusts and rain from the DWD ICON-D2 2 km model (22 Oct 12:00 to 25 Oct 00:00 UTC 2026, Open-Meteo, CC BY 4.0), drawn as a heat map over the OpenStreetMap coastline and replayed in 24 seconds; frames between the hourly steps are interpolated. Rings are measured METAR gusts (Shoreham, Gatwick). It dissolves into Ian Hunter\'s photograph of the ruin on 25 October.',
-   sources=[276], w=1500, h=1000, ms=27500, credit='Weather: Open-Meteo.com Historical Forecast API (CC BY 4.0), model DWD ICON-D2 (CC BY 4.0); observations: METAR via Iowa Environmental Mesonet; coastline: (c) OpenStreetMap contributors (ODbL); photograph: Ian Hunter, ianhunterphoto.com (CC BY-NC 4.0, used with his permission)'),
+ V('st-austen', 'Two days of wind, then the pier', dict(seed=2310), 'Storm timelapse: real hourly 10 m gusts and rain from the DWD ICON-D2 2 km model (22 Oct 12:00 to 25 Oct 00:00 UTC 2026, Open-Meteo, CC BY 4.0), drawn as a heat map over the OpenStreetMap coastline and replayed in 24 seconds; frames between the hourly steps are interpolated. Rings are measured METAR gusts (Shoreham, Gatwick). No photograph is used.',
+   w=1500, h=1000, ms=23800, lic='CC BY 4.0', credit='Weather: Open-Meteo.com Historical Forecast API (CC BY 4.0), model DWD ICON-D2 (CC BY 4.0); observations: METAR via Iowa Environmental Mesonet; coastline: (c) OpenStreetMap contributors (ODbL). No source image'),
 ]
 RETIRED = {'flow-iron-rust', 'flow-iron-ghost', 'flow-dissolve-sea', 'flow-wind-dusk', 'flow-iron-blueprint', 'ls-fern', 'ls-roots', 'ls-koch', 'ls-scroll',
            'ca-rust-fine', 'ca-rule90', 'ca-cyclic', 'tide-pool-swell', 'tide-pool-night', 'tide-swell-calm', 'tide-swell-dusk', 'ty-words-night', 'ty-rain',
@@ -258,7 +258,7 @@ def hang_all(restill=False):
             im = r.render('f-' + v['family'], v['p'], v['w'], v['h'], src, v['ms'])
             if v['key'] in have:
                 save(im, J(have[v['key']]['img'])); print('restill', have[v['key']]['n'], v['key']); continue
-            n = len(A) + 1; lic = derived_licence(v['sources']) if v['sources'] else 'CC0 1.0'
+            n = len(A) + 1; lic = derived_licence(v['sources']) if v['sources'] else (v.get('lic') or 'CC0 1.0')
             credit = '; '.join(f'No. {s}: "{byn[s]["orig_title"]}" by {byn[s]["artist"] or "Unknown"} ({byn[s]["lic"]})' for s in v['sources'])
             if v.get('credit'): credit = (credit + '. ' if credit else '') + v['credit']
             w, h = save(im, J('img', f'{n:02d}.jpg'))

@@ -9366,25 +9366,23 @@
   "params": {
    "seed": 2310
   },
-  "still_ms": 27500,
+  "still_ms": 23800,
   "src": "Made by the West Pier Curator (AI) for this exhibition",
   "file": "ai:st-austen",
   "orig_title": "Two days of wind, then the pier",
   "artist": "West Pier Curator (AI)",
   "date": "2026-10-31",
-  "lic": "CC BY-NC 4.0",
-  "licurl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0/",
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/storm.js",
   "dl": "",
   "desc": "",
-  "method": "Storm timelapse: real hourly 10 m gusts and rain from the DWD ICON-D2 2 km model (22 Oct 12:00 to 25 Oct 00:00 UTC 2026, Open-Meteo, CC BY 4.0), drawn as a heat map over the OpenStreetMap coastline and replayed in 24 seconds; frames between the hourly steps are interpolated. Rings are measured METAR gusts (Shoreham, Gatwick). It dissolves into Ian Hunter's photograph of the ruin on 25 October.",
-  "sources": [
-   276
-  ],
-  "source_credit": "No. 276: \"Survival\" by Ian Hunter (CC BY-NC 4.0). Weather: Open-Meteo.com Historical Forecast API (CC BY 4.0), model DWD ICON-D2 (CC BY 4.0); observations: METAR via Iowa Environmental Mesonet; coastline: (c) OpenStreetMap contributors (ODbL); photograph: Ian Hunter, ianhunterphoto.com (CC BY-NC 4.0, used with his permission)",
+  "method": "Storm timelapse: real hourly 10 m gusts and rain from the DWD ICON-D2 2 km model (22 Oct 12:00 to 25 Oct 00:00 UTC 2026, Open-Meteo, CC BY 4.0), drawn as a heat map over the OpenStreetMap coastline and replayed in 24 seconds; frames between the hourly steps are interpolated. Rings are measured METAR gusts (Shoreham, Gatwick). No photograph is used.",
+  "sources": [],
+  "source_credit": "Weather: Open-Meteo.com Historical Forecast API (CC BY 4.0), model DWD ICON-D2 (CC BY 4.0); observations: METAR via Iowa Environmental Mesonet; coastline: (c) OpenStreetMap contributors (ODbL). No source image",
   "img": "img/311.jpg",
   "w": 1500,
   "h": 1000,
-  "note": "Derivative released under CC BY-NC 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
+  "note": "Released under CC BY 4.0, matching the weather data (Open-Meteo, DWD ICON-D2). Credit the West Pier Curator, Open-Meteo and OpenStreetMap contributors if you reuse it."
  }
 ]
