@@ -484,7 +484,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
         MACHINES.append([_k, _w[0]['n'], f'{_k}: guest AI, {len(_w)} work{"s" if len(_w) != 1 else ""} on the wall', 1, ('fam-' + _slug(_k)) if _k in _imgfam else 'no' + str(_w[0]['n'])])
     MURM_ALL = MACHINES + MURM_NAMES
     murm = ('<section class="namemurm" aria-label="The artists, human and machine, as a flock"><canvas id="namemurm" aria-hidden="true"></canvas>'
-            '<p class="nm-cap">Every name here made a picture of the pier. <b class="nm-red">The red ones are machines.</b></p>'
+            '<p class="nm-cap">Every name here made a picture of the pier.</p>'
             '<p class="nm-credit">Background: pencil sketch drawn by a machine (Grok Bot image generator), after <a href="work/33.html">No. 33</a> by ' + E(BYN[33]['artist']) + ', <a href="' + E(BYN[33]['licurl']) + '">' + E(BYN[33]['lic']) + '</a></p></section>'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" media="print" onload="this.media=\'all\'">'
             '<script>window.MURM_NAMES=' + json.dumps(MURM_ALL, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=10" defer></script>')
