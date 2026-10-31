@@ -419,10 +419,19 @@
    "purpose": "Add No. 307 (Paul Appleyard, CC BY-NC-SA 4.0)",
    "done": "Added No. 307 (human, Paul Appleyard, Flickr, CC BY-NC-SA 4.0 verified on the Flickr page: close-up of the ruined pier-head ironwork with a hanging staircase, 5 Sep 2026); no per-work thread",
    "images_added": 1
+  },
+  {
+   "n": 46,
+   "start_utc": "2026-10-31T00:52:49Z",
+   "end_utc": "2026-10-31T00:52:49Z",
+   "seconds": 0,
+   "purpose": "Name murmuration on the Credits page",
+   "done": "Added an animated boids murmuration of the human artists' names at the top of the Credits page (names.js)",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 23206,
- "update_session_count": 45,
+ "update_session_count": 46,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
