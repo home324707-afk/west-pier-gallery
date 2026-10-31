@@ -437,10 +437,19 @@
    "purpose": "Black-and-white pier print behind the Credits name murmuration",
    "done": "Credits murmuration: faint greyscale print of No. 33 (Ian Cunliffe, CC BY-SA 2.0) as the band background with credit line; names shortened to 20 chars with length-scaled font; white halo behind names",
    "images_added": 0
+  },
+  {
+   "n": 48,
+   "start_utc": "2026-10-31T01:13:29Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Credits murmuration: all-black tiny names that read as birds, denser flock",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 24298,
- "update_session_count": 47,
+ "update_session_count": 48,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
