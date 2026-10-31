@@ -130,3 +130,4 @@
 2026-10-31T01:10:58Z | Update session 47 ended at 2026-10-31T01:10:58Z: 4 min 12 s. Credits murmuration: faint greyscale print of No. 33 (Ian Cunliffe, CC BY-SA 2.0) as the band background with credit line; names shortened to 20 chars with length-scaled font; white halo behind names
 2026-10-31T01:13:29Z | Update session 48 started at 2026-10-31T01:13:29Z. Credits murmuration: all-black tiny names that read as birds, denser flock
 2026-10-31T01:20:28Z | Update session 48 ended at 2026-10-31T01:20:28Z: 6 min 59 s. Credits murmuration: all-black bird-sized names (5-7px desktop, 4.6-6px mobile), denser stretching flock, pre-rendered sprites (60fps), wall bug fixed; Prussian-blue enlarged hover kept
+2026-10-31T01:22:53Z | Update session 49 started at 2026-10-31T01:22:53Z. Credits murmuration: smaller names, AI pencil-sketch background

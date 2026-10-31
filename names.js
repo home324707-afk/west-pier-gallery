@@ -7,13 +7,13 @@ const cx=cv.getContext('2d'),box=cv.parentNode,reduce=matchMedia('(prefers-reduc
 const small=innerWidth<700,DPR=Math.min(devicePixelRatio||1,2);
 let W=0,H=0;
 /* cap the flock; repeat names to fill it if there are few */
-const NB=small?95:170,B=[],FONT=s=>`600 ${s.toFixed(2)}px "Space Grotesk",system-ui,sans-serif`;
+const NB=small?95:170,B=[],FONT=s=>`700 ${s.toFixed(2)}px Caveat,"Segoe Print","Bradley Hand",cursive`,INK='#111';
 const rnd=(a,b)=>a+Math.random()*(b-a);
 function resize(){const r=box.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);fonts();if(reduce||!running)draw()}
-function fonts(){for(const b of B){b.fs=((small?4.6:5.2)+b.z*(small?1.4:1.8))*Math.max(.8,Math.min(1,1-(b.name.length-9)*.02));cx.font=FONT(b.fs);cx.letterSpacing='.15px';b.w=cx.measureText(b.name).width;sprite(b)}}
+function fonts(){for(const b of B){b.fs=((small?4.9:5.6)+b.z*(small?1.1:1.5))*Math.max(.8,Math.min(1,1-(b.name.length-9)*.02));cx.font=FONT(b.fs);cx.letterSpacing='0px';b.w=cx.measureText(b.name).width;sprite(b)}}
 /* each name is pre-drawn once (subtle white halo, solid black text) so a frame is just drawImage */
-function sprite(b){const pw=Math.ceil(b.w+6),ph=Math.ceil(b.fs*1.5+4),c=b.sp||(b.sp=document.createElement('canvas')),g=c.getContext('2d'),s=DPR;c.width=pw*s;c.height=ph*s;g.setTransform(s,0,0,s,0,0);g.font=FONT(b.fs);g.letterSpacing='.15px';g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';g.lineWidth=1.6;g.strokeStyle='rgba(255,255,255,.55)';g.strokeText(b.name,pw/2,ph/2);g.fillStyle='#000';g.fillText(b.name,pw/2,ph/2);b.sw=pw;b.sh=ph}
-for(let i=0;i<NB;i++){const e=L[i%L.length];B.push({name:e[0],n:e[1],full:e[2]||e[0],x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,z:Math.random(),w:60,fs:12,hi:0})}
+function sprite(b){const pw=Math.ceil(b.w+6),ph=Math.ceil(b.fs*1.5+4),c=b.sp||(b.sp=document.createElement('canvas')),g=c.getContext('2d'),s=DPR;c.width=pw*s;c.height=ph*s;g.setTransform(s,0,0,s,0,0);g.font=FONT(b.fs);g.letterSpacing='0px';g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';g.lineWidth=1.5;g.strokeStyle='rgba(255,255,255,.5)';g.strokeText(b.name,pw/2,ph/2);g.fillStyle=INK;g.fillText(b.name,pw/2,ph/2);b.sw=pw;b.sh=ph}
+for(let i=0;i<NB;i++){const e=L[i%L.length];B.push({name:e[0],n:e[1],full:e[2]||e[0],x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,rot:(Math.random()-.5)*.36,z:Math.random(),w:60,fs:12,hi:0})}
 const sepR=small?.9:1,BW=small?84:66;
 let t=Math.random()*100,ax=0,ay=0;
 function place(){W=W||box.clientWidth;H=H||box.clientHeight;for(const b of B){b.x=W*.5+rnd(-.28,.28)*W;b.y=H*.5+rnd(-.2,.2)*H}}
@@ -46,8 +46,8 @@ function draw(){
  /* the name being pointed at is drawn last, on top */
  for(let pass=0;pass<2;pass++)for(const b of B){if((b.hi>0)!==(pass===1))continue;
   const ang=Math.max(-.12,Math.min(.12,b.vy*.06));
-  cx.save();cx.translate(b.x,b.y);cx.rotate(ang);
-  if(b.hi>0){const h=Math.min(1,b.hi),fs=Math.max(11,b.fs*2.6);cx.font=FONT(fs);cx.letterSpacing='0px';const w=cx.measureText(b.name).width;
+  cx.save();cx.translate(b.x,b.y);cx.rotate(ang+b.rot);
+  if(b.hi>0){const h=Math.min(1,b.hi),fs=Math.max(13,b.fs*2.6);cx.font=FONT(fs);cx.letterSpacing='0px';const w=cx.measureText(b.name).width;
    cx.fillStyle=`rgba(255,255,255,${.9*h})`;cx.fillRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.strokeStyle=`rgba(27,90,146,${.5*h})`;cx.lineWidth=1;cx.strokeRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.fillStyle='#1b5a92';cx.fillText(b.name,0,0)}
   else cx.drawImage(b.sp,-b.sw/2,-b.sh/2,b.sw,b.sh)
   cx.restore()}
@@ -56,7 +56,7 @@ let running=false,raf=0,last=0,vis=true;
 function frame(ts){raf=0;if(!running)return;const k=Math.min(2.5,(ts-last)/16.67||1);last=ts;step(k);draw();raf=requestAnimationFrame(frame)}
 function go(){const want=vis&&!document.hidden&&!reduce;if(want&&!running){running=true;last=performance.now();raf=requestAnimationFrame(frame)}else if(!want&&running){running=false;cancelAnimationFrame(raf)}}
 resize();place();
-if(document.fonts&&document.fonts.load)document.fonts.load('600 6px "Space Grotesk"').then(()=>{fonts();if(reduce||!running)draw()}).catch(()=>{});
+if(document.fonts&&document.fonts.load)document.fonts.load('700 8px Caveat').then(()=>{fonts();if(reduce||!running)draw()}).catch(()=>{});
 if(reduce){/* static scattered cloud: run the flock for a while off-screen, then draw once */
  for(let i=0;i<420;i++)step(1);fonts();draw();addEventListener('resize',()=>{resize();for(let i=0;i<120;i++)step(1);draw()})}
 else{
