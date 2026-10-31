@@ -511,14 +511,14 @@
   {
    "n": 56,
    "start_utc": "2026-10-31T06:22:15Z",
-   "end_utc": null,
-   "seconds": null,
+   "end_utc": "2026-10-31T06:22:16Z",
+   "seconds": 1,
    "purpose": "Page-speed follow-up: defer hidden hero slides, lazy then-and-now images on the home page",
-   "done": "",
+   "done": "Page-speed follow-up: the first hero picture now loads alone (later slides are fetched just before they show), then-and-now images on the home page are lazy, phones get a 1000 px hero variant.",
    "images_added": 0
   }
  ],
- "total_update_seconds": 33144,
+ "total_update_seconds": 33145,
  "update_session_count": 56,
  "candidates_session1": 608,
  "found_ai_art": 0,

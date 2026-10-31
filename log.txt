@@ -145,3 +145,4 @@
 2026-10-31T06:02:14Z | Update session 55 started at 2026-10-31T06:02:14Z. Add analytics hook (GoatCounter, config-gated) and SEO pass
 2026-10-31T06:12:14Z | Update session 55 ended at 2026-10-31T06:12:14Z: 10 min 0 s. SEO pass and analytics hooks: scene alt text for every picture (grid stays blind), unique titles and descriptions, per-work social cards and VisualArtwork JSON-LD, 404 page, sitemap lastmod, self-hosted preloaded fonts, responsive hero images, GoatCounter and Search Console hooks (off until accounts exist).
 2026-10-31T06:22:15Z | Update session 56 started at 2026-10-31T06:22:15Z. Page-speed follow-up: defer hidden hero slides, lazy then-and-now images on the home page
+2026-10-31T06:22:16Z | Update session 56 ended at 2026-10-31T06:22:16Z: 0 min 1 s. Page-speed follow-up: the first hero picture now loads alone (later slides are fetched just before they show), then-and-now images on the home page are lazy, phones get a 1000 px hero variant.
