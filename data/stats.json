@@ -5,7 +5,6 @@
  "candidates_total": 1874,
  "commons_meta_fetched": 447,
  "thumbs_reviewed": 773,
- "rehosted": 97,
  "start_utc": "2026-10-25T06:43:00Z",
  "publish_utc": "2026-10-25T06:59:40Z",
  "publish_basis": "first HTTP 200 from the live GitHub Pages URL",
@@ -13,7 +12,6 @@
  "setup_seconds": 1000,
  "setup_start_utc": "2026-10-25T06:43:00Z",
  "setup_end_utc": "2026-10-25T06:59:40Z",
- "images": 107,
  "update_sessions": [
   {
    "n": 1,
@@ -491,12 +489,36 @@
    "purpose": "Storm heat map No. 311: remove photo dissolve, pure heat map loop, relicense CC BY 4.0, new peak poster",
    "done": "Removed the photo dissolve from No. 311 (pure heat-map loop), relicensed CC BY 4.0, new peak poster",
    "images_added": 0
+  },
+  {
+   "n": 54,
+   "start_utc": "2026-10-31T05:39:04Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Audit image/work/artist counts across the site and derive from data",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 32364,
- "update_session_count": 53,
+ "update_session_count": 54,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
- "found_ai_art": 0
+ "found_ai_art": 0,
+ "counts": {
+  "on_display": 206,
+  "human": 135,
+  "machine": 71,
+  "curator_code": 18,
+  "guest_ai": 53,
+  "guest_images": 52,
+  "guest_text_or_code": 1,
+  "retired": 105,
+  "total_ever_hung": 311,
+  "human_artists": 86,
+  "ai_families_on_wall": 8,
+  "ai_families_defined": 20,
+  "sessions_logged": 54
+ }
 }
