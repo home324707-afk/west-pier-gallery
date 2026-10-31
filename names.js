@@ -7,13 +7,16 @@ const cx=cv.getContext('2d'),box=cv.parentNode,reduce=matchMedia('(prefers-reduc
 const small=innerWidth<700,DPR=Math.min(devicePixelRatio||1,2);
 let W=0,H=0;
 /* cap the flock; repeat names to fill it if there are few */
-const NB=small?95:170,B=[],FONT=s=>`700 ${s.toFixed(2)}px Caveat,"Segoe Print","Bradley Hand",cursive`,INK='#111';
+const NB=small?95:170,B=[],FONT=s=>`700 ${s.toFixed(2)}px Caveat,"Segoe Print","Bradley Hand",cursive`,INK='#111',RED='#c8102e';
 const rnd=(a,b)=>a+Math.random()*(b-a);
 function resize(){const r=box.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);fonts();if(reduce||!running)draw()}
-function fonts(){for(const b of B){b.fs=((small?4.9:5.6)+b.z*(small?1.1:1.5))*Math.max(.8,Math.min(1,1-(b.name.length-9)*.02));cx.font=FONT(b.fs);cx.letterSpacing='0px';b.w=cx.measureText(b.name).width;sprite(b)}}
+function fonts(){for(const b of B){b.fs=((small?4.9:5.6)+b.z*(small?1.1:1.5))*Math.max(.8,Math.min(1,1-(b.name.length-9)*.02))*(b.m?1.12:1);cx.font=FONT(b.fs);cx.letterSpacing='0px';b.w=cx.measureText(b.name).width;sprite(b)}}
 /* each name is pre-drawn once (subtle white halo, solid black text) so a frame is just drawImage */
-function sprite(b){const pw=Math.ceil(b.w+6),ph=Math.ceil(b.fs*1.5+4),c=b.sp||(b.sp=document.createElement('canvas')),g=c.getContext('2d'),s=DPR;c.width=pw*s;c.height=ph*s;g.setTransform(s,0,0,s,0,0);g.font=FONT(b.fs);g.letterSpacing='0px';g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';g.lineWidth=1.5;g.strokeStyle='rgba(255,255,255,.5)';g.strokeText(b.name,pw/2,ph/2);g.fillStyle=INK;g.fillText(b.name,pw/2,ph/2);b.sw=pw;b.sh=ph}
-for(let i=0;i<NB;i++){const e=L[i%L.length];B.push({name:e[0],n:e[1],full:e[2]||e[0],x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,rot:(Math.random()-.5)*.36,z:Math.random(),w:60,fs:12,hi:0})}
+function sprite(b){const dot=b.m?b.fs*.5:0,pw=Math.ceil(b.w+6+dot),ph=Math.ceil(b.fs*1.5+4),c=b.sp||(b.sp=document.createElement('canvas')),g=c.getContext('2d'),s=DPR;c.width=pw*s;c.height=ph*s;g.setTransform(s,0,0,s,0,0);g.font=FONT(b.fs);g.letterSpacing='0px';g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';g.lineWidth=1.5;g.strokeStyle='rgba(255,255,255,.55)';const tx=pw/2+dot/2;g.strokeText(b.name,tx,ph/2);g.fillStyle=b.m?RED:INK;g.fillText(b.name,tx,ph/2);
+ if(b.m){/* machines read as red dots: a small round speck before the name */const r=b.fs*.17,dx=tx-b.w/2-r*1.7;g.beginPath();g.arc(dx,ph/2,r+.6,0,6.283);g.fillStyle='rgba(255,255,255,.6)';g.fill();g.beginPath();g.arc(dx,ph/2,r,0,6.283);g.fillStyle=RED;g.fill()}b.sw=pw;b.sh=ph}
+/* machines (entries flagged e[3]) fly once each, in the same flock; the human names fill the rest */
+const MA=L.filter(e=>e[3]),HU=L.filter(e=>!e[3]),ORDER=MA.concat(Array.from({length:NB},(_,i)=>HU[i%HU.length]));
+for(const e of ORDER){B.push({name:e[0],n:e[1],full:e[2]||e[0],m:!!e[3],a:e[4]||'',x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,rot:(Math.random()-.5)*.36,z:Math.random(),w:60,fs:12,hi:0})}
 const sepR=small?.9:1,BW=small?84:66;
 let t=Math.random()*100,ax=0,ay=0;
 function place(){W=W||box.clientWidth;H=H||box.clientHeight;for(const b of B){b.x=W*.5+rnd(-.28,.28)*W;b.y=H*.5+rnd(-.2,.2)*H}}
@@ -48,7 +51,7 @@ function draw(){
   const ang=Math.max(-.12,Math.min(.12,b.vy*.06));
   cx.save();cx.translate(b.x,b.y);cx.rotate(ang+b.rot);
   if(b.hi>0){const h=Math.min(1,b.hi),fs=Math.max(13,b.fs*2.6);cx.font=FONT(fs);cx.letterSpacing='0px';const w=cx.measureText(b.name).width;
-   cx.fillStyle=`rgba(255,255,255,${.9*h})`;cx.fillRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.strokeStyle=`rgba(27,90,146,${.5*h})`;cx.lineWidth=1;cx.strokeRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.fillStyle='#1b5a92';cx.fillText(b.name,0,0)}
+   cx.fillStyle=`rgba(255,255,255,${.9*h})`;cx.fillRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.strokeStyle=b.m?`rgba(200,16,46,${.55*h})`:`rgba(27,90,146,${.5*h})`;cx.lineWidth=1;cx.strokeRect(-w/2-6,-fs*.85,w+12,fs*1.7);cx.fillStyle=b.m?RED:'#1b5a92';cx.fillText(b.name,0,0)}
   else cx.drawImage(b.sp,-b.sw/2,-b.sh/2,b.sw,b.sh)
   cx.restore()}
 }
@@ -68,5 +71,5 @@ else{
 function pick(ev){const r=cv.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top,pad=ev.pointerType==='touch'?10:5;let best=null,bd=1e9;
  for(const b of B){const dx=Math.abs(x-b.x),dy=Math.abs(y-b.y);if(dx<b.w/2+pad&&dy<b.fs*.9+pad){const d=dx+dy-b.z*4;if(d<bd){bd=d;best=b}}}return best}
 cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='touch')return;const b=pick(ev);cv.style.cursor=b?'pointer':'';if(b){b.hi=1.6;cv.title=b.full;if(reduce)draw()}else cv.title=''});
-cv.addEventListener('click',ev=>{const b=pick(ev);if(!b)return;b.hi=1.6;if(reduce)draw();setTimeout(()=>{location.hash='no'+b.n},ev.pointerType==='touch'||ev.detail===0?220:60)});
+cv.addEventListener('click',ev=>{const b=pick(ev);if(!b)return;b.hi=1.6;if(reduce)draw();setTimeout(()=>{location.hash=b.a||('no'+b.n)},ev.pointerType==='touch'||ev.detail===0?220:60)});
 })();

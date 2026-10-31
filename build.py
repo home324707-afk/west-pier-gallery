@@ -174,7 +174,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None, og_alt=None, og_size=None,
 <meta property="og:type" content="website"><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}">{osz}<meta property="og:image:alt" content="{E(oalt)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}"><meta name="twitter:image:alt" content="{E(oalt)}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{fonts(p)}<link rel="stylesheet" href="{p}style.css?v=24"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=8" defer></script>{gc}</head><body>'''
+{fonts(p)}<link rel="stylesheet" href="{p}style.css?v=25"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=8" defer></script>{gc}</head><body>'''
 
 import random as _rnd
 WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).choice(A)["n"]:02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
@@ -185,7 +185,7 @@ def guest_family_table():
     if not img: return ''
     fams = {}
     for a in img: fams.setdefault(a['artist'], []).append(a)
-    rows = ''.join(f'<tr><td>{E(k)}</td><td>{len(v)}</td><td>{", ".join(f"<a href=work/{x[chr(110)]:02d}.html>{x[chr(110)]}</a>" for x in v)}</td><td>{E(v[0]["guest"].get("model_licence") or "")}</td></tr>' for k, v in sorted(fams.items(), key=lambda kv: -len(kv[1])))
+    rows = ''.join(f'<tr id="fam-{re.sub("[^a-z0-9]+", "-", k.lower()).strip("-")}"><td>{E(k)}</td><td>{len(v)}</td><td>{", ".join(f"<a href=work/{x[chr(110)]:02d}.html>{x[chr(110)]}</a>" for x in v)}</td><td>{E(v[0]["guest"].get("model_licence") or "")}</td></tr>' for k, v in sorted(fams.items(), key=lambda kv: -len(kv[1])))
     return '<h3 id="families">Image works by model family</h3><table class="cred"><tr><th>Model</th><th>Works</th><th>Nos.</th><th>Model licence</th></tr>' + rows + '</table>'
 
 def counterpart(a):
@@ -460,11 +460,19 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     for k, v in _seen.items():
         _shortmap.setdefault(_short(k), [_short(k), v, k])   # [display, work no., full credit]; one flock entry per display name
     MURM_NAMES = list(_shortmap.values())
-    murm = ('<section class="namemurm" aria-label="The human artists, as a flock"><canvas id="namemurm" aria-hidden="true"></canvas>'
-            '<p class="nm-cap">Every name here made a picture of the pier.</p>'
+    # The machine makers actually on display, one red bird each: [display, work no., tooltip, 1, anchor on this page]. (ICON-D2 supplied weather data for No. 311, it did not make a picture, so it is credited in that row but is not a bird.)
+    _slug = lambda k: re.sub('[^a-z0-9]+', '-', k.lower()).strip('-')
+    _imgfam = {a['artist'] for a in AG if a['guest']['type'] == 'image'}
+    MACHINES = [['West Pier Curator', AI[0]['n'], f'West Pier Curator: the gallery\'s own AI, {len(AI)} live code pieces on the wall', 1, 'ai']] if AI else []
+    for _k in sorted({a['artist'] for a in AG}, key=lambda k: -sum(1 for a in AG if a['artist'] == k)):
+        _w = [a for a in AG if a['artist'] == _k]
+        MACHINES.append([_k, _w[0]['n'], f'{_k}: guest AI, {len(_w)} work{"s" if len(_w) != 1 else ""} on the wall', 1, ('fam-' + _slug(_k)) if _k in _imgfam else 'no' + str(_w[0]['n'])])
+    MURM_ALL = MACHINES + MURM_NAMES
+    murm = ('<section class="namemurm" aria-label="The artists, human and machine, as a flock"><canvas id="namemurm" aria-hidden="true"></canvas>'
+            '<p class="nm-cap">Every name here made a picture of the pier. <b class="nm-red">The red ones are machines.</b></p>'
             '<p class="nm-credit">Background: pencil sketch drawn by a machine (Grok Bot image generator), after <a href="work/33.html">No. 33</a> by ' + E(BYN[33]['artist']) + ', <a href="' + E(BYN[33]['licurl']) + '">' + E(BYN[33]['lic']) + '</a></p></section>'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" media="print" onload="this.media=\'all\'">'
-            '<script>window.MURM_NAMES=' + json.dumps(MURM_NAMES, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=9" defer></script>')
+            '<script>window.MURM_NAMES=' + json.dumps(MURM_ALL, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=10" defer></script>')
     cr = head('Credits: artists and photographers of Brighton West Pier', 'Every artist and photographer in this Brighton West Pier art gallery, with source and licence for each picture, plus the AI works and their code.', path='credits.html') + nav('credits.html') + murm + f'''
 <main class="page"><div class="kicker">Credits</div><h1>The humans.</h1>
 <p>Every human image in this exhibition was made by a person (or by a person whose name history has lost). For those, the machine changed only the <i>display titles</i>. The AI's own works are listed <a href="#ai">separately below</a>, and so are the <a href="#guests">guest AIs</a>. The images are not cropped, filtered or altered apart from being resized for the web. Original titles and authors are listed below with a link to each source page and licence. If you are one of these artists and want your work credited differently or taken down, open an issue on <a href="https://github.com/{REPO}/issues">the repository</a>.</p>
@@ -496,7 +504,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <li><a href="https://collections.vam.ac.uk/search/?q=west%20pier%20brighton">V&amp;A collections search: “West Pier Brighton”</a> (prints, posters, photographs).</li>
 {ndl}
 </ul>
-<h2>Software &amp; services</h2><p>Guest AIs: <a href="https://pollinations.ai">Pollinations.ai</a> (free API, no account; <a href="https://pollinations.ai/terms">terms</a>) and open-weight models run with <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a>, weights from <a href="https://huggingface.co">Hugging Face</a>. Hosted on GitHub Pages. The open debate is relayed by <a href="https://ntfy.sh">ntfy.sh</a> and archived in this repo. Typefaces: Fraunces, Space Grotesk and JetBrains Mono (SIL Open Font License) from Google Fonts. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
+<h2>Software &amp; services</h2><p>Guest AIs: <a href="https://pollinations.ai">Pollinations.ai</a> (free API, no account; <a href="https://pollinations.ai/terms">terms</a>) and open-weight models run with <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a>, weights from <a href="https://huggingface.co">Hugging Face</a>. Hosted on GitHub Pages. The open debate is relayed by <a href="https://ntfy.sh">ntfy.sh</a> and archived in this repo. Typefaces: Fraunces, Space Grotesk, JetBrains Mono and Caveat (SIL Open Font License), the first three self-hosted. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
 </main>''' + foot() + '</body></html>'
     tn_rows = ''.join(f'<tr><td>{E(p["head"])}</td><td>Then: <a href="work/{p["then"]:02d}.html">No. {p["then"]}</a> · {E(BYN[p["then"]]["artist"] or "Unknown")} · {licl(BYN[p["then"]])} · <a href="{E(BYN[p["then"]]["page"])}">source</a><br>Now: <a href="work/{p["now"]:02d}.html">No. {p["now"]}</a> · {E(BYN[p["now"]]["artist"] or "Unknown")} · {licl(BYN[p["now"]])} · <a href="{E(BYN[p["now"]]["page"])}">source</a></td></tr>' for p in TN_PAIRS)
     cr = cr.replace('<h2 id="timelapse">', f'<h2 id="thennow">Then &amp; now</h2><p>The <a href="thennow.html">Then &amp; now sliders</a> use ten views that are also in the gallery and credited above. Licences were re-checked on each Wikimedia Commons file page on 29 October 2026. On the sliders (only) the images are cropped to a shared 3:2 frame so they line up, and the Frith card (No. 3) and the albumen photograph (No. 88) are trimmed to remove their mounts and captions; the full, uncropped picture is on each work page.</p><table class="credits"><thead><tr><th>Pair</th><th>Then / now: artist, licence, source</th></tr></thead><tbody>{tn_rows}</tbody></table><h2 id="timelapse">', 1)
