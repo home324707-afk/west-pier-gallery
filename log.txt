@@ -141,3 +141,4 @@
 2026-10-31T05:20:52Z | Update session 53 started at 2026-10-31T05:20:52Z. Storm heat map No. 311: remove photo dissolve, pure heat map loop, relicense CC BY 4.0, new peak poster
 2026-10-31T05:25:54Z | Update session 53 ended at 2026-10-31T05:25:54Z: 5 min 2 s. Removed the photo dissolve from No. 311 (pure heat-map loop), relicensed CC BY 4.0, new peak poster
 2026-10-31T05:39:04Z | Update session 54 started at 2026-10-31T05:39:04Z. Audit image/work/artist counts across the site and derive from data
+2026-10-31T05:42:04Z | Update session 54 ended at 2026-10-31T05:42:04Z: 3 min 0 s. Counts audit across the site: fixed work-page 'View N of 206', credits licence tally and families sentence, about narrative, bot docs, README and JSON-LD counts; removed stale stats.json image counts and added a derived counts block
