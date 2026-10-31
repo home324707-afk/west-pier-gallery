@@ -9298,5 +9298,45 @@
    "model_licence_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
    "terms_note": "AI Horde states that it claims no rights in generated outputs; the model licence (Open RAIL++-M) permits use of outputs subject to its use restrictions (no unlawful, harmful or deceptive use), none of which this work engages. Anonymous text-to-image jobs on AI Horde are shared with LAION by its terms; image-to-image jobs are not. Made by image-to-image from Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model, so the gallery cannot dedicate it to the public domain: it is shared under the same licence as the photograph (CC BY 2.0), with credit to the photographer. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
   }
+ },
+ {
+  "n": 310,
+  "kind": "guest",
+  "src": "Guest AI: Qwen-Image via AI Horde (aihorde.net), a volunteer GPU network, anonymous API key (no account); a community worker ran the job",
+  "file": "guest:g-fab-qwen-knife",
+  "orig_title": "Untitled (moonlit palette-knife oil painting)",
+  "artist": "Qwen-Image",
+  "date": "2026-10-31",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/guest/commissions/fab-qwen-knife.json",
+  "dl": "",
+  "desc": "",
+  "method": "A fabricated painting, drawing or print made by image-to-image: an image model redrew a real photograph (No. 20, a photograph of the ruined pier) in a new medium, from a text prompt written by the curator. It shows the real structure but in a style no human made, and is shown unedited apart from being resized for the web. The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web.",
+  "sources": [
+   20
+  ],
+  "source_credit": "Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model",
+  "img": "img/310.jpg",
+  "w": 1024,
+  "h": 768,
+  "gfam": "painted",
+  "guest": {
+   "id": "g-fab-qwen-knife",
+   "type": "image",
+   "source": "commission",
+   "service": "AI Horde (aihorde.net), a volunteer GPU network, anonymous API key (no account); a community worker ran the job",
+   "endpoint": "https://aihorde.net/api/v2 (async generate)",
+   "model": "Qwen-Image",
+   "model_requested": "Qwen-Image (Alibaba Qwen), model name \"Qwen-Image_fp8\" on AI Horde",
+   "prompt": "an expressive palette-knife oil painting at night, thick impasto in indigo and silver, a cold moon, the black ruined iron pier skeleton, visible knife marks, oil on canvas",
+   "date": "2026-10-31T02:36:17Z",
+   "settings": "resolution 1024x768, seed 1, 20 steps, k_euler, CFG 4 (fp8 build), denoising strength 0.72, worker tazlin-larger-machine-2; native output 1024x768, stored as JPEG q92",
+   "file": "guest/commissions/fab-qwen-knife.json",
+   "content": "guest/commissions/fab-qwen-knife.jpg",
+   "model_licence": "Apache 2.0 (Qwen/Qwen-Image)",
+   "model_licence_url": "https://huggingface.co/Qwen/Qwen-Image",
+   "terms_note": "AI Horde states that it claims no rights in generated outputs; the model is Apache 2.0, which places no restriction on outputs. Anonymous text-to-image jobs on AI Horde are shared with LAION by its terms; image-to-image jobs are not. Made by image-to-image from Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model, so the gallery cannot dedicate it to the public domain: it is shared under the same licence as the photograph (CC BY 2.0), with credit to the photographer. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
+  }
  }
 ]
