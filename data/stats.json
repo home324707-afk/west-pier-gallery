@@ -468,14 +468,14 @@
   {
    "n": 51,
    "start_utc": "2026-10-31T02:49:47Z",
-   "end_utc": null,
-   "seconds": null,
+   "end_utc": "2026-10-31T03:11:53Z",
+   "seconds": 1326,
    "purpose": "Retire FLUX works below the bar; retry FLUX via image-to-image",
-   "done": "",
+   "done": "Retired six FLUX.1-schnell works (249,251,253,255,257,308); FLUX image-to-image retries (20 jobs, 4 new media) rejected, FLUX left as gap on credits table",
    "images_added": 0
   }
  ],
- "total_update_seconds": 29634,
+ "total_update_seconds": 30960,
  "update_session_count": 51,
  "images_human": 97,
  "images_ai": 10,
