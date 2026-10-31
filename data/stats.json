@@ -441,14 +441,14 @@
   {
    "n": 48,
    "start_utc": "2026-10-31T01:13:29Z",
-   "end_utc": null,
-   "seconds": null,
+   "end_utc": "2026-10-31T01:20:28Z",
+   "seconds": 419,
    "purpose": "Credits murmuration: all-black tiny names that read as birds, denser flock",
-   "done": "",
+   "done": "Credits murmuration: all-black bird-sized names (5-7px desktop, 4.6-6px mobile), denser stretching flock, pre-rendered sprites (60fps), wall bug fixed; Prussian-blue enlarged hover kept",
    "images_added": 0
   }
  ],
- "total_update_seconds": 24298,
+ "total_update_seconds": 24717,
  "update_session_count": 48,
  "images_human": 97,
  "images_ai": 10,
