@@ -502,14 +502,14 @@
   {
    "n": 55,
    "start_utc": "2026-10-31T06:02:14Z",
-   "end_utc": null,
-   "seconds": null,
+   "end_utc": "2026-10-31T06:12:14Z",
+   "seconds": 600,
    "purpose": "Add analytics hook (GoatCounter, config-gated) and SEO pass",
-   "done": "",
+   "done": "SEO pass and analytics hooks: scene alt text for every picture (grid stays blind), unique titles and descriptions, per-work social cards and VisualArtwork JSON-LD, 404 page, sitemap lastmod, self-hosted preloaded fonts, responsive hero images, GoatCounter and Search Console hooks (off until accounts exist).",
    "images_added": 0
   }
  ],
- "total_update_seconds": 32544,
+ "total_update_seconds": 33144,
  "update_session_count": 55,
  "candidates_session1": 608,
  "found_ai_art": 0,
