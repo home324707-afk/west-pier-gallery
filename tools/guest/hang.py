@@ -33,7 +33,7 @@ with Shooter() as s:
         w, h = save(im, n)
         A.append(dict(n=n, kind='guest', src=f"Guest AI: {g['model']} via {g['service']}", file='guest:' + g['id'], orig_title=g['title'], artist=g['model'],
                       date=g['date'][:10], lic=g['lic'], licurl=g['licurl'], page=f"https://github.com/home324707-afk/west-pier-gallery/blob/main/{g['file']}",
-                      dl='', desc='', method=METHOD['image-painted' if g.get('gfam') == 'painted' else g['type']] + (' ' + g['note'] if g.get('note') else ''), sources=[], source_credit='',
+                      dl='', desc='', method=(METHOD['image-painted' if g.get('gfam') == 'painted' else g['type']] if not g.get('ref') else f"A fabricated painting, drawing or print made by image-to-image: an image model redrew a real photograph (No. {g['ref']['n']}, a photograph of the ruined pier) in a new medium, from a text prompt written by the curator. It shows the real structure but in a style no human made, and is shown unedited apart from being resized for the web.") + (' ' + g['note'] if g.get('note') else ''), sources=[g['ref']['n']] if g.get('ref') else [], source_credit=g.get('source_credit', ''),
                       img=f'img/{n:03d}.jpg', w=w, h=h, **({'gfam': g['gfam']} if g.get('gfam') else {}), guest={k: g.get(k) for k in ('id', 'type', 'source', 'service', 'endpoint', 'model', 'model_requested', 'prompt', 'date', 'settings', 'file', 'content', 'model_licence', 'model_licence_url', 'terms_note')}))
         g['status'] = 'hung'; g['n'] = n; g['hung'] = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'); print('hung', n, g['id'], g['title'])
 json.dump(A, open('data/artworks.json', 'w'), ensure_ascii=False, indent=1)

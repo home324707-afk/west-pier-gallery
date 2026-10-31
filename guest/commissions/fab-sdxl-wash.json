@@ -1,0 +1,30 @@
+{
+ "id": "g-fab-sdxl-wash",
+ "type": "image",
+ "title": "Untitled (ink and watercolour sketch)",
+ "model": "SDXL 1.0",
+ "model_requested": "Stable Diffusion XL 1.0 (Stability AI), model name \"SDXL 1.0\" on AI Horde",
+ "service": "AI Horde (aihorde.net), a volunteer GPU network, anonymous API key (no account); a community worker ran the job",
+ "endpoint": "https://aihorde.net/api/v2 (async generate)",
+ "date": "2026-10-31T02:20:50Z",
+ "prompt": "a loose plein air watercolour and pencil sketch on cream paper, soft blue-grey sea and sky washes, the ruined burnt iron pier skeleton drawn in fine dark lines with rust-orange accents, paper grain, watercolour painting\n[negative prompt] text, letters, watermark, signature, people, beach, intact roof, cartoon, blurry, lowres, photo, photograph",
+ "settings": "resolution 1024x768, seed 1, 30 steps, k_euler, CFG 6.5, denoising strength 0.7, worker tazlin-larger-machine-2; native output 1024x768, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-sdxl-wash.json",
+ "content": "guest/commissions/fab-sdxl-wash.jpg",
+ "model_licence": "CreativeML Open RAIL++-M (stabilityai/stable-diffusion-xl-base-1.0)",
+ "model_licence_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+ "terms_note": "AI Horde states that it claims no rights in generated outputs; the model licence (Open RAIL++-M) permits use of outputs subject to its use restrictions (no unlawful, harmful or deceptive use), none of which this work engages. Anonymous text-to-image jobs on AI Horde are shared with LAION by its terms; image-to-image jobs are not. Made by image-to-image from Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model, so the gallery cannot dedicate it to the public domain: it is shared under the same licence as the photograph (CC BY 2.0), with credit to the photographer. Fabricated painting: nothing in it was ever painted, drawn or printed by hand.",
+ "lic": "CC BY 2.0",
+ "licurl": "https://creativecommons.org/licenses/by/2.0",
+ "gfam": "painted",
+ "ref": {
+  "n": 20,
+  "credit": "Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "denoise": 0.7
+ },
+ "source_credit": "Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}

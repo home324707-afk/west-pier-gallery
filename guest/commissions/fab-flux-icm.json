@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-flux-icm",
+ "type": "image",
+ "title": "Untitled (long-exposure photograph at dawn)",
+ "model": "FLUX.1-schnell",
+ "model_requested": "FLUX.1 [schnell] (Black Forest Labs), model name \"Flux.1-Schnell fp8 (Compact)\" on AI Horde",
+ "service": "AI Horde (aihorde.net), a volunteer GPU network, anonymous API key (no account); a community worker ran the job",
+ "endpoint": "https://aihorde.net/api/v2 (async generate)",
+ "date": "2026-10-31T02:20:50Z",
+ "prompt": "A painterly photograph made with intentional camera movement and a long exposure at dawn, soft vertical smears of pearl grey, ochre and teal, the ruined West Pier at Brighton: the burnt-out skeleton of a Victorian concert hall, only its blackened rusted iron frame remains, a barrel-vaulted roof of curved ribs with no roof cladding and empty arched windows, on a low skeletal deck held up by dozens of thin iron legs, standing completely alone in open water with the sea on all sides, the long walkway to the shore is gone so nothing connects it to land, no beach in view, no people, still readable as a dark skeletal silhouette against the pale sky, film grain",
+ "settings": "resolution 1024x768, seed 1, 6 steps, k_euler, CFG 1 (fp8 compact build), worker tazlin-larger-machine-2; native output 1024x768, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-flux-icm.json",
+ "content": "guest/commissions/fab-flux-icm.jpg",
+ "model_licence": "Apache 2.0 (black-forest-labs/FLUX.1-schnell)",
+ "model_licence_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+ "terms_note": "AI Horde states that it claims no rights in generated outputs; the model is Apache 2.0, which places no restriction on outputs. Anonymous text-to-image jobs on AI Horde are shared with LAION by its terms; image-to-image jobs are not. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}

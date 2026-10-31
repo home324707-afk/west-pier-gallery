@@ -455,10 +455,19 @@
    "purpose": "Credits murmuration: smaller names, AI pencil-sketch background",
    "done": "Credits murmuration: handwriting names (Caveat), smaller, AI pencil-sketch background",
    "images_added": 0
+  },
+  {
+   "n": 50,
+   "start_utc": "2026-10-31T01:29:28Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "AI families audit: one gallery-grade work per major AI image family",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 24992,
- "update_session_count": 49,
+ "update_session_count": 50,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
