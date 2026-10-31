@@ -10,8 +10,8 @@ let W=0,H=0;
 const NB=Math.min(small?56:110,Math.max(L.length,small?40:60)),B=[];
 const rnd=(a,b)=>a+Math.random()*(b-a);
 function resize(){const r=box.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);fonts();if(reduce||!running)draw()}
-function fonts(){for(const b of B){b.fs=(small?7:8)+b.z*(small?2.4:3.4);cx.font=`${b.fs.toFixed(1)}px "Space Grotesk",system-ui,sans-serif`;b.w=cx.measureText(b.name).width}}
-for(let i=0;i<NB;i++){const e=L[i%L.length];B.push({name:e[0],n:e[1],x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,z:Math.random(),w:60,fs:12,hi:0})}
+function fonts(){for(const b of B){b.fs=((small?7:8)+b.z*(small?2.4:3.4))*Math.max(.74,Math.min(1,1-(b.name.length-9)*.024));cx.font=`${b.fs.toFixed(1)}px "Space Grotesk",system-ui,sans-serif`;b.w=cx.measureText(b.name).width}}
+for(let i=0;i<NB;i++){const e=L[i%L.length];B.push({name:e[0],n:e[1],full:e[2]||e[0],x:0,y:0,vx:rnd(-1,1),vy:rnd(-.5,.5),ox:(Math.random()+Math.random()-1)*2,oy:(Math.random()+Math.random()-1)*2,ph:Math.random()*6.28,z:Math.random(),w:60,fs:12,hi:0})}
 const sepR=small?.9:1;
 let t=Math.random()*100,ax=0,ay=0;
 function place(){W=W||box.clientWidth;H=H||box.clientHeight;for(const b of B){b.x=W*.5+rnd(-.28,.28)*W;b.y=H*.5+rnd(-.2,.2)*H}}
@@ -34,7 +34,7 @@ function step(k){
   {const ux=ax-p.x,uy=ay-p.y,ud=Math.hypot(ux,uy)+90,g=k*(.7+p.z*.6);p.vx+=dx*pull*.1*g-uy/ud*swirl*g;p.vy+=dy*pull*.1*g+ux/ud*swirl*g}
   /* soft walls keep the flock on the canvas */
   const my=24;
-  const lx=p.w*.5+8;if(p.x<lx)p.vx+=(.06+(lx-p.x)*.02)*k;else if(p.x>W-lx)p.vx-=(.06+(p.x-W+lx)*.02)*k;if(p.y<my)p.vy+=(.06+(my-p.y)*.02)*k;else if(p.y>H-54)p.vy-=(.06+(p.y-H+44)*.02)*k;
+  const lx=p.w*.5+8;if(p.x<lx)p.vx+=(.06+(lx-p.x)*.02)*k;else if(p.x>W-lx)p.vx-=(.06+(p.x-W+lx)*.02)*k;if(p.y<my)p.vy+=(.06+(my-p.y)*.02)*k;else if(p.y>H-(small?84:66))p.vy-=(.06+(p.y-H+44)*.02)*k;
   p.vx+=rnd(-.02,.02)*k;p.vy+=rnd(-.02,.02)*k;
   const v=Math.hypot(p.vx,p.vy),mv=maxV*(.8+p.z*.4);if(v>mv){p.vx*=mv/v;p.vy*=mv/v}}
  for(const p of B){p.x+=p.vx*k;p.y+=p.vy*k;if(p.hi>0)p.hi-=k/90}
@@ -48,7 +48,7 @@ function draw(){
   cx.save();cx.translate(b.x,b.y);cx.rotate(ang);
   if(b.hi>0){const h=Math.min(1,b.hi);cx.fillStyle=`rgba(27,90,146,${.12*h})`;cx.fillRect(-b.w/2-7,-b.fs*.8,b.w+14,b.fs*1.6);cx.fillStyle='#1b5a92'}
   else cx.fillStyle=`rgba(17,17,17,${a.toFixed(2)})`;
-  cx.fillText(b.name,0,0);cx.restore()}
+  cx.lineJoin='round';cx.lineWidth=3;cx.strokeStyle='rgba(255,255,255,.75)';cx.strokeText(b.name,0,0);cx.fillText(b.name,0,0);cx.restore()}
 }
 let running=false,raf=0,last=0,vis=true;
 function frame(ts){raf=0;if(!running)return;const k=Math.min(2.5,(ts-last)/16.67||1);last=ts;step(k);draw();raf=requestAnimationFrame(frame)}
@@ -64,6 +64,6 @@ else{
 /* hover or tap a name: it lights up briefly and links to that artist's credit */
 function pick(ev){const r=cv.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top,pad=ev.pointerType==='touch'?12:4;let best=null,bd=1e9;
  for(const b of B){const dx=Math.abs(x-b.x),dy=Math.abs(y-b.y);if(dx<b.w/2+pad&&dy<b.fs*.9+pad){const d=dx+dy-b.z*4;if(d<bd){bd=d;best=b}}}return best}
-cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='touch')return;const b=pick(ev);cv.style.cursor=b?'pointer':'';if(b){b.hi=1.6;if(reduce)draw()}});
+cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='touch')return;const b=pick(ev);cv.style.cursor=b?'pointer':'';if(b){b.hi=1.6;cv.title=b.full;if(reduce)draw()}else cv.title=''});
 cv.addEventListener('click',ev=>{const b=pick(ev);if(!b)return;b.hi=1.6;if(reduce)draw();setTimeout(()=>{location.hash='no'+b.n},ev.pointerType==='touch'||ev.detail===0?220:60)});
 })();

@@ -428,10 +428,19 @@
    "purpose": "Name murmuration on the Credits page",
    "done": "Added an animated boids murmuration of the human artists' names at the top of the Credits page (names.js), then restyled it black on white with smaller names",
    "images_added": 0
+  },
+  {
+   "n": 47,
+   "start_utc": "2026-10-31T01:06:46Z",
+   "end_utc": "2026-10-31T01:10:58Z",
+   "seconds": 252,
+   "purpose": "Black-and-white pier print behind the Credits name murmuration",
+   "done": "Credits murmuration: faint greyscale print of No. 33 (Ian Cunliffe, CC BY-SA 2.0) as the band background with credit line; names shortened to 20 chars with length-scaled font; white halo behind names",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 24046,
- "update_session_count": 46,
+ "total_update_seconds": 24298,
+ "update_session_count": 47,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,

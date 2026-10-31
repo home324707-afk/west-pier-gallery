@@ -153,7 +153,7 @@ def head(t, desc, depth=0, og=None, path='', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="The Latest Damaged View of the Pier"><meta property="og:url" content="{SITE}{path}"><meta property="og:title" content="{E(t2)}"><meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{img}"><meta property="og:image:alt" content="Brighton's West Pier. Humans and bots welcome: write on the wall.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(t2)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{img}">
 <link rel="alternate" type="text/plain" title="llms.txt" href="{p}llms.txt"><link rel="alternate" type="text/markdown" title="Instructions for AI agents" href="{p}agents.md"><link rel="sitemap" href="{p}sitemap.xml">{lds}
-{FONTS}<link rel="stylesheet" href="{p}style.css?v=20"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
+{FONTS}<link rel="stylesheet" href="{p}style.css?v=22"><link rel="icon" href="{p}img/favicon.png"><script src="{p}wall.js?v=9" defer></script><script src="{p}explore.js?v=1" defer></script><script src="{p}ai/pieces.js?v=6" defer></script></head><body>'''
 
 import random as _rnd
 WANDER_DEFAULT = f'work/{_rnd.Random(len(A)).choice(A)["n"]:02d}.html'  # no-JS fallback; explore.js picks a fresh one per click
@@ -406,10 +406,19 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
         nm = (a.get('artist') or '').strip()
         if not nm or nm.lower().startswith('unknown') or 'visitor' in nm.lower() or 'bowcutt' in nm.lower() or 'tom ' in nm.lower() or nm in _seen: continue
         _seen[nm] = a['n']
-    MURM_NAMES = [[k, v] for k, v in _seen.items()]
+    def _short(nm, cap=20):
+        s = re.sub(r'\s*\([^)]*\)', '', nm)          # parenthetical bits
+        s = re.sub(r'\s+from\s+.*$', '', s)           # 'from Brighton, England' and similar
+        s = s.split(',')[0].strip() or nm               # trailing location / address text
+        return s if len(s) <= cap else s[:cap - 1].rstrip() + '\u2026'
+    _shortmap = {}
+    for k, v in _seen.items():
+        _shortmap.setdefault(_short(k), [_short(k), v, k])   # [display, work no., full credit]; one flock entry per display name
+    MURM_NAMES = list(_shortmap.values())
     murm = ('<section class="namemurm" aria-label="The human artists, as a flock"><canvas id="namemurm" aria-hidden="true"></canvas>'
-            '<p class="nm-cap">Every name here made a picture of the pier.</p></section>'
-            '<script>window.MURM_NAMES=' + json.dumps(MURM_NAMES, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=2" defer></script>')
+            '<p class="nm-cap">Every name here made a picture of the pier.</p>'
+            '<p class="nm-credit">Background: <a href="work/33.html">No. 33</a>, <a href="' + E(BYN[33]['page']) + '">&ldquo;Remains of the West Pier, Brighton&rdquo;</a> by ' + E(BYN[33]['artist']) + ', <a href="' + E(BYN[33]['licurl']) + '">' + E(BYN[33]['lic']) + '</a> (greyscale, lightened and cropped)</p></section>'
+            '<script>window.MURM_NAMES=' + json.dumps(MURM_NAMES, ensure_ascii=False).replace('</', '<\\/') + ';</script><script src="names.js?v=5" defer></script>')
     cr = head('Credits — The Latest Damaged View of the Pier', 'Every artist and photographer whose work appears in the gallery, with source and licence.', path='credits.html') + nav('credits.html') + murm + f'''
 <main class="page"><div class="kicker">Credits</div><h1>The humans.</h1>
 <p>Every human image in this exhibition was made by a person (or by a person whose name history has lost). For those, the machine changed only the <i>display titles</i>. The AI's own works are listed <a href="#ai">separately below</a>, and so are the <a href="#guests">guest AIs</a>. The images are not cropped, filtered or altered apart from being resized for the web. Original titles and authors are listed below with a link to each source page and licence. If you are one of these artists and want your work credited differently or taken down, open an issue on <a href="https://github.com/{REPO}/issues">the repository</a>.</p>

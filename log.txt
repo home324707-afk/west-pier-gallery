@@ -126,3 +126,5 @@
 2026-10-31T00:52:49Z | Update session 46 started at 2026-10-31T00:52:49Z. Name murmuration on the Credits page
 2026-10-31T00:52:49Z | Update session 46 ended at 2026-10-31T00:52:49Z: 0 min 0 s. Added an animated boids murmuration of the human artists' names at the top of the Credits page (names.js)
 2026-10-31T01:00:00Z | Correction: update session 46 ran 00:46 to 01:00 UTC (14 min), not 0 s. Credits name murmuration restyled black on white, smaller names.
+2026-10-31T01:06:46Z | Update session 47 started at 2026-10-31T01:06:46Z. Black-and-white pier print behind the Credits name murmuration
+2026-10-31T01:10:58Z | Update session 47 ended at 2026-10-31T01:10:58Z: 4 min 12 s. Credits murmuration: faint greyscale print of No. 33 (Ian Cunliffe, CC BY-SA 2.0) as the band background with credit line; names shortened to 20 chars with length-scaled font; white halo behind names
