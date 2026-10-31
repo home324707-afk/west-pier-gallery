@@ -376,3 +376,13 @@ input::placeholder,textarea::placeholder{color:#5d6f8c;opacity:1}
 .nm-credit{position:absolute;right:clamp(1rem,4vw,3rem);bottom:.9rem;margin:0;z-index:3;max-width:min(52ch,52%);text-align:right;font-family:"JetBrains Mono",monospace;font-size:.62rem;line-height:1.35;color:#555}
 .nm-credit a{color:#333;text-decoration-color:#999}.nm-credit a:hover{color:var(--accent)}
 @media (max-width:700px){.nm-credit{left:clamp(1rem,4vw,3rem);right:auto;max-width:none;text-align:left;bottom:.55rem;font-size:.56rem}.nm-cap{bottom:2.9rem}.namemurm{background-position:center 66%}}
+/* question of the week, storm page */
+.qotw{margin:clamp(1.4rem,4vw,2.6rem) 0 .5rem;padding:clamp(1.2rem,3vw,2rem);border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--sea2);max-width:52rem}
+.qotw h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.15;margin:.4em 0 .6em}
+.qotw-note{font-family:"Fraunces",serif;font-size:1.05rem;line-height:1.5;max-width:40rem}
+.qotw-old{margin-top:1rem;font-size:.9rem}.qotw-old ul{padding-left:1.1rem}
+.storm .facts{padding-left:1.2rem;line-height:1.55;max-width:46rem}.storm .facts li{margin:.45rem 0}
+.storm p{max-width:46rem;line-height:1.6}
+.cite{font-size:.72em;margin-left:.15em;white-space:nowrap}.cite a{color:var(--accent)}
+.storm-fig img{display:block;width:100%;max-width:46rem;height:auto;border:1px solid var(--line)}
+.srcs{padding-left:1.2rem;line-height:1.5;font-size:.92rem;max-width:46rem}.srcs a{color:var(--accent)}
