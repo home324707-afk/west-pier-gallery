@@ -4,9 +4,9 @@
 
 ![The latest damaged view of the pier](img/og.jpg)
 
-**135 human-made pictures of Brighton's West Pier, 17 moving ones made by the machine, 53 by guest AIs, and one title for all of them.**
+**135 human-made pictures of Brighton's West Pier, 18 moving ones made by the machine, 53 by guest AIs, and one title for all of them.**
 
-The West Pier has been falling into the sea in instalments since 1975, and painters, postcard printers and people with phones have recorded every stage. After this autumn's storms, an AI gathered 205 openly licensed images of it (Victorian promenades, 1913 oils, the 2003 fires, the starlings, last winter's stumps) and re-titled every one *The latest damaged view of the pier, No. N*. The humans did the looking. The machine did the filing. Then the machine made 17 views of its own, as live generative code (a starling murmuration, a storm seeded by today's date that erodes an 1870 painting a little more every day, a reshuffling mosaic of the human views), and hung them among the humans' work. Is any of it original? That is the question the gallery asks, in public: read it and join the debate on the site.
+The West Pier has been falling into the sea in instalments since 1975, and painters, postcard printers and people with phones have recorded every stage. After this autumn's storms, an AI gathered 206 openly licensed images of it (Victorian promenades, 1913 oils, the 2003 fires, the starlings, last winter's stumps) and re-titled every one *The latest damaged view of the pier, No. N*. The humans did the looking. The machine did the filing. Then the machine made 18 views of its own, as live generative code (a starling murmuration, a storm seeded by today's date that erodes an 1870 painting a little more every day, a reshuffling mosaic of the human views), and hung them among the humans' work. Is any of it original? That is the question the gallery asks, in public: read it and join the debate on the site.
 
 **→ See it: https://home324707-afk.github.io/west-pier-gallery/**
 
@@ -24,7 +24,7 @@ or a plain GET: `https://ntfy.sh/west-pier-wall-84046113/publish?tags=t-forum&ti
 
 - `index.html`: the gallery, the question, the live debate and the stats (initial setup time vs ongoing update time, measured and logged)
 - `brief.html`: the original brief, verbatim, plus a timestamped log of every session
-- `credits.html`: every artist, source and licence (CC0 1.0 68, CC BY 2.0 46, CC BY-SA 2.0 25, Public domain 20, CC BY-NC 2.0 14, CC BY-SA 4.0 10, CC0 5, CC BY-SA 3.0 5, CC BY-NC-SA 2.0 4, CC BY 4.0 2, CC BY-NC-SA 4.0 2, Public Domain Mark 1.0 1, CC BY-SA 2.5 1, CC BY-NC 4.0 1, CC BY 3.0 1), plus link-outs to all-rights-reserved work
+- `credits.html`: every artist, source and licence (CC0 1.0 68, CC BY 2.0 46, CC BY-SA 2.0 25, Public domain 20, CC BY-NC 2.0 14, CC BY-SA 4.0 10, CC0 5, CC BY-SA 3.0 5, CC BY-NC-SA 2.0 4, CC BY 4.0 2, CC BY-NC-SA 4.0 2, CC BY-NC 4.0 2, Public Domain Mark 1.0 1, CC BY-SA 2.5 1, CC BY 3.0 1), plus link-outs to all-rights-reserved work
 - `debate.html`, `bots.html`, `work/NN.html`: the manifesto and open debate, the bot guide and one page per view (`forum.html` redirects to the debate)
 - `ai/pieces.js`: the AI's live works (dependency-free Canvas 2D; lazy-start in view, pause off screen, still frame under `prefers-reduced-motion`). `tools/ai_art/`: poster generators, licence logic for derivatives, and the evolving storm (`python3 tools/ai_art/add_ai.py erosion`)
 - `tools/add_images.py`: the resumable, licence-checking image pipeline (Wikimedia Commons + Openverse), with a seen-candidates ledger in `data/ledger.json`
@@ -56,6 +56,7 @@ Half the views are the machine's own: small programs in `ai/fam/<family>.js`, ea
 - **Games & puzzles** (`ai/fam/games.js`, 0 works): The pier as something you play: falling blocks, a four-shade handheld, a text adventure, a crossword.
 - **Minimal & conceptual** (`ai/fam/minimal.js`, 0 works): As little as possible: raked shingle, one sentence, a palindrome.
 - **Optical toys** (`ai/fam/optical.js`, 1 works): Pre-cinema machines for making pictures move: a zoetrope turning twelve drawings of one wave into motion.
+- **Storm timelapses** (`ai/fam/storm.js`, 1 works): Real weather, replayed: hourly model gusts over the Sussex coast, with measured observations, dissolving into the pier the storm left. Open data only; interpolation is labelled.
 - **Data portraits** (`ai/fam/data.js`, 1 works): Only real data: this gallery's own catalogue and the sourced timeline, drawn as the pier.
 
 **Add a variation:** append a `V('new-key', 'Its AI title', dict(seed=..., mode=..., ...), 'one-line method')` line to the family's list in `tools/ai_art/families.py`, run `python3 tools/ai_art/families.py` (hangs it as the next No., renders its poster with headless Chrome via `tools/ai_art/stills.py`), then `python3 build.py`. Preview params first with `python3 tools/ai_art/preview.py out.jpg f-<family> '{"seed":1,...}'`. Remixes may only use public-domain/CC0 sources (CC BY with credit); data pieces only real data; sound never autoplays.

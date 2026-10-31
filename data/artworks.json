@@ -9356,5 +9356,35 @@
    "model_licence_url": "https://huggingface.co/Qwen/Qwen-Image",
    "terms_note": "AI Horde states that it claims no rights in generated outputs; the model is Apache 2.0, which places no restriction on outputs. Anonymous text-to-image jobs on AI Horde are shared with LAION by its terms; image-to-image jobs are not. Made by image-to-image from Photograph of the ruined West Pier by CGP Grey, 2005, CC BY 2.0 (No. 20 in this gallery, from Wikimedia Commons), redrawn by an image model, so the gallery cannot dedicate it to the public domain: it is shared under the same licence as the photograph (CC BY 2.0), with credit to the photographer. Fabricated painting: nothing in it was ever painted, drawn or printed by hand."
   }
+ },
+ {
+  "n": 311,
+  "kind": "ai",
+  "ai_key": "st-austen",
+  "anim": "f-storm",
+  "family": "storm",
+  "params": {
+   "seed": 2310
+  },
+  "still_ms": 27500,
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "ai:st-austen",
+  "orig_title": "Two days of wind, then the pier",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-10-31",
+  "lic": "CC BY-NC 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/fam/storm.js",
+  "dl": "",
+  "desc": "",
+  "method": "Storm timelapse: real hourly 10 m gusts and rain from the DWD ICON-D2 2 km model (22 Oct 12:00 to 25 Oct 00:00 UTC 2026, Open-Meteo, CC BY 4.0), drawn as a heat map over the OpenStreetMap coastline and replayed in 24 seconds; frames between the hourly steps are interpolated. Rings are measured METAR gusts (Shoreham, Gatwick). It dissolves into Ian Hunter's photograph of the ruin on 25 October.",
+  "sources": [
+   276
+  ],
+  "source_credit": "No. 276: \"Survival\" by Ian Hunter (CC BY-NC 4.0). Weather: Open-Meteo.com Historical Forecast API (CC BY 4.0), model DWD ICON-D2 (CC BY 4.0); observations: METAR via Iowa Environmental Mesonet; coastline: (c) OpenStreetMap contributors (ODbL); photograph: Ian Hunter, ianhunterphoto.com (CC BY-NC 4.0, used with his permission)",
+  "img": "img/311.jpg",
+  "w": 1500,
+  "h": 1000,
+  "note": "Derivative released under CC BY-NC 4.0. Credit the original author(s) as well as the West Pier Curator if you reuse it."
  }
 ]

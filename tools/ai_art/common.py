@@ -10,7 +10,7 @@ def work(n): return next(a for a in works() if a['n'] == n)
 def src_img(n): return Image.open(J(work(n)['img'])).convert('RGB')
 # licences we may derive from, and what the derivative must be released under
 DERIVABLE = {'Public domain': 'CC0 1.0', 'CC0': 'CC0 1.0', 'Public Domain Mark 1.0': 'CC0 1.0', 'PDM 1.0': 'CC0 1.0',
-             'CC BY 2.0': 'CC BY 4.0', 'CC BY 4.0': 'CC BY 4.0', 'CC BY-NC 2.0': 'CC BY-NC 4.0',
+             'CC BY 2.0': 'CC BY 4.0', 'CC BY 4.0': 'CC BY 4.0', 'CC BY-NC 2.0': 'CC BY-NC 4.0', 'CC BY-NC 4.0': 'CC BY-NC 4.0',
              'CC BY-SA 2.0': 'CC BY-SA 4.0', 'CC BY-SA 3.0': 'CC BY-SA 4.0', 'CC BY-SA 4.0': 'CC BY-SA 4.0', 'CC BY-SA 2.5': 'CC BY-SA 4.0'}
 LICURL = {'CC0 1.0': 'https://creativecommons.org/publicdomain/zero/1.0/', 'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
           'CC BY-NC 4.0': 'https://creativecommons.org/licenses/by-nc/4.0/', 'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/'}
