@@ -507,10 +507,19 @@
    "purpose": "Add analytics hook (GoatCounter, config-gated) and SEO pass",
    "done": "SEO pass and analytics hooks: scene alt text for every picture (grid stays blind), unique titles and descriptions, per-work social cards and VisualArtwork JSON-LD, 404 page, sitemap lastmod, self-hosted preloaded fonts, responsive hero images, GoatCounter and Search Console hooks (off until accounts exist).",
    "images_added": 0
+  },
+  {
+   "n": 56,
+   "start_utc": "2026-10-31T06:22:15Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Page-speed follow-up: defer hidden hero slides, lazy then-and-now images on the home page",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 33144,
- "update_session_count": 55,
+ "update_session_count": 56,
  "candidates_session1": 608,
  "found_ai_art": 0,
  "counts": {
@@ -526,7 +535,7 @@
   "human_artists": 86,
   "ai_families_on_wall": 8,
   "ai_families_defined": 20,
-  "sessions_logged": 55
+  "sessions_logged": 56
  },
  "snapshot_after_session_1": {
   "human": 97,

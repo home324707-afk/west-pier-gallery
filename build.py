@@ -265,8 +265,8 @@ def licl(a):
 def tn_fig(p, idx, big=True):
     t, nw = BYN[p['then']], BYN[p['now']]
     return (f'<figure class="tn" data-i="{idx}" style="--p:50%"><div class="tn-frame" role="group" aria-label="Then and now slider: {E(p["head"])}">'
-            f'<img class="tn-img tn-now" src="{nw["img"]}" alt="{E(p["alt_n"])}" style="object-position:{p["pos_n"]}" loading="{"eager" if idx == 0 else "lazy"}" width="1200" height="800">'
-            f'<img class="tn-img tn-then" src="{p.get("then_img", t["img"])}" alt="{E(p["alt_t"])}" style="object-position:{p["pos_t"]}" loading="{"eager" if idx == 0 else "lazy"}" width="1200" height="800">'
+            f'<img class="tn-img tn-now" src="{nw["img"]}" alt="{E(p["alt_n"])}" style="object-position:{p["pos_n"]}" loading="{"eager" if (idx == 0 and big) else "lazy"}" decoding="async" width="1200" height="800">'
+            f'<img class="tn-img tn-then" src="{p.get("then_img", t["img"])}" alt="{E(p["alt_t"])}" style="object-position:{p["pos_t"]}" loading="{"eager" if (idx == 0 and big) else "lazy"}" decoding="async" width="1200" height="800">'
             f'<span class="tn-line"><span class="tn-knob">⇆</span></span>'
             f'<span class="tn-tag tn-l">Then · {p["tl"]}</span><span class="tn-tag tn-r">Now · {p["nl"]}</span>'
             f'<input class="tn-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare then and now: {E(p["head"])}"></div>'
@@ -345,10 +345,13 @@ def build():
     HERO_SEL = [58, 276, 237, 275, 52, 238, 23, 239, 93, 28]
     _lab = lambda a: 'Human' if is_hu(a) else 'Guest AI' if is_guest(a) else 'AI'
     def _hero(i, x):
+        # slide 1 is the LCP image: eager, high priority, 1000 px variant on small screens. Later slides carry data-src and are fetched by the slideshow script just before they are shown (no 2.5 MB of hidden images competing with the first paint).
         b = BYN[x]; m = os.path.exists(b['img'].replace('.jpg', '_m.jpg'))
-        ss = f' srcset="{b["img"].replace(".jpg", "_m.jpg")} 1000w, {b["img"]} {b["w"]}w" sizes="(max-width:800px) 600px, 100vw"' if m else ''
-        return (f'<img class="slide{" on" if i == 0 else ""}" src="{b["img"]}"{ss} width="{b["w"]}" height="{b["h"]}" alt="{E(scene(b))}" data-href="work/{x:02d}.html" data-cap="No. {x}"'
-                + (' fetchpriority=high' if i == 0 else ' loading=lazy decoding=async') + '>')
+        sset = f'{b["img"].replace(".jpg", "_m.jpg")} 1000w, {b["img"]} {b["w"]}w' if m else ''
+        sz = ' sizes="(max-width:800px) 520px, 100vw"' if m else ''
+        common = f'width="{b["w"]}" height="{b["h"]}" alt="{E(scene(b))}" data-href="work/{x:02d}.html" data-cap="No. {x}"'
+        if i == 0: return f'<img class="slide on" src="{b["img"]}"' + (f' srcset="{sset}"' if m else '') + f'{sz} {common} fetchpriority=high decoding=async>'
+        return f'<img class="slide" data-src="{b["img"]}"' + (f' data-srcset="{sset}"' if m else '') + f'{sz} {common} decoding=async>'
     hero_slides = ''.join(_hero(i, x) for i, x in enumerate(HERO_SEL))
     hero_first = (HERO_SEL[0], _lab(BYN[HERO_SEL[0]]))
     idx = head('Brighton West Pier art gallery: AI vs human, can you tell?', f"An online art gallery of Brighton West Pier: {n} pictures, some human-made, some AI, none labelled. AI vs human: can you tell, and is any of it original?", path='', ld=LD_INDEX) + nav('index.html') + f'''
@@ -360,7 +363,9 @@ def build():
 <p class="counts"><b>{ST["candidates_total"]:,}</b> images found · <b>{n}</b> chosen · built in <b>{tnum}</b> · <b>{unum}</b> of updates since · <a href="brief.html#sessions">Brief &amp; Log</a></p></div>
 <a class="slidecap" id="slidecap" href="work/{hero_first[0]:02d}.html">No. {hero_first[0]}</a></header>
 <script>(function(){{var s=document.querySelectorAll('.hero2 .slide'),c=document.getElementById('slidecap'),i=0;if(s.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=(i+1)%s.length;s[i].classList.add('on');c.href=s[i].dataset.href;c.textContent=s[i].dataset.cap}},6500)}})();</script>
+function ld(k){{var e=s[k%s.length];if(e.dataset.src){{if(e.dataset.srcset)e.srcset=e.dataset.srcset;e.src=e.dataset.src;e.removeAttribute('data-src')}}}}
+addEventListener('load',function(){{setTimeout(function(){{ld(1)}},1500)}});
+setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=(i+1)%s.length;ld(i);ld(i+1);s[i].classList.add('on');c.href=s[i].dataset.href;c.textContent=s[i].dataset.cap}},6500)}})();</script>
 <div class="section-head" id="views"><h2>The pictures</h2><details class="famdet"><summary>Order</summary><div class="filter order" role="group" aria-label="Order the pictures"><button class="on" data-o="mix">Mixed order</button><button data-o="num">By number</button></div></details><span class="sig">Look first, judge later. Tap a picture to enlarge; its page says who made it.</span></div>
 <main class="gallery collapsed" id="gallery">{"".join(cards)}</main>
 <div class="showall"><button class="btn solid" type="button" id="showall">Show all {n} pictures ↓</button></div>
