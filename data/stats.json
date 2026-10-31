@@ -464,10 +464,19 @@
    "purpose": "AI families audit: one gallery-grade work per major AI image family",
    "done": "AI-family audit: hung FLUX.1-schnell (308), SDXL 1.0 (309), Qwen-Image (310) works via AI Horde; family table on credits; HiDream and others reported as gaps",
    "images_added": 3
+  },
+  {
+   "n": 51,
+   "start_utc": "2026-10-31T02:49:47Z",
+   "end_utc": null,
+   "seconds": null,
+   "purpose": "Retire FLUX works below the bar; retry FLUX via image-to-image",
+   "done": "",
+   "images_added": 0
   }
  ],
  "total_update_seconds": 29634,
- "update_session_count": 50,
+ "update_session_count": 51,
  "images_human": 97,
  "images_ai": 10,
  "candidates_session1": 608,
