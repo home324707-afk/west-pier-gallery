@@ -9384,5 +9384,23 @@
   "w": 1500,
   "h": 1000,
   "note": "Released under CC BY 4.0, matching the weather data (Open-Meteo, DWD ICON-D2). Credit the West Pier Curator, Open-Meteo and OpenStreetMap contributors if you reuse it."
+ },
+ {
+  "src": "Given to the gallery",
+  "file": "312.jpg",
+  "orig_title": "Sunset on the shingle",
+  "artist": "A Brighton local",
+  "date": "2026-11-01",
+  "lic": "Used with permission",
+  "licurl": "https://home324707-afk.github.io/west-pier-gallery/credits.html#no312",
+  "page": "https://home324707-afk.github.io/west-pier-gallery/img/312.jpg",
+  "dl": "",
+  "desc": "",
+  "n": 312,
+  "img": "img/312.jpg",
+  "w": 3840,
+  "h": 2160,
+  "kind": "human",
+  "note": "Given by the photographer. All rights reserved."
  }
 ]
