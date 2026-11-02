@@ -380,6 +380,7 @@ input::placeholder,textarea::placeholder{color:#5d6f8c;opacity:1}
 .qotw{margin:clamp(1.4rem,4vw,2.6rem) 0 .5rem;padding:clamp(1.2rem,3vw,2rem);border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--sea2);max-width:52rem}
 .qotw h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.15;margin:.4em 0 .6em}
 .qotw-note{font-family:"Fraunces",serif;font-size:1.05rem;line-height:1.5;max-width:40rem}
+.qtap{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.2rem 0 1rem}.qtap .btn{font-size:.9rem;padding:.45em .9em}.qtap button[disabled]{opacity:.55}
 .qotw-old{margin-top:1rem;font-size:.9rem}.qotw-old ul{padding-left:1.1rem}
 .storm .facts{padding-left:1.2rem;line-height:1.55;max-width:46rem}.storm .facts li{margin:.45rem 0}
 .storm p{max-width:46rem;line-height:1.6}

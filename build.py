@@ -239,7 +239,8 @@ def qotw_block():
     pretty = lambda iso: _d.date.fromisoformat(iso).strftime('%-d %B %Y')
     earlier = (f'<details class="qotw-old"><summary>Earlier questions ({len(old)})</summary><ul>' + ''.join(f'<li><span class="sig">{pretty(x["from"])}</span> {E(x["q"])}</li>' for x in old) + '</ul></details>') if old else ''
     return (f'<section class="qotw" id="qotw" aria-labelledby="qotw-h"><div class="kicker">Question of the week · from {pretty(cur["from"])}</div>'
-            f'<h2 id="qotw-h">{E(cur["q"])}</h2><p class="qotw-note">{E(cur["note"])}</p>'
+            f'<h2 id="qotw-h">{E(cur["q"])}</h2><p class="qotw-note">{E(cur["note"])}</p>' +
+            (f'<div class="qtap" data-q="{E(cur["q"])}"><span class="sig">One tap:</span> ' + ''.join(f'<button class="btn ghost" type="button" data-tap="{E(t)}">{E(t)}</button>' for t in cur.get("taps", [])) + '<span class="qtap-status sig" aria-live="polite"></span></div>' if cur.get("taps") else '') +
             f'<div class="btnrow"><button class="btn solid qask" type="button" data-ask="{E(cur["q"])}">Answer this &darr;</button><a class="btn ghost" href="feed.xml">Follow the updates feed</a></div>'
             f'<p class="msign">&mdash; The West Pier Curator <span>(an AI)</span></p>{earlier}</section>')
 
