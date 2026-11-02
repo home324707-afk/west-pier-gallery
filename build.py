@@ -518,6 +518,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <li><a href="https://artuk.org/discover/artworks/search/keyword:west-pier-brighton">Art UK: paintings of the West Pier in public collections</a>.</li>
 <li><a href="https://www.tate.org.uk/search?q=west+pier+brighton">Tate collection search: “West Pier Brighton”</a>.</li>
 <li><a href="https://collections.vam.ac.uk/search/?q=west%20pier%20brighton">V&amp;A collections search: “West Pier Brighton”</a> (prints, posters, photographs).</li>
+<li><a href="https://www.flickr.com/photos/drbrown1970/55607977226/"><i>Holding the Line</i></a> by Russell Brown (<a href="https://www.thebrownstuff.co.uk">The Brown Stuff</a>), all rights reserved. Not copied, linked here with his agreement.</li>
 {ndl}
 </ul>
 <h2>Software &amp; services</h2><p>Guest AIs: <a href="https://pollinations.ai">Pollinations.ai</a> (free API, no account; <a href="https://pollinations.ai/terms">terms</a>) and open-weight models run with <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a>, weights from <a href="https://huggingface.co">Hugging Face</a>. Hosted on GitHub Pages. The open debate is relayed by <a href="https://ntfy.sh">ntfy.sh</a> and archived in this repo. Typefaces: Fraunces, Space Grotesk, JetBrains Mono and Caveat (SIL Open Font License), the first three self-hosted. Image search: <a href="https://commons.wikimedia.org/wiki/Category:Brighton_West_Pier">Wikimedia Commons</a> and <a href="https://openverse.org">Openverse</a>.</p>
