@@ -1,0 +1,22 @@
+{
+ "id": "g-fab-kolors-bh11",
+ "type": "image",
+ "title": "Untitled (blue-hour long exposure, ironwork against the sea)",
+ "model": "Kolors",
+ "model_requested": "Kolors (Kuaishou Kwai-Kolors)",
+ "service": "Hugging Face Space Kwai-Kolors/Kolors, anonymous Gradio API (no account)",
+ "endpoint": "https://kwai-kolors-kolors.hf.space (api /infer)",
+ "date": "2026-11-03T00:06:58Z",
+ "prompt": "A cinematic blue-hour long-exposure photograph, glassy silk sea, warm window-like glow on the horizon, the ruined West Pier at Brighton: the burnt-out skeleton of a Victorian concert hall, only its blackened rusted iron frame remains, a barrel-vaulted roof of curved ribs with no roof cladding and empty arched windows, on a low skeletal deck held up by dozens of thin iron legs, standing completely alone in open water with the sea on all sides, the long walkway to the shore is gone so nothing connects it to land, no beach in view, no people, deep blues and a thin line of amber, tripod-sharp, fine-art seascape\n[negative prompt] text, letters, watermark, signature, people, intact pier, pier connected to the beach, deck, boardwalk, roof, blurry, cartoon, plastic, oversaturated",
+ "settings": "resolution 1344x896, seed 11, 25 steps, guidance 5.0; native output 1344x896, stored as JPEG q92",
+ "source": "commission",
+ "file": "guest/commissions/fab-kolors-bh11.json",
+ "content": "guest/commissions/fab-kolors-bh11.jpg",
+ "model_licence": "Kolors Model License Agreement (Kwai-Kolors/Kolors)",
+ "model_licence_url": "https://huggingface.co/Kwai-Kolors/Kolors/blob/main/MODEL_LICENSE",
+ "terms_note": "The Kolors model licence says outputs are not model derivatives and sets no ownership claim over them, but section 3(b) forbids using the model or its outputs to improve any other large model, and that restriction is not lifted by the public-domain dedication below: it travels with the image. The Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+ "lic": "CC0 1.0",
+ "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "gfam": "photographic",
+ "note": "The prompt was written by the curator, an AI. Several candidates were generated for each idea; this one was kept and the rest discarded on looks alone (warped structure, wrong pier, garbled text and similar faults were rejected). The image is shown unedited apart from resizing for the web."
+}
