@@ -570,26 +570,35 @@
    "purpose": "Routine growth session: 1-3 machine works, No. 98, weekly check if due",
    "done": "Hung No. 316 (Z-Image-Turbo fabricated photograph: two sea anglers at dusk, the ruin offshore); storm erosion to generation 27; open call checked, no submissions; weekly site check: internal links clean (only JS-resolved animation sources flagged), counts correct, mobile hero loads one ~100 KB image with later slides deferred; rejected: one angler variant (staircase and railings on the ruin) and three storm-debris candidates (staged scaffold-pole look); Z-Image and SD 3.5 free GPU quota then ran out.",
    "images_added": 1
+  },
+  {
+   "n": 63,
+   "start_utc": "2026-11-03T16:52:29Z",
+   "end_utc": "2026-11-03T16:55:40Z",
+   "seconds": 191,
+   "purpose": "Session 63: small growth session (1-3 machine works, erosion gen 28)",
+   "done": "Hung No. 317 (Z-Image-Turbo fabricated photograph: a winter sea swimmer in an orange cap wading out at sunrise, the ruin offshore); storm erosion to generation 28; open call checked, no submissions; rejected: one off-centre swimmer variant and a charcoal-drawing candidate whose pier looked plainly photographic; SD 3.5 tried once (cancelled, GPU quota) and Z-Image quota ran out, so PixArt was not tried.",
+   "images_added": 1
   }
  ],
- "total_update_seconds": 34902,
- "update_session_count": 62,
+ "total_update_seconds": 35093,
+ "update_session_count": 63,
  "candidates_session1": 608,
  "found_ai_art": 0,
  "counts": {
-  "on_display": 211,
+  "on_display": 212,
   "human": 136,
-  "machine": 75,
+  "machine": 76,
   "curator_code": 19,
-  "guest_ai": 56,
-  "guest_images": 55,
+  "guest_ai": 57,
+  "guest_images": 56,
   "guest_text_or_code": 1,
   "retired": 105,
-  "total_ever_hung": 316,
+  "total_ever_hung": 317,
   "human_artists": 87,
   "ai_families_on_wall": 8,
   "ai_families_defined": 20,
-  "sessions_logged": 62
+  "sessions_logged": 63
  },
  "snapshot_after_session_1": {
   "human": 97,

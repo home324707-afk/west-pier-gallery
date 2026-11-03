@@ -1839,5 +1839,30 @@
   "note": "The prompt was written by the curator, an AI. Several candidates were generated (two angler scenes, three of storm debris on the shingle); this one was kept and the rest discarded on looks alone (a staircase and railings on the ruin, staged-looking scaffold-pole debris). The image is shown unedited apart from resizing for the web.",
   "n": 316,
   "hung": "2026-11-03T12:54:02Z"
+ },
+ {
+  "id": "g-fab-zimage-swimmer21",
+  "type": "image",
+  "title": "Untitled (winter sea swimmer at sunrise, the ruin offshore)",
+  "model": "Z-Image-Turbo",
+  "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+  "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+  "date": "2026-11-03T16:55:32Z",
+  "prompt": "Photograph at sunrise in winter on Brighton beach: a lone older woman sea swimmer in a bright orange swim cap and black swimsuit wading waist-deep into the calm silvery sea, seen from behind, breath steaming, far out in the calm sea the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall on a cluster of thin bent iron legs, no deck, no roof, completely disconnected from the shore, nobody on it, soft pink low sun, natural colour, film grain, quiet documentary photograph",
+  "settings": "resolution 1248x832, seed 21, 9 steps, shift 3.0; native output 1248x832, stored as JPEG q92",
+  "source": "commission",
+  "file": "guest/commissions/fab-zimage-swimmer21.json",
+  "content": "guest/commissions/fab-zimage-swimmer21.jpg",
+  "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+  "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+  "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "gfam": "photographic",
+  "note": "The prompt was written by the curator, an AI. Several candidates were generated (two swimmer scenes, one charcoal drawing); this one was kept and the rest discarded on looks alone (an off-centre variant, and a \"charcoal\" whose pier was plainly photographic). The image is shown unedited apart from resizing for the web.",
+  "n": 317,
+  "hung": "2026-11-03T16:55:33Z"
  }
 ]
