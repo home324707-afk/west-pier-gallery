@@ -16,7 +16,7 @@ precision highp float;
 #else
 precision mediump float;
 #endif
-uniform vec2 uRes;uniform float uT,uWind,uSwell,uChop,uRoll,uHor,uGlow,uSig,uDrift;uniform int uN;uniform vec4 uW[${NW}];
+uniform vec2 uRes;uniform float uT,uWind,uSwell,uChop,uRoll,uHor,uGlow,uSig,uDrift;uniform int uN;uniform vec4 uW[${NW}];uniform vec4 uRip[4];
 const vec3 PRU=vec3(.020,.075,.135),NAVY=vec3(.045,.105,.190),STORM=vec3(.36,.42,.48),MIST=vec3(.74,.76,.76);
 float sm(float a,float b,float x){float t=clamp((x-a)/(b-a),0.,1.);return t*t*(3.-2.*t);}
 float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
@@ -27,7 +27,7 @@ vec3 skyc(float el,float wob){
  vec3 c=vec3(.90,.88,.80);
  c=mix(c,MIST,sm(0.,.10,t));c=mix(c,STORM,sm(.10,.40,t));c=mix(c,vec3(.12,.20,.29),sm(.40,.75,t));c=mix(c,PRU,sm(.75,1.,t));return c;}
 void main(){
- vec2 fc=gl_FragCoord.xy;vec2 q=vec2(fc.x,uRes.y-fc.y);
+ vec2 fc=gl_FragCoord.xy;vec2 q=vec2(fc.x,uRes.y-fc.y);vec2 q0=q;
  float yh=uRes.y*uHor;vec2 c=vec2(uRes.x*.5,yh);vec2 d=q-c;float cr=cos(uRoll),sr=sin(uRoll);
  q=c+vec2(cr*d.x-sr*d.y,sr*d.x+cr*d.y);
  float W=uRes.x,H=uRes.y;vec3 col;
@@ -55,6 +55,14 @@ void main(){
    float s1=sin(th),c1=cos(th);float s2=2.*s1*c1,c2=c1*c1-s1*s1;
    float sp=s2*.6967+c2*.7174,cp=c2*.6967-s2*.7174;   // sin/cos(2th+0.8)
    hg+=a*(s1+.34*sp);float dh=a*(c1+.68*cp);gx+=dh*kx;gz+=dh*kz;
+  }
+  for(int j=0;j<4;j++){   /* a piece of the pier hits the water: a ring that spreads and fades */
+   vec4 rp=uRip[j];float age=uT-rp.z;if(rp.w<=0.||age<0.||age>5.)continue;
+   vec2 dd=vec2(q0.x-rp.x*W,(q0.y-rp.y*W)*3.2)/W;float r=length(dd)+1e-4;
+   float fr=age*.075+.004,wd=.007+.009*age;
+   float env=exp(-pow((r-fr)/wd,2.))*rp.w/(1.+age*1.5);
+   float ph=(r-fr)*6.2831853/.0065;
+   float sl=env*cos(ph)*.55;gx+=sl*dd.x/r;gz-=sl*dd.y/r;hg+=env*sin(ph)*uSig*.35;
   }
   vec3 n=normalize(vec3(-gx,1.,-gz));
   float vl=sqrt(x*x+z*z+cam*cam);vec3 v=vec3(x/vl,-cam/vl,z/vl);
@@ -89,8 +97,8 @@ if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){console.warn(gl.getProgramInfoLog
 gl.useProgram(pr);
 const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
 const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-const U={};['uRes','uT','uWind','uSwell','uChop','uRoll','uHor','uGlow','uSig','uDrift','uN'].forEach(n=>U[n]=gl.getUniformLocation(pr,n));
-const UW=gl.getUniformLocation(pr,'uW');
+const U={};['uRes','uT','uRip','uWind','uSwell','uChop','uRoll','uHor','uGlow','uSig','uDrift','uN'].forEach(n=>U[n]=gl.getUniformLocation(pr,n));
+const UW=gl.getUniformLocation(pr,'uW'),URIP=gl.getUniformLocation(pr,'uRip');const RIP=new Float32Array(16);let ripN=0;
 /* the 46 waves: wavelength 3..90 m, direction scatter, amplitude from steepness, phase. Same recipe as sea.py, seeded. */
 const rnd=(a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296})(315);
 const smooth=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
@@ -130,15 +138,60 @@ if(needPerm&&navigator.maxTouchPoints>0){
 if(hint&&!fine&&'DeviceOrientationEvent' in window&&!needPerm){hint.textContent='Tilt the phone';hint.classList.remove('off');fadeHint()}
 if(fine){addEventListener('mousemove',e=>{if(I.src==='tilt')return;setTilt((e.clientX/innerWidth-.5)*2,(e.clientY/innerHeight-.5)*2,'mouse')},{passive:true});
  if(hint){hint.textContent='Move the mouse';hint.classList.remove('off');fadeHint()}}
+
+/* ---- loose pieces: sprites cut from the same drawing (img/315_frags.png/.json) on a 2D canvas over the pier layer.
+   Violence (shake, fast tilt, a fast mouse, an extreme hold) is the pull; calm does almost nothing. Cap: the skeleton survives. */
+const fc=box.querySelector('canvas.seafrag'),fx=fc&&fc.getContext('2d'),FB=box.dataset.frags;
+const M={v:0};let FR=null,dirty=true,parts=[],lost=0,V=0,ripCool=0;
+const G=.38,YW=.3453;                       /* gravity and the waterline, in units of the picture's width */
+if(fc&&FB)Promise.all([fetch(FB+'.json').then(r=>r.json()).catch(()=>null),new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.onerror=()=>res(null);im.src=FB+'.png'})]).then(([j,im])=>{
+ if(!j||!im||!j.f||!j.f.length)return;
+ FR={im,j,p:j.f.map(m=>({m,st:0,x:m.x+m.uw/2,y:m.y+m.uh/2,vx:0,vy:0,r:0,om:0,t:0,ys:0,a:1}))};FR.max=Math.round(FR.p.length*.42);dirty=true});
+if(fine)addEventListener('mousemove',(()=>{let lx=0,ly=0,lt=0;return e=>{const now=performance.now(),dt=Math.max(8,now-lt)/1000;const sp=Math.hypot(e.clientX-lx,e.clientY-ly)/innerWidth/dt;lx=e.clientX;ly=e.clientY;lt=now;if(lt&&sp<40)M.v=Math.max(M.v,Math.min(1,(sp-1.4)/2.6))}})(),{passive:true});
+function release(){
+ const al=FR.p.filter(p=>p.st===0);if(!al.length)return;
+ let tot=0;al.forEach(p=>tot+=p.m.w);let r=Math.random()*tot,pk=al[0];for(const p of al){r-=p.m.w;if(r<=0){pk=p;break}}
+ pk.st=1;pk.vx=S.lr*.07+(Math.random()-.5)*.05;pk.vy=-.01*Math.random();pk.om=(Math.random()<.5?-1:1)*(1.2+Math.random()*3)+S.lr*2;
+ pk.ys=YW+.012+Math.random()*.07;lost++;dirty=true}
+function splash(x,y,T8){
+ RIP.set([x,y,T8,1],(ripN++%4)*4);
+ for(let i=0;i<7;i++)parts.push({x,y,vx:(Math.random()-.5)*.2,vy:-.1-Math.random()*.2,t:0});
+}
+let hold=false;
+function fragStep(dt,T8){
+ if(!FR)return;if(hold)return;
+ M.v*=Math.exp(-dt/.5);
+ const vin=Math.max(I.shake,M.v,Math.min(1,Math.max(0,(Math.abs(S.lr)-.75)/.5))*.45);
+ V+=(vin-V)*(vin>V?1:1-Math.exp(-dt/.8));
+ if(lost<FR.max&&dt>0){const rate=.010+3.6*Math.pow(Math.max(0,V-.3),1.3);if(Math.random()<rate*dt)release()}
+ for(const p of FR.p){
+  if(p.st===1){p.vy+=G*dt;p.vx+=S.lr*.22*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.r+=p.om*dt;dirty=true;
+   if(p.y+p.m.uh*.3>=p.ys){p.st=2;p.t=0;p.vy=.02;p.vx*=.3;p.om*=.35;splash(p.x,p.ys,T8)}}
+  else if(p.st===2){p.t+=dt;p.vx*=1-.6*dt;p.x+=p.vx*dt;p.y+=(.03+p.t*.012)*dt;p.r+=p.om*dt;p.om*=1-.5*dt;p.a=Math.max(0,1-p.t/2.4);dirty=true;if(p.t>2.4)p.st=3}
+ }
+ for(let i=parts.length-1;i>=0;i--){const q=parts[i];q.t+=dt;q.vy+=1.1*dt;q.x+=q.vx*dt;q.y+=q.vy*dt;dirty=true;if(q.t>.6)parts.splice(i,1)}
+}
+function fragDraw(){
+ if(!FR||!dirty)return;dirty=false;
+ const cw=fc.width;fx.clearRect(0,0,cw,fc.height);fx.imageSmoothingQuality='high';
+ for(const p of FR.p){if(p.st===3)continue;const m=p.m,w=m.uw*cw,h=m.uh*cw;fx.save();
+  if(p.st===2){fx.beginPath();fx.rect(0,0,cw,p.ys*cw+cw*.002);fx.clip();fx.globalAlpha=p.a}
+  if(p.st===1){fx.shadowColor='rgba(244,238,224,.9)';fx.shadowBlur=cw*.005}
+  fx.translate(p.x*cw,p.y*cw);if(p.r)fx.rotate(p.r);
+  fx.drawImage(FR.im,m.ax,m.ay,m.aw,m.ah,-w/2,-h/2,w,h);fx.restore()}
+ fx.strokeStyle='rgba(243,236,220,.75)';fx.lineCap='round';
+ for(const q of parts){fx.globalAlpha=Math.max(0,1-q.t/.6);fx.lineWidth=Math.max(1,cw*.0016);fx.beginPath();fx.moveTo(q.x*cw,q.y*cw);fx.lineTo((q.x-q.vx*.04)*cw,(q.y-q.vy*.04)*cw);fx.stroke()}
+ fx.globalAlpha=1}
 /* size: cap the pixel ratio and the width; step down if frames run long */
 let q={scale:1,n:NW},W=0,H=0;const cap=()=>Math.min(window.devicePixelRatio||1,1.5);
 function size(){const r=cv.getBoundingClientRect();W=Math.max(2,Math.round(Math.min(r.width*cap()*q.scale,1400)));H=Math.max(2,Math.round(W*(r.height/Math.max(1,r.width))));
- if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H}gl.viewport(0,0,W,H)}
+ if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H}gl.viewport(0,0,W,H);
+ if(fc){const fw=Math.max(2,Math.round(Math.min(r.width*cap(),1400))),fh=Math.round(fw*(r.height/Math.max(1,r.width)));if(fc.width!==fw||fc.height!==fh){fc.width=fw;fc.height=fh}dirty=true}}
 new ResizeObserver(size).observe(cv);size();
 let vis=true,run=false,t0=performance.now(),last=t0,frames=0,acc=0,T=0,failed=false;
 new IntersectionObserver(es=>{vis=es[0].isIntersecting;kick()},{threshold:0}).observe(box);
 document.addEventListener('visibilitychange',kick);
-cv.addEventListener('webglcontextlost',e=>{e.preventDefault();failed=true;cv.classList.remove('on');pier.classList.remove('on')});
+cv.addEventListener('webglcontextlost',e=>{e.preventDefault();failed=true;cv.classList.remove('on');pier.classList.remove('on');if(fc)fc.classList.remove('on')});
 function kick(){if(!run&&vis&&!document.hidden&&!failed){run=true;last=performance.now();requestAnimationFrame(loop)}}
 function loop(now){
  if(!vis||document.hidden||failed){run=false;return}
@@ -150,16 +203,17 @@ function loop(now){
  const chopT=1+2.4*I.shake;S.chop+=(chopT-S.chop)*(1-Math.exp(-dt/(chopT>S.chop?.15:1.2)));
  const wind=.07+S.lr*.55,swell=Math.max(.45,Math.min(1.9,1+S.fb*.75)),roll=-S.lr*.045,hor=.46+S.fb*.012,glow=Math.max(.3,Math.min(.95,.62+S.lr*.2));
  S.wind+=(wind-S.wind)*ea;S.sw+=(swell-S.sw)*ea;
+ fragStep(dt,T*.8);fragDraw();
  gl.uniform2f(U.uRes,W,H);gl.uniform1f(U.uT,T*.8);gl.uniform1f(U.uWind,S.wind);gl.uniform1f(U.uSwell,S.sw);gl.uniform1f(U.uChop,S.chop);
  gl.uniform1f(U.uRoll,roll);gl.uniform1f(U.uHor,hor);gl.uniform1f(U.uGlow,glow);gl.uniform1f(U.uSig,SIG);gl.uniform1f(U.uDrift,T*.0025+S.lr*.02);gl.uniform1i(U.uN,q.n);
- gl.uniform4fv(UW,WV);
+ gl.uniform4fv(UW,WV);gl.uniform4fv(URIP,RIP);
  gl.drawArrays(gl.TRIANGLES,0,3);
- if(!cv.classList.contains('on')&&++frames>1){cv.classList.add('on');pier.classList.add('on')}
+ if(!cv.classList.contains('on')&&++frames>1){cv.classList.add('on');pier.classList.add('on');if(fc)fc.classList.add('on')}
  /* slow GPU: after 40 frames judge the average frame time and step down (wave count, then resolution) */
  acc+=dt;if(++perf.f>=40){const avg=acc/perf.f;perf.f=0;acc=0;
   if(avg>.032&&perf.steps<4){perf.steps++;if(q.n>26)q.n=Math.max(26,Math.round(q.n*.7));else q.scale=Math.max(.5,q.scale*.78);size()}}
  requestAnimationFrame(loop)}
 const perf={f:0,steps:/[?&]sea=hi/.test(location.search)?99:0};
-window.__seapier={state:()=>({q,S:{...S},I:{...I},T,steps:perf.steps,W,H}),input:(lr,fb,shake)=>{setTilt(lr,fb,'mouse');if(shake)I.shake=shake}};
+window.__seapier={state:()=>({q,S:{...S},I:{...I},T,steps:perf.steps,W,H,lost,V,frags:FR?FR.p.length:0,falling:FR?FR.p.filter(p=>p.st===1).length:0,sinking:FR?FR.p.filter(p=>p.st===2).length:0}),hold:b=>{hold=b},midfall:()=>FR?FR.p.filter(p=>p.st===1&&p.y>p.m.y+p.m.uh/2+.04&&p.y<p.ys-.05).length:0,drop:n=>{if(FR)for(let i=0;i<n&&lost<FR.max;i++)release()},input:(lr,fb,shake)=>{setTilt(lr,fb,'mouse');if(shake)I.shake=shake}};
 kick();
 })();

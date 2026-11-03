@@ -1,10 +1,12 @@
 """The West Pier ruin as it stands: the skeletal iron frame of the concert hall on its legs in the sea,
 open to the sky (no roof, no dome, no glazing), with the pier head stub, wreckage and isolated piles; nothing joins the shore.
 All geometry is written here as numbers, drawn with pencil.Hand."""
-import numpy as np, math
+import numpy as np, math, random
+from contextlib import nullcontext
 
 def draw(h, cx, yw, S=1.0):
     rng = h.rng
+    fr = random.Random(31)                    # picks which pieces are loose, apart from the drawing's own hand
     U = lambda u, v: (cx + u * S, yw - v * S)
     P = lambda u, v: U(u, v)
     R = lambda a, b: rng.uniform(a, b)
@@ -14,6 +16,7 @@ def draw(h, cx, yw, S=1.0):
     NB = 14; bay = (HALL_R - HALL_L) / NB
     colx = [HALL_L + i * bay for i in range(NB + 1)]
     G1, G2 = DECK_T + 85, DECK_T + 172  # gallery rail and eave beam (v)
+    RAIL, STRUTF, TIEF, EAVEF, ARCHF = {1, 4, 6, 9, 12}, {0, 3, 7, 10, 13}, {3, 7, 9}, {2, 10}, {6, 12}   # the loose bays (cut out as sprites)
     ARCH0 = G2
 
     # ------------- water line, laid in first as a loose guide
@@ -62,27 +65,40 @@ def draw(h, cx, yw, S=1.0):
             if rng.random() < 0.82:
                 h.line(P(u0 + 4, vv + R(-2, 2)), P(u1 - 4, vv + R(-2, 2)), layer='ink', w=2.2, alpha=0.8, wobble=1.0, step=14, over=3)
         if rng.random() < 0.62:
-            h.line(P(u0 + 4, 42), P(u1 - 4, 102), layer='ink', w=1.8, alpha=0.75, wobble=1.0, step=14, over=2)
-            if rng.random() < 0.6:
-                h.line(P(u0 + 4, 102), P(u1 - 4, 42), layer='ink', w=1.8, alpha=0.75, wobble=1.0, step=14, over=2)
+            with (h.frag('brace', 2.5) if fr.random() < 0.45 else nullcontext()):
+                h.line(P(u0 + 4, 42), P(u1 - 4, 102), layer='ink', w=1.8, alpha=0.75, wobble=1.0, step=14, over=2)
+                if rng.random() < 0.6:
+                    h.line(P(u0 + 4, 102), P(u1 - 4, 42), layer='ink', w=1.8, alpha=0.75, wobble=1.0, step=14, over=2)
         # top diagonal knees under the girder
         if rng.random() < 0.5:
             h.line(P(u0 + 4, DECK_B - 24), P(u0 + 30, DECK_B), layer='graphite', w=1.7, alpha=0.7, wobble=0.6, step=10)
 
     # ------------- deck girders (a Warren truss band), with the broken stretches
     spans = [(-335, 375), (425, 705)]
-    for (a, b) in spans:
+    def truss(a, b):
         for vv, w_ in ((DECK_B, 3.0), (DECK_T, 3.4), (DECK_T - 7, 1.6)):
             h.line(P(a, vv + R(-1, 1)), P(b, vv + R(-1, 1)), layer='ink', w=w_, alpha=0.9, wobble=1.3, step=22, passes=2, spread=1.4, over=6)
-        n = int((b - a) / 38)
+        n = max(1, int((b - a) / 38))
         for j in range(n):
             u0 = a + j * 38; u1 = u0 + 38
             if rng.random() < 0.92:
                 if j % 2 == 0: h.line(P(u0, DECK_B), P(u1, DECK_T), layer='graphite', w=1.8, alpha=0.78, wobble=0.7, step=12)
                 else: h.line(P(u0, DECK_T), P(u1, DECK_B), layer='graphite', w=1.8, alpha=0.78, wobble=0.7, step=12)
-        # little verticals every 4 bays
         for j in range(0, n, 2):
             h.line(P(a + j * 38, DECK_B), P(a + j * 38, DECK_T), layer='graphite', w=1.5, alpha=0.6, wobble=0.5, step=10)
+    CH = 76
+    for (a, b) in spans:
+        nch = int(math.ceil((b - a) / CH))
+        loose = [fr.random() < 0.30 and 0 < j for j, _ in enumerate(range(nch))]
+        run = None
+        for j in range(nch + 1):
+            c0 = a + j * CH; c1 = min(c0 + CH, b)
+            if j < nch and not loose[j]:
+                run = (c0, c1) if run is None else (run[0], c1)
+            else:
+                if run is not None: truss(*run); run = None
+                if j < nch: 
+                    with h.frag('deck', 1.2): truss(c0, c1)
     # girder ends dropping away into the sea at each break
     for (u, d, ln) in ((-335, -1, 120), (375, 1, 60), (425, -1, 50), (705, 1, 110)):
         pts = [P(u, DECK_T), P(u + d * ln * 0.45, DECK_T - ln * 0.18), P(u + d * ln * 0.8, DECK_T - ln * 0.65), P(u + d * ln, DECK_T - ln * 1.0)]
@@ -113,22 +129,24 @@ def draw(h, cx, yw, S=1.0):
             L(Q(u - 9, top - 2), Q(u + 9, top - 2), 2.0, 0.7, layer='graphite', wobble=0.5, step=8)
         for (vv, w_) in ((G1, 2.8), (G1 - 14, 1.8)):
             for i in range(NB):
+                if front and i in RAIL: continue
                 L(Q(colx[i] + 4, vv + R(-1.5, 1.5)), Q(colx[i + 1] - 4, vv + R(-1.5, 1.5)), w_, 0.85, wobble=1.2, step=14, over=4)
         for i in range(NB):
             n = int(bay / 10)
             for j in range(1, n):
-                if rng.random() < 0.72 and front:
+                if rng.random() < 0.72 and front and i not in RAIL:
                     uu = colx[i] + j * bay / n
                     h.line(Q(uu, G1 - 14), Q(uu, G1), layer='graphite', w=1.3, alpha=0.6, wobble=0.4, step=6, taper=False)
         for (vv, w_) in ((G2 - 2, 3.0), (G2 - 16, 2.0)):
             for i in range(NB):
                 if i == 9 and vv == G2 - 2: continue
+                if front and i in EAVEF and vv == G2 - 2: continue
                 L(Q(colx[i] + 4, vv + R(-2, 2)), Q(colx[i + 1] - 4, vv + R(-2, 2)), w_, 0.88, wobble=1.3, step=14, over=4)
         for i in range(NB):
             if rng.random() < 0.6:
                 L(Q(colx[i] + 5, DECK_T + 4), Q(colx[i + 1] - 5, G1 - 14), 1.9, 0.7, layer='graphite', wobble=1.0, step=12)
                 if rng.random() < 0.55: L(Q(colx[i] + 5, G1 - 14), Q(colx[i + 1] - 5, DECK_T + 4), 1.9, 0.7, layer='graphite', wobble=1.0, step=12)
-            if rng.random() < 0.55:
+            if rng.random() < 0.55 and not (front and i in STRUTF):
                 L(Q(colx[i] + 5, G1 + 2), Q(colx[i + 1] - 5, G2 - 18), 1.8, 0.65, layer='graphite', wobble=1.0, step=12)
         # arched ribs: concentric pairs over each pair of bays, differing heights, a few broken
         hts = []
@@ -141,8 +159,19 @@ def draw(h, cx, yw, S=1.0):
             if i == 2: a_end = R(1.5, 1.9)
             if i == 8: a_st = R(1.3, 1.7)
             if i == 4: a_end = R(2.3, 2.6)
-            for (inset, w_) in ((0.0, 3.0), (6.0, 2.0)):
-                Arc(cxm, ARCH0 + R(-3, 3), rx - inset, ht - inset, a_st, a_end, w_, 0.88, wobble=1.3, step=16, spread=0.9)
+            b0 = [R(-3, 3), R(-3, 3)]
+            ribs = ((0.0, 3.0), (6.0, 2.0))
+            if front and i in ARCHF:
+                half = (0.0, math.pi / 2) if i == 6 else (math.pi / 2, math.pi)
+                rest = (math.pi / 2, math.pi) if i == 6 else (0.0, math.pi / 2)
+                for k, (inset, w_) in enumerate(ribs):
+                    Arc(cxm, ARCH0 + b0[k], rx - inset, ht - inset, rest[0], rest[1], w_, 0.88, wobble=1.3, step=16, spread=0.9)
+                with h.frag('arch', 1.6):
+                    for k, (inset, w_) in enumerate(ribs):
+                        Arc(cxm, ARCH0 + b0[k], rx - inset, ht - inset, half[0], half[1], w_, 0.88, wobble=1.3, step=16, spread=0.9)
+            else:
+                for k, (inset, w_) in enumerate(ribs):
+                    Arc(cxm, ARCH0 + b0[k], rx - inset, ht - inset, a_st, a_end, w_, 0.88, wobble=1.3, step=16, spread=0.9)
         for i in range(len(hts) - 1):
             for tfrac in (0.30, 0.62):
                 if rng.random() < 0.8:
@@ -155,10 +184,20 @@ def draw(h, cx, yw, S=1.0):
             x0, x1 = colx[i] + 3, colx[min(i + 4, NB)] - 3; cxm = (x0 + x1) / 2; rx = (x1 - x0) / 2
             base = ARCH0 + R(52, 70); ht = R(70, 100) * (0.8 if i == 10 else 1)
             a_end = math.pi if i != 8 else R(2.1, 2.5)
-            Arc(cxm, base, rx, ht, 0.0, a_end, 2.9, 0.88, wobble=1.4, step=18, spread=0.8)
-            Arc(cxm, base, rx - 8, ht - 8, 0.12, a_end - 0.08, 1.8, 0.7, layer='graphite', wobble=1.2, step=18)
+            def sweep(t0, t1):
+                Arc(cxm, base, rx, ht, t0, t1, 2.9, 0.88, wobble=1.4, step=18, spread=0.8)
+                Arc(cxm, base, rx - 8, ht - 8, t0 + (0.12 if t0 == 0 else 0), t1 - (0.08 if t1 == a_end else 0), 1.8, 0.7, layer='graphite', wobble=1.2, step=18)
+            if front and i in (0, 4, 10):
+                mid = math.pi / 2
+                if i == 0: sweep(0.0, mid)
+                else: sweep(mid, a_end)
+                with h.frag('arch', 1.6):
+                    if i == 0: sweep(mid, a_end)
+                    else: sweep(0.0, mid)
+            else:
+                sweep(0.0, a_end)
         for i in range(NB):
-            if i in (5, 11): continue
+            if i in (5, 11) or (front and i in TIEF): continue
             L(Q(colx[i] + 2, ARCH0 + 50), Q(colx[i + 1] - 2, ARCH0 + 50 + R(-3, 4)), 1.9, 0.75, layer='graphite', wobble=1.0, step=12, over=5)
         for (a_, b_) in ((colx[0] + 10, colx[5]), (colx[8], colx[13] - 20)):
             L(Q(a_, ARCH0 + 128), Q(b_, ARCH0 + 128 + R(-4, 5)), 1.7, 0.6, layer='graphite', wobble=1.6, step=16, over=5)
@@ -178,6 +217,26 @@ def draw(h, cx, yw, S=1.0):
     h.hatch((cx + (HALL_L + 8) * S, yw - (G1 - 16) * S, cx + (HALL_R - 8) * S, yw - (DECK_T + 8) * S), 62, 5.0, layer='graphite', w=1.7, alpha=0.62, keep=0.85, wobble=0.6, step=14)
     h.hatch((cx + (HALL_L + 8) * S, yw - (G1 - 16) * S, cx + (HALL_R - 8) * S, yw - (DECK_T + 8) * S), -48, 9.0, layer='graphite', w=1.5, alpha=0.5, keep=0.7, wobble=0.6, step=14)
     hall(0, 0, True)
+    # ------------- the loose pieces: drawn apart, cut out as sprites so they can come away
+    for i in sorted(RAIL):
+        with h.frag('rail', 3.0):
+            for (vv, w_) in ((G1, 2.8), (G1 - 14, 1.8)):
+                h.line(P(colx[i] + 4, vv + R(-1.5, 1.5)), P(colx[i + 1] - 4, vv + R(-1.5, 1.5)), layer='ink', w=w_, alpha=0.85, wobble=1.2, step=14, over=4)
+            n = int(bay / 10)
+            for j in range(1, n):
+                if rng.random() < 0.8:
+                    uu = colx[i] + j * bay / n
+                    h.line(P(uu, G1 - 14), P(uu, G1), layer='graphite', w=1.3, alpha=0.6, wobble=0.4, step=6, taper=False)
+    for i in sorted(STRUTF):
+        with h.frag('strut', 3.0):
+            h.line(P(colx[i] + 5, G1 + 2), P(colx[i + 1] - 5, G2 - 18), layer='graphite', w=1.9, alpha=0.78, wobble=1.0, step=12)
+            if rng.random() < 0.6: h.line(P(colx[i] + 5, G2 - 18), P(colx[i + 1] - 5, G1 + 2), layer='graphite', w=1.9, alpha=0.7, wobble=1.0, step=12)
+    for i in sorted(TIEF):
+        with h.frag('tie', 2.5):
+            h.line(P(colx[i] + 2, ARCH0 + 50), P(colx[i + 1] - 2, ARCH0 + 50 + R(-3, 4)), layer='graphite', w=1.9, alpha=0.75, wobble=1.0, step=12, over=5)
+    for i in sorted(EAVEF):
+        with h.frag('eave', 1.0):
+            h.line(P(colx[i] + 4, G2 - 2 + R(-2, 2)), P(colx[i + 1] - 4, G2 - 2 + R(-2, 2)), layer='ink', w=3.0, alpha=0.88, wobble=1.3, step=14, over=4)
 
     # ------------- pier head stub to the right: low frame, open, partly collapsed
     a0 = 440
@@ -190,11 +249,13 @@ def draw(h, cx, yw, S=1.0):
     for i in range(8):
         for vv in (52, 112):
             if vv == 112 and i in (5, 6): continue
-            h.line(P(cols2[i] + 4, DECK_T + vv + R(-3, 3)), P(cols2[i + 1] - 4, DECK_T + vv + R(-3, 3)), layer='ink' if vv == 112 else 'graphite', w=2.4 if vv == 112 else 1.8, alpha=0.85 if vv == 112 else 0.7, wobble=1.0, step=12, over=3)
+            with (h.frag('rail', 3.0) if (vv == 112 and i in (1, 3)) else nullcontext()):
+                h.line(P(cols2[i] + 4, DECK_T + vv + R(-3, 3)), P(cols2[i + 1] - 4, DECK_T + vv + R(-3, 3)), layer='ink' if vv == 112 else 'graphite', w=2.4 if vv == 112 else 1.8, alpha=0.85 if vv == 112 else 0.7, wobble=1.0, step=12, over=3)
         if rng.random() < 0.6:
             h.line(P(cols2[i] + 4, DECK_T + 4), P(cols2[i + 1] - 4, DECK_T + 52), layer='graphite', w=1.7, alpha=0.65, wobble=0.8, step=10)
     for i in (0, 2, 4):
-        h.arc(cx + (cols2[i] + 31) * S, yw - (DECK_T + 112) * S, 28 * S, R(26, 40) * S, 0.0, math.pi, layer='ink', w=2.3, alpha=0.85, wobble=1.0, step=14)
+        with h.frag('arch', 1.6):
+            h.arc(cx + (cols2[i] + 31) * S, yw - (DECK_T + 112) * S, 28 * S, R(26, 40) * S, 0.0, math.pi, layer='ink', w=2.3, alpha=0.85, wobble=1.0, step=14)
     h.hatch((cx + (cols2[0] + 6) * S, yw - (DECK_T + 104) * S, cx + (cols2[4]) * S, yw - (DECK_T + 6) * S), 62, 7.0, layer='graphite', w=1.5, alpha=0.45, keep=0.8, wobble=0.5, step=12)
     # far end: a lone short frame
 

@@ -2,6 +2,7 @@
 filled as single polygons (no beads) into A8 layers, then broken up by a paper-tooth field."""
 import numpy as np, math
 import cairocffi as cairo
+from contextlib import contextmanager
 
 class Layer:
     def __init__(self, W, H):
@@ -9,6 +10,12 @@ class Layer:
         self.surf = cairo.ImageSurface(cairo.FORMAT_A8, W, H)
         self.ctx = cairo.Context(self.surf)
         self.ctx.set_antialias(cairo.ANTIALIAS_BEST)
+    def crop(self, x0, y0, x1, y1):
+        self.surf.flush()
+        buf = np.frombuffer(self.surf.get_data(), np.uint8).reshape(self.H, self.surf.get_stride())[:, :self.W]
+        return buf[y0:y1, x0:x1].astype(np.float32) / 255.0
+    def clear(self, x0, y0, x1, y1):
+        c = self.ctx; c.save(); c.set_operator(cairo.OPERATOR_CLEAR); c.rectangle(x0, y0, x1 - x0, y1 - y0); c.fill(); c.restore()
     def array(self):
         self.surf.flush()
         buf = np.frombuffer(self.surf.get_data(), np.uint8).reshape(self.H, self.surf.get_stride())[:, :self.W]
@@ -24,20 +31,37 @@ def _smooth_noise(rng, n, step):
     return 0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t ** 2 + (-p0 + 3 * p1 - 3 * p2 + p3) * t ** 3)
 
 class Hand:
-    def __init__(self, layers, seed=1, scale=1.0):
+    def __init__(self, layers, seed=1, scale=1.0, full=None, frag_layers=None, on_frag=None):
+        """layers: the main drawing. full: (optional) receives every stroke, main or fragment, so the whole picture can also be composed.
+        Strokes made inside `with hand.frag(...)` go to frag_layers (and full) instead of the main layers, and are cut out as a sprite when the block ends."""
         self.L = layers; self.rng = np.random.default_rng(seed); self.s = scale
+        self.LF = full; self.FL = frag_layers; self.bb = None; self.on_frag = on_frag
+
+    @contextmanager
+    def frag(self, kind, weight=1.0):
+        self.bb = [1e9, 1e9, -1e9, -1e9]
+        try: yield
+        finally:
+            bb, self.bb = self.bb, None
+            if bb[0] < 1e8 and self.on_frag: self.on_frag(kind, weight, bb)
 
     def poly_stroke(self, layer, pts, widths, alpha):
         pts = np.asarray(pts, np.float64); widths = np.asarray(widths, np.float64)
         d = np.gradient(pts, axis=0); nrm = np.stack([-d[:, 1], d[:, 0]], 1)
         nl = np.linalg.norm(nrm, axis=1, keepdims=True); nl[nl == 0] = 1; nrm /= nl
         left = pts + nrm * widths[:, None] / 2; right = pts - nrm * widths[:, None] / 2
-        c = self.L[layer].ctx; c.set_source_rgba(0, 0, 0, alpha)
-        c.move_to(*left[0])
-        for p in left[1:]: c.line_to(*p)
-        # rounded tip
-        for p in right[::-1]: c.line_to(*p)
-        c.close_path(); c.fill()
+        if self.bb is not None:
+            allp = np.vstack([left, right]); b = self.bb
+            b[0] = min(b[0], allp[:, 0].min()); b[1] = min(b[1], allp[:, 1].min()); b[2] = max(b[2], allp[:, 0].max()); b[3] = max(b[3], allp[:, 1].max())
+            targets = [self.FL[layer]] + ([self.LF[layer]] if self.LF else [])
+        else:
+            targets = [self.L[layer]] + ([self.LF[layer]] if self.LF else [])
+        for T in targets:
+            c = T.ctx; c.set_source_rgba(0, 0, 0, alpha)
+            c.move_to(*left[0])
+            for p in left[1:]: c.line_to(*p)
+            for p in right[::-1]: c.line_to(*p)
+            c.close_path(); c.fill()
 
     def path(self, pts, layer='ink', w=3.0, alpha=0.9, wobble=1.4, press=0.35, step=9, passes=1, spread=1.3, taper=True, over=0.0):
         """pts: control polyline (resampled and hand-wobbled)."""

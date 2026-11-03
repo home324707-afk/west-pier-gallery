@@ -9494,7 +9494,7 @@
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/ai/seapier.js",
   "dl": "",
   "desc": "",
-  "method": "The sea is live: 46 sine waves added together in a WebGL shader and seen in perspective, with the sky reflected in them by Fresnel's formula; the sky is filtered noise. Tilt a phone (or move a mouse) and the wind turns and the swell changes; shake it and the chop builds. The pier is a still pencil drawing laid over it, made in Python with wobbling, overshooting strokes and a paper grain. No photograph is used.",
+  "method": "The sea is live: 46 sine waves added together in a WebGL shader and seen in perspective, with the sky reflected in them by Fresnel's formula; the sky is filtered noise. Tilt a phone (or move a mouse) and the wind turns and the swell changes; shake it and the chop builds, and a few loose pieces of the pier come away, fall and splash. The pier is a pencil drawing laid over it, still until they go, made in Python with wobbling, overshooting strokes and a paper grain. No photograph is used.",
   "sources": [],
   "source_credit": "Proportions of the ruin read from photographs on this wall; no pixel of any photograph is used.",
   "img": "img/315.jpg",
