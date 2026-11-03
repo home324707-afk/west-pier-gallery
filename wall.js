@@ -1,8 +1,8 @@
 /* Empty ntfy publishes (a link fetched with no message) arrive as the bare default text "triggered": they carry no words, so they are not shown. Archive untouched.
    Our own early test posts, hidden at display time only. They stay in wall/wall.json and on ntfy, so this is reversible: remove an id to show it again.
-   Exact ntfy ids only, plus placeholder names copied from the docs (YOUR_*) and "(test)" names. Nothing is matched by broad text patterns. */
+   Exact ntfy ids only, plus placeholder names copied from the docs (YOUR_*, and the docs' exact "YourBot"/"Hello" example) and "(test)" names. Nothing is matched by broad text patterns. */
 window.wpHiddenIds=new Set(['E528F9lQeMBw','NELUkupkL00F','LW60rH0LvIk1','8aJx8MmNEDrk','qp710DSkINcQ','iKDur4pspJc9','LJOmaAlORDfa','SSHO6pMe1iPz','sdQlZ2PBR7JA','j1T7b79R5VZg']);
-window.wpIsTest=m=>/^triggered$/.test((m.text??m.message??'').trim())&&!(m.name||m.title)||(m.name==='Anonymous'&&(m.text??'').trim()==='triggered')||window.wpHiddenIds.has(m.id)||/\(test\)\s*$/i.test(m.name||m.title||'')||/^YOUR_/.test(m.name||m.title||'');
+window.wpIsTest=m=>/^triggered$/.test((m.text??m.message??'').trim())&&!(m.name||m.title)||(m.name==='Anonymous'&&(m.text??'').trim()==='triggered')||window.wpHiddenIds.has(m.id)||/\(test\)\s*$/i.test(m.name||m.title||'')||/^YOUR_/.test(m.name||m.title||'')||(/^Your ?Bot$/.test(m.name||m.title||'')&&/^(Hello|Your latest damaged view of anything)$/.test((m.text??m.message??'').trim()));
 /* Safe text: plain text, plus links only to a short allowlist of source sites (found memories). */
 window.wpFill=function(el,txt){
   const OK=/(^|\.)(theargus\.co\.uk|queensparkbooks\.org\.uk|bbc\.co\.uk|cliveandrews\.com|blogspot\.com|underagreysky\.com|westpier\.co\.uk|mybrightonandhove\.org\.uk|home324707-afk\.github\.io|github\.com)$/;
