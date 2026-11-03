@@ -392,3 +392,10 @@ input::placeholder,textarea::placeholder{color:#5d6f8c;opacity:1}
 @media (min-width:761px) and (max-width:1500px){nav.top{gap:.8rem}nav.top ul{gap:.7rem;flex-wrap:nowrap}nav.top ul li{white-space:nowrap}nav.top .brand{font-size:.9rem;max-width:11rem;line-height:1.2}nav.top .navcta{padding:.45rem .7rem;font-size:.7rem}}
 @media (min-width:761px) and (max-width:1100px){nav.top ul{flex-wrap:wrap;row-gap:.3rem}}
 dd a{overflow-wrap:anywhere}
+
+canvas.seagl,img.seapier{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .8s;pointer-events:none;display:block}
+canvas.seagl.on,img.seapier.on{opacity:1}
+.seatilt{position:absolute;right:.6rem;bottom:.6rem;line-height:1.2;font:500 .72rem "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#f3ecdc;background:rgba(8,28,58,.82);border:1px solid rgba(243,236,220,.5);padding:.55rem .8rem;border-radius:2px;cursor:pointer}
+.seatilt[hidden]{display:none}
+.seahint{position:absolute;left:.7rem;bottom:.6rem;line-height:1.2;font:400 .68rem "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,236,220,.8);text-shadow:0 0 6px rgba(8,28,58,.9);pointer-events:none;transition:opacity 1.2s}
+.seahint.off{opacity:0}

@@ -23,9 +23,10 @@ def draw(h, cx, yw, S=1.0):
 
     # ------------- legs: back row (fainter, set further off), then front row
     pile_u = [u for u in np.arange(-1130, 1010, 71.0)]
+    FULL = lambda u: -360 <= u <= 760      # only the hall and the head stand on legs that still reach the deck
     gone_back = set(rng.choice(len(pile_u), 6, replace=False).tolist())
     for i, u in enumerate(pile_u):
-        if i in gone_back: continue
+        if i in gone_back or not FULL(u): continue
         u2 = u + 34 + R(-4, 4); vb = 30
         top = DECK_B + R(-2, 3)
         for dx in (-5, 5):
@@ -37,6 +38,15 @@ def draw(h, cx, yw, S=1.0):
     missing_front = set([3, 4, 5, 14, 15, 16, 29, 30])
     for i, u in enumerate(pile_u):
         if i in missing_front and rng.random() < 0.7: continue
+        if not FULL(u):
+            if rng.random() < 0.45: continue
+            top = R(22, 150)                      # a stub: the leg stands, the deck it carried is gone
+            wid = 8.5 + R(-0.8, 0.8)
+            for dx in (-wid / 2, wid / 2):
+                h.line(P(u + dx * 1.18, -2), P(u + dx + R(-1.5, 1.5), top), layer='ink', w=3.0, alpha=0.88, wobble=1.1, passes=2 if rng.random() < 0.5 else 1, spread=1.0, step=16)
+            h.line(P(u - wid / 2 - 1, top + R(-3, 3)), P(u + wid / 2 + 1, top + R(-4, 4)), layer='ink', w=2.2, alpha=0.8, wobble=0.5, step=8)
+            if top > 60: h.line(P(u - wid / 2 - 2, R(36, 46)), P(u + wid / 2 + 2, R(36, 46)), layer='graphite', w=2.0, alpha=0.6, wobble=0.5, step=10)
+            continue
         top = DECK_B + R(-2, 2)
         wid = 8.5 + R(-0.8, 0.8)
         for dx in (-wid / 2, wid / 2):
@@ -47,7 +57,7 @@ def draw(h, cx, yw, S=1.0):
     # ties and X-braces between neighbouring legs
     for i in range(len(pile_u) - 1):
         u0, u1 = pile_u[i], pile_u[i + 1]
-        if i in missing_front or (i + 1) in missing_front: continue
+        if i in missing_front or (i + 1) in missing_front or not (FULL(u0) and FULL(u1)): continue
         for vv in (42, 102):
             if rng.random() < 0.82:
                 h.line(P(u0 + 4, vv + R(-2, 2)), P(u1 - 4, vv + R(-2, 2)), layer='ink', w=2.2, alpha=0.8, wobble=1.0, step=14, over=3)
@@ -60,7 +70,7 @@ def draw(h, cx, yw, S=1.0):
             h.line(P(u0 + 4, DECK_B - 24), P(u0 + 30, DECK_B), layer='graphite', w=1.7, alpha=0.7, wobble=0.6, step=10)
 
     # ------------- deck girders (a Warren truss band), with the broken stretches
-    spans = [(-1130, -790), (-720, -330), (-260, 1000)]
+    spans = [(-335, 375), (425, 705)]
     for (a, b) in spans:
         for vv, w_ in ((DECK_B, 3.0), (DECK_T, 3.4), (DECK_T - 7, 1.6)):
             h.line(P(a, vv + R(-1, 1)), P(b, vv + R(-1, 1)), layer='ink', w=w_, alpha=0.9, wobble=1.3, step=22, passes=2, spread=1.4, over=6)
@@ -74,7 +84,7 @@ def draw(h, cx, yw, S=1.0):
         for j in range(0, n, 2):
             h.line(P(a + j * 38, DECK_B), P(a + j * 38, DECK_T), layer='graphite', w=1.5, alpha=0.6, wobble=0.5, step=10)
     # girder ends dropping away into the sea at each break
-    for (u, d, ln) in ((-1130, -1, 90), (-790, 1, 90), (-720, -1, 110), (-330, 1, 130), (-260, -1, 80), (1000, 1, 110)):
+    for (u, d, ln) in ((-335, -1, 120), (375, 1, 60), (425, -1, 50), (705, 1, 110)):
         pts = [P(u, DECK_T), P(u + d * ln * 0.45, DECK_T - ln * 0.18), P(u + d * ln * 0.8, DECK_T - ln * 0.65), P(u + d * ln, DECK_T - ln * 1.0)]
         h.path(pts, layer='ink', w=3.0, alpha=0.88, wobble=1.4, step=14)
         pts = [P(u, DECK_B), P(u + d * ln * 0.4, DECK_B - ln * 0.2), P(u + d * ln * 0.7, DECK_B - ln * 0.6)]
@@ -187,14 +197,10 @@ def draw(h, cx, yw, S=1.0):
         h.arc(cx + (cols2[i] + 31) * S, yw - (DECK_T + 112) * S, 28 * S, R(26, 40) * S, 0.0, math.pi, layer='ink', w=2.3, alpha=0.85, wobble=1.0, step=14)
     h.hatch((cx + (cols2[0] + 6) * S, yw - (DECK_T + 104) * S, cx + (cols2[4]) * S, yw - (DECK_T + 6) * S), 62, 7.0, layer='graphite', w=1.5, alpha=0.45, keep=0.8, wobble=0.5, step=12)
     # far end: a lone short frame
-    for u in (840, 884):
-        h.line(P(u, DECK_T), P(u, DECK_T + 74 + R(-6, 6)), layer='ink', w=2.6, alpha=0.85, wobble=0.9, step=14)
-    h.line(P(840, DECK_T + 70), P(884, DECK_T + 72), layer='graphite', w=1.9, alpha=0.75, wobble=0.8)
-    h.line(P(840, DECK_T + 4), P(884, DECK_T + 40), layer='graphite', w=1.6, alpha=0.6, wobble=0.8)
 
     # ------------- wreckage on the left: tumbled girders in the water, leaning against the legs
-    for k in range(15):
-        u = R(-1010, -440); v = R(2, 70); ang = math.radians(R(-22, 22) if rng.random() < 0.75 else R(35, 62) * (1 if rng.random() < 0.5 else -1))
+    for k in range(17):
+        u = R(-930, -390) if k < 13 else R(760, 1010); v = R(2, 70); ang = math.radians(R(-22, 22) if rng.random() < 0.75 else R(35, 62) * (1 if rng.random() < 0.5 else -1))
         ln = R(60, 190)
         if v + math.sin(ang) * ln < 2: ang = -ang
         a = P(u, v); b = P(u + math.cos(ang) * ln, v + math.sin(ang) * ln)
@@ -203,8 +209,8 @@ def draw(h, cx, yw, S=1.0):
             o = R(5, 9)
             h.line((a[0], a[1] + o), (b[0], b[1] + o), layer='graphite', w=1.6, alpha=0.6, wobble=0.9, step=14)
     # a bent truss, drooping from the broken girder end into the sea
-    h.path([P(-790, DECK_T), P(-830, DECK_T - 40), P(-872, DECK_T - 112), P(-912, DECK_B - 140), P(-940, 4)], layer='ink', w=3.0, alpha=0.88, wobble=1.2, step=16)
-    h.path([P(-784, DECK_B), P(-820, DECK_B - 40), P(-858, DECK_B - 118), P(-890, 2)], layer='graphite', w=2.0, alpha=0.7, wobble=1.2, step=16)
+    h.path([P(-335, DECK_T), P(-375, DECK_T - 40), P(-417, DECK_T - 112), P(-457, DECK_B - 140), P(-485, 4)], layer='ink', w=3.0, alpha=0.88, wobble=1.2, step=16)
+    h.path([P(-329, DECK_B), P(-365, DECK_B - 40), P(-403, DECK_B - 118), P(-435, 2)], layer='graphite', w=2.0, alpha=0.7, wobble=1.2, step=16)
 
     # ------------- lone piles standing in the sea, tops sheared
     for (u, top, w_) in ((-1245, 262, 13), (-1214, 236, 12), (1108, 138, 11), (1160, 98, 10)):
@@ -221,7 +227,7 @@ def draw(h, cx, yw, S=1.0):
     for (a_, b_) in spans:
         h.hatch((cx + a_ * S, yw - (DECK_B - 4) * S, cx + b_ * S, yw - (DECK_B - 58) * S), 62, 5.2, layer='graphite', w=2.0, alpha=0.62, keep=0.85, wobble=0.8, step=10)
     # the waterline: a band of short flat strokes where the legs meet the sea
-    for (a_, b_) in ((-1150, 1010),):
+    for (a_, b_) in ((-1000, 820),):
         h.hatch((cx + a_ * S, yw + 1 * S, cx + b_ * S, yw + 24 * S), 2, 5.5, layer='graphite', w=1.9, alpha=0.55, keep=0.85, wobble=1.2, step=14)
     # ------------- the water: ripple rings at the feet, broken reflections, a few long dashes
     for i, u in enumerate(pile_u):

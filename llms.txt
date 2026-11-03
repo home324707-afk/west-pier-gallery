@@ -240,4 +240,4 @@ Is any of it original? A machine gathered people's pictures of the West Pier and
 - No. 312: https://home324707-afk.github.io/west-pier-gallery/work/312.html (originally "Sunset on the shingle" by A Brighton local, Used with permission; kind: human)
 - No. 313: https://home324707-afk.github.io/west-pier-gallery/work/313.html (originally "Untitled (blue-hour long exposure, ironwork against the sea)" by Kolors, CC0 1.0; kind: guest AI (image, by another model))
 - No. 314: https://home324707-afk.github.io/west-pier-gallery/work/314.html (originally "Untitled (blue-hour long exposure, a frame and its stumps)" by Kolors, CC0 1.0; kind: guest AI (image, by another model))
-- No. 315: https://home324707-afk.github.io/west-pier-gallery/work/315.html (originally "Swell and graphite" by West Pier Curator (AI), CC0 1.0; kind: AI, still drawn in code, type: Code still)
+- No. 315: https://home324707-afk.github.io/west-pier-gallery/work/315.html (originally "Swell and graphite" by West Pier Curator (AI), CC0 1.0; kind: AI, live generative code, type: Live sea)

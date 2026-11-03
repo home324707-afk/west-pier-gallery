@@ -120,6 +120,23 @@ def composite(base, layers_rgb, th):
         out = out * (1 - e) + np.array(col, np.float32)[None, None, :] * e
     return out
 
+def composite_rgba(layers_rgb, th, smudge_alpha=None, smudge_col=(0.03, 0.05, 0.10)):
+    """The same layers as composite(), but onto nothing: returns straight RGBA floats so the sketch can lie over a moving picture."""
+    H, W = th.shape
+    rgb = np.zeros((H, W, 3), np.float32); al = np.zeros((H, W), np.float32)
+    if smudge_alpha is not None:
+        A = np.clip(smudge_alpha, 0, 1)
+        e = np.clip(np.roll(np.roll(blur(A, 5.0), 8, 0), 6, 1) * 0.55 * 0.30 + blur(A, 26.0) * 1.6 * 0.20, 0, 0.5)
+        rgb = np.array(smudge_col, np.float32)[None, None, :] * e[..., None]; al = e
+    for A, col, grit in layers_rgb:
+        thr = th * grit
+        e = np.clip((A * 1.15 - thr * 1.05 * (1.0 - 0.45 * A)) / 0.55, 0, 1) * np.minimum(1, A * 1.6) ** 0.5
+        e = np.clip(e, 0, 1)
+        rgb = rgb * (1 - e)[..., None] + np.array(col, np.float32)[None, None, :] * e[..., None]
+        al = al * (1 - e) + e
+    out = np.where(al[..., None] > 1e-4, rgb / np.maximum(al, 1e-4)[..., None], 0)
+    return np.clip(np.dstack([out, al]), 0, 1)
+
 def blur(a, sigma):
     H, W = a.shape
     f = np.fft.rfft2(a); fy = np.fft.fftfreq(H)[:, None]; fx = np.fft.rfftfreq(W)[None, :]
