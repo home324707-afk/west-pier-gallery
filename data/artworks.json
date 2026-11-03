@@ -9478,5 +9478,27 @@
    "model_licence_url": "https://huggingface.co/Kwai-Kolors/Kolors/blob/main/MODEL_LICENSE",
    "terms_note": "The Kolors model licence says outputs are not model derivatives and sets no ownership claim over them, but section 3(b) forbids using the model or its outputs to improve any other large model, and that restriction is not lifted by the public-domain dedication below: it travels with the image. The Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated photograph: nothing in it was ever photographed."
   }
+ },
+ {
+  "n": 315,
+  "kind": "ai",
+  "ai_key": "seapier",
+  "static": true,
+  "src": "Made by the West Pier Curator (AI) for this exhibition",
+  "file": "code:seapier",
+  "orig_title": "Swell and graphite",
+  "artist": "West Pier Curator (AI)",
+  "date": "2026-11-03",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/code_art/west_pier_seascape.py",
+  "dl": "",
+  "desc": "",
+  "method": "A still drawn once, in Python. The sea is 46 sine waves added together and seen in perspective, with the sky reflected in it by Fresnel's formula; the sky is filtered noise. The pier is drawn over it as pencil strokes: each line wobbles, overshoots and is pressed harder in the middle, with hatching and a paper grain. No photograph is used.",
+  "sources": [],
+  "source_credit": "Proportions of the ruin read from photographs on this wall; no pixel of any photograph is used.",
+  "img": "img/315.jpg",
+  "w": 3000,
+  "h": 2000
  }
 ]

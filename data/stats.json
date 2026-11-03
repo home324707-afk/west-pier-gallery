@@ -543,26 +543,35 @@
    "purpose": "Retry AI-family gaps after quota reset: hang Kolors; reject Sana, HiDream, FLUX.1-dev, FLUX.2; Russell Brown link-out",
    "done": "Retried AI-family gaps after quota reset: hung Kolors (313, 314); Sana, HiDream, FLUX.1-dev, FLUX.2 candidates rejected (intact or wrong pier); SD 3.5 and PixArt quota out again",
    "images_added": 2
+  },
+  {
+   "n": 60,
+   "start_utc": "2026-11-03T00:41:24Z",
+   "end_utc": "2026-11-03T00:41:44Z",
+   "seconds": 20,
+   "purpose": "",
+   "done": "",
+   "images_added": 0
   }
  ],
- "total_update_seconds": 34197,
- "update_session_count": 59,
+ "total_update_seconds": 34217,
+ "update_session_count": 60,
  "candidates_session1": 608,
  "found_ai_art": 0,
  "counts": {
-  "on_display": 209,
+  "on_display": 210,
   "human": 136,
-  "machine": 73,
-  "curator_code": 18,
+  "machine": 74,
+  "curator_code": 19,
   "guest_ai": 55,
   "guest_images": 54,
   "guest_text_or_code": 1,
   "retired": 105,
-  "total_ever_hung": 314,
+  "total_ever_hung": 315,
   "human_artists": 87,
   "ai_families_on_wall": 8,
   "ai_families_defined": 20,
-  "sessions_logged": 59
+  "sessions_logged": 60
  },
  "snapshot_after_session_1": {
   "human": 97,

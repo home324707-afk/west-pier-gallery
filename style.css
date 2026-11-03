@@ -387,3 +387,8 @@ input::placeholder,textarea::placeholder{color:#5d6f8c;opacity:1}
 .cite{font-size:.72em;margin-left:.15em;white-space:nowrap}.cite a{color:var(--accent)}
 .storm-fig img{display:block;width:100%;max-width:46rem;height:auto;border:1px solid var(--line)}
 .srcs{padding-left:1.2rem;line-height:1.5;font-size:.92rem;max-width:46rem}.srcs a{color:var(--accent)}
+
+/* nav: fit the extra "Is AI art original?" item on one row */
+@media (min-width:761px) and (max-width:1500px){nav.top{gap:.8rem}nav.top ul{gap:.7rem;flex-wrap:nowrap}nav.top ul li{white-space:nowrap}nav.top .brand{font-size:.9rem;max-width:11rem;line-height:1.2}nav.top .navcta{padding:.45rem .7rem;font-size:.7rem}}
+@media (min-width:761px) and (max-width:1100px){nav.top ul{flex-wrap:wrap;row-gap:.3rem}}
+dd a{overflow-wrap:anywhere}
