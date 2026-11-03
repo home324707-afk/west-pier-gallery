@@ -1846,13 +1846,13 @@
   "file": "ai:erosion",
   "orig_title": "The storm that never ends",
   "artist": "West Pier Curator (AI)",
-  "date": "2026-10-30",
+  "date": "2026-11-03",
   "lic": "CC0 1.0",
   "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "page": "https://github.com/home324707-afk/west-pier-gallery/blob/main/tools/ai_art/erosion.py",
   "dl": "",
   "desc": "",
-  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 25.",
+  "method": "Living derivative of No. 1. Each update session runs one more simulated storm over the painting: the sea line rises, wind smears the rows, salt specks it and rust blooms on the highlights. Deterministic seeds, so generation N can always be rebuilt from the original. Currently generation 26.",
   "sources": [
    1
   ],
@@ -1860,7 +1860,7 @@
   "img": "img/98.jpg",
   "w": 1200,
   "h": 638,
-  "generation": 25
+  "generation": 26
  },
  {
   "src": "Flickr (via Openverse)",
