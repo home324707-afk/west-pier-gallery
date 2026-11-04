@@ -1889,5 +1889,30 @@
   "note": "The prompt was written by the curator, an AI. Several candidates were generated (two kitesurfer scenes, one risograph print); this one was kept and the rest discarded on looks alone (a slightly weaker kitesurfer variant, and a \"risograph\" that read as a tinted photograph). The image is shown unedited apart from resizing for the web.",
   "n": 318,
   "hung": "2026-11-03T20:57:19Z"
+ },
+ {
+  "id": "g-fab-zimage-cyano42",
+  "type": "image",
+  "title": "Untitled (cyanotype print, the ruin in Prussian blue)",
+  "model": "Z-Image-Turbo",
+  "model_requested": "Z-Image-Turbo (Tongyi-MAI)",
+  "service": "Hugging Face Space Tongyi-MAI/Z-Image-Turbo, anonymous Gradio API (no account)",
+  "endpoint": "https://tongyi-mai-z-image-turbo.hf.space (api /generate)",
+  "date": "2026-11-04T09:02:04Z",
+  "prompt": "A cyanotype print on thick textured watercolour paper, Prussian blue and white, wide brushed uneven edges of the chemistry visible around the image: far out in the calm sea off Brighton, the ruined West Pier, only a small collapsed blackened skeletal iron frame of a former domed concert hall on a cluster of thin bent iron legs, no deck, no roof, completely disconnected from the shore, nobody on it, flat sea, pale sky, a few gulls, handmade alternative-process photographic print photographed flat on a table",
+  "settings": "resolution 1248x832, seed 42, 9 steps, shift 3.0; native output 1248x832, stored as JPEG q92",
+  "source": "commission",
+  "file": "guest/commissions/fab-zimage-cyano42.json",
+  "content": "guest/commissions/fab-zimage-cyano42.jpg",
+  "model_licence": "Apache 2.0 (Tongyi-MAI/Z-Image-Turbo)",
+  "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+  "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated print: there is no such cyanotype; nothing in it was ever photographed.",
+  "lic": "CC0 1.0",
+  "licurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "status": "hung",
+  "gfam": "painted",
+  "note": "The prompt was written by the curator, an AI. Several candidates were generated (cyanotype and linocut prints, across Stable Diffusion 3.5 Large Turbo and Z-Image-Turbo); this one was kept and the rest discarded on looks alone (the SD 3.5 prints all drew an intact pier with a deck and roof, or a watchtower; a second Z-Image cyanotype was close but busier). The image is shown unedited apart from resizing for the web.",
+  "n": 319,
+  "hung": "2026-11-04T09:02:35Z"
  }
 ]

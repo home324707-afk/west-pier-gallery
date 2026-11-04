@@ -364,7 +364,7 @@ def build():
 <div class="frame"><img src="{a["img"].replace(".jpg","_t.jpg")}" width="{a["w"]}" height="{a["h"]}" loading="lazy" decoding="async" alt="{E(scene(a))}"><span class="no">No.{a["n"]:02d}</span></div></figure>''')
     data = [dict(src=a['img'], n=a['n'], w=a['w'], h=a['h'], alt=scene(a)) for a in A]  # blind: no maker, kind or licence in the grid's data
     nh = NH; nai = NAI; ng = NG; nph = NPH; npa = NPA; ncut = sum(1 for a in RET if a.get('retired_round') == 2)
-    HERO_SEL = [276, 58, 237, 275, 52, 238, 23, 239, 93, 28]
+    HERO_SEL = [313, 276, 58, 237, 275, 52, 238, 23, 239, 93, 28]
     _lab = lambda a: 'Human' if is_hu(a) else 'Guest AI' if is_guest(a) else 'AI'
     def _hero(i, x):
         # slide 1 is the LCP image: eager, high priority, 1000 px variant on small screens. Later slides carry data-src and are fetched by the slideshow script just before they are shown (no 2.5 MB of hidden images competing with the first paint).
