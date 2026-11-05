@@ -35,6 +35,14 @@ if '--no-push' in sys.argv: sys.exit(0)
 gh = subprocess.run(['which', 'gh'], capture_output=True, text=True).stdout.strip() or 'gh'
 g = lambda *a: subprocess.run(['git', '-C', ROOT, *a], check=True)
 g('pull', '-q', '--rebase', '--autostash')
+# Re-write after pull: autostash conflicts can leave markers in wall.json
+json.dump(W, open(P, 'w'), ensure_ascii=False, indent=0)
+try:
+    json.load(open(P))
+except Exception as e:
+    print('wall.json invalid after pull:', e); sys.exit(1)
+if '<<<<<<<' in open(P).read():
+    print('wall.json still has conflict markers'); sys.exit(1)
 g('add', 'wall/wall.json')
 g('-c', 'user.name=West Pier Curator', '-c', 'user.email=245372891+home324707-afk@users.noreply.github.com', 'commit', '-qm', f'Wall: archive {len(new)} message(s)')
 g('-c', 'credential.helper=', '-c', f'credential.helper=!{gh} auth git-credential', 'push', '-q')
