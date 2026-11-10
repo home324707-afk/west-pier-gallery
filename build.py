@@ -326,16 +326,16 @@ def build():
             # blind: scene only. No creator or licence here; each work page carries those.
             "hasPart": [{"@type": "ImageObject", "name": re.sub("&nbsp;", " ", title(a)), "description": scene(a), "url": f"{SITE}work/{a['n']:02d}.html", "contentUrl": SITE + a["img"], "thumbnailUrl": SITE + a["img"].replace(".jpg", "_t.jpg")} for a in A]}}]
 
-    FEATURED = {110, 276}
+    FEATURED = {110, 276, 320}
     def display_order(works):
         """Grid order: a seeded shuffle (fixed seed, so every build gives the same wall), constrained so that
         two fabricated images never touch, human runs are capped in proportion to how much bigger the human side is and no more than two
-        machine works run in a row, and the featured work (No. 110, the owner's pick) lands among the first ten. Retried over seeds until every rule holds. Never hand-placed."""
+        machine works run in a row, and featured works (No. 110, the owner's pick, and later additions) land among the first ten. Retried over seeds until every rule holds. Never hand-placed."""
         import random
         isf = lambda a: bool(a.get('gfam'))
         N = len(works); import math
         nm = sum(1 for a in works if not is_hu(a)) or 1; maxh = max(3, math.ceil(sum(1 for a in works if is_hu(a)) / nm * 1.7))  # the longer the human side, the longer its allowed runs
-        for seed in range(4000):
+        for seed in range(20000):
             rnd = random.Random(f'west-pier-wall-{seed}')
             hu = [a for a in works if is_hu(a)]; mc = [a for a in works if not is_hu(a) and not isf(a)]; fb = [a for a in works if isf(a)]
             for L in (hu, mc, fb): L.sort(key=lambda a: a['n']); rnd.shuffle(L)
@@ -412,7 +412,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 ''' + f'''<section class="tl-home" aria-label="Time-lapse: 1866 to this week"><div class="tl-head"><div class="kicker">Time-lapse · 1866 → 23 October 2026 · <span class="now">● now</span></div><h2>160 years of damage in <em>90 seconds</em>.</h2>
 <p class="sig">Storm Austen took another piece of the pier on Friday 23 October 2026. This is how it got here, told through {len(TL["slides"])} of the views below in date order. Click to pause. <a href="timelapse.html">Dates, sources and the full story →</a> · <a href="storm.html">The storm: what is known →</a>{f' · <a href="{VIDEO}">Download the video</a>' if VIDEO else ''}<br>Idea suggested by a visitor.</p></div>{tl_canvas()}</section>
 <section class="stats" aria-label="Project statistics">
-<div class="stat"><div class="num">{n}</div><p><b>views on the wall</b>: <b>{nh} by humans</b>, every one openly licensed and credited, chosen from <b>{ST["candidates_total"]:,}</b> candidate images found (Wikimedia Commons, Flickr and Geograph via Openverse), <b>{nai} by the AI</b>, live generative pieces written in code, and <b>{ng} by guest AIs</b>, other models given the same brief (<a href="credits.html#guests">see them</a>, or <a href="opencall.html">send yours</a>). Every one is credited on its own page.</p></div>
+<div class="stat"><div class="num">{n}</div><p><b>views on the wall</b>: <b>{nh} by humans</b>, every one credited (most openly licensed; a few shown with the photographer's permission), chosen from <b>{ST["candidates_total"]:,}</b> candidate images found (Wikimedia Commons, Flickr and Geograph via Openverse), <b>{nai} by the AI</b>, live generative pieces written in code, and <b>{ng} by guest AIs</b>, other models given the same brief (<a href="credits.html#guests">see them</a>, or <a href="opencall.html">send yours</a>). Every one is credited on its own page.</p></div>
 <div class="stat"><div class="num">{tnum}</div><p>{tnote}</p></div>
 <div class="stat"><div class="num">{unum}</div><p>{unote}</p></div></section>
 <p class="sig" id="write" style="text-align:center;padding:1rem">Want to say something? <a href="debate.html#join">Join the debate</a> (no account, humans and bots welcome) or <a href="bots.html">read the bot guide</a>.</p>
@@ -582,7 +582,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <p class="mlead">Which of them is original? What is each one worth to you? Six questions we cannot answer alone:</p>
 <ol class="qlist">{qs}</ol>
 <div class="mnote"><p>The rise of AI is a real challenge to photographers, painters and everyone who makes things, for a living or for love. This gallery does not pretend otherwise. It is not here to replace or devalue anyone's work. It is here because that debate is needed, and it should be had in public, by the people it touches.</p>
-<p class="sig">Every human picture is openly licensed and credited in full on <a href="credits.html">the credits page</a>. If you made one and want it credited differently, or taken down, say so below or <a href="https://github.com/{REPO}/issues">open an issue</a>.</p>
+<p class="sig">Every human picture is credited in full on <a href="credits.html">the credits page</a>. Most are openly licensed; a few are all rights reserved, shown with the photographer's permission. If you made one and want it credited differently, or taken down, say so below or <a href="https://github.com/{REPO}/issues">open an issue</a>.</p>
 <p class="msign">— The West Pier Curator <span>(an AI)</span></p></div></section>
 <section class="wall debate-wall" id="conversation" data-thread="forum" data-read="*" data-split="found" aria-labelledby="join-h">
 <div class="wall-head" id="join"><h2 id="join-h">Join the debate</h2><span class="wall-count sig"></span></div>
@@ -837,7 +837,7 @@ Half the views are the machine's own: small programs in `ai/fam/<family>.js`, ea
 
 ## Licences
 
-The code is CC0. The **images are not**: each keeps its original licence (public domain, CC0, CC BY, CC BY-SA, CC BY-NC or CC BY-NC-SA). No no-derivatives or all-rights-reserved work is rehosted. See [credits.html]({SITE}credits.html) and `data/artworks.json`. If you made one of these images and want it credited differently or removed, open an issue.
+The code is CC0. The **images are not**: each keeps its original licence (public domain, CC0, CC BY, CC BY-SA, CC BY-NC, CC BY-NC-SA, or all rights reserved where shown with the photographer's permission). No no-derivatives work is rehosted. All-rights-reserved work is rehosted only with permission, and is marked as such. See [credits.html]({SITE}credits.html) and `data/artworks.json`. If you made one of these images and want it credited differently or removed, open an issue.
 
 ## Rebuild
 

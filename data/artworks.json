@@ -9652,5 +9652,24 @@
    "model_licence_url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
    "terms_note": "Model and Space are both Apache 2.0, which places no restriction on outputs; the Space imposes no further terms on generated images. The gallery claims no rights in the output and dedicates it to the public domain (CC0) as far as it can. Fabricated print: there is no such cyanotype; nothing in it was ever photographed."
   }
+ },
+ {
+  "src": "Facebook (Brighton Skies)",
+  "file": "10163094366267102",
+  "orig_title": "21 days difference",
+  "artist": "Gordon Mnich-Cairns",
+  "date": "2026-10-23",
+  "lic": "All rights reserved",
+  "licurl": "https://home324707-afk.github.io/west-pier-gallery/credits.html#no320",
+  "page": "https://www.facebook.com/groups/343329786021733/posts/3005528623135156/",
+  "dl": "",
+  "desc": "Sony A7R V, Sony FE 20-70mm f/4, NiSi 10-stop and 6-stop ND filters, ISO 50, 8 minutes, 50mm, f/16; taken in ~50mph gusts.",
+  "creator_url": "https://www.facebook.com/gordon.cairns2",
+  "n": 320,
+  "img": "img/320.jpg",
+  "w": 900,
+  "h": 1600,
+  "kind": "human",
+  "note": "A before-and-after, taken 21 days apart: 2 October and 23 October 2026. All rights reserved; shown with the photographer's permission (10 Nov 2026, by Facebook Messenger). Resized for the web, otherwise unaltered."
  }
 ]
