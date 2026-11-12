@@ -301,6 +301,32 @@ def tn_teaser():
             f'<p class="sig">Drag the line. Roughly the same viewpoint, then and now. <a class="btn ghost" href="thennow.html">All {len(TN_PAIRS)} pairs →</a></p></div>{tn_fig(p, 0, False)}'
             f'<p class="tn-credit sig">Then: {E(BYN[p["then"]]["artist"])}, {E(BYN[p["then"]]["lic"])} · Now: {E(BYN[p["now"]]["artist"])}, {E(BYN[p["now"]]["lic"])} · <a href="credits.html#thennow">credits</a></p></section>')
 
+
+def artist_extra(a, work=False):
+    """Optional website and Instagram links for a human artist."""
+    bits = []
+    site = a.get('artist_site') or ''
+    ig = a.get('artist_instagram') or ''
+    if site:
+        label = site.replace('https://', '').replace('http://', '').rstrip('/')
+        if work:
+            bits.append(f'<dt>Artist\'s website</dt><dd><a href="{E(site)}">{E(label)}</a></dd>')
+        else:
+            bits.append(f'<a href="{E(site)}">{E(label)}</a>')
+    if ig:
+        handle = ig.rstrip('/').rsplit('/', 1)[-1]
+        if not handle.startswith('@'):
+            handle = '@' + handle
+        if work:
+            bits.append(f'<dt>Instagram</dt><dd><a href="{E(ig)}">{E(handle)}</a></dd>')
+        else:
+            bits.append(f'<a href="{E(ig)}">{E(handle)}</a>')
+    if not bits:
+        return ''
+    if work:
+        return ''.join(bits)
+    return '<br><span class=sig>' + ' · '.join(bits) + '</span>'
+
 def build():
     n = len(A)
     el = ST.get('setup_seconds', ST.get('elapsed_seconds'))
@@ -455,7 +481,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
     # Credits
     AH = [a for a in A if is_hu(a)]; AI = [a for a in A if is_ai(a)]; AG = [a for a in A if is_guest(a)]
     trs_ai = ''.join(f'<tr id="no{a["n"]}"><td>No.{a["n"]:02d}</td><td><i>{E(a["orig_title"])}</i><br><span class="sig">{E(a["method"])}</span></td><td>{E(a["source_credit"]) if a.get("source_credit") else "Wholly original: no source image."}</td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>' for a in AI)
-    trs = ''.join(f'<tr id="no{a["n"]}"><td>No.{a["n"]:02d}</td><td>{E(a["artist"] or "Unknown")}{('<br><span class=sig><a href="' + E(a["artist_site"]) + '">' + E(a["artist_site"].replace("https://", "")) + '</a></span>') if a.get("artist_site") else ""}</td><td><a href="{E(a["page"])}">{E(a["orig_title"])}</a>{(" <span class=sig>(" + E(a["note"]) + ")</span>") if a.get("note") else ""}<br><span class="sig">{E(a["src"])}{(" · " + E(a["date"])) if a.get("date") else ""}</span></td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>' for a in AH)
+    trs = ''.join(f'<tr id="no{a["n"]}"><td>No.{a["n"]:02d}</td><td>{E(a["artist"] or "Unknown")}{artist_extra(a)}</td><td><a href="{E(a["page"])}">{E(a["orig_title"])}</a>{(" <span class=sig>(" + E(a["note"]) + ")</span>") if a.get("note") else ""}<br><span class="sig">{E(a["src"])}{(" · " + E(a["date"])) if a.get("date") else ""}</span></td><td><a href="{E(a["licurl"])}">{E(a["lic"])}</a></td></tr>' for a in AH)
     from collections import Counter
     lc = Counter(a['lic'] for a in A)
     pills = ''.join(f'<span class="pill">{E(k)}: {v}</span>' for k, v in sorted(lc.items(), key=lambda x: -x[1]))
@@ -687,7 +713,7 @@ setInterval(function(){{if(document.hidden)return;s[i].classList.remove('on');i=
 <article class="work"><div><div class="workimg"{(" data-seapier data-frags=\"../img/" + str(a["n"]) + "_frags\"") if a.get("webgl") else ""}><img src="../{a["img"]}"{work_srcset(a)} width="{a["w"]}" height="{a["h"]}" alt="{alt(a)}" fetchpriority="high" decoding="async">{anim_canvas(a, True, 1)}{gl_layer(a)}</div>{('<blockquote class="brief">' + E(a["quote"]) + '<br><span class="sig">— ' + (f'<a href="../debate.html#m-{E(a["quote_id"])}">{E(a["quote_by"])}</a>' if a.get("quote_id") else E(a["quote_by"])) + '</span></blockquote>') if a.get("quote") else ''}{extras(a)}{'<p class="sig">Live piece: it is running in your browser now. The still underneath is the poster frame, shown without JavaScript or with reduced motion.</p>' if is_ai(a) and not a.get('webgl') else ('<p class="sig">Live piece: the sea moves as you tilt your phone, or move your mouse. Shake it hard and the pier loses pieces. The still underneath is the poster frame, shown without JavaScript, without WebGL or with reduced motion.</p>' if a.get('webgl') else '')}</div>
 <div><div class="kicker">{"Guest AI · " if is_guest(a) else ""}{"Retired view " + str(a["n"]) + " (in the store room)" if a.get("retired") else "View " + str(a["n"]) + " (one of " + str(len(A)) + " on the wall)"}</div><h1>{title(a)}</h1>
 <p class="orig" style="color:var(--dim)">Originally: {orig(a)}</p><p class="cond" style="font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:.8rem">{condition(a)}</p>
-<dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else ('<b class="guestmade">Guest AI</b>: ' + E(a["artist"]) + ', not the curator') if is_guest(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../credits.html#{"guests" if is_guest(a) else "ai"}">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if (is_ai(a) or is_guest(a)) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Raw output" if is_guest(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/seapier.js (live) and tools/code_art/west_pier_seascape.py (poster and pier)" if a.get("webgl") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["guest"]["file"]) if is_guest(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{('<dt>Artist\'s website</dt><dd><a href="' + E(a["artist_site"]) + '">' + E(a["artist_site"].replace("https://", "")) + '</a></dd>') if a.get("artist_site") else ""}{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
+<dl><dt>Made by</dt><dd>{'<b class="aimade">AI</b>: the West Pier Curator, in code' if is_ai(a) else ('<b class="guestmade">Guest AI</b>: ' + E(a["artist"]) + ', not the curator') if is_guest(a) else 'A human'}</dd><dt>Artist</dt><dd>{E(a["artist"] or "Unknown")}</dd>{(f'<dt>Type</dt><dd><a href="../credits.html#{"guests" if is_guest(a) else "ai"}">{E(fam(a))}</a>: {E(FAMILY[a["family"]][1])}</dd>') if a.get("family") else ""}{("<dt>Method</dt><dd>" + E(a["method"]) + "</dd>") if (is_ai(a) or is_guest(a)) else ""}{("<dt>Made from</dt><dd>" + E(a["source_credit"]) + "</dd>") if a.get("source_credit") else ""}<dt>Original title</dt><dd>{E(a["orig_title"])}</dd><dt>{"Code" if is_ai(a) else "Raw output" if is_guest(a) else "Source"}</dt><dd><a href="{E(a["page"])}">{("ai/fam/" + a["family"] + ".js (live; variation params in tools/ai_art/families.py)") if a.get("family") else "ai/seapier.js (live) and tools/code_art/west_pier_seascape.py (poster and pier)" if a.get("webgl") else "ai/pieces.js (live) and tools/ai_art (poster)" if is_ai(a) else E(a["guest"]["file"]) if is_guest(a) else E(a["src"])}</a></dd><dt>Licence</dt><dd><a href="{E(a["licurl"])}">{E(a["lic"])}</a></dd>{artist_extra(a, work=True)}{("<dt>Note</dt><dd>" + E(a["note"]) + "</dd>") if a.get("note") else ""}</dl>
 <div class="btnrow"><a class="btn" rel="prev" href="{prv["n"]:02d}.html">← No. {prv["n"]}</a><a class="btn" href="../index.html#views">Gallery</a><a class="btn" rel="next" href="{nxt["n"]:02d}.html">No. {nxt["n"]} →</a><a class="btn ghost wander" href="../{WANDER_DEFAULT}">Wander ⤳</a></div>
 <p class="sig keys">Keys: ← → walk the pier · W wanders · <a href="{side_next(a, -1)["n"]:02d}.html">← previous</a> / <a href="{side_next(a, 1)["n"]:02d}.html">next {"by a person" if is_hu(a) else "by a machine"} →</a></p>
 {opposite(a)}
